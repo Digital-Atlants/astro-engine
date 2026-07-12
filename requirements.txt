@@ -1,0 +1,6 @@
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+pyswisseph>=2.10,<3
+pydantic>=2.6,<3
+timezonefinder>=6.4,<7
+pytz>=2024.1
