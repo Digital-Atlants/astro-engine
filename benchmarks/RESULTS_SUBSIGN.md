@@ -517,3 +517,140 @@ promised.
 Neither of these measurements changes the gate verdict. The gate was evaluated
 on the shipped engine's holdout in-block median of 23.0 minutes and it failed;
 this appendix explains what that number is made of.
+
+---
+
+# Appendix: ceiling of the full stack under perfect oracles
+
+Measurement only. No scoring change, no tuning, no new evaluator. Produced by
+`benchmarks/oracle_ceiling.py`; raw per-case output in
+`benchmarks/oracle_ceiling.json`.
+
+Three stages applied in sequence to each case:
+
+- **(a) perfect oracle on the rising sign** - keep only candidates whose
+  Ascendant falls in the true sign.
+- **(b) perfect oracle on the Placidus natal house configuration** - keep only
+  candidates whose planet-to-house vector equals the vector at the true time.
+  The vector is the Placidus house number of each of the ten bodies the engine
+  carries (Sun through Pluto), in fixed order, recomputed at each candidate
+  time.
+- **(c) engine argmax** over whatever survives.
+
+**Both oracles use the known birth time.** Neither is something a client or
+the engine could supply - stage (b) especially, since nobody can report their
+planet-to-house vector without already knowing their birth time. They are here
+to bound the problem: *if both were free and perfect, how good could this
+get?*
+
+Stages (a) and (b) depend only on the chart, never on the events, so the
+shuffled-date null has **identical** survivor sets and differs from the real
+arm at stage (c) alone. That makes the comparison at stage (c) unusually
+clean.
+
+"Blind" below is a uniform pick among the survivors - what the filters alone
+buy, before the engine does anything.
+
+## All 41 cases
+
+| Stage | survivors (median) | blind median &#124;err&#124; | blind <=5 | blind <=15 |
+|---|---|---|---|---|
+| no oracle | 360 | 360.0 | 0.8% | 2.1% |
+| after (a) rising sign | 36 | 38.0 | 8.2% | 21.6% |
+| after (b) house vector | **4** | **6.0** | **52.1%** | **87.6%** |
+
+| Stage (c) engine argmax over survivors | median &#124;err&#124; | <=5 | <=15 | n |
+|---|---|---|---|---|
+| over (a) survivors, real events | 26.0 | 9.8% | 36.6% | 41 |
+| over (a) survivors, shuffled dates | 40.0 | 12.2% | 24.9% | 205 |
+| over (b) survivors, **real events** | **6.0** | **47.5%** | **82.5%** | 40 |
+| over (b) survivors, **shuffled dates** | **4.0** | **56.0%** | **90.0%** | 200 |
+
+## Holdout only (12 cases)
+
+| Stage | survivors (median) | blind median &#124;err&#124; | blind <=5 | blind <=15 |
+|---|---|---|---|---|
+| no oracle | 360 | 360.0 | 0.7% | 2.1% |
+| after (a) rising sign | 37 | 46.5 | 6.9% | 19.7% |
+| after (b) house vector | **5** | **9.0** | **43.9%** | **82.5%** |
+
+| Stage (c) engine argmax over survivors | median &#124;err&#124; | <=5 | <=15 | n |
+|---|---|---|---|---|
+| over (a) survivors, real events | 23.0 | 0.0% | 33.3% | 12 |
+| over (a) survivors, shuffled dates | 47.0 | 16.7% | 28.3% | 60 |
+| over (b) survivors, **real events** | **6.5** | **33.3%** | **75.0%** | 12 |
+| over (b) survivors, **shuffled dates** | **6.0** | **48.3%** | **85.0%** | 60 |
+
+## Survivor structure after stage (b)
+
+| | all 41 | holdout |
+|---|---|---|
+| median survivors | 4 | 5 |
+| mean survivors | 5.1 | 5.6 |
+| range | 0 - 17 | 2 - 11 |
+| cases with an empty survivor set | 1 | 0 |
+| cases where the true time survives | 40 / 41 | 12 / 12 |
+| **cases with more than one disjoint run** | **0 / 41** | **0 / 12** |
+| median grid floor (best any engine could do) | 1 min | 1.5 min |
+
+**The survivor set is never split.** In all 40 non-empty cases the survivors
+form a single contiguous run on the 4-minute grid. The worry that stage (b)
+would return a shortlist rather than an answer does not materialise on this
+corpus: the house-vector oracle carves out one interval, typically 4 to 5
+candidates wide, i.e. **about 16 to 20 minutes of clock time**.
+
+Three cases collapse to a single surviving candidate, where the oracle alone
+fixes the answer and the engine has no choice to make. One case
+(`jobs_steve`) has an empty survivor set: its known time falls off the
+4-minute grid and no grid point reproduces the exact vector at the true
+instant. It is excluded from the stage-(c) error statistics, which is why n=40
+rather than 41 there.
+
+## Stated plainly
+
+**1. The ceiling of the whole stack is about 6 minutes, and roughly half of
+±5.** Two perfect oracles - one of which cannot exist - narrow 360 candidates
+to about 4, and a blind pick among those lands at a median of 6.0 minutes with
+52.1% inside ±5 (holdout: 9.0 minutes, 43.9%). That is the best this
+architecture can do with the events removed entirely. The ±5 promise is not
+reachable even here, and on the corpus caveat already stated, a large part of
+the ±5 column is unverifiable anyway because 13 of 41 reference times are
+rounded to the quarter-hour.
+
+**2. Stage (a) is where the engine adds what little it adds.** Over the
+rising-sign survivors the engine beats its own null (median 26.0 vs 40.0 on
+all cases; 23.0 vs 47.0 on holdout), consistent with the in-block null in the
+previous appendix.
+
+**3. Stage (c) makes things worse once stage (b) has done its work.** This is
+the finding worth stopping on:
+
+| Comparison after stage (b) | all 41 | holdout |
+|---|---|---|
+| AUC, engine on real events beats engine on shuffled dates | **0.422** | **0.420** |
+| engine better than a blind pick (paired, per case) | 13 cases | 5 cases |
+| engine worse than a blind pick | **20 cases** | **6 cases** |
+| tie | 7 cases | 1 case |
+
+AUC below 0.50 means the engine's argmax is **worse on real dates than on
+random ones**. Both scopes agree, at 0.42. And against a blind pick among the
+same survivors, the engine loses more often than it wins in both scopes -
+median 6.0 against a blind 6.0 on all cases, and 47.5% versus 52.1% inside ±5.
+
+Once the search space is down to four or five adjacent candidates spanning
+about a quarter of an hour, the scoring model has no ability to order them and
+its ordering is mildly anti-correlated with the truth. Selecting on it is
+worse than picking the middle of the surviving interval.
+
+**4. What this implies for the architecture.** The value in the current design
+is concentrated entirely in narrowing, not in scoring. Stage (a) narrowing is
+real but is an oracle the questionnaire must supply, since the previous
+appendix showed the engine cannot rank blocks above chance. Stage (b)
+narrowing is real and powerful but is not obtainable from a client at all.
+Stage (c) - the part that is actually ours, the part five specs of work have
+gone into - subtracts value at the resolution that matters.
+
+None of this changes the gate verdict, which was decided on the shipped
+engine's holdout in-block median of 23.0 minutes. It does say where the
+remaining effort would have to go: not into more evaluators for stage (c), but
+into whether any obtainable client signal can do part of what oracle (b) does.
