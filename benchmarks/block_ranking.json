@@ -1,0 +1,1663 @@
+{
+  "all": {
+    "cases": 41,
+    "clock_blocks": {
+      "null": {
+        "first": 0.17560975609756097,
+        "median_rank": 6,
+        "n": 205,
+        "top3": 0.35121951219512193
+      },
+      "real": {
+        "first": 0.14634146341463414,
+        "median_rank": 5,
+        "n": 41,
+        "top3": 0.3902439024390244
+      }
+    },
+    "in_block": {
+      "blind_uniform_median": 38.0,
+      "median_block_width": 144,
+      "null": {
+        "hit_15": 0.1902439024390244,
+        "hit_30": 0.424390243902439,
+        "mean": 43.917073170731705,
+        "median": 36,
+        "n": 205
+      },
+      "real": {
+        "hit_15": 0.36585365853658536,
+        "hit_30": 0.5609756097560976,
+        "mean": 39.390243902439025,
+        "median": 26,
+        "n": 41
+      }
+    },
+    "sign_blocks": {
+      "null": {
+        "first": 0.1902439024390244,
+        "median_rank": 4,
+        "n": 205,
+        "top3": 0.40487804878048783
+      },
+      "real": {
+        "first": 0.14634146341463414,
+        "median_rank": 3,
+        "n": 41,
+        "top3": 0.5121951219512195
+      }
+    }
+  },
+  "chance_first": 0.08333333333333333,
+  "chance_top3": 0.25,
+  "holdout": {
+    "cases": 12,
+    "clock_blocks": {
+      "null": {
+        "first": 0.11666666666666667,
+        "median_rank": 6.0,
+        "n": 60,
+        "top3": 0.3
+      },
+      "real": {
+        "first": 0.08333333333333333,
+        "median_rank": 5.5,
+        "n": 12,
+        "top3": 0.16666666666666666
+      }
+    },
+    "in_block": {
+      "blind_uniform_median": 46.5,
+      "median_block_width": 148.0,
+      "null": {
+        "hit_15": 0.11666666666666667,
+        "hit_30": 0.38333333333333336,
+        "mean": 48.5,
+        "median": 38.0,
+        "n": 60
+      },
+      "real": {
+        "hit_15": 0.3333333333333333,
+        "hit_30": 0.5833333333333334,
+        "mean": 38.833333333333336,
+        "median": 23.0,
+        "n": 12
+      }
+    },
+    "sign_blocks": {
+      "null": {
+        "first": 0.16666666666666666,
+        "median_rank": 5.5,
+        "n": 60,
+        "top3": 0.36666666666666664
+      },
+      "real": {
+        "first": 0.08333333333333333,
+        "median_rank": 3.5,
+        "n": 12,
+        "top3": 0.5
+      }
+    }
+  },
+  "per_case": [
+    {
+      "blind_in_block_median": 37,
+      "block_width": 148,
+      "case_id": "ali_muhammad",
+      "null": [
+        {
+          "clock_rank": 3,
+          "in_block_err": 21,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 27,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 13,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 27,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 17,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 9,
+        "sign_rank": 1
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 40.0,
+      "block_width": 152,
+      "case_id": "bush_george_w",
+      "null": [
+        {
+          "clock_rank": 11,
+          "in_block_err": 46,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 2,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 38,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 34,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 22,
+          "sign_rank": 6
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 6,
+        "sign_rank": 3
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 36,
+      "block_width": 140,
+      "case_id": "carter_jimmy",
+      "null": [
+        {
+          "clock_rank": 2,
+          "in_block_err": 60,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 12,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 16,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 40,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 20,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 4,
+        "in_block_err": 4,
+        "sign_rank": 3
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 37.0,
+      "block_width": 144,
+      "case_id": "clinton_bill",
+      "null": [
+        {
+          "clock_rank": 1,
+          "in_block_err": 33,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 29,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 19,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 25,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 7,
+          "sign_rank": 3
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 29,
+        "sign_rank": 1
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 44.0,
+      "block_width": 160,
+      "case_id": "cobain_kurt",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 42,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 26,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 54,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 6,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 14,
+          "sign_rank": 7
+        }
+      ],
+      "real": {
+        "clock_rank": 8,
+        "in_block_err": 102,
+        "sign_rank": 4
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 72,
+      "block_width": 148,
+      "case_id": "depp_johnny",
+      "null": [
+        {
+          "clock_rank": 6,
+          "in_block_err": 4,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 20,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 52,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 16,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 56,
+          "sign_rank": 11
+        }
+      ],
+      "real": {
+        "clock_rank": 6,
+        "in_block_err": 20,
+        "sign_rank": 9
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 57,
+      "block_width": 140,
+      "case_id": "dicaprio_leonardo",
+      "null": [
+        {
+          "clock_rank": 5,
+          "in_block_err": 3,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 11,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 5,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 11,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 1,
+          "sign_rank": 11
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 11,
+        "sign_rank": 3
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 47,
+      "block_width": 156,
+      "case_id": "disney_walt",
+      "null": [
+        {
+          "clock_rank": 11,
+          "in_block_err": 67,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 111,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 115,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 91,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 111,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 10,
+        "in_block_err": 123,
+        "sign_rank": 9
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 37,
+      "block_width": 148,
+      "case_id": "dylan_bob",
+      "null": [
+        {
+          "clock_rank": 5,
+          "in_block_err": 51,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 19,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 103,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 103,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 75,
+          "sign_rank": 3
+        }
+      ],
+      "real": {
+        "clock_rank": 2,
+        "in_block_err": 51,
+        "sign_rank": 2
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 42,
+      "block_width": 164,
+      "case_id": "freud_sigmund",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 98,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 82,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 26,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 58,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 102,
+          "sign_rank": 10
+        }
+      ],
+      "real": {
+        "clock_rank": 12,
+        "in_block_err": 82,
+        "sign_rank": 11
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 53.0,
+      "block_width": 152,
+      "case_id": "gore_al",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 119,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 71,
+          "sign_rank": 11
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 119,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 115,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 99,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 4,
+        "in_block_err": 63,
+        "sign_rank": 4
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 37,
+      "block_width": 148,
+      "case_id": "hanks_tom",
+      "null": [
+        {
+          "clock_rank": 1,
+          "in_block_err": 11,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 11,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 11,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 7,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 3,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 11,
+        "sign_rank": 1
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 46.0,
+      "block_width": 152,
+      "case_id": "hemingway_ernest",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 20,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 108,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 36,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 4,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 4,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 11,
+        "in_block_err": 16,
+        "sign_rank": 2
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 51,
+      "block_width": 148,
+      "case_id": "hendrix_jimi",
+      "null": [
+        {
+          "clock_rank": 3,
+          "in_block_err": 79,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 47,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 107,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 21,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 91,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 9,
+        "in_block_err": 91,
+        "sign_rank": 4
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 18.0,
+      "block_width": 72,
+      "case_id": "houston_whitney",
+      "null": [
+        {
+          "clock_rank": 4,
+          "in_block_err": 45,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 49,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 9,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 45,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 45,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 6,
+        "in_block_err": 3,
+        "sign_rank": 7
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 37,
+      "block_width": 148,
+      "case_id": "jobs_steve",
+      "null": [
+        {
+          "clock_rank": 6,
+          "in_block_err": 29,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 87,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 39,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 13,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 27,
+          "sign_rank": 3
+        }
+      ],
+      "real": {
+        "clock_rank": 2,
+        "in_block_err": 1,
+        "sign_rank": 3
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 65,
+      "block_width": 140,
+      "case_id": "jolie_angelina",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 17,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 53,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 105,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 121,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 13,
+          "sign_rank": 11
+        }
+      ],
+      "real": {
+        "clock_rank": 9,
+        "in_block_err": 37,
+        "sign_rank": 12
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 35.0,
+      "block_width": 96,
+      "case_id": "joplin_janis",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 37,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 69,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 53,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 5,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 45,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 57,
+        "sign_rank": 3
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 36,
+      "block_width": 140,
+      "case_id": "jordan_michael",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 0,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 36,
+          "sign_rank": 11
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 4,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 24,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 48,
+          "sign_rank": 8
+        }
+      ],
+      "real": {
+        "clock_rank": 9,
+        "in_block_err": 24,
+        "sign_rank": 7
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 38.0,
+      "block_width": 152,
+      "case_id": "kennedy_john",
+      "null": [
+        {
+          "clock_rank": 3,
+          "in_block_err": 40,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 4,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 76,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 48,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 32,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 4,
+        "sign_rank": 1
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 40,
+      "block_width": 140,
+      "case_id": "lee_bruce",
+      "null": [
+        {
+          "clock_rank": 2,
+          "in_block_err": 16,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 64,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 20,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 28,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 16,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 4,
+        "in_block_err": 20,
+        "sign_rank": 3
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 30.0,
+      "block_width": 88,
+      "case_id": "manson_charles",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 52,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 72,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 32,
+          "sign_rank": 11
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 12,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 0,
+          "sign_rank": 6
+        }
+      ],
+      "real": {
+        "clock_rank": 10,
+        "in_block_err": 36,
+        "sign_rank": 10
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 62.0,
+      "block_width": 160,
+      "case_id": "mitterrand_francois",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 8,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 12,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 68,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 16,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 16,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 7,
+        "in_block_err": 12,
+        "sign_rank": 2
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 36.0,
+      "block_width": 144,
+      "case_id": "monroe_marilyn",
+      "null": [
+        {
+          "clock_rank": 10,
+          "in_block_err": 58,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 42,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 18,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 62,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 50,
+          "sign_rank": 11
+        }
+      ],
+      "real": {
+        "clock_rank": 2,
+        "in_block_err": 10,
+        "sign_rank": 2
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 25,
+      "block_width": 100,
+      "case_id": "morrison_jim",
+      "null": [
+        {
+          "clock_rank": 12,
+          "in_block_err": 37,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 37,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 37,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 33,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 33,
+          "sign_rank": 8
+        }
+      ],
+      "real": {
+        "clock_rank": 12,
+        "in_block_err": 33,
+        "sign_rank": 6
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 31.0,
+      "block_width": 112,
+      "case_id": "nelson_prince",
+      "null": [
+        {
+          "clock_rank": 5,
+          "in_block_err": 57,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 77,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 25,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 57,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 49,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 2,
+        "in_block_err": 15,
+        "sign_rank": 2
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 36.0,
+      "block_width": 144,
+      "case_id": "nixon_richard",
+      "null": [
+        {
+          "clock_rank": 12,
+          "in_block_err": 27,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 33,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 5,
+          "sign_rank": 11
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 27,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 83,
+          "sign_rank": 8
+        }
+      ],
+      "real": {
+        "clock_rank": 9,
+        "in_block_err": 79,
+        "sign_rank": 10
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 26.0,
+      "block_width": 104,
+      "case_id": "obama_barack",
+      "null": [
+        {
+          "clock_rank": 11,
+          "in_block_err": 36,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 32,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 24,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 32,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 24,
+          "sign_rank": 9
+        }
+      ],
+      "real": {
+        "clock_rank": 10,
+        "in_block_err": 12,
+        "sign_rank": 9
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 35,
+      "block_width": 140,
+      "case_id": "presley_elvis",
+      "null": [
+        {
+          "clock_rank": 12,
+          "in_block_err": 39,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 19,
+          "sign_rank": 11
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 43,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 43,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 9,
+          "sign_rank": 11
+        }
+      ],
+      "real": {
+        "clock_rank": 12,
+        "in_block_err": 29,
+        "sign_rank": 11
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 60,
+      "block_width": 164,
+      "case_id": "sarkozy_nicolas",
+      "null": [
+        {
+          "clock_rank": 11,
+          "in_block_err": 140,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 52,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 8,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 120,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 64,
+          "sign_rank": 4
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 128,
+        "sign_rank": 5
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 36.0,
+      "block_width": 144,
+      "case_id": "schwarzenegger_arnold",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 38,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 26,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 42,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 74,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 62,
+          "sign_rank": 8
+        }
+      ],
+      "real": {
+        "clock_rank": 5,
+        "in_block_err": 26,
+        "sign_rank": 3
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 58,
+      "block_width": 140,
+      "case_id": "spears_britney",
+      "null": [
+        {
+          "clock_rank": 1,
+          "in_block_err": 18,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 22,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 6,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 22,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 78,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 10,
+        "sign_rank": 1
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 28.0,
+      "block_width": 112,
+      "case_id": "springsteen_bruce",
+      "null": [
+        {
+          "clock_rank": 5,
+          "in_block_err": 6,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 38,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 30,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 66,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 50,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 10,
+        "in_block_err": 66,
+        "sign_rank": 6
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 64,
+      "block_width": 140,
+      "case_id": "stallone_sylvester",
+      "null": [
+        {
+          "clock_rank": 12,
+          "in_block_err": 64,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 88,
+          "sign_rank": 3
+        },
+        {
+          "clock_rank": 9,
+          "in_block_err": 80,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 132,
+          "sign_rank": 12
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 116,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 11,
+        "in_block_err": 52,
+        "sign_rank": 12
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 38.0,
+      "block_width": 152,
+      "case_id": "taylor_elizabeth",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 34,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 30,
+          "sign_rank": 9
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 2,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 26,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 6,
+          "sign_rank": 3
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 70,
+        "sign_rank": 4
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 76.0,
+      "block_width": 152,
+      "case_id": "trump_donald",
+      "null": [
+        {
+          "clock_rank": 1,
+          "in_block_err": 38,
+          "sign_rank": 10
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 106,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 3,
+          "in_block_err": 98,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 42,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 12,
+          "in_block_err": 126,
+          "sign_rank": 1
+        }
+      ],
+      "real": {
+        "clock_rank": 12,
+        "in_block_err": 126,
+        "sign_rank": 2
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 36,
+      "block_width": 148,
+      "case_id": "van_gogh_vincent",
+      "null": [
+        {
+          "clock_rank": 7,
+          "in_block_err": 32,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 28,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 6,
+          "in_block_err": 28,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 32,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 12,
+          "sign_rank": 5
+        }
+      ],
+      "real": {
+        "clock_rank": 10,
+        "in_block_err": 12,
+        "sign_rank": 10
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 65.0,
+      "block_width": 152,
+      "case_id": "william_prince",
+      "null": [
+        {
+          "clock_rank": 4,
+          "in_block_err": 35,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 23,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 63,
+          "sign_rank": 2
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 35,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 4,
+          "in_block_err": 19,
+          "sign_rank": 4
+        }
+      ],
+      "real": {
+        "clock_rank": 5,
+        "in_block_err": 15,
+        "sign_rank": 5
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 72.0,
+      "block_width": 152,
+      "case_id": "williams_robin",
+      "null": [
+        {
+          "clock_rank": 9,
+          "in_block_err": 130,
+          "sign_rank": 6
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 134,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 11,
+          "in_block_err": 38,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 8,
+          "in_block_err": 86,
+          "sign_rank": 8
+        },
+        {
+          "clock_rank": 10,
+          "in_block_err": 102,
+          "sign_rank": 4
+        }
+      ],
+      "real": {
+        "clock_rank": 11,
+        "in_block_err": 66,
+        "sign_rank": 2
+      },
+      "split": "holdout"
+    },
+    {
+      "blind_in_block_median": 34.0,
+      "block_width": 80,
+      "case_id": "williams_serena",
+      "null": [
+        {
+          "clock_rank": 4,
+          "in_block_err": 20,
+          "sign_rank": 4
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 24,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 7,
+          "in_block_err": 24,
+          "sign_rank": 7
+        },
+        {
+          "clock_rank": 5,
+          "in_block_err": 4,
+          "sign_rank": 5
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 60,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 3,
+        "in_block_err": 16,
+        "sign_rank": 3
+      },
+      "split": "train"
+    },
+    {
+      "blind_in_block_median": 44.0,
+      "block_width": 144,
+      "case_id": "woods_tiger",
+      "null": [
+        {
+          "clock_rank": 1,
+          "in_block_err": 38,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 38,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 46,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 1,
+          "in_block_err": 38,
+          "sign_rank": 1
+        },
+        {
+          "clock_rank": 2,
+          "in_block_err": 42,
+          "sign_rank": 2
+        }
+      ],
+      "real": {
+        "clock_rank": 1,
+        "in_block_err": 38,
+        "sign_rank": 1
+      },
+      "split": "train"
+    }
+  ],
+  "shuffles_per_case": 5
+}
