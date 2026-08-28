@@ -1,27 +1,20 @@
-"""Birth-time rectification scoring.
+"""FROZEN EXPERIMENT: the rectification scorer with the Work item 3 additions.
 
-Performance contract: transit/progressed positions and the solar arc for an
-event date do NOT depend on the candidate birth time (except the progressed
-Moon, which is recomputed per candidate with a single cheap ephemeris call).
-They are precomputed once per event; the per-candidate loop only computes
-Asc/MC/cusps via swe.houses and tests the precomputed longitudes against them.
+This is the exact scorer the Work item 3 ablation was run against. Every one
+of those additions failed its ablation on the holdout split and was reverted
+out of `astro_engine/` before merge, so this file is the only place they still
+exist. It lives under `benchmarks/` because it is evidence, not product: it is
+never imported by the service.
 
-Two-stage design. Stage 1 narrows the birth time to a rising-sign block -
-which is as far as anything a client can answer about their own chart can take
-it, because under whole-sign houses every such answer is a function of the
-Ascendant sign alone. Anything that is to resolve position *inside* a block
-must therefore vary inside the block.
+Do not "fix" or extend it. Its value is that it is the code that produced
+`benchmarks/ablation_table.json` and `benchmarks/weight_sweep.json`. If a
+future spec wants to retry one of these evaluators, start from the measurement
+in `RESULTS_SUBSIGN.md`, not from this file.
 
-Four techniques ship. Quadrant cusps, directed angles, primary directions,
-eclipse-on-angle and event-to-technique matching were implemented, measured
-and reverted: none improved the held-out in-block error and two roughly
-doubled it. `benchmarks/RESULTS_SUBSIGN.md` has the ablation;
-`benchmarks/harness/candidate_engine.py` is the frozen experiment.
-
-Note also that `profections` is a block-level prior, not a sub-sign
-discriminator: it was measured as exactly constant inside the correct block in
-29 of 29 training cases, because the profected house follows the Ascendant
-sign. It is kept because it helps rank blocks, not minutes.
+Additions present here and absent from the shipped engine:
+  3.1 quadrant_cusps        3.2 directed_angles
+  3.3 primary_directions    3.4 eclipse_on_angle
+  3.5 event_technique_matching
 """
 
 from __future__ import annotations
@@ -30,9 +23,81 @@ import datetime as dt
 import hashlib
 import random
 
-from . import core
-from .charts import YEAR_DAYS, profection_for
-from .schemas import RectificationEvent, RectificationRequest
+import swisseph as swe
+
+from pydantic import BaseModel, Field
+
+from astro_engine import core
+from astro_engine.charts import YEAR_DAYS, profection_for
+from astro_engine.schemas import (
+    CandidateWindow,
+    HouseSystem,
+    Place,
+    RectificationEvent,
+)
+
+
+class CandidateConfig(BaseModel):
+    """The experimental config. Kept here so the shipped schema does not have
+    to carry options for techniques that failed and were reverted."""
+
+    house_system: HouseSystem = "whole_sign"
+    techniques: list[str] = [
+        "transits_to_angles",
+        "secondary_progressions",
+        "solar_arc",
+        "profections",
+    ]
+    orbs: dict[str, float] = {
+        "transits_to_angles": 1.0,
+        "secondary_progressions": 1.0,
+        "solar_arc": 1.0,
+        "quadrant_cusps": 1.0,
+        "directed_angles": 1.0,
+        "eclipse_on_angle": 1.0,
+    }
+    technique_weights: dict[str, float] = {
+        "transits_to_angles": 1.0,
+        "secondary_progressions": 1.2,
+        "solar_arc": 0.8,
+        "profections": 0.6,
+        "quadrant_cusps": 1.0,
+        "directed_angles": 1.2,
+        "primary_directions": 1.4,
+        "eclipse_on_angle": 1.0,
+    }
+    precision_weights: dict[str, float] = {"day": 1.0, "month": 0.5, "year": 0.25}
+    plateau_ratio: float = Field(default=0.9, gt=0, le=1)
+    direction_key: str = "naibod"
+    direction_orb_years: float = 1.0
+    event_technique_matching: bool = False
+    permutation_trials: int = 0
+    refusal_percentile: float = 0.90
+    refusal_min_separation: float = 0.05
+
+
+class CandidateRequest(BaseModel):
+    birth_date: dt.date
+    place: Place
+    candidate_window: CandidateWindow
+    events: list[RectificationEvent]
+    config: CandidateConfig = CandidateConfig()
+    ascendant_sign: str | None = None
+
+
+def houses_angles_armc(jd_ut, lat, lon, house_system):
+    cusps, ascmc = swe.houses(jd_ut, lat, lon, core.HOUSE_SYSTEM_CODES[house_system])
+    return (
+        [core.norm360(c) for c in cusps[:12]],
+        core.norm360(ascmc[0]),
+        core.norm360(ascmc[1]),
+        core.norm360(ascmc[2]),
+    )
+
+
+def right_ascension(jd_ut, planet_id):
+    pos, _ = swe.calc_ut(jd_ut, planet_id, core.FLAGS | swe.FLG_EQUATORIAL)
+    return core.norm360(pos[0])
 
 # Slow factors remain usable for month/year date precision.
 SLOW_PLANETS = ("jupiter", "saturn", "uranus", "neptune", "pluto")
@@ -55,8 +120,37 @@ EVENT_HOUSES = {
     "other": (1,),
 }
 
+# Intermediate quadrant cusps. The four angles are scored separately, so the
+# quadrant-cusp evaluator takes only the cusps that are not angles.
+INTERMEDIATE_CUSPS = (2, 3, 5, 6, 8, 9, 11, 12)
+
 DIRECTED_BODIES = ("sun", "moon", "mars", "jupiter", "saturn")
 PROG_BODIES = ("sun", "mercury", "venus", "mars")
+
+# Degrees of primary-direction arc per year of life.
+DIRECTION_KEYS = {"ptolemy": 1.0, "naibod": 59.0 / 60.0 + 8.0 / 3600.0}
+
+# Event-to-technique matching. Sudden, dated events are read by fast movers;
+# structural, gradual events by slow ones. Applying every technique to every
+# event is what makes agreement nearly free.
+FAST_EVENTS = frozenset({"accident", "surgery", "child_birth", "marriage"})
+SLOW_EVENTS = frozenset({"career_break", "relocation", "death_of_close", "other"})
+
+FAST_TECHNIQUES = frozenset({"secondary_progressions", "transits_to_angles"})
+SLOW_TECHNIQUES = frozenset(
+    {"solar_arc", "directed_angles", "primary_directions", "profections"}
+)
+ALWAYS_TECHNIQUES = frozenset({"quadrant_cusps", "eclipse_on_angle"})
+
+
+def _technique_applies(technique: str, event: RectificationEvent, enabled: bool) -> bool:
+    if not enabled or technique in ALWAYS_TECHNIQUES:
+        return True
+    if event.type in FAST_EVENTS:
+        return technique in FAST_TECHNIQUES or technique in ALWAYS_TECHNIQUES
+    if event.type in SLOW_EVENTS:
+        return technique in SLOW_TECHNIQUES or technique in ALWAYS_TECHNIQUES
+    return True
 
 
 def _event_jd(event: RectificationEvent) -> float:
@@ -87,6 +181,7 @@ class EventContext:
         "precision_weight",
         "allow_fast",
         "prog_years",
+        "eclipse_longitudes",
     )
 
     def __init__(
@@ -95,6 +190,7 @@ class EventContext:
         birth_jd_noon: float,
         natal_positions: dict[str, tuple[float, float]],
         precision_weights: dict[str, float],
+        want_eclipses: bool = False,
     ):
         self.event = event
         self.jd = _event_jd(event)
@@ -130,6 +226,21 @@ class EventContext:
             for name, (lon, _) in natal_positions.items()
             if name in DIRECTED_BODIES
         }
+        self.eclipse_longitudes = _eclipses_near(self.jd) if want_eclipses else ()
+
+
+def _eclipses_near(jd: float) -> tuple[float, ...]:
+    """Ecliptic longitudes of the solar eclipses bracketing a date."""
+    out = []
+    for backward in (True, False):
+        try:
+            res = swe.sol_eclipse_when_glob(jd, core.FLAGS, 0, backward)
+        except Exception:
+            continue
+        t = res[1][0]
+        if abs(t - jd) <= 200.0:
+            out.append(core.planet_position(t, swe.SUN)[0])
+    return tuple(out)
 
 
 def _hit_score(orb: float, max_orb: float) -> float:
@@ -148,7 +259,7 @@ def _angle_hits(
     hits = []
     for pname in sorted(positions):
         plon = positions[pname]
-        for aname in ("asc", "mc"):
+        for aname in sorted(angles):
             sep = core.angle_diff(plon, angles[aname])
             for asp_code, asp_deg in ASPECT_ANGLES:
                 orb = abs(sep - asp_deg)
@@ -169,8 +280,11 @@ def _angle_hits(
 
 
 def _score_candidates(
-    req: RectificationRequest,
+    req: CandidateRequest,
     contexts: list[EventContext],
+    birth_jd_noon: float,
+    natal_positions: dict[str, tuple[float, float]],
+    natal_ra: dict[str, float],
     minutes: list[int],
     collect_hits: bool,
 ) -> list[dict]:
@@ -179,6 +293,8 @@ def _score_candidates(
     bd = req.birth_date
     tw = cfg.technique_weights
     orbs = cfg.orbs
+    match = cfg.event_technique_matching
+    key_rate = DIRECTION_KEYS[cfg.direction_key]
     candidates = []
 
     for m in minutes:
@@ -187,7 +303,7 @@ def _score_candidates(
             dt.datetime(bd.year, bd.month, bd.day, hh, mm), req.place.tz
         )
         cand_jd = core.to_julian_day(cand_utc)
-        cusps, asc, mc = core.houses_and_angles(
+        cusps, asc, mc, armc = houses_angles_armc(
             cand_jd, req.place.lat, req.place.lon, cfg.house_system
         )
         angles = {"asc": asc, "mc": mc}
@@ -197,7 +313,10 @@ def _score_candidates(
             ev = ctx.event
             base_w = ev.weight * ctx.precision_weight
 
-            if "transits_to_angles" in cfg.techniques:
+            def enabled(name: str) -> bool:
+                return name in cfg.techniques and _technique_applies(name, ev, match)
+
+            if enabled("transits_to_angles"):
                 hits += _angle_hits(
                     ctx.transit_positions,
                     angles,
@@ -208,7 +327,7 @@ def _score_candidates(
                     base_w * tw.get("transits_to_angles", 1.0),
                 )
 
-            if "secondary_progressions" in cfg.techniques and ctx.allow_fast:
+            if enabled("secondary_progressions") and ctx.allow_fast:
                 # Progressed Moon is the only candidate-dependent factor:
                 # one cheap Moshier call per (candidate, event).
                 prog_jd_cand = cand_jd + ctx.prog_years
@@ -225,7 +344,7 @@ def _score_candidates(
                     base_w * tw.get("secondary_progressions", 1.0),
                 )
 
-            if "solar_arc" in cfg.techniques:
+            if enabled("solar_arc"):
                 hits += _angle_hits(
                     ctx.arc_directed,
                     angles,
@@ -236,7 +355,85 @@ def _score_candidates(
                     base_w * tw.get("solar_arc", 1.0),
                 )
 
-            if "profections" in cfg.techniques:
+            if enabled("directed_angles"):
+                # 3.2: the directed angles the previous version computed and
+                # then filtered out one line later. Directed MC to a natal
+                # planet is the most time-sensitive classical factor there is.
+                directed = {
+                    "d_asc": core.norm360(asc + ctx.solar_arc),
+                    "d_mc": core.norm360(mc + ctx.solar_arc),
+                }
+                hits += _angle_hits(
+                    {n: lon for n, (lon, _) in natal_positions.items()},
+                    directed,
+                    orbs.get("directed_angles", 1.0) * ctx.orb_scale,
+                    "directed_angles",
+                    "da",
+                    ev.id,
+                    base_w * tw.get("directed_angles", 1.0),
+                )
+
+            if enabled("quadrant_cusps"):
+                # 3.1: the cusps were already being computed and thrown away,
+                # which is why house_system had no effect on the result.
+                targets = {
+                    f"c{h}": cusps[h - 1] for h in INTERMEDIATE_CUSPS
+                }
+                bodies = dict(ctx.transit_positions)
+                bodies.update({f"sa_{k}": v for k, v in ctx.arc_directed.items()})
+                if ctx.allow_fast:
+                    bodies.update({f"sp_{k}": v for k, v in ctx.prog_positions.items()})
+                hits += _angle_hits(
+                    bodies,
+                    targets,
+                    orbs.get("quadrant_cusps", 1.0) * ctx.orb_scale,
+                    "quadrant_cusps",
+                    "qc",
+                    ev.id,
+                    base_w * tw.get("quadrant_cusps", 1.0),
+                )
+
+            if enabled("primary_directions"):
+                # 3.3: ARMC advances one degree per four minutes of birth
+                # time, so the age a direction predicts moves about a year for
+                # every four minutes. The sharpest factor available.
+                orb_years = cfg.direction_orb_years * ctx.orb_scale
+                w = base_w * tw.get("primary_directions", 1.0)
+                for pname in sorted(natal_ra):
+                    for label, offset in (("mc", 0.0), ("ic", 180.0)):
+                        arc = core.norm360(natal_ra[pname] - armc + offset)
+                        if arc > 180.0:
+                            continue
+                        years = arc / key_rate
+                        delta = abs(years - ctx.prog_years)
+                        if delta <= orb_years:
+                            hits.append(
+                                {
+                                    "event_id": ev.id,
+                                    "technique": "primary_directions",
+                                    "factor": f"pd_{pname}_conj_{label}",
+                                    "orb_deg": round(delta * key_rate, core.ROUND_DEG),
+                                    "score": round(
+                                        _hit_score(delta, orb_years) * w, core.ROUND_DEG
+                                    ),
+                                }
+                            )
+
+            if enabled("eclipse_on_angle") and ctx.eclipse_longitudes:
+                hits += _angle_hits(
+                    {
+                        f"ecl{i}": lon
+                        for i, lon in enumerate(ctx.eclipse_longitudes)
+                    },
+                    angles,
+                    orbs.get("eclipse_on_angle", 1.0) * ctx.orb_scale,
+                    "eclipse_on_angle",
+                    "ec",
+                    ev.id,
+                    base_w * tw.get("eclipse_on_angle", 1.0),
+                )
+
+            if enabled("profections"):
                 prof = profection_for(bd, ctx.date, asc)
                 if prof["activated_house"] in EVENT_HOUSES[ev.type]:
                     score = base_w * tw.get("profections", 1.0)
@@ -267,18 +464,17 @@ def _score_candidates(
 
 
 def _permutation_null(
-    req: RectificationRequest,
+    req: CandidateRequest,
     birth_jd_noon: float,
     natal_positions: dict,
+    natal_ra: dict,
     minutes: list[int],
+    want_eclipses: bool,
 ) -> list[float]:
     """Peak scores from `permutation_trials` runs on shuffled event dates.
 
-    This is the only figure in the response calibrated against anything: it
-    asks whether the real peak is higher than the peak this same engine
-    produces from the same events on dates drawn at random from the subject's
-    own span. The seed is derived from the request, so the answer is
-    deterministic for a given request while still being a genuine shuffle.
+    The seed is derived from the request itself, so the null is deterministic
+    for a given request while still being a genuine shuffle.
     """
     trials = req.config.permutation_trials
     if trials <= 0 or len(req.events) < 2:
@@ -295,20 +491,28 @@ def _permutation_null(
 
     peaks = []
     for _ in range(trials):
-        shuffled = [
-            e.model_copy(update={"date": lo + dt.timedelta(days=rng.randint(0, span))})
-            for e in req.events
-        ]
+        shuffled = []
+        for e in req.events:
+            drawn = lo + dt.timedelta(days=rng.randint(0, span))
+            shuffled.append(e.model_copy(update={"date": drawn}))
         contexts = [
-            EventContext(e, birth_jd_noon, natal_positions, req.config.precision_weights)
+            EventContext(
+                e,
+                birth_jd_noon,
+                natal_positions,
+                req.config.precision_weights,
+                want_eclipses,
+            )
             for e in shuffled
         ]
-        cands = _score_candidates(req, contexts, minutes, False)
+        cands = _score_candidates(
+            req, contexts, birth_jd_noon, natal_positions, natal_ra, minutes, False
+        )
         peaks.append(max(c["total_score"] for c in cands))
     return sorted(peaks)
 
 
-def score_rectification(req: RectificationRequest) -> dict:
+def score_rectification(req: CandidateRequest) -> dict:
     cfg = req.config
     bd = req.birth_date
 
@@ -321,8 +525,15 @@ def score_rectification(req: RectificationRequest) -> dict:
     birth_jd_noon = core.to_julian_day(noon_utc)
     natal_positions = core.all_planet_positions(birth_jd_noon)
 
+    want_eclipses = "eclipse_on_angle" in cfg.techniques
+    natal_ra = (
+        {name: right_ascension(birth_jd_noon, pid) for name, pid in core.PLANETS}
+        if "primary_directions" in cfg.techniques
+        else {}
+    )
+
     contexts = [
-        EventContext(e, birth_jd_noon, natal_positions, cfg.precision_weights)
+        EventContext(e, birth_jd_noon, natal_positions, cfg.precision_weights, want_eclipses)
         for e in req.events
     ]
 
@@ -332,10 +543,11 @@ def score_rectification(req: RectificationRequest) -> dict:
     step = req.candidate_window.step_minutes
     minutes = list(range(start_min, end_min + 1, step))
 
-    candidates = _score_candidates(req, contexts, minutes, True)
+    candidates = _score_candidates(
+        req, contexts, birth_jd_noon, natal_positions, natal_ra, minutes, True
+    )
 
-    # Stage-1 hook: mark, do not drop. The density curve stays a complete
-    # picture of the window even when a rising sign has been supplied.
+    # Stage-1 hook: mark, do not drop. The density curve stays complete.
     for c in candidates:
         c["excluded"] = bool(
             req.ascendant_sign is not None and c["asc_sign"] != req.ascendant_sign
@@ -356,8 +568,10 @@ def score_rectification(req: RectificationRequest) -> dict:
         hi += 1
     residual = (hi - lo) * step
 
-    null_peaks = _permutation_null(req, birth_jd_noon, natal_positions, minutes)
-    confidence = _confidence(candidates, eligible, null_peaks, cfg)
+    null_peaks = _permutation_null(
+        req, birth_jd_noon, natal_positions, natal_ra, minutes, want_eclipses
+    )
+    confidence = _confidence(best, candidates, eligible, null_peaks, cfg)
 
     return {
         "candidates": candidates,
@@ -376,24 +590,24 @@ def score_rectification(req: RectificationRequest) -> dict:
 
 
 def _confidence(
+    best: dict,
     candidates: list[dict],
     eligible: list[int],
     null_peaks: list[float],
     cfg,
 ) -> dict:
-    """Confidence that responds to evidence, plus a refusal state.
+    """Confidence that responds to evidence, and a refusal state.
 
-    `residual_window_minutes` stays in `suggested_best` because clients read
-    it, but it is deliberately no longer the confidence figure: it evaluates
-    to 0 or one step on random data and does not move when every event's date
-    precision drops from day to year. `permutation_percentile` replaces it -
-    the real peak's rank among peaks from the same events on shuffled dates.
-
-    A low percentile is the engine saying the events did not pick this time
-    out; in that case it returns no time at all rather than a confident wrong
-    answer.
+    `residual_window_minutes` is kept in the response because clients read it,
+    but it is not the confidence figure: it evaluates to 0 or one step on
+    random data and does not move when every event's date precision drops.
+    The permutation percentile is the only figure here calibrated against
+    anything - it is the real peak's rank among peaks from the same events on
+    shuffled dates.
     """
-    scores = sorted((candidates[i]["total_score"] for i in eligible), reverse=True)
+    scores = sorted(
+        (candidates[i]["total_score"] for i in eligible), reverse=True
+    )
     peak = scores[0] if scores else 0.0
     runner_up = scores[1] if len(scores) > 1 else 0.0
     mean = (sum(scores) / len(scores)) if scores else 0.0

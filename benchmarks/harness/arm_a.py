@@ -44,7 +44,11 @@ def build_request(case: dict, events: list[dict]) -> RectificationRequest:
             )
             for e in events
         ],
-        config=RectificationConfig(),
+        # Defaults except for the permutation null, which is switched off.
+        # It multiplies the work by trials + 1 and cannot move the argmax -
+        # it only populates the confidence block. This arm measures accuracy,
+        # and the confidence output is measured separately.
+        config=RectificationConfig(permutation_trials=0),
     )
 
 
@@ -60,10 +64,19 @@ def run(case: dict, events: list[dict]) -> dict:
     mean = statistics.fmean(scores)
     best = result["suggested_best"]
 
+    # The engine can now decline to name a time. For an accuracy measurement
+    # we still want its argmax, so the peak candidate is taken directly and
+    # the refusal is recorded alongside rather than substituted for it.
+    peak_candidate = max(
+        result["candidates"], key=lambda c: (c["total_score"], -protocol.time_to_minute(c["time"]))
+    )
+    returned_time = best["time"] or peak_candidate["time"]
+
     return {
         "engine": "ours",
-        "returned_time": best["time"],
-        "returned_minute": protocol.time_to_minute(best["time"]),
+        "returned_time": returned_time,
+        "returned_minute": protocol.time_to_minute(returned_time),
+        "refused": result["confidence"]["refused"],
         "peak_score": peak,
         "mean_score": mean,
         "peak_over_mean": (peak / mean) if mean > 0 else None,

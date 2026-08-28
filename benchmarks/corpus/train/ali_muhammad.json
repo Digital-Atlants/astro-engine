@@ -1,20 +1,6 @@
 {
-  "case_id": "ali_muhammad",
-  "name": "Muhammad Ali",
   "birth_date": "1942-01-17",
-  "known_time": "18:35",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate in hand, collected by Steinbrecher.",
-  "source_url": "https://www.astro.com/astro-databank/Ali,_Muhammad",
-  "events_source_url": "https://en.wikipedia.org/wiki/Muhammad_Ali",
-  "place": {
-    "name": "Louisville, Kentucky, USA",
-    "city": "Louisville",
-    "country_code": "US",
-    "lat": 38.2527,
-    "lon": -85.7585,
-    "tz": "America/Kentucky/Louisville"
-  },
+  "case_id": "ali_muhammad",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Diagnosed with Parkinson's syndrome"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Muhammad_Ali",
+  "known_time": "18:35",
   "known_time_is_round": false,
+  "name": "Muhammad Ali",
+  "place": {
+    "name": "Louisville, Kentucky, USA",
+    "city": "Louisville",
+    "country_code": "US",
+    "lat": 38.2527,
+    "lon": -85.7585,
+    "tz": "America/Kentucky/Louisville"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate in hand, collected by Steinbrecher.",
+  "source_url": "https://www.astro.com/astro-databank/Ali,_Muhammad",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": false,

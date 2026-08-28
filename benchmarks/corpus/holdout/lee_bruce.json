@@ -1,0 +1,83 @@
+{
+  "birth_date": "1940-11-27",
+  "case_id": "lee_bruce",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1941-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Family returned to Hong Kong"
+    },
+    {
+      "id": "e2",
+      "date": "1959-04-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Sent to the United States"
+    },
+    {
+      "id": "e3",
+      "date": "1964-08-17",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Linda Emery"
+    },
+    {
+      "id": "e4",
+      "date": "1965-02-01",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Son Brandon Lee born"
+    },
+    {
+      "id": "e5",
+      "date": "1966-06-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Cast as Kato in 'The Green Hornet'"
+    },
+    {
+      "id": "e6",
+      "date": "1970-08-01",
+      "date_precision": "month",
+      "type": "accident",
+      "description": "Serious back injury while training"
+    },
+    {
+      "id": "e7",
+      "date": "1971-10-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "'The Big Boss' released in Hong Kong"
+    },
+    {
+      "id": "e8",
+      "date": "1973-07-20",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Hong Kong"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Bruce_Lee",
+  "known_time": "07:12",
+  "known_time_is_round": false,
+  "name": "Bruce Lee",
+  "place": {
+    "name": "San Francisco, California, USA",
+    "city": "San Francisco",
+    "country_code": "US",
+    "lat": 37.7749,
+    "lon": -122.4194,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Lee,_Bruce",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

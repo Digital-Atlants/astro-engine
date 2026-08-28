@@ -1,0 +1,90 @@
+{
+  "birth_date": "1967-02-20",
+  "case_id": "cobain_kurt",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1976-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Parents divorced"
+    },
+    {
+      "id": "e2",
+      "date": "1987-01-01",
+      "date_precision": "year",
+      "type": "career_break",
+      "description": "Formed the band that became Nirvana"
+    },
+    {
+      "id": "e3",
+      "date": "1989-06-15",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Debut album 'Bleach' released"
+    },
+    {
+      "id": "e4",
+      "date": "1991-09-24",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Nevermind' released"
+    },
+    {
+      "id": "e5",
+      "date": "1992-02-24",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Courtney Love in Honolulu"
+    },
+    {
+      "id": "e6",
+      "date": "1992-08-18",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Frances Bean Cobain born"
+    },
+    {
+      "id": "e7",
+      "date": "1993-09-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'In Utero' released"
+    },
+    {
+      "id": "e8",
+      "date": "1994-03-04",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Overdose and coma in Rome"
+    },
+    {
+      "id": "e9",
+      "date": "1994-04-05",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Seattle"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Kurt_Cobain",
+  "known_time": "19:38",
+  "known_time_is_round": false,
+  "name": "Kurt Cobain",
+  "place": {
+    "name": "Aberdeen, Washington, USA",
+    "city": "Aberdeen",
+    "country_code": "US",
+    "lat": 46.9754,
+    "lon": -123.8157,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate, collected by Craft.",
+  "source_url": "https://www.astro.com/astro-databank/Cobain,_Kurt",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

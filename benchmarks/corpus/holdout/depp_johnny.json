@@ -1,0 +1,97 @@
+{
+  "birth_date": "1963-06-09",
+  "case_id": "depp_johnny",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1978-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Parents divorced"
+    },
+    {
+      "id": "e2",
+      "date": "1983-12-20",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Lori Anne Allison"
+    },
+    {
+      "id": "e3",
+      "date": "1984-11-09",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'A Nightmare on Elm Street' released, his film debut"
+    },
+    {
+      "id": "e4",
+      "date": "1987-07-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'21 Jump Street' first broadcast"
+    },
+    {
+      "id": "e5",
+      "date": "1990-12-07",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Edward Scissorhands' released"
+    },
+    {
+      "id": "e6",
+      "date": "1999-05-27",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Lily-Rose born"
+    },
+    {
+      "id": "e7",
+      "date": "2003-07-09",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Pirates of the Caribbean' released"
+    },
+    {
+      "id": "e8",
+      "date": "2015-02-01",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Amber Heard"
+    },
+    {
+      "id": "e9",
+      "date": "2017-01-13",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Amber Heard finalised"
+    },
+    {
+      "id": "e10",
+      "date": "2020-11-02",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost his London libel case"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Johnny_Depp",
+  "known_time": "08:44",
+  "known_time_is_round": false,
+  "name": "Johnny Depp",
+  "place": {
+    "name": "Owensboro, Kentucky, USA",
+    "city": "Owensboro",
+    "country_code": "US",
+    "lat": 37.7742,
+    "lon": -87.1133,
+    "tz": "America/Chicago"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Depp,_Johnny",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

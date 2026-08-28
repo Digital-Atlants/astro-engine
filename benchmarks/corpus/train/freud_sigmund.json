@@ -1,0 +1,104 @@
+{
+  "birth_date": "1856-05-06",
+  "case_id": "freud_sigmund",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1860-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Family moved to Vienna"
+    },
+    {
+      "id": "e2",
+      "date": "1881-03-31",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Qualified as a doctor of medicine"
+    },
+    {
+      "id": "e3",
+      "date": "1885-10-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Studied under Charcot in Paris"
+    },
+    {
+      "id": "e4",
+      "date": "1886-09-13",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Martha Bernays"
+    },
+    {
+      "id": "e5",
+      "date": "1896-10-23",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Father Jakob Freud died"
+    },
+    {
+      "id": "e6",
+      "date": "1899-11-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'The Interpretation of Dreams' published"
+    },
+    {
+      "id": "e7",
+      "date": "1909-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Lectured at Clark University in the United States"
+    },
+    {
+      "id": "e8",
+      "date": "1923-04-01",
+      "date_precision": "month",
+      "type": "surgery",
+      "description": "First operation for cancer of the jaw"
+    },
+    {
+      "id": "e9",
+      "date": "1930-09-12",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Mother Amalia Freud died"
+    },
+    {
+      "id": "e10",
+      "date": "1938-06-04",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Fled Vienna for London"
+    },
+    {
+      "id": "e11",
+      "date": "1939-09-23",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in London"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Sigmund_Freud",
+  "known_time": "18:30",
+  "known_time_is_round": true,
+  "name": "Sigmund Freud",
+  "place": {
+    "name": "Pribor, Moravia (Freiberg)",
+    "city": "Pribor",
+    "country_code": "CZ",
+    "lat": 49.6414,
+    "lon": 18.1447,
+    "tz": "Europe/Prague"
+  },
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth record.",
+  "source_url": "https://www.astro.com/astro-databank/Freud,_Sigmund",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

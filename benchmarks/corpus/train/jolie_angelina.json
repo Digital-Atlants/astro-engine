@@ -1,0 +1,104 @@
+{
+  "birth_date": "1975-06-04",
+  "case_id": "jolie_angelina",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1976-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Parents separated"
+    },
+    {
+      "id": "e2",
+      "date": "1996-03-28",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Jonny Lee Miller"
+    },
+    {
+      "id": "e3",
+      "date": "2000-03-26",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the Academy Award for Best Supporting Actress"
+    },
+    {
+      "id": "e4",
+      "date": "2000-05-05",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Billy Bob Thornton"
+    },
+    {
+      "id": "e5",
+      "date": "2001-06-15",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Lara Croft: Tomb Raider' released"
+    },
+    {
+      "id": "e6",
+      "date": "2002-03-10",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Adopted her first child, Maddox"
+    },
+    {
+      "id": "e7",
+      "date": "2007-01-27",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Mother Marcheline Bertrand died"
+    },
+    {
+      "id": "e8",
+      "date": "2008-07-12",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Twins Knox and Vivienne born"
+    },
+    {
+      "id": "e9",
+      "date": "2013-02-01",
+      "date_precision": "month",
+      "type": "surgery",
+      "description": "Preventive double mastectomy"
+    },
+    {
+      "id": "e10",
+      "date": "2014-08-23",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Brad Pitt"
+    },
+    {
+      "id": "e11",
+      "date": "2016-09-19",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Filed for divorce from Brad Pitt"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Angelina_Jolie",
+  "known_time": "09:09",
+  "known_time_is_round": false,
+  "name": "Angelina Jolie",
+  "place": {
+    "name": "Los Angeles, California, USA",
+    "city": "Los Angeles",
+    "country_code": "US",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Jolie,_Angelina",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

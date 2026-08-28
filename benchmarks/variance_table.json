@@ -1,0 +1,92 @@
+[
+  {
+    "evaluator": "eclipse_on_angle",
+    "median_cv": 1.1925107396453174,
+    "mean_distinct_frac": 0.6436160777285561,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 2.3408187164367007,
+    "include": true
+  },
+  {
+    "evaluator": "secondary_progressions",
+    "median_cv": 0.9740458742920992,
+    "mean_distinct_frac": 0.7811232760953889,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 3.1532513344690187,
+    "include": true
+  },
+  {
+    "evaluator": "primary_directions",
+    "median_cv": 0.8798619420663266,
+    "mean_distinct_frac": 0.7328606227165388,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 2.5599504128074084,
+    "include": true
+  },
+  {
+    "evaluator": "solar_arc",
+    "median_cv": 0.6489040867786668,
+    "mean_distinct_frac": 0.8783782310461077,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 3.579932759960414,
+    "include": true
+  },
+  {
+    "evaluator": "transits_to_angles",
+    "median_cv": 0.6178554085729914,
+    "mean_distinct_frac": 0.9594508036885532,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 3.5457453926775315,
+    "include": true
+  },
+  {
+    "evaluator": "directed_angles",
+    "median_cv": 0.4366818900555202,
+    "mean_distinct_frac": 0.9892603129445234,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 6.515278734778576,
+    "include": true
+  },
+  {
+    "evaluator": "quadrant_cusps",
+    "median_cv": 0.2986198805631884,
+    "mean_distinct_frac": 1.0,
+    "cases_flat_in_block": 0,
+    "cases": 29,
+    "median_range": 18.462615462318595,
+    "include": true
+  },
+  {
+    "evaluator": "profections",
+    "median_cv": 0.0,
+    "mean_distinct_frac": 0.030429025722062773,
+    "cases_flat_in_block": 29,
+    "cases": 29,
+    "median_range": 0.0,
+    "include": false
+  },
+  {
+    "evaluator": "sect",
+    "median_cv": 0.0,
+    "mean_distinct_frac": 0.030429025722062773,
+    "cases_flat_in_block": 29,
+    "cases": 29,
+    "median_range": 0.0,
+    "include": false
+  },
+  {
+    "evaluator": "saros_family",
+    "median_cv": 0.0,
+    "mean_distinct_frac": 0.030429025722062773,
+    "cases_flat_in_block": 29,
+    "cases": 29,
+    "median_range": 0.0,
+    "include": false
+  }
+]

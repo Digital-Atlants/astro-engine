@@ -1,0 +1,83 @@
+{
+  "birth_date": "1943-01-19",
+  "case_id": "joplin_janis",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1963-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Moved to San Francisco"
+    },
+    {
+      "id": "e2",
+      "date": "1966-06-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Joined Big Brother and the Holding Company"
+    },
+    {
+      "id": "e3",
+      "date": "1967-06-17",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Monterey Pop Festival performance"
+    },
+    {
+      "id": "e4",
+      "date": "1968-08-12",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Cheap Thrills' released"
+    },
+    {
+      "id": "e5",
+      "date": "1969-08-16",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Performed at Woodstock"
+    },
+    {
+      "id": "e6",
+      "date": "1969-11-16",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Arrested in Tampa after a concert"
+    },
+    {
+      "id": "e7",
+      "date": "1970-08-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Returned to Port Arthur for her school reunion"
+    },
+    {
+      "id": "e8",
+      "date": "1970-10-04",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Hollywood"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Janis_Joplin",
+  "known_time": "09:45",
+  "known_time_is_round": true,
+  "name": "Janis Joplin",
+  "place": {
+    "name": "Port Arthur, Texas, USA",
+    "city": "Port Arthur",
+    "country_code": "US",
+    "lat": 29.885,
+    "lon": -93.94,
+    "tz": "America/Chicago"
+  },
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: State of Texas birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Joplin,_Janis",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

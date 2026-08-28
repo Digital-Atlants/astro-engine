@@ -1,0 +1,97 @@
+{
+  "birth_date": "1956-07-09",
+  "case_id": "hanks_tom",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1978-01-24",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Samantha Lewes"
+    },
+    {
+      "id": "e2",
+      "date": "1980-11-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Cast in the sitcom 'Bosom Buddies'"
+    },
+    {
+      "id": "e3",
+      "date": "1984-03-09",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Splash' released, his first hit film"
+    },
+    {
+      "id": "e4",
+      "date": "1987-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Divorce from Samantha Lewes"
+    },
+    {
+      "id": "e5",
+      "date": "1988-04-25",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Rita Wilson"
+    },
+    {
+      "id": "e6",
+      "date": "1994-03-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the Academy Award for Best Actor for 'Philadelphia'"
+    },
+    {
+      "id": "e7",
+      "date": "1994-07-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Forrest Gump' released"
+    },
+    {
+      "id": "e8",
+      "date": "1995-03-27",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won a second consecutive Academy Award"
+    },
+    {
+      "id": "e9",
+      "date": "1998-07-24",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Saving Private Ryan' released"
+    },
+    {
+      "id": "e10",
+      "date": "2013-10-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Disclosed a diagnosis of type 2 diabetes"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Tom_Hanks",
+  "known_time": "11:17",
+  "known_time_is_round": false,
+  "name": "Tom Hanks",
+  "place": {
+    "name": "Concord, California, USA",
+    "city": "Concord",
+    "country_code": "US",
+    "lat": 37.978,
+    "lon": -122.0311,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Hanks,_Tom",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

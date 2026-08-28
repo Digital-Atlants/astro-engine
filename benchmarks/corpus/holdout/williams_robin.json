@@ -1,0 +1,104 @@
+{
+  "birth_date": "1951-07-21",
+  "case_id": "williams_robin",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1978-06-04",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Valerie Velardi"
+    },
+    {
+      "id": "e2",
+      "date": "1978-09-14",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Mork and Mindy' first broadcast"
+    },
+    {
+      "id": "e3",
+      "date": "1982-03-05",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Close friend John Belushi died"
+    },
+    {
+      "id": "e4",
+      "date": "1987-12-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Good Morning, Vietnam' released"
+    },
+    {
+      "id": "e5",
+      "date": "1988-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Separated from Valerie Velardi"
+    },
+    {
+      "id": "e6",
+      "date": "1989-04-30",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Marsha Garces"
+    },
+    {
+      "id": "e7",
+      "date": "1998-03-23",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the Academy Award for Best Supporting Actor"
+    },
+    {
+      "id": "e8",
+      "date": "2006-08-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Entered treatment for alcohol dependence"
+    },
+    {
+      "id": "e9",
+      "date": "2009-03-13",
+      "date_precision": "day",
+      "type": "surgery",
+      "description": "Aortic valve replacement surgery"
+    },
+    {
+      "id": "e10",
+      "date": "2011-10-22",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Susan Schneider"
+    },
+    {
+      "id": "e11",
+      "date": "2014-08-11",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died at his home in California"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Robin_Williams",
+  "known_time": "13:34",
+  "known_time_is_round": false,
+  "name": "Robin Williams",
+  "place": {
+    "name": "Chicago, Illinois, USA",
+    "city": "Chicago",
+    "country_code": "US",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "tz": "America/Chicago"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Williams,_Robin",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

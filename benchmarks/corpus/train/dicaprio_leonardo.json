@@ -1,20 +1,6 @@
 {
-  "case_id": "dicaprio_leonardo",
-  "name": "Leonardo DiCaprio",
   "birth_date": "1974-11-11",
-  "known_time": "02:47",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/DiCaprio,_Leonardo",
-  "events_source_url": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio",
-  "place": {
-    "name": "Los Angeles, California, USA",
-    "city": "Los Angeles",
-    "country_code": "US",
-    "lat": 34.0522,
-    "lon": -118.2437,
-    "tz": "America/Los_Angeles"
-  },
+  "case_id": "dicaprio_leonardo",
   "events": [
     {
       "id": "e1",
@@ -87,8 +73,22 @@
       "description": "'Once Upon a Time in Hollywood' released"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio",
+  "known_time": "02:47",
   "known_time_is_round": false,
+  "name": "Leonardo DiCaprio",
+  "place": {
+    "name": "Los Angeles, California, USA",
+    "city": "Los Angeles",
+    "country_code": "US",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "tz": "America/Los_Angeles"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/DiCaprio,_Leonardo",
   "spread_flags": {
     "night_birth": true,
     "high_latitude": false,

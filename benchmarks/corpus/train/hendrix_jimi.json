@@ -1,0 +1,90 @@
+{
+  "birth_date": "1942-11-27",
+  "case_id": "hendrix_jimi",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1961-05-31",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Enlisted in the United States Army"
+    },
+    {
+      "id": "e2",
+      "date": "1962-06-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Discharged from the Army and began playing professionally"
+    },
+    {
+      "id": "e3",
+      "date": "1966-09-24",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Moved to London"
+    },
+    {
+      "id": "e4",
+      "date": "1967-05-12",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Are You Experienced' released"
+    },
+    {
+      "id": "e5",
+      "date": "1967-06-18",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Monterey Pop Festival performance"
+    },
+    {
+      "id": "e6",
+      "date": "1968-10-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Electric Ladyland' released"
+    },
+    {
+      "id": "e7",
+      "date": "1969-05-03",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Arrested at Toronto airport on drug charges"
+    },
+    {
+      "id": "e8",
+      "date": "1969-08-18",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Closed the Woodstock festival"
+    },
+    {
+      "id": "e9",
+      "date": "1970-09-18",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in London"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Jimi_Hendrix",
+  "known_time": "10:15",
+  "known_time_is_round": true,
+  "name": "Jimi Hendrix",
+  "place": {
+    "name": "Seattle, Washington, USA",
+    "city": "Seattle",
+    "country_code": "US",
+    "lat": 47.6062,
+    "lon": -122.3321,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Hendrix,_Jimi",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

@@ -1,0 +1,371 @@
+[
+  {
+    "case": "ali_muhammad",
+    "split": "train",
+    "err": 9,
+    "full": 9,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "bush_george_w",
+    "split": "holdout",
+    "err": 6,
+    "full": 630,
+    "refused": true,
+    "pct": 0.15,
+    "resid": 0
+  },
+  {
+    "case": "carter_jimmy",
+    "split": "train",
+    "err": 4,
+    "full": 188,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "clinton_bill",
+    "split": "train",
+    "err": 29,
+    "full": 29,
+    "refused": true,
+    "pct": 0.65,
+    "resid": 0
+  },
+  {
+    "case": "cobain_kurt",
+    "split": "train",
+    "err": 102,
+    "full": 386,
+    "refused": true,
+    "pct": 0.75,
+    "resid": 0
+  },
+  {
+    "case": "depp_johnny",
+    "split": "holdout",
+    "err": 20,
+    "full": 264,
+    "refused": true,
+    "pct": 0.6,
+    "resid": 0
+  },
+  {
+    "case": "dicaprio_leonardo",
+    "split": "train",
+    "err": 11,
+    "full": 265,
+    "refused": true,
+    "pct": 0.5,
+    "resid": 0
+  },
+  {
+    "case": "disney_walt",
+    "split": "train",
+    "err": 123,
+    "full": 189,
+    "refused": true,
+    "pct": 0.05,
+    "resid": 0
+  },
+  {
+    "case": "dylan_bob",
+    "split": "train",
+    "err": 51,
+    "full": 301,
+    "refused": true,
+    "pct": 0.55,
+    "resid": 4
+  },
+  {
+    "case": "freud_sigmund",
+    "split": "train",
+    "err": 82,
+    "full": 106,
+    "refused": true,
+    "pct": 0.4,
+    "resid": 0
+  },
+  {
+    "case": "gore_al",
+    "split": "holdout",
+    "err": 63,
+    "full": 261,
+    "refused": true,
+    "pct": 0.15,
+    "resid": 0
+  },
+  {
+    "case": "hanks_tom",
+    "split": "train",
+    "err": 11,
+    "full": 11,
+    "refused": true,
+    "pct": 0.8,
+    "resid": 0
+  },
+  {
+    "case": "hemingway_ernest",
+    "split": "train",
+    "err": 16,
+    "full": 44,
+    "refused": true,
+    "pct": 0.7,
+    "resid": 0
+  },
+  {
+    "case": "hendrix_jimi",
+    "split": "train",
+    "err": 91,
+    "full": 439,
+    "refused": true,
+    "pct": 0.5,
+    "resid": 0
+  },
+  {
+    "case": "houston_whitney",
+    "split": "train",
+    "err": 3,
+    "full": 291,
+    "refused": true,
+    "pct": 0.25,
+    "resid": 0
+  },
+  {
+    "case": "jobs_steve",
+    "split": "train",
+    "err": 1,
+    "full": 351,
+    "refused": true,
+    "pct": 0.2,
+    "resid": 0
+  },
+  {
+    "case": "jolie_angelina",
+    "split": "train",
+    "err": 37,
+    "full": 663,
+    "refused": true,
+    "pct": 0.05,
+    "resid": 0
+  },
+  {
+    "case": "joplin_janis",
+    "split": "train",
+    "err": 57,
+    "full": 659,
+    "refused": true,
+    "pct": 0.4,
+    "resid": 0
+  },
+  {
+    "case": "jordan_michael",
+    "split": "train",
+    "err": 24,
+    "full": 568,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "kennedy_john",
+    "split": "train",
+    "err": 4,
+    "full": 4,
+    "refused": true,
+    "pct": 0.6,
+    "resid": 0
+  },
+  {
+    "case": "lee_bruce",
+    "split": "holdout",
+    "err": 20,
+    "full": 392,
+    "refused": true,
+    "pct": 0.9,
+    "resid": 0
+  },
+  {
+    "case": "manson_charles",
+    "split": "holdout",
+    "err": 36,
+    "full": 644,
+    "refused": true,
+    "pct": 0.8,
+    "resid": 0
+  },
+  {
+    "case": "mitterrand_francois",
+    "split": "train",
+    "err": 12,
+    "full": 172,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "monroe_marilyn",
+    "split": "train",
+    "err": 10,
+    "full": 290,
+    "refused": true,
+    "pct": 0.5,
+    "resid": 0
+  },
+  {
+    "case": "morrison_jim",
+    "split": "train",
+    "err": 33,
+    "full": 683,
+    "refused": true,
+    "pct": 0.75,
+    "resid": 0
+  },
+  {
+    "case": "nelson_prince",
+    "split": "train",
+    "err": 15,
+    "full": 555,
+    "refused": true,
+    "pct": 0.2,
+    "resid": 0
+  },
+  {
+    "case": "nixon_richard",
+    "split": "train",
+    "err": 79,
+    "full": 241,
+    "refused": true,
+    "pct": 0.5,
+    "resid": 0
+  },
+  {
+    "case": "obama_barack",
+    "split": "train",
+    "err": 12,
+    "full": 636,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "presley_elvis",
+    "split": "train",
+    "err": 29,
+    "full": 469,
+    "refused": true,
+    "pct": 0.6,
+    "resid": 0
+  },
+  {
+    "case": "sarkozy_nicolas",
+    "split": "train",
+    "err": 128,
+    "full": 388,
+    "refused": true,
+    "pct": 0.65,
+    "resid": 0
+  },
+  {
+    "case": "schwarzenegger_arnold",
+    "split": "holdout",
+    "err": 26,
+    "full": 414,
+    "refused": true,
+    "pct": 0.05,
+    "resid": 0
+  },
+  {
+    "case": "spears_britney",
+    "split": "holdout",
+    "err": 10,
+    "full": 10,
+    "refused": true,
+    "pct": 0.8,
+    "resid": 0
+  },
+  {
+    "case": "springsteen_bruce",
+    "split": "holdout",
+    "err": 66,
+    "full": 690,
+    "refused": true,
+    "pct": 0.0,
+    "resid": 0
+  },
+  {
+    "case": "stallone_sylvester",
+    "split": "train",
+    "err": 52,
+    "full": 160,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "taylor_elizabeth",
+    "split": "train",
+    "err": 70,
+    "full": 318,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 0
+  },
+  {
+    "case": "trump_donald",
+    "split": "holdout",
+    "err": 126,
+    "full": 614,
+    "refused": false,
+    "pct": 0.95,
+    "resid": 0
+  },
+  {
+    "case": "van_gogh_vincent",
+    "split": "holdout",
+    "err": 12,
+    "full": 248,
+    "refused": true,
+    "pct": 0.5,
+    "resid": 0
+  },
+  {
+    "case": "william_prince",
+    "split": "holdout",
+    "err": 15,
+    "full": 351,
+    "refused": true,
+    "pct": 0.1,
+    "resid": 4
+  },
+  {
+    "case": "williams_robin",
+    "split": "holdout",
+    "err": 66,
+    "full": 442,
+    "refused": true,
+    "pct": 0.0,
+    "resid": 0
+  },
+  {
+    "case": "williams_serena",
+    "split": "train",
+    "err": 16,
+    "full": 684,
+    "refused": false,
+    "pct": 0.95,
+    "resid": 0
+  },
+  {
+    "case": "woods_tiger",
+    "split": "train",
+    "err": 38,
+    "full": 38,
+    "refused": true,
+    "pct": 0.45,
+    "resid": 4
+  }
+]

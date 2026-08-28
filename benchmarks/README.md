@@ -17,7 +17,15 @@ dates?** It is not part of the service.
 
 | Path | What it is |
 |---|---|
-| `corpus/*.json` | Ground-truth cases. Public figures, Rodden **AA only**. |
+| `corpus/train/*.json` | Ground-truth cases used for every parameter choice. |
+| `corpus/holdout/*.json` | Held out. The pre-registered gate is read off these only. |
+| `variance_filter.py` | Within-block variance filter: decides what is worth building. |
+| `ablation.py` | Per-addition ablation against the frozen candidate engine. |
+| `weight_sweep.py` | Tunes each addition on train, scores it once on holdout. |
+| `harness/blocks.py` | Rising-sign blocks: the stage-2 search space. |
+| `harness/evaluators.py` | Evaluator prototypes, for the variance table. |
+| `harness/candidate_engine.py` | **Frozen experiment**: the five reverted additions. |
+| `RESULTS_SUBSIGN.md` | The sub-sign report and the gate verdict. |
 | `harness/protocol.py` | The one protocol all three arms share. |
 | `harness/arm_a.py` | Our engine, current `main`, engine defaults. |
 | `harness/arm_e.py` | Constant-guess baselines (noon, corpus median). |
@@ -90,7 +98,12 @@ committed fixture.
 
 ## The corpus
 
-Twelve cases, all Rodden AA (birth certificate or registered birth record).
+Forty-one cases, all Rodden AA, split 29 train / 12 holdout at the file level.
+**Every parameter, orb and weight is chosen on `train`; the gate is measured on
+`holdout` only.** `corpus.load_corpus(split=...)` enforces the distinction;
+passing no split loads both and is correct only for bookkeeping.
+
+The original twelve cases, all Rodden AA (birth certificate or registered birth record).
 A, B, C and DD were rejected on their actual rating - Ronald Reagan, Alfred
 Hitchcock, Angela Merkel, King Charles III, Justin Bieber, Lee Kuan Yew,
 Sukarno and others were checked and left out.

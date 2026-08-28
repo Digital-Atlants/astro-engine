@@ -1,0 +1,83 @@
+{
+  "birth_date": "1943-12-08",
+  "case_id": "morrison_jim",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1964-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Moved to Los Angeles to study film at UCLA"
+    },
+    {
+      "id": "e2",
+      "date": "1965-07-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Formed The Doors with Ray Manzarek"
+    },
+    {
+      "id": "e3",
+      "date": "1967-01-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Debut album released"
+    },
+    {
+      "id": "e4",
+      "date": "1967-12-09",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Arrested on stage in New Haven"
+    },
+    {
+      "id": "e5",
+      "date": "1969-03-01",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Miami concert that led to indecency charges"
+    },
+    {
+      "id": "e6",
+      "date": "1970-09-20",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Convicted in the Miami case"
+    },
+    {
+      "id": "e7",
+      "date": "1971-03-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to Paris"
+    },
+    {
+      "id": "e8",
+      "date": "1971-07-03",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Paris"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Jim_Morrison",
+  "known_time": "11:55",
+  "known_time_is_round": false,
+  "name": "Jim Morrison",
+  "place": {
+    "name": "Melbourne, Florida, USA",
+    "city": "Melbourne",
+    "country_code": "US",
+    "lat": 28.0836,
+    "lon": -80.6081,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Morrison,_Jim",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

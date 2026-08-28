@@ -1,20 +1,6 @@
 {
-  "case_id": "obama_barack",
-  "name": "Barack Obama",
   "birth_date": "1961-08-04",
-  "known_time": "19:24",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: rating changed to AA in June 2008 on release of the birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/Obama,_Barack",
-  "events_source_url": "https://en.wikipedia.org/wiki/Barack_Obama",
-  "place": {
-    "name": "Honolulu, Hawaii, USA",
-    "city": "Honolulu",
-    "country_code": "US",
-    "lat": 21.3069,
-    "lon": -157.8583,
-    "tz": "Pacific/Honolulu"
-  },
+  "case_id": "obama_barack",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Elected President of the United States"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Barack_Obama",
+  "known_time": "19:24",
   "known_time_is_round": false,
+  "name": "Barack Obama",
+  "place": {
+    "name": "Honolulu, Hawaii, USA",
+    "city": "Honolulu",
+    "country_code": "US",
+    "lat": 21.3069,
+    "lon": -157.8583,
+    "tz": "Pacific/Honolulu"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: rating changed to AA in June 2008 on release of the birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Obama,_Barack",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": false,

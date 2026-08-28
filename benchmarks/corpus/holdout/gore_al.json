@@ -1,0 +1,104 @@
+{
+  "birth_date": "1948-03-31",
+  "case_id": "gore_al",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1969-08-07",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Enlisted in the United States Army"
+    },
+    {
+      "id": "e2",
+      "date": "1970-05-19",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Mary Elizabeth Aitcheson"
+    },
+    {
+      "id": "e3",
+      "date": "1971-01-02",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Deployed to Vietnam as an army journalist"
+    },
+    {
+      "id": "e4",
+      "date": "1976-11-02",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the House of Representatives"
+    },
+    {
+      "id": "e5",
+      "date": "1984-11-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the United States Senate"
+    },
+    {
+      "id": "e6",
+      "date": "1989-04-03",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Son seriously injured by a car"
+    },
+    {
+      "id": "e7",
+      "date": "1992-11-03",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected Vice President of the United States"
+    },
+    {
+      "id": "e8",
+      "date": "2000-12-13",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Conceded the presidential election"
+    },
+    {
+      "id": "e9",
+      "date": "2006-05-24",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'An Inconvenient Truth' released"
+    },
+    {
+      "id": "e10",
+      "date": "2007-10-12",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Awarded the Nobel Peace Prize"
+    },
+    {
+      "id": "e11",
+      "date": "2010-06-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Separation from Tipper Gore announced"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Al_Gore",
+  "known_time": "12:53",
+  "known_time_is_round": false,
+  "name": "Al Gore",
+  "place": {
+    "name": "Washington, District of Columbia, USA",
+    "city": "Washington",
+    "country_code": "US",
+    "lat": 38.9072,
+    "lon": -77.0369,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Gore,_Al",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

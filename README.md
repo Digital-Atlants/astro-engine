@@ -110,22 +110,55 @@ See the request/response examples in
 [`tests/test_rectification.py`](tests/test_rectification.py) and the schema in
 [`astro_engine/schemas.py`](astro_engine/schemas.py).
 
+Optional request field `ascendant_sign` marks candidates outside that rising
+sign as `excluded` instead of dropping them, so the returned curve stays a
+complete picture of the window.
+
 Key response fields:
 
-- `candidates[]` — one entry per candidate time with `total_score` and the
-  contributing `hits` (`event_id`, `technique`, `factor`, `orb_deg`, `score`).
-- `suggested_best` — best time, its score, and `residual_window_minutes`:
-  the width of the contiguous candidate span whose scores stay within
-  `config.plateau_ratio` of the best score.
+- `candidates[]` — one entry per candidate time with `total_score`, `asc_sign`,
+  `excluded`, and the contributing `hits` (`event_id`, `technique`, `factor`,
+  `orb_deg`, `score`).
+- `density[]` — `{time, score, excluded}` per candidate, so clients can render
+  the curve without re-deriving a peak.
+- `suggested_best` — best time, its score, and `residual_window_minutes`.
+  **`time` is `null` when the engine declines to name one** (see below).
+- `confidence` — `refused`, `reasons[]`, `level`, `peak_score`, `mean_score`,
+  `peak_over_mean`, `separation`, `permutation_trials`,
+  `permutation_percentile`.
 - `config_echo`, `compute_ms`.
+
+**Confidence and refusal.** `permutation_percentile` is the only calibrated
+figure in the response: the engine reshuffles the event dates within the
+subject's own span, rescores the whole grid `config.permutation_trials` times,
+and reports where the real peak ranks among those null peaks. When the real
+peak does not stand out from that null, or the top candidates are not
+separable, the engine **refuses**: `confidence.refused` is `true`,
+`suggested_best.time` is `null`, and `confidence.reasons` says why. Prefer this
+over `residual_window_minutes`, which is retained for compatibility but
+measured flat — it is 0 in 38 of 41 corpus cases.
+
+The null is deterministic for a given request (seeded from the request itself)
+but multiplies the work by `permutation_trials + 1`. Set
+`permutation_trials: 0` for the old speed and no calibrated confidence.
 
 Date precision per event: `day` (full weight), `month` (evaluated mid-month,
 doubled orbs, slow factors only), `year` (slow techniques only — profections,
 solar arc, Saturn-and-slower transits).
 
+**Accuracy, measured.** On a 41-case Rodden AA corpus the median error inside
+the correct rising-sign block is 23 minutes on a held-out split, and 0% of
+cases land within ±5 minutes. `config.house_system` has no effect on a
+rectification score. `profections` is constant inside a rising-sign block and
+serves as a block-level prior, not a minute-level discriminator. The full
+measurement, including five candidate techniques that were built, measured and
+reverted, is in
+[`benchmarks/RESULTS_SUBSIGN.md`](benchmarks/RESULTS_SUBSIGN.md).
+
 Performance: positions per event date are candidate-independent and computed
 once; only Asc/MC/cusps (and the progressed Moon) are computed per candidate.
-360 candidates × 8 events completes in well under 10 s.
+360 candidates × 12 events takes ~0.2 s with the null disabled and ~2.5 s at
+the default 12 trials.
 
 ## Tests
 

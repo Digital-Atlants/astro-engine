@@ -1,0 +1,111 @@
+{
+  "birth_date": "1924-10-01",
+  "case_id": "carter_jimmy",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1946-06-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Graduated from the United States Naval Academy"
+    },
+    {
+      "id": "e2",
+      "date": "1946-07-07",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Rosalynn Smith"
+    },
+    {
+      "id": "e3",
+      "date": "1953-07-23",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Father James Earl Carter Sr. died"
+    },
+    {
+      "id": "e4",
+      "date": "1953-10-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Left the Navy to run the family peanut farm"
+    },
+    {
+      "id": "e5",
+      "date": "1962-11-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the Georgia State Senate"
+    },
+    {
+      "id": "e6",
+      "date": "1966-11-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the Georgia governor's race"
+    },
+    {
+      "id": "e7",
+      "date": "1970-11-03",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected Governor of Georgia"
+    },
+    {
+      "id": "e8",
+      "date": "1976-11-02",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    },
+    {
+      "id": "e9",
+      "date": "1979-11-04",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Iran hostage crisis began"
+    },
+    {
+      "id": "e10",
+      "date": "1980-11-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost re-election to Ronald Reagan"
+    },
+    {
+      "id": "e11",
+      "date": "2002-10-11",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Awarded the Nobel Peace Prize"
+    },
+    {
+      "id": "e12",
+      "date": "2015-08-12",
+      "date_precision": "day",
+      "type": "surgery",
+      "description": "Announced a diagnosis of metastatic melanoma"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Jimmy_Carter",
+  "known_time": "07:00",
+  "known_time_is_round": true,
+  "name": "Jimmy Carter",
+  "place": {
+    "name": "Plains, Georgia, USA",
+    "city": "Plains",
+    "country_code": "US",
+    "lat": 32.0335,
+    "lon": -84.3941,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth record held at the Carter Presidential Library, photographed by Sy Scholfield.",
+  "source_url": "https://www.astro.com/astro-databank/Carter,_Jimmy",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

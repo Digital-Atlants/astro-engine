@@ -1,0 +1,97 @@
+{
+  "birth_date": "1934-11-12",
+  "case_id": "manson_charles",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1939-01-01",
+      "date_precision": "year",
+      "type": "other",
+      "description": "Mother imprisoned for armed robbery"
+    },
+    {
+      "id": "e2",
+      "date": "1951-03-09",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Sent to the National Training School for Boys"
+    },
+    {
+      "id": "e3",
+      "date": "1955-01-13",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Rosalie Willis"
+    },
+    {
+      "id": "e4",
+      "date": "1960-06-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Imprisoned for cheque fraud"
+    },
+    {
+      "id": "e5",
+      "date": "1967-03-21",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Released from Terminal Island prison"
+    },
+    {
+      "id": "e6",
+      "date": "1968-08-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved his followers to Spahn Ranch"
+    },
+    {
+      "id": "e7",
+      "date": "1969-08-09",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Tate murders"
+    },
+    {
+      "id": "e8",
+      "date": "1969-12-01",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Indicted for the murders"
+    },
+    {
+      "id": "e9",
+      "date": "1971-01-25",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Convicted of first-degree murder"
+    },
+    {
+      "id": "e10",
+      "date": "2017-11-19",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in custody in California"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Charles_Manson",
+  "known_time": "16:40",
+  "known_time_is_round": false,
+  "name": "Charles Manson",
+  "place": {
+    "name": "Cincinnati, Ohio, USA",
+    "city": "Cincinnati",
+    "country_code": "US",
+    "lat": 39.1031,
+    "lon": -84.512,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Manson,_Charles",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

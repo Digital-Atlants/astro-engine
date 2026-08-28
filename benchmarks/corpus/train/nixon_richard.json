@@ -1,0 +1,104 @@
+{
+  "birth_date": "1913-01-09",
+  "case_id": "nixon_richard",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1933-03-01",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Brother Arthur died in childhood"
+    },
+    {
+      "id": "e2",
+      "date": "1940-06-21",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Thelma Catherine Ryan"
+    },
+    {
+      "id": "e3",
+      "date": "1946-11-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the House of Representatives"
+    },
+    {
+      "id": "e4",
+      "date": "1950-11-07",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the United States Senate"
+    },
+    {
+      "id": "e5",
+      "date": "1952-09-23",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Delivered the 'Checkers' speech"
+    },
+    {
+      "id": "e6",
+      "date": "1960-11-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the presidential election to Kennedy"
+    },
+    {
+      "id": "e7",
+      "date": "1962-11-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the California governor's race"
+    },
+    {
+      "id": "e8",
+      "date": "1968-11-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    },
+    {
+      "id": "e9",
+      "date": "1972-02-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Arrived in China on his state visit"
+    },
+    {
+      "id": "e10",
+      "date": "1974-08-09",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Resigned the presidency"
+    },
+    {
+      "id": "e11",
+      "date": "1994-04-22",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in New York"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Richard_Nixon",
+  "known_time": "21:35",
+  "known_time_is_round": false,
+  "name": "Richard Nixon",
+  "place": {
+    "name": "Yorba Linda, California, USA",
+    "city": "Yorba Linda",
+    "country_code": "US",
+    "lat": 33.8886,
+    "lon": -117.8131,
+    "tz": "America/Los_Angeles"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Nixon,_Richard",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

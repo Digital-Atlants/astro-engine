@@ -1,0 +1,97 @@
+{
+  "birth_date": "1963-02-17",
+  "case_id": "jordan_michael",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1982-03-29",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Hit the winning shot in the NCAA championship game"
+    },
+    {
+      "id": "e2",
+      "date": "1984-06-19",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Drafted third overall by the Chicago Bulls"
+    },
+    {
+      "id": "e3",
+      "date": "1989-09-02",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Juanita Vanoy"
+    },
+    {
+      "id": "e4",
+      "date": "1991-06-12",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won his first NBA championship"
+    },
+    {
+      "id": "e5",
+      "date": "1993-07-23",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Father James Jordan murdered"
+    },
+    {
+      "id": "e6",
+      "date": "1993-10-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "First retirement from basketball"
+    },
+    {
+      "id": "e7",
+      "date": "1995-03-18",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Returned to the Chicago Bulls"
+    },
+    {
+      "id": "e8",
+      "date": "1998-06-14",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won his sixth NBA championship"
+    },
+    {
+      "id": "e9",
+      "date": "2001-09-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Returned to play for the Washington Wizards"
+    },
+    {
+      "id": "e10",
+      "date": "2006-12-29",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Juanita finalised"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+  "known_time": "13:40",
+  "known_time_is_round": false,
+  "name": "Michael Jordan",
+  "place": {
+    "name": "Brooklyn, New York, USA",
+    "city": "New York",
+    "country_code": "US",
+    "lat": 40.6782,
+    "lon": -73.9442,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Jordan,_Michael",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

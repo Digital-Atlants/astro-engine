@@ -1,20 +1,6 @@
 {
-  "case_id": "presley_elvis",
-  "name": "Elvis Presley",
   "birth_date": "1935-01-08",
-  "known_time": "04:35",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: attending physician's birth record (Dr. Robert Hunt), submitted by Sy Scholfield.",
-  "source_url": "https://www.astro.com/astro-databank/Presley,_Elvis",
-  "events_source_url": "https://en.wikipedia.org/wiki/Elvis_Presley",
-  "place": {
-    "name": "Tupelo, Mississippi, USA",
-    "city": "Tupelo",
-    "country_code": "US",
-    "lat": 34.2576,
-    "lon": -88.7034,
-    "tz": "America/Chicago"
-  },
+  "case_id": "presley_elvis",
   "events": [
     {
       "id": "e1",
@@ -87,8 +73,22 @@
       "description": "Divorce from Priscilla finalised"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Elvis_Presley",
+  "known_time": "04:35",
   "known_time_is_round": false,
+  "name": "Elvis Presley",
+  "place": {
+    "name": "Tupelo, Mississippi, USA",
+    "city": "Tupelo",
+    "country_code": "US",
+    "lat": 34.2576,
+    "lon": -88.7034,
+    "tz": "America/Chicago"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: attending physician's birth record (Dr. Robert Hunt), submitted by Sy Scholfield.",
+  "source_url": "https://www.astro.com/astro-databank/Presley,_Elvis",
   "spread_flags": {
     "night_birth": true,
     "high_latitude": false,

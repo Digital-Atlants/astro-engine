@@ -1,20 +1,6 @@
 {
-  "case_id": "sarkozy_nicolas",
-  "name": "Nicolas Sarkozy",
   "birth_date": "1955-01-28",
-  "known_time": "22:00",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate, collected by Taglilatelo.",
-  "source_url": "https://www.astro.com/astro-databank/Sarkozy,_Nicolas",
-  "events_source_url": "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
-  "place": {
-    "name": "Paris, France",
-    "city": "Paris",
-    "country_code": "FR",
-    "lat": 48.8566,
-    "lon": 2.3522,
-    "tz": "Europe/Paris"
-  },
+  "case_id": "sarkozy_nicolas",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Convicted of corruption and influence peddling"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
+  "known_time": "22:00",
   "known_time_is_round": true,
+  "name": "Nicolas Sarkozy",
+  "place": {
+    "name": "Paris, France",
+    "city": "Paris",
+    "country_code": "FR",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "tz": "Europe/Paris"
+  },
   "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate, collected by Taglilatelo.",
+  "source_url": "https://www.astro.com/astro-databank/Sarkozy,_Nicolas",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": true,

@@ -1,20 +1,6 @@
 {
-  "case_id": "clinton_bill",
-  "name": "Bill Clinton",
   "birth_date": "1946-08-19",
-  "known_time": "08:51",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/Clinton,_Bill",
-  "events_source_url": "https://en.wikipedia.org/wiki/Bill_Clinton",
-  "place": {
-    "name": "Hope, Arkansas, USA",
-    "city": "Hope",
-    "country_code": "US",
-    "lat": 33.6671,
-    "lon": -93.5916,
-    "tz": "America/Chicago"
-  },
+  "case_id": "clinton_bill",
   "events": [
     {
       "id": "e1",
@@ -94,8 +80,22 @@
       "description": "Quadruple coronary artery bypass surgery"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Bill_Clinton",
+  "known_time": "08:51",
   "known_time_is_round": false,
+  "name": "Bill Clinton",
+  "place": {
+    "name": "Hope, Arkansas, USA",
+    "city": "Hope",
+    "country_code": "US",
+    "lat": 33.6671,
+    "lon": -93.5916,
+    "tz": "America/Chicago"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Clinton,_Bill",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": false,

@@ -1,0 +1,104 @@
+{
+  "birth_date": "1917-05-29",
+  "case_id": "kennedy_john",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1943-08-02",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "PT-109 rammed and sunk in the Solomon Islands"
+    },
+    {
+      "id": "e2",
+      "date": "1944-08-12",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Brother Joseph Kennedy Jr. killed in action"
+    },
+    {
+      "id": "e3",
+      "date": "1946-11-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the House of Representatives"
+    },
+    {
+      "id": "e4",
+      "date": "1952-11-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected to the United States Senate"
+    },
+    {
+      "id": "e5",
+      "date": "1953-09-12",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Jacqueline Bouvier"
+    },
+    {
+      "id": "e6",
+      "date": "1954-10-21",
+      "date_precision": "day",
+      "type": "surgery",
+      "description": "Spinal fusion surgery"
+    },
+    {
+      "id": "e7",
+      "date": "1957-11-27",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Caroline Kennedy born"
+    },
+    {
+      "id": "e8",
+      "date": "1960-11-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    },
+    {
+      "id": "e9",
+      "date": "1961-04-17",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Bay of Pigs invasion"
+    },
+    {
+      "id": "e10",
+      "date": "1962-10-16",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Cuban missile crisis began"
+    },
+    {
+      "id": "e11",
+      "date": "1963-11-22",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Assassinated in Dallas"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/John_F._Kennedy",
+  "known_time": "15:00",
+  "known_time_is_round": true,
+  "name": "John F. Kennedy",
+  "place": {
+    "name": "Brookline, Massachusetts, USA",
+    "city": "Brookline",
+    "country_code": "US",
+    "lat": 42.3318,
+    "lon": -71.1212,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Kennedy,_John_F.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}
