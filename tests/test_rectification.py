@@ -215,6 +215,90 @@ def test_house_system_does_not_affect_rectification_scoring(client, auth_headers
     ]
 
 
+def _narrow_body(case: dict, start: str, end: str, **config) -> dict:
+    body = _body_for(case, **config)
+    body["candidate_window"] = {
+        "start_time": start,
+        "end_time": end,
+        "step_minutes": 4,
+    }
+    return body
+
+
+def test_narrow_survivor_set_returns_the_interval_midpoint(client, auth_headers):
+    """Below the threshold the engine stops trusting its own ordering.
+
+    Measured on the 41-case corpus: once the candidate set is this narrow the
+    score argmax is anti-correlated with the truth and loses to a blind pick.
+    The midpoint of the surviving interval is the better estimator there.
+    """
+    case = _load_case("presley_elvis")
+    # Six candidates at a 4-minute step is a 24-minute interval, under the
+    # 26-minute default.
+    resp = client.post(
+        "/v1/rectification/score",
+        json=_narrow_body(case, "09:00", "09:20"),
+        headers=auth_headers,
+    )
+    assert resp.status_code == 200
+    result = resp.json()
+    best = result["suggested_best"]
+
+    assert len(result["candidates"]) == 6
+    assert best["selection"] == "interval_midpoint"
+    times = [c["time"] for c in result["candidates"]]
+    assert best["time"] == times[(len(times) - 1) // 2] == "09:08"
+
+
+def test_wide_survivor_set_keeps_the_argmax_unchanged(client, auth_headers):
+    """Above the threshold nothing about the old behaviour changes."""
+    case = _load_case("presley_elvis")
+    resp = client.post(
+        "/v1/rectification/score",
+        json=_narrow_body(case, "09:00", "09:40"),
+        headers=auth_headers,
+    )
+    assert resp.status_code == 200
+    result = resp.json()
+    best = result["suggested_best"]
+
+    assert len(result["candidates"]) == 11  # 40 minutes, over the threshold
+    assert best["selection"] == "argmax"
+    argmax = max(
+        result["candidates"],
+        key=lambda c: (c["total_score"], -_minutes(c["time"])),
+    )
+    assert best["time"] == argmax["time"]
+
+
+def test_midpoint_threshold_is_configurable_and_can_be_disabled(client, auth_headers):
+    case = _load_case("presley_elvis")
+    resp = client.post(
+        "/v1/rectification/score",
+        json=_narrow_body(case, "09:00", "09:20", midpoint_below_minutes=0),
+        headers=auth_headers,
+    )
+    assert resp.status_code == 200
+    result = resp.json()
+    assert result["suggested_best"]["selection"] == "argmax"
+    argmax = max(
+        result["candidates"],
+        key=lambda c: (c["total_score"], -_minutes(c["time"])),
+    )
+    assert result["suggested_best"]["time"] == argmax["time"]
+
+
+def test_full_day_search_is_unaffected_by_the_midpoint_rule(client, auth_headers):
+    """The whole 24-hour window is one wide interval, so nothing changes."""
+    case = _load_case("presley_elvis")
+    resp = client.post(
+        "/v1/rectification/score", json=_body_for(case), headers=auth_headers
+    )
+    assert resp.status_code == 200
+    result = resp.json()
+    assert result["suggested_best"]["selection"] == "argmax"
+
+
 def test_performance_360_candidates_5_events(client, auth_headers):
     body = {
         "birth_date": "1990-07-01",

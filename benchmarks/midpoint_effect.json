@@ -1,0 +1,362 @@
+{
+  "all": {
+    "argmax": {
+      "hit_15": 0.825,
+      "hit_5": 0.475,
+      "mean": 8.7,
+      "median": 6.0
+    },
+    "argmax_better": 10,
+    "engages_below_26min": 28,
+    "midpoint": {
+      "hit_15": 0.95,
+      "hit_5": 0.4,
+      "mean": 6.55,
+      "median": 6.0
+    },
+    "midpoint_better": 19,
+    "n": 40,
+    "tie": 11
+  },
+  "holdout": {
+    "argmax": {
+      "hit_15": 0.75,
+      "hit_5": 0.3333333333333333,
+      "mean": 9.833333333333334,
+      "median": 6.5
+    },
+    "argmax_better": 4,
+    "engages_below_26min": 8,
+    "midpoint": {
+      "hit_15": 0.9166666666666666,
+      "hit_5": 0.25,
+      "mean": 7.5,
+      "median": 8.0
+    },
+    "midpoint_better": 7,
+    "n": 12,
+    "tie": 1
+  },
+  "per_case": [
+    {
+      "argmax_err": 1,
+      "case_id": "ali_muhammad",
+      "midpoint_err": 7,
+      "split": "train",
+      "survivors": 7,
+      "window_minutes": 28
+    },
+    {
+      "argmax_err": 6,
+      "case_id": "bush_george_w",
+      "midpoint_err": 6,
+      "split": "holdout",
+      "survivors": 9,
+      "window_minutes": 36
+    },
+    {
+      "argmax_err": 0,
+      "case_id": "carter_jimmy",
+      "midpoint_err": 4,
+      "split": "train",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 1,
+      "case_id": "clinton_bill",
+      "midpoint_err": 1,
+      "split": "train",
+      "survivors": 1,
+      "window_minutes": 4
+    },
+    {
+      "argmax_err": 14,
+      "case_id": "cobain_kurt",
+      "midpoint_err": 6,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 4,
+      "case_id": "depp_johnny",
+      "midpoint_err": 0,
+      "split": "holdout",
+      "survivors": 2,
+      "window_minutes": 8
+    },
+    {
+      "argmax_err": 1,
+      "case_id": "dicaprio_leonardo",
+      "midpoint_err": 1,
+      "split": "train",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 9,
+      "case_id": "disney_walt",
+      "midpoint_err": 7,
+      "split": "train",
+      "survivors": 8,
+      "window_minutes": 32
+    },
+    {
+      "argmax_err": 1,
+      "case_id": "dylan_bob",
+      "midpoint_err": 1,
+      "split": "train",
+      "survivors": 1,
+      "window_minutes": 4
+    },
+    {
+      "argmax_err": 14,
+      "case_id": "freud_sigmund",
+      "midpoint_err": 6,
+      "split": "train",
+      "survivors": 11,
+      "window_minutes": 44
+    },
+    {
+      "argmax_err": 7,
+      "case_id": "gore_al",
+      "midpoint_err": 19,
+      "split": "holdout",
+      "survivors": 11,
+      "window_minutes": 44
+    },
+    {
+      "argmax_err": 7,
+      "case_id": "hanks_tom",
+      "midpoint_err": 9,
+      "split": "train",
+      "survivors": 8,
+      "window_minutes": 32
+    },
+    {
+      "argmax_err": 16,
+      "case_id": "hemingway_ernest",
+      "midpoint_err": 8,
+      "split": "train",
+      "survivors": 11,
+      "window_minutes": 44
+    },
+    {
+      "argmax_err": 3,
+      "case_id": "hendrix_jimi",
+      "midpoint_err": 3,
+      "split": "train",
+      "survivors": 2,
+      "window_minutes": 8
+    },
+    {
+      "argmax_err": 3,
+      "case_id": "houston_whitney",
+      "midpoint_err": 3,
+      "split": "train",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 3,
+      "case_id": "jolie_angelina",
+      "midpoint_err": 1,
+      "split": "train",
+      "survivors": 2,
+      "window_minutes": 8
+    },
+    {
+      "argmax_err": 3,
+      "case_id": "joplin_janis",
+      "midpoint_err": 3,
+      "split": "train",
+      "survivors": 5,
+      "window_minutes": 20
+    },
+    {
+      "argmax_err": 0,
+      "case_id": "jordan_michael",
+      "midpoint_err": 0,
+      "split": "train",
+      "survivors": 1,
+      "window_minutes": 4
+    },
+    {
+      "argmax_err": 4,
+      "case_id": "kennedy_john",
+      "midpoint_err": 4,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 20,
+      "case_id": "lee_bruce",
+      "midpoint_err": 8,
+      "split": "holdout",
+      "survivors": 6,
+      "window_minutes": 24
+    },
+    {
+      "argmax_err": 4,
+      "case_id": "manson_charles",
+      "midpoint_err": 0,
+      "split": "holdout",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 12,
+      "case_id": "mitterrand_francois",
+      "midpoint_err": 8,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 22,
+      "case_id": "monroe_marilyn",
+      "midpoint_err": 14,
+      "split": "train",
+      "survivors": 8,
+      "window_minutes": 32
+    },
+    {
+      "argmax_err": 5,
+      "case_id": "morrison_jim",
+      "midpoint_err": 3,
+      "split": "train",
+      "survivors": 5,
+      "window_minutes": 20
+    },
+    {
+      "argmax_err": 9,
+      "case_id": "nelson_prince",
+      "midpoint_err": 9,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 47,
+      "case_id": "nixon_richard",
+      "midpoint_err": 31,
+      "split": "train",
+      "survivors": 17,
+      "window_minutes": 68
+    },
+    {
+      "argmax_err": 12,
+      "case_id": "obama_barack",
+      "midpoint_err": 4,
+      "split": "train",
+      "survivors": 7,
+      "window_minutes": 28
+    },
+    {
+      "argmax_err": 3,
+      "case_id": "presley_elvis",
+      "midpoint_err": 7,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 4,
+      "case_id": "sarkozy_nicolas",
+      "midpoint_err": 8,
+      "split": "train",
+      "survivors": 5,
+      "window_minutes": 20
+    },
+    {
+      "argmax_err": 6,
+      "case_id": "schwarzenegger_arnold",
+      "midpoint_err": 10,
+      "split": "holdout",
+      "survivors": 7,
+      "window_minutes": 28
+    },
+    {
+      "argmax_err": 2,
+      "case_id": "spears_britney",
+      "midpoint_err": 6,
+      "split": "holdout",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 26,
+      "case_id": "springsteen_bruce",
+      "midpoint_err": 10,
+      "split": "holdout",
+      "survivors": 8,
+      "window_minutes": 32
+    },
+    {
+      "argmax_err": 12,
+      "case_id": "stallone_sylvester",
+      "midpoint_err": 8,
+      "split": "train",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 2,
+      "case_id": "taylor_elizabeth",
+      "midpoint_err": 6,
+      "split": "train",
+      "survivors": 3,
+      "window_minutes": 12
+    },
+    {
+      "argmax_err": 2,
+      "case_id": "trump_donald",
+      "midpoint_err": 10,
+      "split": "holdout",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 12,
+      "case_id": "van_gogh_vincent",
+      "midpoint_err": 8,
+      "split": "holdout",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 7,
+      "case_id": "william_prince",
+      "midpoint_err": 3,
+      "split": "holdout",
+      "survivors": 4,
+      "window_minutes": 16
+    },
+    {
+      "argmax_err": 22,
+      "case_id": "williams_robin",
+      "midpoint_err": 10,
+      "split": "holdout",
+      "survivors": 6,
+      "window_minutes": 24
+    },
+    {
+      "argmax_err": 16,
+      "case_id": "williams_serena",
+      "midpoint_err": 4,
+      "split": "train",
+      "survivors": 6,
+      "window_minutes": 24
+    },
+    {
+      "argmax_err": 6,
+      "case_id": "woods_tiger",
+      "midpoint_err": 6,
+      "split": "train",
+      "survivors": 2,
+      "window_minutes": 8
+    }
+  ]
+}
