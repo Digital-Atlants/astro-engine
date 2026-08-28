@@ -1,0 +1,42 @@
+name: rectification-benchmark
+
+# Explicitly triggered only. Never on push: Arm B spends vendor credits and
+# the free tier is 50 requests a month.
+on:
+  workflow_dispatch:
+    inputs:
+      arms:
+        description: "Arms to run (a,c,e is free; adding b spends vendor credits)"
+        required: true
+        default: "a,c,e"
+      offline:
+        description: "Replay committed vendor fixtures instead of calling the API"
+        type: boolean
+        default: true
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Harness self-tests
+        run: pytest benchmarks/tests -q
+      - name: Run benchmark
+        env:
+          RECT_VENDOR_API_KEY: ${{ secrets.RECT_VENDOR_API_KEY }}
+        run: |
+          python benchmarks/run_benchmark.py \
+            --arms "${{ inputs.arms }}" \
+            ${{ inputs.offline && '--offline' || '' }}
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: rectification-benchmark
+          path: |
+            benchmarks/RESULTS.md
+            benchmarks/results.json

@@ -1,0 +1,111 @@
+{
+  "case_id": "van_gogh_vincent",
+  "name": "Vincent van Gogh",
+  "birth_date": "1853-03-30",
+  "known_time": "11:00",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate / birth record in hand, Gauquelin collection.",
+  "source_url": "https://www.astro.com/astro-databank/Van_Gogh,_Vincent",
+  "events_source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+  "place": {
+    "name": "Zundert, Netherlands",
+    "city": "Zundert",
+    "country_code": "NL",
+    "lat": 51.4667,
+    "lon": 4.6667,
+    "tz": "Europe/Amsterdam"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1869-07-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Began work at the Goupil and Cie art dealership, The Hague"
+    },
+    {
+      "id": "e2",
+      "date": "1873-06-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Transferred to the Goupil branch in London"
+    },
+    {
+      "id": "e3",
+      "date": "1876-04-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to Ramsgate, England, as a schoolmaster"
+    },
+    {
+      "id": "e4",
+      "date": "1878-12-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to the Borinage, Belgium, as a lay missionary"
+    },
+    {
+      "id": "e5",
+      "date": "1880-10-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Decided to become an artist; moved to Brussels"
+    },
+    {
+      "id": "e6",
+      "date": "1885-03-26",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Father Theodorus van Gogh died"
+    },
+    {
+      "id": "e7",
+      "date": "1886-03-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to Paris to live with his brother Theo"
+    },
+    {
+      "id": "e8",
+      "date": "1888-02-20",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Moved to Arles, Provence"
+    },
+    {
+      "id": "e9",
+      "date": "1888-12-23",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Severed part of his own left ear during a breakdown"
+    },
+    {
+      "id": "e10",
+      "date": "1889-05-08",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Admitted to the asylum at Saint-Remy-de-Provence"
+    },
+    {
+      "id": "e11",
+      "date": "1890-05-20",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Moved to Auvers-sur-Oise"
+    },
+    {
+      "id": "e12",
+      "date": "1890-07-29",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died at Auvers-sur-Oise"
+    }
+  ],
+  "known_time_is_round": true,
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

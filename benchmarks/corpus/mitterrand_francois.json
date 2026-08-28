@@ -1,0 +1,111 @@
+{
+  "case_id": "mitterrand_francois",
+  "name": "Francois Mitterrand",
+  "birth_date": "1916-10-26",
+  "known_time": "04:00",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth record, Gauquelin collection.",
+  "source_url": "https://www.astro.com/astro-databank/Mitterrand,_Fran%C3%A7ois",
+  "events_source_url": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_Mitterrand",
+  "place": {
+    "name": "Jarnac, Charente, France",
+    "city": "Jarnac",
+    "country_code": "FR",
+    "lat": 45.6833,
+    "lon": -0.1833,
+    "tz": "Europe/Paris"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1940-06-01",
+      "date_precision": "month",
+      "type": "accident",
+      "description": "Wounded near Verdun and taken prisoner of war"
+    },
+    {
+      "id": "e2",
+      "date": "1941-12-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Escaped from German captivity at the third attempt"
+    },
+    {
+      "id": "e3",
+      "date": "1944-10-28",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Danielle Gouze"
+    },
+    {
+      "id": "e4",
+      "date": "1946-11-10",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected deputy for the Nievre"
+    },
+    {
+      "id": "e5",
+      "date": "1947-01-22",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Appointed Minister for Veterans, the youngest minister"
+    },
+    {
+      "id": "e6",
+      "date": "1965-12-19",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the presidential run-off to Charles de Gaulle"
+    },
+    {
+      "id": "e7",
+      "date": "1971-06-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Became First Secretary of the Socialist Party at Epinay"
+    },
+    {
+      "id": "e8",
+      "date": "1974-05-19",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the presidential run-off to Giscard d'Estaing"
+    },
+    {
+      "id": "e9",
+      "date": "1981-05-10",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the French Republic"
+    },
+    {
+      "id": "e10",
+      "date": "1988-05-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Re-elected President of the French Republic"
+    },
+    {
+      "id": "e11",
+      "date": "1992-09-01",
+      "date_precision": "month",
+      "type": "surgery",
+      "description": "Prostate cancer surgery"
+    },
+    {
+      "id": "e12",
+      "date": "1996-01-08",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Paris"
+    }
+  ],
+  "known_time_is_round": true,
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "case_id": "sarkozy_nicolas",
+  "name": "Nicolas Sarkozy",
+  "birth_date": "1955-01-28",
+  "known_time": "22:00",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate, collected by Taglilatelo.",
+  "source_url": "https://www.astro.com/astro-databank/Sarkozy,_Nicolas",
+  "events_source_url": "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
+  "place": {
+    "name": "Paris, France",
+    "city": "Paris",
+    "country_code": "FR",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "tz": "Europe/Paris"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1982-09-23",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Marie-Dominique Culioli"
+    },
+    {
+      "id": "e2",
+      "date": "1983-03-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Elected Mayor of Neuilly-sur-Seine"
+    },
+    {
+      "id": "e3",
+      "date": "1993-03-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Appointed Minister of the Budget"
+    },
+    {
+      "id": "e4",
+      "date": "1996-10-23",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Cecilia Ciganer-Albeniz"
+    },
+    {
+      "id": "e5",
+      "date": "2002-05-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Appointed Minister of the Interior"
+    },
+    {
+      "id": "e6",
+      "date": "2004-11-29",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected leader of the UMP party"
+    },
+    {
+      "id": "e7",
+      "date": "2007-05-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the French Republic"
+    },
+    {
+      "id": "e8",
+      "date": "2007-10-15",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Cecilia announced"
+    },
+    {
+      "id": "e9",
+      "date": "2008-02-02",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Carla Bruni"
+    },
+    {
+      "id": "e10",
+      "date": "2011-10-19",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Giulia Sarkozy born"
+    },
+    {
+      "id": "e11",
+      "date": "2012-05-06",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the presidential run-off to Francois Hollande"
+    },
+    {
+      "id": "e12",
+      "date": "2021-03-01",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Convicted of corruption and influence peddling"
+    }
+  ],
+  "known_time_is_round": true,
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

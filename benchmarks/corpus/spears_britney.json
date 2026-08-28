@@ -1,0 +1,97 @@
+{
+  "case_id": "spears_britney",
+  "name": "Britney Spears",
+  "birth_date": "1981-12-02",
+  "known_time": "01:30",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Spears,_Britney",
+  "events_source_url": "https://en.wikipedia.org/wiki/Britney_Spears",
+  "place": {
+    "name": "McComb, Mississippi, USA",
+    "city": "McComb",
+    "country_code": "US",
+    "lat": 31.2438,
+    "lon": -90.4529,
+    "tz": "America/Chicago"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1992-01-01",
+      "date_precision": "year",
+      "type": "career_break",
+      "description": "Appeared on Star Search"
+    },
+    {
+      "id": "e2",
+      "date": "1993-01-01",
+      "date_precision": "year",
+      "type": "career_break",
+      "description": "Cast in The All-New Mickey Mouse Club"
+    },
+    {
+      "id": "e3",
+      "date": "1998-10-23",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Debut single released"
+    },
+    {
+      "id": "e4",
+      "date": "2004-01-03",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Jason Allen Alexander in Las Vegas; annulled 5 January"
+    },
+    {
+      "id": "e5",
+      "date": "2004-09-18",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Kevin Federline"
+    },
+    {
+      "id": "e6",
+      "date": "2005-09-14",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Son Sean Preston Federline born"
+    },
+    {
+      "id": "e7",
+      "date": "2006-09-12",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Son Jayden James Federline born"
+    },
+    {
+      "id": "e8",
+      "date": "2008-02-01",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Conservatorship established over her person and estate"
+    },
+    {
+      "id": "e9",
+      "date": "2021-11-12",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Conservatorship terminated by the court"
+    },
+    {
+      "id": "e10",
+      "date": "2022-06-09",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Sam Asghari"
+    }
+  ],
+  "known_time_is_round": true,
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

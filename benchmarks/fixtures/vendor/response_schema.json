@@ -1,0 +1,184 @@
+{
+  "request": {
+    "events": [
+      {
+        "category": "move",
+        "date": "1967",
+        "date_precision": "year"
+      },
+      {
+        "category": "death_family",
+        "date": "1982-11-24",
+        "date_precision": "exact"
+      },
+      {
+        "category": "career_change",
+        "date": "1990-02-05",
+        "date_precision": "exact"
+      },
+      {
+        "category": "marriage",
+        "date": "1992-10-03",
+        "date_precision": "exact"
+      },
+      {
+        "category": "child_birth",
+        "date": "1998-07-04",
+        "date_precision": "exact"
+      }
+    ],
+    "subject": {
+      "birth_data": {
+        "city": "Honolulu",
+        "country_code": "US",
+        "day": 4,
+        "hour": 6,
+        "latitude": 21.3069,
+        "longitude": -157.8583,
+        "minute": 0,
+        "month": 8,
+        "second": 0,
+        "timezone": "Pacific/Honolulu",
+        "year": 1961
+      },
+      "name": "obama_barack"
+    },
+    "time_search": {
+      "delta_minutes": 8,
+      "step_minutes": 4
+    }
+  },
+  "response_schema": {
+    "data": {
+      "candidates": [
+        {
+          "agg_score": "float",
+          "anchor_evidence": [],
+          "anchor_grade": "bool",
+          "chart": {
+            "aspects": [
+              {
+                "aspect_direction": "...",
+                "aspect_type": "...",
+                "contact_end": "...",
+                "direction_method": "...",
+                "family": "...",
+                "harmonic": "...",
+                "orb": "...",
+                "orb_rate_deg_per_day": "...",
+                "peak_activations": "...",
+                "point1": "...",
+                "point2": "...",
+                "transiting_house": "..."
+              }
+            ],
+            "fixed_stars": "null",
+            "house_cusps": [
+              {
+                "absolute_longitude": "...",
+                "degree": "...",
+                "house": "...",
+                "sign": "..."
+              }
+            ],
+            "meta": "null",
+            "planetary_positions": [
+              {
+                "absolute_longitude": "...",
+                "declination": "...",
+                "declination_direction": "...",
+                "declination_speed": "...",
+                "degree": "...",
+                "ecliptic_latitude": "...",
+                "house": "...",
+                "is_out_of_bounds": "...",
+                "is_retrograde": "...",
+                "name": "...",
+                "sign": "...",
+                "speed": "..."
+              }
+            ]
+          },
+          "error": "null",
+          "evaluator_traces": "null",
+          "event_scores": [
+            {
+              "checks": [
+                "..."
+              ],
+              "event_category": "str",
+              "event_date": "str",
+              "event_description": "null",
+              "event_index": "int",
+              "interpretation": "null",
+              "total_score": "float"
+            }
+          ],
+          "events_strongly_correlated": "int",
+          "excluded": "bool",
+          "excluded_reason": "null",
+          "grade": "str",
+          "normalized_score": "float",
+          "rank": "int",
+          "time": "str"
+        }
+      ],
+      "computed_at": "str",
+      "density": [
+        {
+          "agg_score": "float",
+          "normalized_score": "float",
+          "time": "str"
+        }
+      ],
+      "summary": {
+        "anchor_recommendation": "null",
+        "confidence": {
+          "explanation": "str",
+          "gap_ratio": "float",
+          "level": "str",
+          "lift_ratio": "float"
+        },
+        "peak_time": "str",
+        "peak_window": [
+          "str"
+        ],
+        "quality_advisory": "str",
+        "score_stats": {
+          "max": "float",
+          "mean": "float",
+          "median": "float",
+          "min": "float",
+          "std": "float"
+        },
+        "search_range": {
+          "end": "str",
+          "start": "str"
+        },
+        "step_minutes": "int",
+        "techniques_used": [
+          "str"
+        ],
+        "total_candidates_generated": "int",
+        "total_candidates_returned": "int",
+        "total_events_used": "int",
+        "twin_window": "bool"
+      }
+    },
+    "metadata": {
+      "api_version": "str",
+      "cache_age_seconds": "null",
+      "cache_hit": "bool",
+      "calculation_method": "null",
+      "calculation_time_ms": "int",
+      "credits_used": "int",
+      "endpoint": "str",
+      "request_id": "str",
+      "server_location": "null",
+      "timestamp": "str"
+    },
+    "pagination": "null",
+    "success": "bool",
+    "warnings": "null"
+  }
+}
