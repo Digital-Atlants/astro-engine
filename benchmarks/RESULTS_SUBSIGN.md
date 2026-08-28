@@ -362,3 +362,158 @@ The pre-registered decision applies: **variant B is dead.** Ship the shortlist
 product and rewrite the promise. What ships from this task is Work item 4: an
 engine that returns a calibrated confidence, a full density curve, and - for
 39 of 41 corpus cases - an honest refusal.
+
+---
+
+# Appendix: block ranking and the in-block null
+
+Measurement only. No scoring change, no tuning, no new evaluator: the shipped
+engine at its defaults, with the permutation null switched off because it
+cannot move the argmax and only the argmax is read here. Produced by
+`benchmarks/block_ranking.py`; raw per-case output in
+`benchmarks/block_ranking.json`.
+
+Shuffled dates use 5 shuffles per case, drawn uniformly across the subject's
+own event span, with the event count, category mix and date precision held
+fixed. The true block is always the block containing the *known* time, so the
+null asks whether random dates find the right block just as often.
+
+Rank ties are broken against the engine: a block tying with the true block
+counts as ranking above it. A flat scorer cannot be credited by accident.
+
+## 1. Block ranking
+
+Blocks ranked by their peak score. Chance is 8.3% for first, 25.0% for top 3.
+
+### All 41 cases
+
+| Ranking | | 1st | top 3 | median rank |
+|---|---|---|---|---|
+| Twelve two-hour clock blocks | real events | 14.6% | 39.0% | 5 |
+| | shuffled dates | **17.6%** | 35.1% | 6 |
+| Twelve rising-sign blocks | real events | 14.6% | 51.2% | 3 |
+| | shuffled dates | **19.0%** | 40.5% | 4 |
+
+### Holdout only (12 cases)
+
+| Ranking | | 1st | top 3 | median rank |
+|---|---|---|---|---|
+| Twelve two-hour clock blocks | real events | 8.3% | 16.7% | 5.5 |
+| | shuffled dates | **11.7%** | **30.0%** | 6.0 |
+| Twelve rising-sign blocks | real events | 8.3% | 50.0% | 3.5 |
+| | shuffled dates | **16.7%** | 36.7% | 5.5 |
+
+### Real against its own null, directly
+
+| Scope | Ranking | AUC (real ranks better than null) | mean rank difference | permutation p |
+|---|---|---|---|---|
+| all 41 | clock blocks | 0.497 | +0.02 | 0.53 |
+| all 41 | rising-sign blocks | 0.517 | -0.19 | 0.35 |
+| holdout | clock blocks | 0.465 | +0.48 | 0.71 |
+| holdout | rising-sign blocks | 0.525 | -0.37 | 0.37 |
+
+AUC 0.50 is chance. All four sit on it.
+
+### Stated plainly
+
+**The true block does not rank better than chance.**
+
+Read on its own, the real-events row looks encouraging: the true rising-sign
+block lands in the top 3 half the time against a 25% chance rate. The null
+destroys that reading. Shuffled dates put the true block first *more often
+than real dates do* in all four comparisons (17.6% vs 14.6%, 19.0% vs 14.6%,
+11.7% vs 8.3%, 16.7% vs 8.3%), and the direct real-versus-null AUC is 0.497 to
+0.525 with p between 0.35 and 0.71.
+
+The above-chance top-3 rate is therefore a property of the grid, not of the
+events. Blocks differ in width and in Ascendant speed, so some blocks
+systematically collect higher peaks whatever dates are fed in, and the true
+block is disproportionately likely to be one of them. Random dates exploit
+that structure exactly as well as real ones.
+
+On holdout the real numbers do not even clear chance in absolute terms:
+first-place 8.3% is precisely 1 in 12, and clock-block top-3 at 16.7% is
+*below* the 25% chance rate.
+
+**This supersedes the earlier recorded figure of 25% / 42% / 58% for top-1 /
+top-2 / top-3.** That figure was measured on 12 cases and, more importantly,
+without a null control. On 41 cases the top-1 rate is 14.6%, and the null
+shows the whole effect is structural. The correct conclusion is not that block
+ranking got worse; it is that it was never measured against anything.
+
+**Consequence for the product:** stage 1 cannot be delegated to the scorer.
+Block selection has to come from the client questionnaire, because the engine
+ranks the correct block no better than it ranks a wrong one.
+
+## 2. In-block null
+
+Inside the correct rising-sign block only, same block and same 4-minute grid
+for both arms. Median block width 144 minutes (all) and 148 minutes (holdout),
+so a block holds 36 to 37 candidate times.
+
+The blind floor is the median |err| of a uniform pick among the block's own
+candidate times - what you get by guessing inside a correctly identified
+block.
+
+### All 41 cases
+
+| | median &#124;err&#124; | mean &#124;err&#124; | <=15 min | <=30 min | n |
+|---|---|---|---|---|---|
+| real events | **26.0** | 39.4 | **36.6%** | 56.1% | 41 |
+| shuffled dates | 36.0 | 43.9 | 19.0% | 42.4% | 205 |
+| blind uniform pick | 38.0 | - | - | - | - |
+
+### Holdout only (12 cases)
+
+| | median &#124;err&#124; | mean &#124;err&#124; | <=15 min | <=30 min | n |
+|---|---|---|---|---|---|
+| real events | **23.0** | 38.8 | **33.3%** | 58.3% | 12 |
+| shuffled dates | 38.0 | 48.5 | 11.7% | 38.3% | 60 |
+| blind uniform pick | 46.5 | - | - | - | - |
+
+### Real against its own null, directly
+
+| Scope | AUC (real beats null) | mean difference | permutation p |
+|---|---|---|---|
+| all 41 | 0.565 | -4.5 min | 0.15 |
+| holdout | 0.605 | -9.7 min | 0.12 |
+
+### Stated plainly
+
+**Inside the correct block, real events do beat shuffled dates - directionally
+and consistently, but not to statistical significance on this corpus.**
+
+Every summary points the same way. The median error is 10 minutes lower on all
+41 cases (26.0 vs 36.0) and 15 minutes lower on holdout (23.0 vs 38.0). The
++/-15 minute hit rate roughly doubles in both scopes (36.6% vs 19.0%; 33.3% vs
+11.7%). Shuffled dates land essentially on the blind floor - null median 36.0
+against a blind 38.0 on all cases - which is what a scorer with no information
+should do, while real events sit clearly inside it.
+
+What the direction does not yet have is significance. AUC is 0.565 and 0.605,
+and a paired permutation test on the means gives p = 0.15 and p = 0.12. With
+41 cases and 12 respectively, an effect this size is what you would see
+somewhere between one time in six and one time in eight by chance. It is
+suggestive, not established.
+
+## What the two halves say together
+
+These two results are not in tension, and together they are the clearest
+statement of where the engine actually stands:
+
+- **Choosing the block: no signal at all.** Chance-level against its own null,
+  in both blockings, in both scopes.
+- **Placing the time inside a known-correct block: real but small signal.**
+  Better than shuffled dates and better than a blind pick on every summary
+  statistic, at roughly p = 0.12 to 0.15.
+
+That is consistent with the information budget. Stage 1 supplies the block and
+must come from the questionnaire. Stage 2 has genuine information but, at a
+median of 23 minutes on holdout against a blind floor of 46.5, it converts
+about half the available range into accuracy - and stops far short of the 6
+minutes the gate required and further still from the +/-5 the product
+promised.
+
+Neither of these measurements changes the gate verdict. The gate was evaluated
+on the shipped engine's holdout in-block median of 23.0 minutes and it failed;
+this appendix explains what that number is made of.
