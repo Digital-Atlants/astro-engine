@@ -1,0 +1,111 @@
+{
+  "case_id": "obama_barack",
+  "name": "Barack Obama",
+  "birth_date": "1961-08-04",
+  "known_time": "19:24",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: rating changed to AA in June 2008 on release of the birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Obama,_Barack",
+  "events_source_url": "https://en.wikipedia.org/wiki/Barack_Obama",
+  "place": {
+    "name": "Honolulu, Hawaii, USA",
+    "city": "Honolulu",
+    "country_code": "US",
+    "lat": 21.3069,
+    "lon": -157.8583,
+    "tz": "Pacific/Honolulu"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1967-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Moved with his mother to Jakarta, Indonesia"
+    },
+    {
+      "id": "e2",
+      "date": "1971-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Returned to Honolulu to live with his grandparents"
+    },
+    {
+      "id": "e3",
+      "date": "1979-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Began studies at Occidental College, Los Angeles"
+    },
+    {
+      "id": "e4",
+      "date": "1981-01-01",
+      "date_precision": "year",
+      "type": "relocation",
+      "description": "Transferred to Columbia University, New York"
+    },
+    {
+      "id": "e5",
+      "date": "1982-11-24",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Father Barack Obama Sr. died in a car accident"
+    },
+    {
+      "id": "e6",
+      "date": "1985-06-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to Chicago to work as a community organiser"
+    },
+    {
+      "id": "e7",
+      "date": "1990-02-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected president of the Harvard Law Review"
+    },
+    {
+      "id": "e8",
+      "date": "1992-10-03",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Michelle Robinson"
+    },
+    {
+      "id": "e9",
+      "date": "1995-11-07",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Mother Ann Dunham died"
+    },
+    {
+      "id": "e10",
+      "date": "1998-07-04",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Malia Obama born"
+    },
+    {
+      "id": "e11",
+      "date": "2004-07-27",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Keynote address at the Democratic National Convention"
+    },
+    {
+      "id": "e12",
+      "date": "2008-11-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

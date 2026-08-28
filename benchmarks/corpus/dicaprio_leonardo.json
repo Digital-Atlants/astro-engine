@@ -1,0 +1,97 @@
+{
+  "case_id": "dicaprio_leonardo",
+  "name": "Leonardo DiCaprio",
+  "birth_date": "1974-11-11",
+  "known_time": "02:47",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/DiCaprio,_Leonardo",
+  "events_source_url": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio",
+  "place": {
+    "name": "Los Angeles, California, USA",
+    "city": "Los Angeles",
+    "country_code": "US",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "tz": "America/Los_Angeles"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1991-01-01",
+      "date_precision": "year",
+      "type": "career_break",
+      "description": "Recurring role on the sitcom Growing Pains"
+    },
+    {
+      "id": "e2",
+      "date": "1993-12-17",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'What's Eating Gilbert Grape' released"
+    },
+    {
+      "id": "e3",
+      "date": "1994-03-21",
+      "date_precision": "day",
+      "type": "other",
+      "description": "First Academy Award nomination, Best Supporting Actor"
+    },
+    {
+      "id": "e4",
+      "date": "1996-11-01",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Romeo + Juliet' released"
+    },
+    {
+      "id": "e5",
+      "date": "1997-12-19",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Titanic' released"
+    },
+    {
+      "id": "e6",
+      "date": "2002-12-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Catch Me If You Can' released"
+    },
+    {
+      "id": "e7",
+      "date": "2010-07-16",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Inception' released"
+    },
+    {
+      "id": "e8",
+      "date": "2014-09-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Designated a United Nations Messenger of Peace"
+    },
+    {
+      "id": "e9",
+      "date": "2016-02-28",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the Academy Award for Best Actor"
+    },
+    {
+      "id": "e10",
+      "date": "2019-07-26",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Once Upon a Time in Hollywood' released"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "case_id": "schwarzenegger_arnold",
+  "name": "Arnold Schwarzenegger",
+  "birth_date": "1947-07-30",
+  "known_time": "04:10",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Schwarzenegger,_Arnold",
+  "events_source_url": "https://en.wikipedia.org/wiki/Arnold_Schwarzenegger",
+  "place": {
+    "name": "Thal, Styria, Austria",
+    "city": "Graz",
+    "country_code": "AT",
+    "lat": 47.0667,
+    "lon": 15.3833,
+    "tz": "Europe/Vienna"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1965-10-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Began compulsory service in the Austrian Army"
+    },
+    {
+      "id": "e2",
+      "date": "1967-09-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Won Mr. Universe in London, youngest winner to that date"
+    },
+    {
+      "id": "e3",
+      "date": "1968-10-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Emigrated to the United States"
+    },
+    {
+      "id": "e4",
+      "date": "1970-09-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Won his first Mr. Olympia title"
+    },
+    {
+      "id": "e5",
+      "date": "1977-01-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "'Pumping Iron' released, first mainstream fame"
+    },
+    {
+      "id": "e6",
+      "date": "1984-10-26",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'The Terminator' released"
+    },
+    {
+      "id": "e7",
+      "date": "1986-04-26",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Maria Shriver in Hyannis, Massachusetts"
+    },
+    {
+      "id": "e8",
+      "date": "1989-12-13",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Katherine Schwarzenegger born"
+    },
+    {
+      "id": "e9",
+      "date": "1997-04-01",
+      "date_precision": "month",
+      "type": "surgery",
+      "description": "Elective heart valve replacement surgery"
+    },
+    {
+      "id": "e10",
+      "date": "2003-10-07",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected Governor of California in the recall election"
+    },
+    {
+      "id": "e11",
+      "date": "2011-05-09",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Separation from Maria Shriver made public"
+    },
+    {
+      "id": "e12",
+      "date": "2018-03-29",
+      "date_precision": "day",
+      "type": "surgery",
+      "description": "Emergency open-heart surgery after valve replacement"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

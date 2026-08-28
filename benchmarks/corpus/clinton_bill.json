@@ -1,0 +1,104 @@
+{
+  "case_id": "clinton_bill",
+  "name": "Bill Clinton",
+  "birth_date": "1946-08-19",
+  "known_time": "08:51",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Clinton,_Bill",
+  "events_source_url": "https://en.wikipedia.org/wiki/Bill_Clinton",
+  "place": {
+    "name": "Hope, Arkansas, USA",
+    "city": "Hope",
+    "country_code": "US",
+    "lat": 33.6671,
+    "lon": -93.5916,
+    "tz": "America/Chicago"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1963-07-24",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Met President Kennedy at the White House as a Boys Nation delegate"
+    },
+    {
+      "id": "e2",
+      "date": "1968-10-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Went up to University College, Oxford, as a Rhodes Scholar"
+    },
+    {
+      "id": "e3",
+      "date": "1975-10-11",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Hillary Rodham in Fayetteville, Arkansas"
+    },
+    {
+      "id": "e4",
+      "date": "1976-11-02",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected Attorney General of Arkansas"
+    },
+    {
+      "id": "e5",
+      "date": "1978-11-07",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected Governor of Arkansas"
+    },
+    {
+      "id": "e6",
+      "date": "1980-02-27",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Chelsea Clinton born"
+    },
+    {
+      "id": "e7",
+      "date": "1980-11-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost re-election as Governor of Arkansas"
+    },
+    {
+      "id": "e8",
+      "date": "1982-11-02",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Re-elected Governor of Arkansas"
+    },
+    {
+      "id": "e9",
+      "date": "1992-11-03",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    },
+    {
+      "id": "e10",
+      "date": "1998-12-19",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Impeached by the House of Representatives"
+    },
+    {
+      "id": "e11",
+      "date": "2004-09-06",
+      "date_precision": "day",
+      "type": "surgery",
+      "description": "Quadruple coronary artery bypass surgery"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

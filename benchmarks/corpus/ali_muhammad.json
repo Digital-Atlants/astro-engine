@@ -1,0 +1,111 @@
+{
+  "case_id": "ali_muhammad",
+  "name": "Muhammad Ali",
+  "birth_date": "1942-01-17",
+  "known_time": "18:35",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate in hand, collected by Steinbrecher.",
+  "source_url": "https://www.astro.com/astro-databank/Ali,_Muhammad",
+  "events_source_url": "https://en.wikipedia.org/wiki/Muhammad_Ali",
+  "place": {
+    "name": "Louisville, Kentucky, USA",
+    "city": "Louisville",
+    "country_code": "US",
+    "lat": 38.2527,
+    "lon": -85.7585,
+    "tz": "America/Kentucky/Louisville"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1960-09-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the Olympic light heavyweight gold medal in Rome"
+    },
+    {
+      "id": "e2",
+      "date": "1964-02-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Beat Sonny Liston for the world heavyweight title"
+    },
+    {
+      "id": "e3",
+      "date": "1964-08-14",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Sonji Roi"
+    },
+    {
+      "id": "e4",
+      "date": "1966-01-10",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Sonji Roi granted"
+    },
+    {
+      "id": "e5",
+      "date": "1967-04-28",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Refused induction into the Army and was stripped of his title"
+    },
+    {
+      "id": "e6",
+      "date": "1967-08-17",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Belinda Boyd"
+    },
+    {
+      "id": "e7",
+      "date": "1970-10-26",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Returned to boxing against Jerry Quarry in Atlanta"
+    },
+    {
+      "id": "e8",
+      "date": "1971-03-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the 'Fight of the Century' to Joe Frazier"
+    },
+    {
+      "id": "e9",
+      "date": "1974-10-30",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the 'Rumble in the Jungle' against George Foreman"
+    },
+    {
+      "id": "e10",
+      "date": "1975-10-01",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won the 'Thrilla in Manila' against Joe Frazier"
+    },
+    {
+      "id": "e11",
+      "date": "1977-06-19",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Veronica Porche"
+    },
+    {
+      "id": "e12",
+      "date": "1984-09-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Diagnosed with Parkinson's syndrome"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

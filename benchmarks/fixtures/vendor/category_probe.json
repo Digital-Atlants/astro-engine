@@ -1,0 +1,36 @@
+{
+  "ascendant_check": {
+    "candidate_time": "06:08",
+    "delta_deg": 0.0013,
+    "our_asc_deg": 131.6387,
+    "vendor_asc_deg": 131.64
+  },
+  "calculation_time_ms": 568,
+  "candidates_generated": 5,
+  "categories_echoed": [
+    "career_change",
+    "child_birth",
+    "death_family",
+    "marriage",
+    "move"
+  ],
+  "categories_sent": [
+    "career_change",
+    "child_birth",
+    "death_family",
+    "marriage",
+    "move"
+  ],
+  "credits_used": 15,
+  "density_times": [
+    "06:08",
+    "05:52",
+    "06:04",
+    "06:00",
+    "05:56"
+  ],
+  "events_sent": 5,
+  "events_used": 5,
+  "quality_advisory": "Several candidates score similarly \u2014 the events don't discriminate clearly between birth times. To improve: add more events (especially with exact dates), prefer events from angle-relevant categories (marriage, family death, career change), or narrow the search range based on outside information.",
+  "warnings": null
+}

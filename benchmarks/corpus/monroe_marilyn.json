@@ -1,0 +1,111 @@
+{
+  "case_id": "monroe_marilyn",
+  "name": "Marilyn Monroe",
+  "birth_date": "1926-06-01",
+  "known_time": "09:30",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: photograph of the birth certificate, collected by Bob Garner.",
+  "source_url": "https://www.astro.com/astro-databank/Monroe,_Marilyn",
+  "events_source_url": "https://en.wikipedia.org/wiki/Marilyn_Monroe",
+  "place": {
+    "name": "Los Angeles, California, USA",
+    "city": "Los Angeles",
+    "country_code": "US",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "tz": "America/Los_Angeles"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1935-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Placed in the Los Angeles Orphans Home"
+    },
+    {
+      "id": "e2",
+      "date": "1942-06-19",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married James Dougherty"
+    },
+    {
+      "id": "e3",
+      "date": "1946-08-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Signed her first film studio contract"
+    },
+    {
+      "id": "e4",
+      "date": "1946-09-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Divorce from James Dougherty finalised"
+    },
+    {
+      "id": "e5",
+      "date": "1954-01-14",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Joe DiMaggio in San Francisco"
+    },
+    {
+      "id": "e6",
+      "date": "1954-10-27",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Joe DiMaggio"
+    },
+    {
+      "id": "e7",
+      "date": "1956-06-29",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Arthur Miller"
+    },
+    {
+      "id": "e8",
+      "date": "1959-01-01",
+      "date_precision": "year",
+      "type": "surgery",
+      "description": "Gynaecological surgery following a miscarriage"
+    },
+    {
+      "id": "e9",
+      "date": "1961-01-20",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Arthur Miller granted"
+    },
+    {
+      "id": "e10",
+      "date": "1961-02-07",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Committed to a psychiatric clinic in New York"
+    },
+    {
+      "id": "e11",
+      "date": "1962-06-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Dismissed from her final film production"
+    },
+    {
+      "id": "e12",
+      "date": "1962-08-04",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died at her home in Brentwood, Los Angeles"
+    }
+  ],
+  "known_time_is_round": true,
+  "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

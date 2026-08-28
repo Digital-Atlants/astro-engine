@@ -1,0 +1,1167 @@
+{
+  "request": {
+    "events": [
+      {
+        "category": "move",
+        "date": "1967",
+        "date_precision": "year"
+      },
+      {
+        "category": "move",
+        "date": "1971",
+        "date_precision": "year"
+      },
+      {
+        "category": "move",
+        "date": "1979-09",
+        "date_precision": "month"
+      },
+      {
+        "category": "move",
+        "date": "1981",
+        "date_precision": "year"
+      },
+      {
+        "category": "death_family",
+        "date": "1982-11-24",
+        "date_precision": "exact"
+      },
+      {
+        "category": "move",
+        "date": "1985-06",
+        "date_precision": "month"
+      },
+      {
+        "category": "career_change",
+        "date": "1990-02-05",
+        "date_precision": "exact"
+      },
+      {
+        "category": "marriage",
+        "date": "1992-10-03",
+        "date_precision": "exact"
+      },
+      {
+        "category": "death_family",
+        "date": "1995-11-07",
+        "date_precision": "exact"
+      },
+      {
+        "category": "child_birth",
+        "date": "1998-07-04",
+        "date_precision": "exact"
+      },
+      {
+        "category": "career_change",
+        "date": "2004-07-27",
+        "date_precision": "exact"
+      },
+      {
+        "category": "career_change",
+        "date": "2008-11-04",
+        "date_precision": "exact"
+      }
+    ],
+    "subject": {
+      "birth_data": {
+        "city": "Honolulu",
+        "country_code": "US",
+        "day": 4,
+        "hour": 6,
+        "latitude": 21.3069,
+        "longitude": -157.8583,
+        "minute": 0,
+        "month": 8,
+        "second": 0,
+        "timezone": "Pacific/Honolulu",
+        "year": 1961
+      },
+      "name": "obama_barack"
+    },
+    "time_search": {
+      "delta_minutes": 360,
+      "step_minutes": 4
+    }
+  },
+  "response": {
+    "data": {
+      "candidates": [
+        {
+          "agg_score": 357.67866318181785,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "good",
+          "normalized_score": 9.836534468310825,
+          "rank": 1,
+          "time": "08:48"
+        },
+        {
+          "agg_score": 323.77877636363695,
+          "anchor_grade": true,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "good",
+          "normalized_score": 8.90425239648546,
+          "rank": 2,
+          "time": "11:52"
+        },
+        {
+          "agg_score": 322.2155000000012,
+          "anchor_grade": true,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "good",
+          "normalized_score": 8.861260673977869,
+          "rank": 3,
+          "time": "04:36"
+        },
+        {
+          "agg_score": 292.8528224242426,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "good",
+          "normalized_score": 8.053756565439452,
+          "rank": 4,
+          "time": "06:56"
+        },
+        {
+          "agg_score": 291.9412200000002,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "good",
+          "normalized_score": 8.028686552630502,
+          "rank": 5,
+          "time": "01:16"
+        },
+        {
+          "agg_score": 287.0229600000008,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "fair",
+          "normalized_score": 7.89342929802173,
+          "rank": 6,
+          "time": "04:04"
+        },
+        {
+          "agg_score": 284.51790606060604,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "fair",
+          "normalized_score": 7.82453771472002,
+          "rank": 7,
+          "time": "06:52"
+        },
+        {
+          "agg_score": 277.0779818181812,
+          "anchor_grade": true,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "fair",
+          "normalized_score": 7.619932076236539,
+          "rank": 8,
+          "time": "10:40"
+        },
+        {
+          "agg_score": 275.8104890909092,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "fair",
+          "normalized_score": 7.585074710719584,
+          "rank": 9,
+          "time": "07:52"
+        },
+        {
+          "agg_score": 274.8011004545455,
+          "anchor_grade": false,
+          "error": null,
+          "events_strongly_correlated": 0,
+          "excluded": false,
+          "excluded_reason": null,
+          "grade": "fair",
+          "normalized_score": 7.5573154755860505,
+          "rank": 10,
+          "time": "08:52"
+        }
+      ],
+      "computed_at": "2026-08-28T12:06:10.640139",
+      "density": [
+        {
+          "agg_score": 357.67866318181785,
+          "normalized_score": 9.836534468310825,
+          "time": "08:48"
+        },
+        {
+          "agg_score": 323.77877636363695,
+          "normalized_score": 8.90425239648546,
+          "time": "11:52"
+        },
+        {
+          "agg_score": 322.2155000000012,
+          "normalized_score": 8.861260673977869,
+          "time": "04:36"
+        },
+        {
+          "agg_score": 292.8528224242426,
+          "normalized_score": 8.053756565439452,
+          "time": "06:56"
+        },
+        {
+          "agg_score": 291.9412200000002,
+          "normalized_score": 8.028686552630502,
+          "time": "01:16"
+        },
+        {
+          "agg_score": 287.0229600000008,
+          "normalized_score": 7.89342929802173,
+          "time": "04:04"
+        },
+        {
+          "agg_score": 284.51790606060604,
+          "normalized_score": 7.82453771472002,
+          "time": "06:52"
+        },
+        {
+          "agg_score": 277.0779818181812,
+          "normalized_score": 7.619932076236539,
+          "time": "10:40"
+        },
+        {
+          "agg_score": 275.8104890909092,
+          "normalized_score": 7.585074710719584,
+          "time": "07:52"
+        },
+        {
+          "agg_score": 274.8011004545455,
+          "normalized_score": 7.5573154755860505,
+          "time": "08:52"
+        },
+        {
+          "agg_score": 273.24602000000044,
+          "normalized_score": 7.514549149084898,
+          "time": "04:28"
+        },
+        {
+          "agg_score": 273.14408545454546,
+          "normalized_score": 7.511745843288126,
+          "time": "07:56"
+        },
+        {
+          "agg_score": 271.88603666666586,
+          "normalized_score": 7.477148195906224,
+          "time": "06:44"
+        },
+        {
+          "agg_score": 271.52833681818186,
+          "normalized_score": 7.467311078820115,
+          "time": "08:56"
+        },
+        {
+          "agg_score": 271.48177999999996,
+          "normalized_score": 7.466030717999296,
+          "time": "04:32"
+        },
+        {
+          "agg_score": 271.3117000000006,
+          "normalized_score": 7.4613533414751245,
+          "time": "05:04"
+        },
+        {
+          "agg_score": 268.38306250000136,
+          "normalized_score": 7.380812770624001,
+          "time": "05:20"
+        },
+        {
+          "agg_score": 265.08402303030374,
+          "normalized_score": 7.290085761169979,
+          "time": "06:48"
+        },
+        {
+          "agg_score": 263.52002681818175,
+          "normalized_score": 7.247074242081894,
+          "time": "08:44"
+        },
+        {
+          "agg_score": 260.91931272727294,
+          "normalized_score": 7.175551905328913,
+          "time": "11:04"
+        },
+        {
+          "agg_score": 260.3692436363635,
+          "normalized_score": 7.16042443441815,
+          "time": "07:36"
+        },
+        {
+          "agg_score": 259.46596000000153,
+          "normalized_score": 7.135583196909893,
+          "time": "04:52"
+        },
+        {
+          "agg_score": 258.078632727273,
+          "normalized_score": 7.097430257017906,
+          "time": "09:28"
+        },
+        {
+          "agg_score": 257.4952854545447,
+          "normalized_score": 7.081387601568063,
+          "time": "10:32"
+        },
+        {
+          "agg_score": 254.6136074999999,
+          "normalized_score": 7.00213846695574,
+          "time": "05:32"
+        },
+        {
+          "agg_score": 254.50986181818254,
+          "normalized_score": 6.999285353029243,
+          "time": "07:48"
+        },
+        {
+          "agg_score": 253.3810690909089,
+          "normalized_score": 6.968242381467471,
+          "time": "09:32"
+        },
+        {
+          "agg_score": 253.0065199999999,
+          "normalized_score": 6.957941892727029,
+          "time": "04:48"
+        },
+        {
+          "agg_score": 252.77177666666793,
+          "normalized_score": 6.951486207422835,
+          "time": "05:44"
+        },
+        {
+          "agg_score": 250.72780000000014,
+          "normalized_score": 6.895274727668226,
+          "time": "01:20"
+        },
+        {
+          "agg_score": 250.4115454545453,
+          "normalized_score": 6.88657739943105,
+          "time": "10:44"
+        },
+        {
+          "agg_score": 249.13273090909087,
+          "normalized_score": 6.851408672163287,
+          "time": "11:12"
+        },
+        {
+          "agg_score": 248.36712000000125,
+          "normalized_score": 6.8303535775440505,
+          "time": "07:28"
+        },
+        {
+          "agg_score": 246.6691999999996,
+          "normalized_score": 6.783659015291225,
+          "time": "09:20"
+        },
+        {
+          "agg_score": 245.54811454545413,
+          "normalized_score": 6.752828001728774,
+          "time": "07:24"
+        },
+        {
+          "agg_score": 240.22028363636466,
+          "normalized_score": 6.606307122030813,
+          "time": "11:48"
+        },
+        {
+          "agg_score": 238.1985036363641,
+          "normalized_score": 6.550706073647232,
+          "time": "10:20"
+        },
+        {
+          "agg_score": 236.9663450000009,
+          "normalized_score": 6.51682043230314,
+          "time": "05:36"
+        },
+        {
+          "agg_score": 234.58517500000104,
+          "normalized_score": 6.451335785912589,
+          "time": "05:24"
+        },
+        {
+          "agg_score": 233.8285013636363,
+          "normalized_score": 6.430526475569185,
+          "time": "07:32"
+        },
+        {
+          "agg_score": 230.38560045454557,
+          "normalized_score": 6.335843127219625,
+          "time": "11:40"
+        },
+        {
+          "agg_score": 228.70960000000053,
+          "normalized_score": 6.289751375216915,
+          "time": "02:52"
+        },
+        {
+          "agg_score": 228.44235818181798,
+          "normalized_score": 6.282401947849506,
+          "time": "09:44"
+        },
+        {
+          "agg_score": 228.07264636363723,
+          "normalized_score": 6.2722344891296435,
+          "time": "10:56"
+        },
+        {
+          "agg_score": 226.56658000000078,
+          "normalized_score": 6.230816100999673,
+          "time": "02:36"
+        },
+        {
+          "agg_score": 226.1405520000002,
+          "normalized_score": 6.219099888829811,
+          "time": "03:32"
+        },
+        {
+          "agg_score": 225.01330818181907,
+          "normalized_score": 6.188099513875677,
+          "time": "10:36"
+        },
+        {
+          "agg_score": 224.4602600000002,
+          "normalized_score": 6.17289011487294,
+          "time": "01:12"
+        },
+        {
+          "agg_score": 224.248152727274,
+          "normalized_score": 6.167056944729129,
+          "time": "10:08"
+        },
+        {
+          "agg_score": 222.38765999999916,
+          "normalized_score": 6.115891463743819,
+          "time": "04:56"
+        },
+        {
+          "agg_score": 221.21984999999992,
+          "normalized_score": 6.083775476686488,
+          "time": "00:40"
+        },
+        {
+          "agg_score": 220.63197181818205,
+          "normalized_score": 6.067608216534098,
+          "time": "08:00"
+        },
+        {
+          "agg_score": 219.97942000000043,
+          "normalized_score": 6.049662364257639,
+          "time": "02:12"
+        },
+        {
+          "agg_score": 218.93947066666703,
+          "normalized_score": 6.02106267823882,
+          "time": "00:16"
+        },
+        {
+          "agg_score": 217.27498577454642,
+          "normalized_score": 5.97528761615466,
+          "time": "06:28"
+        },
+        {
+          "agg_score": 217.17655999999963,
+          "normalized_score": 5.972580805199578,
+          "time": "05:00"
+        },
+        {
+          "agg_score": 216.97259730363712,
+          "normalized_score": 5.966971619358935,
+          "time": "06:12"
+        },
+        {
+          "agg_score": 216.0162050000003,
+          "normalized_score": 5.9406698383797085,
+          "time": "03:04"
+        },
+        {
+          "agg_score": 215.28002545454567,
+          "normalized_score": 5.920424136806929,
+          "time": "11:28"
+        },
+        {
+          "agg_score": 215.09269999999947,
+          "normalized_score": 5.915272492383848,
+          "time": "11:00"
+        },
+        {
+          "agg_score": 213.38452272727116,
+          "normalized_score": 5.868295844485128,
+          "time": "09:16"
+        },
+        {
+          "agg_score": 211.8756999999999,
+          "normalized_score": 5.8268016534944005,
+          "time": "03:44"
+        },
+        {
+          "agg_score": 211.649114545454,
+          "normalized_score": 5.820570318323799,
+          "time": "11:16"
+        },
+        {
+          "agg_score": 211.19726800000055,
+          "normalized_score": 5.808144069357192,
+          "time": "04:24"
+        },
+        {
+          "agg_score": 208.66720000000075,
+          "normalized_score": 5.738564573427022,
+          "time": "05:28"
+        },
+        {
+          "agg_score": 208.3531600000007,
+          "normalized_score": 5.729928147488305,
+          "time": "04:00"
+        },
+        {
+          "agg_score": 208.2512899999998,
+          "normalized_score": 5.727126616758511,
+          "time": "02:44"
+        },
+        {
+          "agg_score": 208.04459999999955,
+          "normalized_score": 5.721442427237192,
+          "time": "03:28"
+        },
+        {
+          "agg_score": 207.70493636363682,
+          "normalized_score": 5.7121013247040064,
+          "time": "09:24"
+        },
+        {
+          "agg_score": 207.49776000000037,
+          "normalized_score": 5.706403759677901,
+          "time": "03:00"
+        },
+        {
+          "agg_score": 207.1132703030299,
+          "normalized_score": 5.695829893953521,
+          "time": "06:40"
+        },
+        {
+          "agg_score": 206.48710000000037,
+          "normalized_score": 5.678609560724832,
+          "time": "02:08"
+        },
+        {
+          "agg_score": 205.96323,
+          "normalized_score": 5.6642025920058225,
+          "time": "11:56"
+        },
+        {
+          "agg_score": 204.65175000000033,
+          "normalized_score": 5.628135530834943,
+          "time": "02:16"
+        },
+        {
+          "agg_score": 204.5944927272723,
+          "normalized_score": 5.626560896408218,
+          "time": "09:56"
+        },
+        {
+          "agg_score": 204.08900000000074,
+          "normalized_score": 5.612659321762823,
+          "time": "04:40"
+        },
+        {
+          "agg_score": 201.73997999999955,
+          "normalized_score": 5.548058833740373,
+          "time": "03:48"
+        },
+        {
+          "agg_score": 200.34267590909184,
+          "normalized_score": 5.5096315209936275,
+          "time": "09:08"
+        },
+        {
+          "agg_score": 198.60696000000019,
+          "normalized_score": 5.4618975320128635,
+          "time": "04:20"
+        },
+        {
+          "agg_score": 197.51775999999995,
+          "normalized_score": 5.431943401543974,
+          "time": "02:56"
+        },
+        {
+          "agg_score": 196.78069999999977,
+          "normalized_score": 5.411673486557376,
+          "time": "01:04"
+        },
+        {
+          "agg_score": 196.7627000000002,
+          "normalized_score": 5.4111784678753825,
+          "time": "11:44"
+        },
+        {
+          "agg_score": 196.58765999999977,
+          "normalized_score": 5.406364686203251,
+          "time": "10:48"
+        },
+        {
+          "agg_score": 193.65319999999954,
+          "normalized_score": 5.325663990558991,
+          "time": "02:04"
+        },
+        {
+          "agg_score": 193.24568873333325,
+          "normalized_score": 5.314457007774138,
+          "time": "05:48"
+        },
+        {
+          "agg_score": 192.57236000000043,
+          "normalized_score": 5.295939768766885,
+          "time": "00:56"
+        },
+        {
+          "agg_score": 190.11050000000068,
+          "normalized_score": 5.22823606362906,
+          "time": "05:08"
+        },
+        {
+          "agg_score": 189.574781818183,
+          "normalized_score": 5.213503257612975,
+          "time": "11:36"
+        },
+        {
+          "agg_score": 189.32534000000064,
+          "normalized_score": 5.206643348719998,
+          "time": "04:44"
+        },
+        {
+          "agg_score": 188.8456600000004,
+          "normalized_score": 5.193451650865315,
+          "time": "03:56"
+        },
+        {
+          "agg_score": 188.68983090909052,
+          "normalized_score": 5.189166189131967,
+          "time": "10:16"
+        },
+        {
+          "agg_score": 188.61922000000013,
+          "normalized_score": 5.187224315845683,
+          "time": "08:36"
+        },
+        {
+          "agg_score": 188.29917727272726,
+          "normalized_score": 5.178422808676799,
+          "time": "06:36"
+        },
+        {
+          "agg_score": 188.2740400000002,
+          "normalized_score": 5.177731507587103,
+          "time": "04:16"
+        },
+        {
+          "agg_score": 186.77250545454584,
+          "normalized_score": 5.136437749160664,
+          "time": "07:00"
+        },
+        {
+          "agg_score": 185.7597954545458,
+          "normalized_score": 5.108587173079922,
+          "time": "09:36"
+        },
+        {
+          "agg_score": 185.71066545454627,
+          "normalized_score": 5.10723604708844,
+          "time": "08:40"
+        },
+        {
+          "agg_score": 185.18821727272774,
+          "normalized_score": 5.09286817984512,
+          "time": "09:12"
+        },
+        {
+          "agg_score": 184.46957759999998,
+          "normalized_score": 5.0731048429767736,
+          "time": "06:16"
+        },
+        {
+          "agg_score": 184.13262995999955,
+          "normalized_score": 5.063838433162455,
+          "time": "06:04"
+        },
+        {
+          "agg_score": 183.51791666666708,
+          "normalized_score": 5.046933179591543,
+          "time": "00:12"
+        },
+        {
+          "agg_score": 181.85984727272702,
+          "normalized_score": 5.001334550365924,
+          "time": "11:08"
+        },
+        {
+          "agg_score": 180.95400000000026,
+          "normalized_score": 4.976422810196865,
+          "time": "05:16"
+        },
+        {
+          "agg_score": 179.83264181818163,
+          "normalized_score": 4.945584296351339,
+          "time": "09:40"
+        },
+        {
+          "agg_score": 177.64774333333241,
+          "normalized_score": 4.885497320335511,
+          "time": "00:20"
+        },
+        {
+          "agg_score": 173.179882727273,
+          "normalized_score": 4.76262651652474,
+          "time": "10:52"
+        },
+        {
+          "agg_score": 171.5495259999988,
+          "normalized_score": 4.71779001439511,
+          "time": "03:52"
+        },
+        {
+          "agg_score": 170.7891709090917,
+          "normalized_score": 4.696879460230851,
+          "time": "10:28"
+        },
+        {
+          "agg_score": 170.06200000000007,
+          "normalized_score": 4.676881505508019,
+          "time": "03:40"
+        },
+        {
+          "agg_score": 169.4065490909086,
+          "normalized_score": 4.658855925222605,
+          "time": "11:32"
+        },
+        {
+          "agg_score": 169.2972699999996,
+          "normalized_score": 4.655850636803022,
+          "time": "00:44"
+        },
+        {
+          "agg_score": 168.5222999999981,
+          "normalized_score": 4.63453815747001,
+          "time": "01:52"
+        },
+        {
+          "agg_score": 166.53521797818303,
+          "normalized_score": 4.579891339499186,
+          "time": "06:32"
+        },
+        {
+          "agg_score": 166.19074999999995,
+          "normalized_score": 4.570418112579568,
+          "time": "00:36"
+        },
+        {
+          "agg_score": 163.63209376727332,
+          "normalized_score": 4.500052410577991,
+          "time": "06:20"
+        },
+        {
+          "agg_score": 163.58396000000064,
+          "normalized_score": 4.498728682020477,
+          "time": "08:24"
+        },
+        {
+          "agg_score": 163.0679839754551,
+          "normalized_score": 4.484538805819547,
+          "time": "06:24"
+        },
+        {
+          "agg_score": 162.41060000000036,
+          "normalized_score": 4.466460064202833,
+          "time": "00:32"
+        },
+        {
+          "agg_score": 161.65183999999965,
+          "normalized_score": 4.445593376694027,
+          "time": "00:52"
+        },
+        {
+          "agg_score": 160.29944949333395,
+          "normalized_score": 4.4084012341292595,
+          "time": "05:52"
+        },
+        {
+          "agg_score": 158.05746454545408,
+          "normalized_score": 4.346744321130667,
+          "time": "12:00"
+        },
+        {
+          "agg_score": 157.49842400000094,
+          "normalized_score": 4.3313701259085775,
+          "time": "04:08"
+        },
+        {
+          "agg_score": 155.69560000000078,
+          "normalized_score": 4.2817905947770685,
+          "time": "01:08"
+        },
+        {
+          "agg_score": 153.4006109090906,
+          "normalized_score": 4.218676012832716,
+          "time": "09:52"
+        },
+        {
+          "agg_score": 151.50377909090932,
+          "normalized_score": 4.166511169131529,
+          "time": "07:08"
+        },
+        {
+          "agg_score": 150.38452000000035,
+          "normalized_score": 4.135730382464644,
+          "time": "01:00"
+        },
+        {
+          "agg_score": 149.63522727272715,
+          "normalized_score": 4.115124054781824,
+          "time": "09:00"
+        },
+        {
+          "agg_score": 148.58414499999958,
+          "normalized_score": 4.086218201374908,
+          "time": "03:08"
+        },
+        {
+          "agg_score": 148.47794666666735,
+          "normalized_score": 4.083297636986172,
+          "time": "05:40"
+        },
+        {
+          "agg_score": 148.27520599999963,
+          "normalized_score": 4.077722058230467,
+          "time": "02:40"
+        },
+        {
+          "agg_score": 148.21211250000047,
+          "normalized_score": 4.07598692149643,
+          "time": "00:00"
+        },
+        {
+          "agg_score": 147.69889999999933,
+          "normalized_score": 4.061873045088703,
+          "time": "05:12"
+        },
+        {
+          "agg_score": 146.01539999999918,
+          "normalized_score": 4.015575047802281,
+          "time": "02:24"
+        },
+        {
+          "agg_score": 144.86319454545446,
+          "normalized_score": 3.983888201940739,
+          "time": "09:04"
+        },
+        {
+          "agg_score": 144.51032727272644,
+          "normalized_score": 3.974183985703598,
+          "time": "11:20"
+        },
+        {
+          "agg_score": 143.35177272727293,
+          "normalized_score": 3.9423225332524106,
+          "time": "08:32"
+        },
+        {
+          "agg_score": 140.8748000000003,
+          "normalized_score": 3.8742032124292454,
+          "time": "03:16"
+        },
+        {
+          "agg_score": 140.28116181818174,
+          "normalized_score": 3.857877546298595,
+          "time": "11:24"
+        },
+        {
+          "agg_score": 139.02145333333345,
+          "normalized_score": 3.8232342555274736,
+          "time": "00:24"
+        },
+        {
+          "agg_score": 138.59088999999997,
+          "normalized_score": 3.811393316983782,
+          "time": "01:24"
+        },
+        {
+          "agg_score": 137.90974000000003,
+          "normalized_score": 3.7926609850255755,
+          "time": "01:44"
+        },
+        {
+          "agg_score": 137.6845250000009,
+          "normalized_score": 3.7864673387773897,
+          "time": "00:04"
+        },
+        {
+          "agg_score": 137.3012639999998,
+          "normalized_score": 3.7759272634949186,
+          "time": "03:36"
+        },
+        {
+          "agg_score": 135.81566000000046,
+          "normalized_score": 3.735071611602635,
+          "time": "00:28"
+        },
+        {
+          "agg_score": 134.83329,
+          "normalized_score": 3.708055417011438,
+          "time": "00:08"
+        },
+        {
+          "agg_score": 133.09840000000025,
+          "normalized_score": 3.660344141387903,
+          "time": "04:12"
+        },
+        {
+          "agg_score": 132.74687999999983,
+          "normalized_score": 3.6506769765490903,
+          "time": "02:32"
+        },
+        {
+          "agg_score": 131.21444727272672,
+          "normalized_score": 3.6085334860537484,
+          "time": "10:24"
+        },
+        {
+          "agg_score": 131.09625183999978,
+          "normalized_score": 3.6052829889799978,
+          "time": "06:08"
+        },
+        {
+          "agg_score": 130.4280345454544,
+          "normalized_score": 3.5869063198445073,
+          "time": "09:48"
+        },
+        {
+          "agg_score": 130.2576999999994,
+          "normalized_score": 3.5822219430561146,
+          "time": "02:48"
+        },
+        {
+          "agg_score": 129.46323999999996,
+          "normalized_score": 3.5603734684947,
+          "time": "00:48"
+        },
+        {
+          "agg_score": 129.16540799999996,
+          "normalized_score": 3.552182779378092,
+          "time": "03:24"
+        },
+        {
+          "agg_score": 127.48328727272764,
+          "normalized_score": 3.5059227135232183,
+          "time": "08:16"
+        },
+        {
+          "agg_score": 127.31818909090953,
+          "normalized_score": 3.501382342169605,
+          "time": "10:04"
+        },
+        {
+          "agg_score": 124.92400727272789,
+          "normalized_score": 3.4355398572742306,
+          "time": "10:12"
+        },
+        {
+          "agg_score": 124.56453454545431,
+          "normalized_score": 3.4256539841813565,
+          "time": "07:12"
+        },
+        {
+          "agg_score": 123.68608000000029,
+          "normalized_score": 3.401495572442912,
+          "time": "07:40"
+        },
+        {
+          "agg_score": 123.57144181818231,
+          "normalized_score": 3.39834290346119,
+          "time": "07:04"
+        },
+        {
+          "agg_score": 120.92943636363641,
+          "normalized_score": 3.3256850113523297,
+          "time": "07:44"
+        },
+        {
+          "agg_score": 119.80261818181826,
+          "normalized_score": 3.294696341839943,
+          "time": "07:20"
+        },
+        {
+          "agg_score": 118.13637000000058,
+          "normalized_score": 3.2488727874590144,
+          "time": "03:12"
+        },
+        {
+          "agg_score": 117.64478752000025,
+          "normalized_score": 3.235353759050873,
+          "time": "06:00"
+        },
+        {
+          "agg_score": 114.11493999999885,
+          "normalized_score": 3.138279288660323,
+          "time": "01:56"
+        },
+        {
+          "agg_score": 112.33200000000097,
+          "normalized_score": 3.0892465881662643,
+          "time": "02:20"
+        },
+        {
+          "agg_score": 111.38413000000011,
+          "normalized_score": 3.063179179382233,
+          "time": "03:20"
+        },
+        {
+          "agg_score": 106.28121454545537,
+          "normalized_score": 2.9228437081215675,
+          "time": "08:20"
+        },
+        {
+          "agg_score": 105.79889090909077,
+          "normalized_score": 2.909579307523062,
+          "time": "08:12"
+        },
+        {
+          "agg_score": 102.21616000000019,
+          "normalized_score": 2.8110504890454617,
+          "time": "02:00"
+        },
+        {
+          "agg_score": 102.16127636363605,
+          "normalized_score": 2.809541132082316,
+          "time": "10:00"
+        },
+        {
+          "agg_score": 96.70672727272762,
+          "normalized_score": 2.659535370864906,
+          "time": "08:04"
+        },
+        {
+          "agg_score": 96.02219636363651,
+          "normalized_score": 2.640710060397683,
+          "time": "08:28"
+        },
+        {
+          "agg_score": 95.63525090909145,
+          "normalized_score": 2.6300686587911977,
+          "time": "07:16"
+        },
+        {
+          "agg_score": 91.79648000000023,
+          "normalized_score": 2.5244984745724364,
+          "time": "02:28"
+        },
+        {
+          "agg_score": 88.68212000000082,
+          "normalized_score": 2.438850342211938,
+          "time": "01:40"
+        },
+        {
+          "agg_score": 88.53345454545548,
+          "normalized_score": 2.434761887913676,
+          "time": "08:08"
+        },
+        {
+          "agg_score": 80.52458912000048,
+          "normalized_score": 2.2145097763989745,
+          "time": "05:56"
+        },
+        {
+          "agg_score": 79.27840000000006,
+          "normalized_score": 2.1802382821927715,
+          "time": "01:32"
+        },
+        {
+          "agg_score": 78.8441500000003,
+          "normalized_score": 2.168295956489406,
+          "time": "01:28"
+        },
+        {
+          "agg_score": 71.75250000000024,
+          "normalized_score": 1.9732682211426724,
+          "time": "01:48"
+        },
+        {
+          "agg_score": 65.66896000000007,
+          "normalized_score": 1.805964557102387,
+          "time": "01:36"
+        }
+      ],
+      "summary": {
+        "anchor_recommendation": "Candidate at 11:52 has Sun-eclipse on natal Ascendant for death_family on 1995-11-07 within 0.55deg - consider as primary interpretation despite low aggregate confidence (Brady tier-1 anchor doctrine).",
+        "confidence": {
+          "explanation": "Several candidates score similarly. The events provided don't strongly differentiate between birth times in this range. Consider adding more events with exact dates, or narrowing the search range.",
+          "gap_ratio": 0.09477749250295275,
+          "level": "low",
+          "lift_ratio": 1.9026356370473416
+        },
+        "peak_time": "08:48",
+        "peak_window": null,
+        "quality_advisory": "Several candidates score similarly \u2014 the events don't discriminate clearly between birth times. To improve: add more events (especially with exact dates), prefer events from angle-relevant categories (marriage, family death, career change), or narrow the search range based on outside information.",
+        "score_stats": {
+          "max": 357.67866318181785,
+          "mean": 187.99115091573262,
+          "median": 188.68983090909052,
+          "min": 65.66896000000007,
+          "std": 57.13178290117043
+        },
+        "search_range": {
+          "end": "12:00",
+          "start": "00:00"
+        },
+        "step_minutes": 4,
+        "techniques_used": [
+          "transit",
+          "progression",
+          "solar_arc"
+        ],
+        "total_candidates_generated": 181,
+        "total_candidates_returned": 10,
+        "total_events_used": 12,
+        "twin_window": false
+      }
+    },
+    "metadata": {
+      "api_version": "3.2.0",
+      "cache_age_seconds": null,
+      "cache_hit": false,
+      "calculation_method": null,
+      "calculation_time_ms": 53401,
+      "credits_used": 15,
+      "endpoint": "rectification.search",
+      "request_id": "req_bf59334819d2",
+      "server_location": null,
+      "timestamp": "2026-08-28T12:06:10.641358Z"
+    },
+    "success": true,
+    "warnings": null
+  }
+}

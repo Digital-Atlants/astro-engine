@@ -1,0 +1,97 @@
+{
+  "case_id": "presley_elvis",
+  "name": "Elvis Presley",
+  "birth_date": "1935-01-08",
+  "known_time": "04:35",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: attending physician's birth record (Dr. Robert Hunt), submitted by Sy Scholfield.",
+  "source_url": "https://www.astro.com/astro-databank/Presley,_Elvis",
+  "events_source_url": "https://en.wikipedia.org/wiki/Elvis_Presley",
+  "place": {
+    "name": "Tupelo, Mississippi, USA",
+    "city": "Tupelo",
+    "country_code": "US",
+    "lat": 34.2576,
+    "lon": -88.7034,
+    "tz": "America/Chicago"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "date": "1948-11-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Family moved from Tupelo to Memphis, Tennessee"
+    },
+    {
+      "id": "e2",
+      "date": "1953-07-18",
+      "date_precision": "day",
+      "type": "other",
+      "description": "First paid recording session at Memphis Recording Service"
+    },
+    {
+      "id": "e3",
+      "date": "1954-07-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Recorded 'That's All Right' at Sun Records"
+    },
+    {
+      "id": "e4",
+      "date": "1956-01-27",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Heartbreak Hotel' released, first national number one"
+    },
+    {
+      "id": "e5",
+      "date": "1958-03-24",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Inducted into the United States Army"
+    },
+    {
+      "id": "e6",
+      "date": "1958-08-14",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Mother Gladys Presley died"
+    },
+    {
+      "id": "e7",
+      "date": "1960-03-05",
+      "date_precision": "day",
+      "type": "relocation",
+      "description": "Discharged from the Army, returned to the United States"
+    },
+    {
+      "id": "e8",
+      "date": "1967-05-01",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Priscilla Beaulieu in Las Vegas"
+    },
+    {
+      "id": "e9",
+      "date": "1968-02-01",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Lisa Marie Presley born"
+    },
+    {
+      "id": "e10",
+      "date": "1973-10-09",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Priscilla finalised"
+    }
+  ],
+  "known_time_is_round": false,
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}
