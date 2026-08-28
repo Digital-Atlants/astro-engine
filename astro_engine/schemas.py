@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import datetime as dt
+import re
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 HouseSystem = Literal["whole_sign", "placidus"]
 
@@ -110,6 +111,74 @@ class RectificationConfig(BaseModel):
     refusal_percentile: float = Field(default=0.90, ge=0, le=1)
     # ...and it also refuses when the top candidates are not separable.
     refusal_min_separation: float = Field(default=0.05, ge=0, le=1)
+
+
+InterviewChannel = Literal["rising_sign", "decan", "mover_house", "portrait"]
+
+# Answer ids are enumerated tokens emitted by the engine and echoed back. The
+# pattern is deliberately narrow: the calling client phrases questions and maps
+# free text onto these ids, and it must not be able to smuggle a number, a time
+# or a window through this field. Every numeric decision belongs to the engine.
+ANSWER_ID = r"^[a-z0-9_]{1,32}$"
+
+
+class InterviewAnswer(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    question_id: str = Field(pattern=r"^[a-z0-9_]{1,48}$")
+    channel: InterviewChannel
+    subject: Optional[str] = Field(default=None, pattern=r"^[a-z_]{1,16}$")
+    # Empty means `cannot_choose`: it multiplies no weights at all.
+    answer_ids: list[str] = Field(default_factory=list, max_length=4)
+    # Echoed back for the portrait channel so the partition can be rebuilt.
+    windows: list[list[int]] = Field(default_factory=list, max_length=4)
+
+    @field_validator("answer_ids")
+    @classmethod
+    def _ids_are_enum_tokens(cls, v: list[str]) -> list[str]:
+        for item in v:
+            if not re.match(ANSWER_ID, item):
+                raise ValueError(
+                    f"answer id {item!r} is not an enumerated token; the engine "
+                    "makes every numeric decision, clients only echo ids"
+                )
+        return v
+
+
+class InterviewConfigModel(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    channel_reliability: float = Field(default=0.75, gt=0, lt=1)
+    tier1_mass: float = Field(default=0.60, gt=0, le=1)
+    tier2_mass: float = Field(default=0.60, gt=0, le=1)
+    tier1_chance_p: float = Field(default=0.002, gt=0, le=1)
+    tier2_chance_p: float = Field(default=0.20, gt=0, le=1)
+    tier1_window_minutes: int = Field(default=30, ge=1, le=1440)
+    min_information_bits: float = Field(default=0.15, ge=0, le=8)
+    max_mover_questions: int = Field(default=3, ge=0, le=10)
+    house_system: HouseSystem = "placidus"
+
+
+class InterviewRequest(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    birth_date: dt.date
+    place: Place
+    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=24)
+    config: InterviewConfigModel = InterviewConfigModel()
+
+
+class InterviewCompareRequest(BaseModel):
+    """Calibration mode: the documented time arrives only here, never during
+    the interview. See `docs` in main.py for the contract."""
+
+    model_config = {"extra": "forbid"}
+
+    birth_date: dt.date
+    place: Place
+    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=24)
+    config: InterviewConfigModel = InterviewConfigModel()
+    documented_time: str = Field(pattern=r"^\d{2}:\d{2}$")
 
 
 class RectificationRequest(BaseModel):
