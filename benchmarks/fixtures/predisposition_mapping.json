@@ -1,0 +1,61 @@
+{
+  "_README": "FROZEN BEFORE ANY SCORING RUN. Any later change to this file invalidates every result produced from it and requires a rerun from scratch. Do not tune against the corpus.",
+  "frozen_on": "2026-08-28",
+  "item_list": {
+    "origin": "astro-app.net rectification questionnaire",
+    "origin_url": "https://astro-app.net/rectification.php?lang=en&appSize=0",
+    "note": "The 24 items below are the visible questionnaire items as supplied in the task brief. The public page describes the method and names only a handful of examples ('celibacy, childlessness, many children, imprisonment', 'Early marriage', 'Success in music'); the full item list is generated inside the app after birth data is submitted and is not published as a static list.",
+    "houses_published_by_origin": false,
+    "houses_published_evidence": "The public rectification page was fetched and read in full. It contains no astrological house numbers anywhere, and states no mapping from any questionnaire item to any house. Verbatim, the only description of this stage is: 'it considers various options of the birth time taking into account predisposition to events. This refers to events or situations that do not occur to everybody, but which, as a rule, are well marked in the natal chart. For example, celibacy, childlessness, many children, imprisonment etc.'"
+  },
+  "house_source": {
+    "work": "William Lilly, Christian Astrology (1647), 'Of the Twelve Houses, their Nature and Signification'",
+    "url": "https://www.skyscript.co.uk/lilly_houses.html",
+    "significations_quoted": {
+      "2": "the estate or fortune of him that asks the question, of his wealth or poverty, of all movable goods, money lent",
+      "4": "his father that enquires, or that is born; of lands, houses, tenements, inheritances",
+      "5": "we judge of children, of embassadors, of the state of a woman with child",
+      "7": "It giveth judgement of marriage, and describes the person inquired after, whether it be man or woman",
+      "8": "The estate of men deceased, death, its quality and nature; the wills, legacies and testaments",
+      "9": "voyages or long journeys beyond seas; of religious men, or clergy of any kind",
+      "10": "it personifies kings, princes... honour, preferment, dignity, office... the profession or trade",
+      "12": "private enemies, of witches... sorrow, tribulation, imprisonments, all manner of affliction"
+    }
+  },
+  "inclusion_rule": "An item is kept only if the matter it names is one of the nouns Lilly enumerates for a house (marriage, children, death, wealth/poverty, houses/lands, voyages beyond seas, religious men, profession, imprisonment/affliction). Items whose mapping would require adding a qualifier Lilly does not state are dropped, not inferred. Items requiring a judgement about temperament, appearance or self-perception are dropped separately under Work item 3.2.",
+  "kept": [
+    {"item": "many marriages", "houses": [7], "basis": "Lilly 7th: 'It giveth judgement of marriage'"},
+    {"item": "childlessness or a late child", "houses": [5], "basis": "Lilly 5th: 'we judge of children'"},
+    {"item": "adopted children", "houses": [5], "basis": "Lilly 5th: 'we judge of children'"},
+    {"item": "separation from a child", "houses": [5], "basis": "Lilly 5th: 'we judge of children'"},
+    {"item": "death of a child", "houses": [5, 8], "basis": "Lilly 5th: 'we judge of children'; Lilly 8th: 'death, its quality and nature'"},
+    {"item": "emigration", "houses": [9], "basis": "Lilly 9th: 'voyages or long journeys beyond seas'"},
+    {"item": "success in science", "houses": [9], "basis": "Lilly 9th chapter heading enumerates 'Arts, Science' among the 9th house matters"},
+    {"item": "success in religious work", "houses": [9], "basis": "Lilly 9th: 'of religious men, or clergy of any kind'"},
+    {"item": "unemployment", "houses": [10], "basis": "Lilly 10th: 'the profession or trade'"},
+    {"item": "high material wealth", "houses": [2], "basis": "Lilly 2nd: 'his wealth or poverty'"},
+    {"item": "poverty", "houses": [2], "basis": "Lilly 2nd: 'his wealth or poverty'"},
+    {"item": "homelessness", "houses": [4], "basis": "Lilly 4th: 'of lands, houses, tenements'"},
+    {"item": "prolonged hospital isolation", "houses": [12], "basis": "Lilly 12th: 'imprisonments, all manner of affliction'"}
+  ],
+  "dropped": [
+    {"item": "secret affairs", "reason": "no house stated by the origin; Lilly's 12th names 'private enemies', not clandestine relationships. Mapping would be inferred."},
+    {"item": "celibacy from excessive independence", "reason": "no house stated by the origin; 'excessive independence' is a judgement about temperament, excluded under Work item 3.2."},
+    {"item": "marriage to a foreigner", "reason": "no house stated by the origin; would require combining Lilly's 7th and 9th, a combination he does not state."},
+    {"item": "success in music or acting", "reason": "no house stated by the origin; Lilly's enumerated 5th house matters are children, embassadors and pregnancy, not performance."},
+    {"item": "success in invention or reform", "reason": "no house stated by the origin and no matching Lilly signification."},
+    {"item": "repeated extreme situations", "reason": "no house stated by the origin and no matching Lilly signification; too unspecific to be a biographical fact."},
+    {"item": "attempted suicide", "reason": "no house stated by the origin and no matching Lilly signification."},
+    {"item": "a fall from height", "reason": "no house stated by the origin and no matching Lilly signification."},
+    {"item": "extreme situations involving water", "reason": "no house stated by the origin and no matching Lilly signification."},
+    {"item": "revenge or persecution", "reason": "no house stated by the origin; Lilly's 12th names 'private enemies', which is not the same matter without inference."},
+    {"item": "poisoning", "reason": "no house stated by the origin and no matching Lilly signification."}
+  ],
+  "planet_bridge": {
+    "problem": "A sourced item-to-house mapping still does not say WHICH planet's house to read. The origin publishes nothing on this, and Lilly's method of judging a matter by the lord of its house is far richer than a house-membership predicate and cannot be reduced to one without invention.",
+    "rule": "A 'yes' for an item mapped to house H is taken as evidence that house H is accidentally emphasised in the nativity, and is scored by the NUMBER OF PLANETS tenanting H at the candidate time. A 'no' is scored as the negation of the same quantity. 'unknown' contributes nothing.",
+    "why_this_one": "It is a single chart-independent rule, it uses exactly the planet-to-house vector already shown in Work item 1 to carry the narrowing information, and it commits to no per-item or per-chart choice that could be fitted after the fact.",
+    "status": "This is the one bridging choice not taken from a source. It is frozen here, before any scoring run, and it is the weakest link in the chain. It is stated as such in the report."
+  },
+  "counts": {"supplied": 24, "kept": 13, "dropped": 11}
+}

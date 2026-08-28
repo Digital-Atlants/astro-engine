@@ -97,6 +97,15 @@ class RectificationConfig(BaseModel):
     # 0 disables it.
     permutation_trials: int = Field(default=12, ge=0, le=200)
 
+    # Below this width the engine stops trusting its own ordering and returns
+    # the midpoint of the surviving interval instead of the score argmax.
+    # Measured: once the candidate set is this narrow the argmax is
+    # anti-correlated with the truth (AUC 0.422 all / 0.420 holdout) and loses
+    # to a blind pick 20 times against 13. The default is 26 minutes, which is
+    # where the engine's measured usefulness ends. Set 0 to disable.
+    # See benchmarks/RESULTS_SUBSIGN.md.
+    midpoint_below_minutes: int = Field(default=26, ge=0, le=1440)
+
     # Below this permutation percentile the engine refuses to name a time.
     refusal_percentile: float = Field(default=0.90, ge=0, le=1)
     # ...and it also refuses when the top candidates are not separable.

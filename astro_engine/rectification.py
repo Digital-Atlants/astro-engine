@@ -359,6 +359,8 @@ def score_rectification(req: RectificationRequest) -> dict:
     null_peaks = _permutation_null(req, birth_jd_noon, natal_positions, minutes)
     confidence = _confidence(candidates, eligible, null_peaks, cfg)
 
+    chosen, selection = _select_time(candidates, eligible, best_idx, step, cfg)
+
     return {
         "candidates": candidates,
         "density": [
@@ -366,13 +368,48 @@ def score_rectification(req: RectificationRequest) -> dict:
             for c in candidates
         ],
         "suggested_best": {
-            "time": None if confidence["refused"] else best["time"],
+            "time": None if confidence["refused"] else chosen,
             "score": best["total_score"],
             "residual_window_minutes": residual,
+            "selection": selection,
         },
         "confidence": confidence,
         "config_echo": cfg.model_dump(),
     }
+
+
+def _select_time(
+    candidates: list[dict],
+    eligible: list[int],
+    best_idx: int,
+    step: int,
+    cfg,
+) -> tuple[str, str]:
+    """Argmax, unless the surviving set is too narrow for the argmax to mean
+    anything - in which case the midpoint of that interval.
+
+    Measured on the 41-case corpus: once the candidate set is narrow, the
+    score ordering is anti-correlated with the truth (AUC 0.422 over all
+    cases, 0.420 on holdout) and loses to a blind pick 20 times against 13.
+    Taking the middle of the surviving interval is strictly the better
+    estimator there, so below `midpoint_below_minutes` the engine stops
+    pretending its ordering is informative. Above it, nothing changes.
+    """
+    if cfg.midpoint_below_minutes <= 0 or not eligible:
+        return candidates[best_idx]["time"], "argmax"
+
+    # The contiguous run of eligible candidates containing the argmax.
+    eligible_set = set(eligible)
+    lo = hi = best_idx
+    while lo - 1 >= 0 and (lo - 1) in eligible_set:
+        lo -= 1
+    while hi + 1 < len(candidates) and (hi + 1) in eligible_set:
+        hi += 1
+
+    width = (hi - lo + 1) * step
+    if width >= cfg.midpoint_below_minutes:
+        return candidates[best_idx]["time"], "argmax"
+    return candidates[(lo + hi) // 2]["time"], "interval_midpoint"
 
 
 def _confidence(

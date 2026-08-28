@@ -1,0 +1,1983 @@
+{
+  "all": {
+    "block_minutes_median": 144,
+    "cases": 41,
+    "full_median": 16,
+    "planets_changing_house_max": 10,
+    "planets_changing_house_median": 10,
+    "planets_changing_house_min": 6,
+    "q1_median": 40,
+    "q2_equals_full": 41,
+    "q2_median": 16,
+    "q3_adds_nothing_over_q2": 41,
+    "q3_median": 16
+  },
+  "distinct_q2_pairs": 25,
+  "holdout": {
+    "block_minutes_median": 148.0,
+    "cases": 12,
+    "full_median": 20.0,
+    "planets_changing_house_max": 10,
+    "planets_changing_house_median": 10.0,
+    "planets_changing_house_min": 9,
+    "q1_median": 30.0,
+    "q2_equals_full": 12,
+    "q2_median": 20.0,
+    "q3_adds_nothing_over_q2": 12,
+    "q3_median": 20.0
+  },
+  "per_case": [
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "ali_muhammad",
+      "full_vector": {
+        "candidates": 7,
+        "window_minutes": 28
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 18,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 72
+      },
+      "q2": {
+        "candidates": 7,
+        "planets": [
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 28
+      },
+      "q3": {
+        "candidates": 7,
+        "planets": [
+          "sun",
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 28
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "bush_george_w",
+      "full_vector": {
+        "candidates": 9,
+        "window_minutes": 36
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 12,
+        "planets": [
+          "mercury"
+        ],
+        "window_minutes": 48
+      },
+      "q2": {
+        "candidates": 9,
+        "planets": [
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 36
+      },
+      "q3": {
+        "candidates": 9,
+        "planets": [
+          "sun",
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 36
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "carter_jimmy",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 18,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 72
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "moon",
+          "pluto"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "moon",
+          "pluto"
+        ],
+        "window_minutes": 12
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 36,
+      "block_minutes": 144,
+      "case_id": "clinton_bill",
+      "full_vector": {
+        "candidates": 1,
+        "window_minutes": 4
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 9,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 36
+      },
+      "q2": {
+        "candidates": 1,
+        "planets": [
+          "sun",
+          "moon"
+        ],
+        "window_minutes": 4
+      },
+      "q3": {
+        "candidates": 1,
+        "planets": [
+          "sun",
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 4
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 40,
+      "block_minutes": 160,
+      "case_id": "cobain_kurt",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 9,
+        "planets": [
+          "uranus"
+        ],
+        "window_minutes": 36
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "venus",
+          "uranus"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "venus",
+          "uranus"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "depp_johnny",
+      "full_vector": {
+        "candidates": 2,
+        "window_minutes": 8
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 2,
+        "planets": [
+          "mercury"
+        ],
+        "window_minutes": 8
+      },
+      "q2": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "mercury"
+        ],
+        "window_minutes": 8
+      },
+      "q3": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 8
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "dicaprio_leonardo",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 12
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 39,
+      "block_minutes": 156,
+      "case_id": "disney_walt",
+      "full_vector": {
+        "candidates": 8,
+        "window_minutes": 32
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 13,
+        "planets": [
+          "pluto"
+        ],
+        "window_minutes": 52
+      },
+      "q2": {
+        "candidates": 8,
+        "planets": [
+          "venus",
+          "pluto"
+        ],
+        "window_minutes": 32
+      },
+      "q3": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "venus",
+          "pluto"
+        ],
+        "window_minutes": 32
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "dylan_bob",
+      "full_vector": {
+        "candidates": 1,
+        "window_minutes": 4
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 11,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 44
+      },
+      "q2": {
+        "candidates": 1,
+        "planets": [
+          "moon",
+          "saturn"
+        ],
+        "window_minutes": 4
+      },
+      "q3": {
+        "candidates": 1,
+        "planets": [
+          "sun",
+          "moon",
+          "saturn"
+        ],
+        "window_minutes": 4
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 41,
+      "block_minutes": 164,
+      "case_id": "freud_sigmund",
+      "full_vector": {
+        "candidates": 11,
+        "window_minutes": 44
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 18,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 72
+      },
+      "q2": {
+        "candidates": 11,
+        "planets": [
+          "jupiter",
+          "neptune"
+        ],
+        "window_minutes": 44
+      },
+      "q3": {
+        "candidates": 11,
+        "planets": [
+          "sun",
+          "jupiter",
+          "neptune"
+        ],
+        "window_minutes": 44
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "gore_al",
+      "full_vector": {
+        "candidates": 11,
+        "window_minutes": 44
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 16,
+        "planets": [
+          "pluto"
+        ],
+        "window_minutes": 64
+      },
+      "q2": {
+        "candidates": 11,
+        "planets": [
+          "moon",
+          "pluto"
+        ],
+        "window_minutes": 44
+      },
+      "q3": {
+        "candidates": 11,
+        "planets": [
+          "sun",
+          "moon",
+          "pluto"
+        ],
+        "window_minutes": 44
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "hanks_tom",
+      "full_vector": {
+        "candidates": 8,
+        "window_minutes": 32
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 16,
+        "planets": [
+          "mars"
+        ],
+        "window_minutes": 64
+      },
+      "q2": {
+        "candidates": 8,
+        "planets": [
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 32
+      },
+      "q3": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 32
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "hemingway_ernest",
+      "full_vector": {
+        "candidates": 11,
+        "window_minutes": 44
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 11,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 44
+      },
+      "q2": {
+        "candidates": 11,
+        "planets": [
+          "sun",
+          "jupiter"
+        ],
+        "window_minutes": 44
+      },
+      "q3": {
+        "candidates": 11,
+        "planets": [
+          "sun",
+          "moon",
+          "jupiter"
+        ],
+        "window_minutes": 44
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "hendrix_jimi",
+      "full_vector": {
+        "candidates": 2,
+        "window_minutes": 8
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 7,
+        "planets": [
+          "mars"
+        ],
+        "window_minutes": 28
+      },
+      "q2": {
+        "candidates": 2,
+        "planets": [
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 8
+      },
+      "q3": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 8
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 18,
+      "block_minutes": 72,
+      "case_id": "houston_whitney",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 6,
+      "planets_changing_house": [
+        "sun",
+        "mercury",
+        "venus",
+        "jupiter",
+        "uranus",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 6,
+        "planets": [
+          "mercury"
+        ],
+        "window_minutes": 24
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "mercury",
+          "uranus"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "mercury",
+          "uranus"
+        ],
+        "window_minutes": 12
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "jobs_steve",
+      "full_vector": {
+        "candidates": 0,
+        "window_minutes": 0
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 10,
+        "planets": [
+          "uranus"
+        ],
+        "window_minutes": 40
+      },
+      "q2": {
+        "candidates": 0,
+        "planets": [
+          "uranus",
+          "pluto"
+        ],
+        "window_minutes": 0
+      },
+      "q3": {
+        "candidates": 0,
+        "planets": [
+          "sun",
+          "uranus",
+          "pluto"
+        ],
+        "window_minutes": 0
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "jolie_angelina",
+      "full_vector": {
+        "candidates": 2,
+        "window_minutes": 8
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 2,
+        "planets": [
+          "venus"
+        ],
+        "window_minutes": 8
+      },
+      "q2": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "venus"
+        ],
+        "window_minutes": 8
+      },
+      "q3": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "moon",
+          "venus"
+        ],
+        "window_minutes": 8
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 24,
+      "block_minutes": 96,
+      "case_id": "joplin_janis",
+      "full_vector": {
+        "candidates": 5,
+        "window_minutes": 20
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "saturn"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 5,
+        "planets": [
+          "moon",
+          "saturn"
+        ],
+        "window_minutes": 20
+      },
+      "q3": {
+        "candidates": 5,
+        "planets": [
+          "moon",
+          "mercury",
+          "saturn"
+        ],
+        "window_minutes": 20
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "jordan_michael",
+      "full_vector": {
+        "candidates": 1,
+        "window_minutes": 4
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 15,
+        "planets": [
+          "venus"
+        ],
+        "window_minutes": 60
+      },
+      "q2": {
+        "candidates": 1,
+        "planets": [
+          "mercury",
+          "venus"
+        ],
+        "window_minutes": 4
+      },
+      "q3": {
+        "candidates": 1,
+        "planets": [
+          "sun",
+          "mercury",
+          "venus"
+        ],
+        "window_minutes": 4
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "kennedy_john",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 15,
+        "planets": [
+          "venus"
+        ],
+        "window_minutes": 60
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "venus",
+          "mars"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "lee_bruce",
+      "full_vector": {
+        "candidates": 6,
+        "window_minutes": 24
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 13,
+        "planets": [
+          "neptune"
+        ],
+        "window_minutes": 52
+      },
+      "q2": {
+        "candidates": 6,
+        "planets": [
+          "mercury",
+          "neptune"
+        ],
+        "window_minutes": 24
+      },
+      "q3": {
+        "candidates": 6,
+        "planets": [
+          "sun",
+          "mercury",
+          "neptune"
+        ],
+        "window_minutes": 24
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 22,
+      "block_minutes": 88,
+      "case_id": "manson_charles",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "mercury",
+          "jupiter"
+        ],
+        "window_minutes": 12
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 40,
+      "block_minutes": 160,
+      "case_id": "mitterrand_francois",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "pluto"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "neptune",
+          "pluto"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "neptune",
+          "pluto"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 36,
+      "block_minutes": 144,
+      "case_id": "monroe_marilyn",
+      "full_vector": {
+        "candidates": 8,
+        "window_minutes": 32
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 20,
+        "planets": [
+          "sun"
+        ],
+        "window_minutes": 80
+      },
+      "q2": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "moon"
+        ],
+        "window_minutes": 32
+      },
+      "q3": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 32
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 25,
+      "block_minutes": 100,
+      "case_id": "morrison_jim",
+      "full_vector": {
+        "candidates": 5,
+        "window_minutes": 20
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 13,
+        "planets": [
+          "venus"
+        ],
+        "window_minutes": 52
+      },
+      "q2": {
+        "candidates": 5,
+        "planets": [
+          "venus",
+          "pluto"
+        ],
+        "window_minutes": 20
+      },
+      "q3": {
+        "candidates": 5,
+        "planets": [
+          "sun",
+          "venus",
+          "pluto"
+        ],
+        "window_minutes": 20
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 28,
+      "block_minutes": 112,
+      "case_id": "nelson_prince",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 10,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 40
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "moon",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "moon",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 36,
+      "block_minutes": 144,
+      "case_id": "nixon_richard",
+      "full_vector": {
+        "candidates": 17,
+        "window_minutes": 68
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 22,
+        "planets": [
+          "sun"
+        ],
+        "window_minutes": 88
+      },
+      "q2": {
+        "candidates": 17,
+        "planets": [
+          "sun",
+          "venus"
+        ],
+        "window_minutes": 68
+      },
+      "q3": {
+        "candidates": 17,
+        "planets": [
+          "sun",
+          "moon",
+          "venus"
+        ],
+        "window_minutes": 68
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 26,
+      "block_minutes": 104,
+      "case_id": "obama_barack",
+      "full_vector": {
+        "candidates": 7,
+        "window_minutes": 28
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 12,
+        "planets": [
+          "mars"
+        ],
+        "window_minutes": 48
+      },
+      "q2": {
+        "candidates": 7,
+        "planets": [
+          "moon",
+          "mars"
+        ],
+        "window_minutes": 28
+      },
+      "q3": {
+        "candidates": 7,
+        "planets": [
+          "sun",
+          "moon",
+          "mars"
+        ],
+        "window_minutes": 28
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "presley_elvis",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 16,
+        "planets": [
+          "uranus"
+        ],
+        "window_minutes": 64
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "jupiter",
+          "uranus"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "jupiter",
+          "uranus"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 41,
+      "block_minutes": 164,
+      "case_id": "sarkozy_nicolas",
+      "full_vector": {
+        "candidates": 5,
+        "window_minutes": 20
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 10,
+        "planets": [
+          "venus"
+        ],
+        "window_minutes": 40
+      },
+      "q2": {
+        "candidates": 5,
+        "planets": [
+          "venus",
+          "saturn"
+        ],
+        "window_minutes": 20
+      },
+      "q3": {
+        "candidates": 5,
+        "planets": [
+          "sun",
+          "venus",
+          "saturn"
+        ],
+        "window_minutes": 20
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 36,
+      "block_minutes": 144,
+      "case_id": "schwarzenegger_arnold",
+      "full_vector": {
+        "candidates": 7,
+        "window_minutes": 28
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 15,
+        "planets": [
+          "sun"
+        ],
+        "window_minutes": 60
+      },
+      "q2": {
+        "candidates": 7,
+        "planets": [
+          "sun",
+          "mars"
+        ],
+        "window_minutes": 28
+      },
+      "q3": {
+        "candidates": 7,
+        "planets": [
+          "sun",
+          "moon",
+          "mars"
+        ],
+        "window_minutes": 28
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "spears_britney",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 3,
+        "planets": [
+          "uranus"
+        ],
+        "window_minutes": 12
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "uranus"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "moon",
+          "uranus"
+        ],
+        "window_minutes": 12
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 28,
+      "block_minutes": 112,
+      "case_id": "springsteen_bruce",
+      "full_vector": {
+        "candidates": 8,
+        "window_minutes": 32
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 8,
+        "planets": [
+          "sun"
+        ],
+        "window_minutes": 32
+      },
+      "q2": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "moon"
+        ],
+        "window_minutes": 32
+      },
+      "q3": {
+        "candidates": 8,
+        "planets": [
+          "sun",
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 32
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 35,
+      "block_minutes": 140,
+      "case_id": "stallone_sylvester",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "moon",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "moon",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "taylor_elizabeth",
+      "full_vector": {
+        "candidates": 3,
+        "window_minutes": 12
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 20,
+        "planets": [
+          "sun"
+        ],
+        "window_minutes": 80
+      },
+      "q2": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "venus"
+        ],
+        "window_minutes": 12
+      },
+      "q3": {
+        "candidates": 3,
+        "planets": [
+          "sun",
+          "moon",
+          "venus"
+        ],
+        "window_minutes": 12
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "trump_donald",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 4,
+        "planets": [
+          "mars"
+        ],
+        "window_minutes": 16
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "mars"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "moon",
+          "mars"
+        ],
+        "window_minutes": 16
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 37,
+      "block_minutes": 148,
+      "case_id": "van_gogh_vincent",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 15,
+        "planets": [
+          "mercury"
+        ],
+        "window_minutes": 60
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "mercury",
+          "pluto"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "sun",
+          "mercury",
+          "pluto"
+        ],
+        "window_minutes": 16
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "william_prince",
+      "full_vector": {
+        "candidates": 4,
+        "window_minutes": 16
+      },
+      "n_planets_changing_house": 9,
+      "planets_changing_house": [
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 5,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 20
+      },
+      "q2": {
+        "candidates": 4,
+        "planets": [
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "q3": {
+        "candidates": 4,
+        "planets": [
+          "moon",
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 16
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 38,
+      "block_minutes": 152,
+      "case_id": "williams_robin",
+      "full_vector": {
+        "candidates": 6,
+        "window_minutes": 24
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 7,
+        "planets": [
+          "jupiter"
+        ],
+        "window_minutes": 28
+      },
+      "q2": {
+        "candidates": 6,
+        "planets": [
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 24
+      },
+      "q3": {
+        "candidates": 6,
+        "planets": [
+          "sun",
+          "venus",
+          "jupiter"
+        ],
+        "window_minutes": 24
+      },
+      "split": "holdout"
+    },
+    {
+      "block_candidates": 20,
+      "block_minutes": 80,
+      "case_id": "williams_serena",
+      "full_vector": {
+        "candidates": 6,
+        "window_minutes": 24
+      },
+      "n_planets_changing_house": 6,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "venus",
+        "mars",
+        "uranus",
+        "neptune"
+      ],
+      "q1": {
+        "candidates": 6,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 24
+      },
+      "q2": {
+        "candidates": 6,
+        "planets": [
+          "sun",
+          "moon"
+        ],
+        "window_minutes": 24
+      },
+      "q3": {
+        "candidates": 6,
+        "planets": [
+          "sun",
+          "moon",
+          "venus"
+        ],
+        "window_minutes": 24
+      },
+      "split": "train"
+    },
+    {
+      "block_candidates": 36,
+      "block_minutes": 144,
+      "case_id": "woods_tiger",
+      "full_vector": {
+        "candidates": 2,
+        "window_minutes": 8
+      },
+      "n_planets_changing_house": 10,
+      "planets_changing_house": [
+        "sun",
+        "moon",
+        "mercury",
+        "venus",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "pluto"
+      ],
+      "q1": {
+        "candidates": 9,
+        "planets": [
+          "moon"
+        ],
+        "window_minutes": 36
+      },
+      "q2": {
+        "candidates": 2,
+        "planets": [
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 8
+      },
+      "q3": {
+        "candidates": 2,
+        "planets": [
+          "sun",
+          "moon",
+          "mercury"
+        ],
+        "window_minutes": 8
+      },
+      "split": "train"
+    }
+  ],
+  "q2_pair_frequency": {
+    "jupiter+neptune": 1,
+    "jupiter+uranus": 1,
+    "mercury+jupiter": 3,
+    "mercury+neptune": 1,
+    "mercury+pluto": 1,
+    "mercury+uranus": 1,
+    "mercury+venus": 1,
+    "moon+jupiter": 2,
+    "moon+mars": 1,
+    "moon+mercury": 1,
+    "moon+pluto": 2,
+    "moon+saturn": 2,
+    "neptune+pluto": 1,
+    "sun+jupiter": 1,
+    "sun+mars": 2,
+    "sun+mercury": 1,
+    "sun+moon": 4,
+    "sun+uranus": 1,
+    "sun+venus": 3,
+    "uranus+pluto": 1,
+    "venus+jupiter": 3,
+    "venus+mars": 3,
+    "venus+pluto": 2,
+    "venus+saturn": 1,
+    "venus+uranus": 1
+  },
+  "q2_planet_frequency": {
+    "jupiter": 11,
+    "mars": 6,
+    "mercury": 9,
+    "moon": 12,
+    "neptune": 3,
+    "pluto": 7,
+    "saturn": 3,
+    "sun": 12,
+    "uranus": 5,
+    "venus": 14
+  },
+  "shuffled_arm_identical": true
+}

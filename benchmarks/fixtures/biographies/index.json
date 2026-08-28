@@ -1,0 +1,480 @@
+[
+  {
+    "case_id": "ali_muhammad",
+    "chars": 90674,
+    "n_redactions": 1,
+    "redactions": [
+      "47.45"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Muhammad_Ali",
+    "title": "Muhammad Ali"
+  },
+  {
+    "case_id": "bush_george_w",
+    "chars": 95481,
+    "n_redactions": 6,
+    "redactions": [
+      "1.78",
+      "2.98",
+      "2.02",
+      "2.52",
+      "1.35",
+      "2.12"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/George_W._Bush",
+    "title": "George W. Bush"
+  },
+  {
+    "case_id": "carter_jimmy",
+    "chars": 92676,
+    "n_redactions": 1,
+    "redactions": [
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Jimmy_Carter",
+    "title": "Jimmy Carter"
+  },
+  {
+    "case_id": "clinton_bill",
+    "chars": 94331,
+    "n_redactions": 11,
+    "redactions": [
+      "5.41",
+      "5.52",
+      "5.65",
+      "5.67",
+      "5.36",
+      "5.47",
+      "5.60",
+      "5.62",
+      "18 Am",
+      "12 Am",
+      "10 Am"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Bill_Clinton",
+    "title": "Bill Clinton"
+  },
+  {
+    "case_id": "cobain_kurt",
+    "chars": 64556,
+    "n_redactions": 1,
+    "redactions": [
+      "31.21"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Kurt_Cobain",
+    "title": "Kurt Cobain"
+  },
+  {
+    "case_id": "depp_johnny",
+    "chars": 67283,
+    "n_redactions": 1,
+    "redactions": [
+      "1.02"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Johnny_Depp",
+    "title": "Johnny Depp"
+  },
+  {
+    "case_id": "dicaprio_leonardo",
+    "chars": 0,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Leonardo_DiCaprio",
+    "title": "Leonardo DiCaprio"
+  },
+  {
+    "case_id": "disney_walt",
+    "chars": 52189,
+    "n_redactions": 1,
+    "redactions": [
+      "4:30"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Walt_Disney",
+    "title": "Walt Disney"
+  },
+  {
+    "case_id": "dylan_bob",
+    "chars": 87437,
+    "n_redactions": 1,
+    "redactions": [
+      "18.99"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Bob_Dylan",
+    "title": "Bob Dylan"
+  },
+  {
+    "case_id": "freud_sigmund",
+    "chars": 105677,
+    "n_redactions": 2,
+    "redactions": [
+      "3 a.m.",
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Sigmund_Freud",
+    "title": "Sigmund Freud"
+  },
+  {
+    "case_id": "gore_al",
+    "chars": 65041,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Al_Gore",
+    "title": "Al Gore"
+  },
+  {
+    "case_id": "hanks_tom",
+    "chars": 41163,
+    "n_redactions": 3,
+    "redactions": [
+      "1.07",
+      "9.96",
+      "born at the Mount Diablo Hospital in Concord, California"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Tom_Hanks",
+    "title": "Tom Hanks"
+  },
+  {
+    "case_id": "hemingway_ernest",
+    "chars": 58328,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Ernest_Hemingway",
+    "title": "Ernest Hemingway"
+  },
+  {
+    "case_id": "hendrix_jimi",
+    "chars": 78359,
+    "n_redactions": 10,
+    "redactions": [
+      "8:00 a.m",
+      "1:45 am",
+      "11:18 am",
+      "12:45 p.m.",
+      "11 pm",
+      "3 am",
+      "7 am",
+      "11 a.m.",
+      "Midnight",
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Jimi_Hendrix",
+    "title": "Jimi Hendrix"
+  },
+  {
+    "case_id": "houston_whitney",
+    "chars": 92431,
+    "n_redactions": 3,
+    "redactions": [
+      "3:30 pm",
+      "3:55 pm",
+      "22 Am"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Whitney_Houston",
+    "title": "Whitney Houston"
+  },
+  {
+    "case_id": "jobs_steve",
+    "chars": 75928,
+    "n_redactions": 5,
+    "redactions": [
+      "4.94",
+      "1.03",
+      "18.30",
+      "21.10",
+      "1: 19"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Steve_Jobs",
+    "title": "Steve Jobs"
+  },
+  {
+    "case_id": "jolie_angelina",
+    "chars": 65829,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Angelina_Jolie",
+    "title": "Angelina Jolie"
+  },
+  {
+    "case_id": "joplin_janis",
+    "chars": 0,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Janis_Joplin",
+    "title": "Janis Joplin"
+  },
+  {
+    "case_id": "jordan_michael",
+    "chars": 0,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+    "title": "Michael Jordan"
+  },
+  {
+    "case_id": "kennedy_john",
+    "chars": 99959,
+    "n_redactions": 7,
+    "redactions": [
+      "2:00 a.m.",
+      "3.25",
+      "35.02",
+      "1.25",
+      "12:30 p.m.",
+      "1:00 p.m.",
+      "noon"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/John_F._Kennedy",
+    "title": "John F. Kennedy"
+  },
+  {
+    "case_id": "lee_bruce",
+    "chars": 67609,
+    "n_redactions": 4,
+    "redactions": [
+      "9:45 p.m.",
+      "1.68",
+      "2 p.m.",
+      "4 p.m."
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Bruce_Lee",
+    "title": "Bruce Lee"
+  },
+  {
+    "case_id": "manson_charles",
+    "chars": 83196,
+    "n_redactions": 2,
+    "redactions": [
+      "10:30 p.m.",
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Charles_Manson",
+    "title": "Charles Manson"
+  },
+  {
+    "case_id": "mitterrand_francois",
+    "chars": 81664,
+    "n_redactions": 5,
+    "redactions": [
+      "49.19",
+      "50.81",
+      "25.85",
+      "51.76",
+      "8.16"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_Mitterrand",
+    "title": "Fran\u00e7ois Mitterrand"
+  },
+  {
+    "case_id": "monroe_marilyn",
+    "chars": 60745,
+    "n_redactions": 5,
+    "redactions": [
+      "3:00 a.m.",
+      "3:50 a.m.",
+      "4:25 a.m.",
+      "8:30 p.m.",
+      "10:30 p.m."
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Marilyn_Monroe",
+    "title": "Marilyn Monroe"
+  },
+  {
+    "case_id": "morrison_jim",
+    "chars": 48578,
+    "n_redactions": 3,
+    "redactions": [
+      "6:00 am",
+      "2:00 am",
+      "Midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Jim_Morrison",
+    "title": "Jim Morrison"
+  },
+  {
+    "case_id": "nelson_prince",
+    "chars": 78078,
+    "n_redactions": 10,
+    "redactions": [
+      "31.21",
+      "48.66",
+      "2.95",
+      "9:43 am",
+      "10:07 am",
+      "4.41",
+      "2 Am",
+      "2 Am",
+      "Midnight",
+      "born at Mount Sinai Hospital in Minneapolis, Minnesota, on June 7,"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Prince_(musician)",
+    "title": "Prince (musician)"
+  },
+  {
+    "case_id": "nixon_richard",
+    "chars": 101727,
+    "n_redactions": 3,
+    "redactions": [
+      "7:00 a.m.",
+      "9:08 p.m.",
+      "4 a.m."
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Richard_Nixon",
+    "title": "Richard Nixon"
+  },
+  {
+    "case_id": "obama_barack",
+    "chars": 74386,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Barack_Obama",
+    "title": "Barack Obama"
+  },
+  {
+    "case_id": "presley_elvis",
+    "chars": 96505,
+    "n_redactions": 2,
+    "redactions": [
+      "3:30 pm",
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Elvis_Presley",
+    "title": "Elvis Presley"
+  },
+  {
+    "case_id": "sarkozy_nicolas",
+    "chars": 0,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
+    "title": "Nicolas Sarkozy"
+  },
+  {
+    "case_id": "schwarzenegger_arnold",
+    "chars": 83990,
+    "n_redactions": 6,
+    "redactions": [
+      "1.88",
+      "1.88",
+      "1.86",
+      "1.65",
+      "1.78",
+      "1.78"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Arnold_Schwarzenegger",
+    "title": "Arnold Schwarzenegger"
+  },
+  {
+    "case_id": "spears_britney",
+    "chars": 82524,
+    "n_redactions": 1,
+    "redactions": [
+      "1.17"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Britney_Spears",
+    "title": "Britney Spears"
+  },
+  {
+    "case_id": "springsteen_bruce",
+    "chars": 67324,
+    "n_redactions": 4,
+    "redactions": [
+      "18.95",
+      "33.44",
+      "midnight",
+      "born at Monmouth Medical Center in Long Branch, New Jersey on Septe"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Bruce_Springsteen",
+    "title": "Bruce Springsteen"
+  },
+  {
+    "case_id": "stallone_sylvester",
+    "chars": 46511,
+    "n_redactions": 1,
+    "redactions": [
+      "5.43"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Sylvester_Stallone",
+    "title": "Sylvester Stallone"
+  },
+  {
+    "case_id": "taylor_elizabeth",
+    "chars": 59752,
+    "n_redactions": 7,
+    "redactions": [
+      "5.26",
+      "5.79",
+      "33.19",
+      "6.63",
+      "69.42",
+      "13.88",
+      "2.36"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Elizabeth_Taylor",
+    "title": "Elizabeth Taylor"
+  },
+  {
+    "case_id": "trump_donald",
+    "chars": 79298,
+    "n_redactions": 4,
+    "redactions": [
+      "1.03",
+      "2.87",
+      "27.75",
+      "2.24"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Donald_Trump",
+    "title": "Donald Trump"
+  },
+  {
+    "case_id": "van_gogh_vincent",
+    "chars": 64380,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+    "title": "Vincent van Gogh"
+  },
+  {
+    "case_id": "william_prince",
+    "chars": 49337,
+    "n_redactions": 5,
+    "redactions": [
+      "9:03 pm",
+      "8.34",
+      "7.76",
+      "born at [TIME REDACTED] on 21 June 1982 at St Mary's Hospital, Lond",
+      "born at St Mary's Hospital in London"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/William,_Prince_of_Wales",
+    "title": "William, Prince of Wales"
+  },
+  {
+    "case_id": "williams_robin",
+    "chars": 45829,
+    "n_redactions": 2,
+    "redactions": [
+      "34:21",
+      "midnight"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Robin_Williams",
+    "title": "Robin Williams"
+  },
+  {
+    "case_id": "williams_serena",
+    "chars": 79556,
+    "n_redactions": 2,
+    "redactions": [
+      "10.11",
+      "1 am"
+    ],
+    "source_url": "https://en.wikipedia.org/wiki/Serena_Williams",
+    "title": "Serena Williams"
+  },
+  {
+    "case_id": "woods_tiger",
+    "chars": 0,
+    "n_redactions": 0,
+    "redactions": [],
+    "source_url": "https://en.wikipedia.org/wiki/Tiger_Woods",
+    "title": "Tiger Woods"
+  }
+]
