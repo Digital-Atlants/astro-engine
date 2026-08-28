@@ -160,6 +160,40 @@ once; only Asc/MC/cusps (and the progressed Moon) are computed per candidate.
 360 candidates × 12 events takes ~0.2 s with the null disabled and ~2.5 s at
 the default 12 trials.
 
+### `POST /v1/interview/step`
+
+Stateless coherence-tiered interview. Input: birth date, place, and every
+answer given so far. Output: the posterior over a **1-minute** candidate grid,
+the next question computed from the chart, the tier, and the stated window.
+Same input, same output.
+
+Answers are **enumerated ids the engine emitted** (`^[a-z0-9_]{1,32}$`) and the
+request rejects unknown fields. A calling model phrases the question and maps
+free text onto an id; it cannot send a time, a number or a window. Every
+numeric decision belongs to the engine.
+
+Questions are computed from geometry, not a fixed questionnaire: rising sign,
+decan, mover-house questions chosen by expected information gain, then a
+portrait choice. Descriptions are structured keys, not prose.
+
+Tiers: **1** a single window <= 30 min with independent channel agreement,
+**2** a two-or-three window shortlist, **3** the rising sign only, **4**
+refusal. A Tier 1/2 answer always carries window bounds, never a bare time.
+
+Measured behaviour, and its limits, are in
+[`benchmarks/RESULTS_INTERVIEW.md`](benchmarks/RESULTS_INTERVIEW.md): the
+safety gate **fails** at a 6.2% wrong-window rate for an answerer who is wrong
+20% of the time, and an answerer who is consistently answering for someone
+else's birth time gets a confident wrong answer 75.6% of the time. Do not
+present Tier 1 as a guarantee.
+
+### `POST /v1/interview/compare`
+
+Calibration mode. A blind session runs the interview with no documented time -
+`/v1/interview/step` has no field for one - and submits it here afterwards.
+Returns the error in minutes, whether the window contained it, the tier and
+the coherence numbers. Captures PII-free telemetry only: no answers, no times.
+
 ## Tests
 
 ```bash
