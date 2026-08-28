@@ -1,0 +1,126 @@
+{
+  "baseline": {
+    "holdout": {
+      "hit_15_in_block": 0.3333333333333333,
+      "hit_30_in_block": 0.5833333333333334,
+      "hit_5_in_block": 0.0,
+      "mean_in_block": 38.833333333333336,
+      "median_full_day": 403.0,
+      "median_in_block": 23.0,
+      "n": 12
+    },
+    "train_median": 29
+  },
+  "swept": {
+    "directed_angles": {
+      "beats_baseline_on_holdout": false,
+      "best_weight_on_train": 0.2,
+      "holdout": {
+        "hit_15_in_block": 0.3333333333333333,
+        "hit_30_in_block": 0.6666666666666666,
+        "hit_5_in_block": 0.0,
+        "mean_in_block": 35.5,
+        "median_full_day": 371.5,
+        "median_in_block": 23.0,
+        "n": 12
+      },
+      "train_curve": {
+        "0.2": 24,
+        "0.5": 32,
+        "1.0": 32,
+        "1.4": 33,
+        "2.0": 33,
+        "3.0": 40
+      },
+      "train_median_at_best": 24
+    },
+    "eclipse_on_angle": {
+      "beats_baseline_on_holdout": false,
+      "best_weight_on_train": 3.0,
+      "holdout": {
+        "hit_15_in_block": 0.16666666666666666,
+        "hit_30_in_block": 0.3333333333333333,
+        "hit_5_in_block": 0.0,
+        "mean_in_block": 51.5,
+        "median_full_day": 488.0,
+        "median_in_block": 49.0,
+        "n": 12
+      },
+      "train_curve": {
+        "0.2": 29,
+        "0.5": 29,
+        "1.0": 29,
+        "1.4": 37,
+        "2.0": 37,
+        "3.0": 28
+      },
+      "train_median_at_best": 28
+    },
+    "primary_directions (naibod)": {
+      "beats_baseline_on_holdout": false,
+      "best_weight_on_train": 0.2,
+      "holdout": {
+        "hit_15_in_block": 0.3333333333333333,
+        "hit_30_in_block": 0.5833333333333334,
+        "hit_5_in_block": 0.0,
+        "mean_in_block": 38.833333333333336,
+        "median_full_day": 403.0,
+        "median_in_block": 23.0,
+        "n": 12
+      },
+      "train_curve": {
+        "0.2": 29,
+        "0.5": 29,
+        "1.0": 33,
+        "1.4": 29,
+        "2.0": 29,
+        "3.0": 37
+      },
+      "train_median_at_best": 29
+    },
+    "primary_directions (ptolemy)": {
+      "beats_baseline_on_holdout": false,
+      "best_weight_on_train": 0.2,
+      "holdout": {
+        "hit_15_in_block": 0.3333333333333333,
+        "hit_30_in_block": 0.5833333333333334,
+        "hit_5_in_block": 0.0,
+        "mean_in_block": 38.833333333333336,
+        "median_full_day": 493.5,
+        "median_in_block": 23.0,
+        "n": 12
+      },
+      "train_curve": {
+        "0.2": 24,
+        "0.5": 24,
+        "1.0": 24,
+        "1.4": 24,
+        "2.0": 24,
+        "3.0": 33
+      },
+      "train_median_at_best": 24
+    },
+    "quadrant_cusps (placidus)": {
+      "beats_baseline_on_holdout": false,
+      "best_weight_on_train": 0.5,
+      "holdout": {
+        "hit_15_in_block": 0.08333333333333333,
+        "hit_30_in_block": 0.16666666666666666,
+        "hit_5_in_block": 0.08333333333333333,
+        "mean_in_block": 66.5,
+        "median_full_day": 336.0,
+        "median_in_block": 48.5,
+        "n": 12
+      },
+      "train_curve": {
+        "0.2": 28,
+        "0.5": 27,
+        "1.0": 28,
+        "1.4": 28,
+        "2.0": 28,
+        "3.0": 35
+      },
+      "train_median_at_best": 27
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "birth_date": "1963-08-09",
+  "case_id": "houston_whitney",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1983-04-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Signed to Arista Records"
+    },
+    {
+      "id": "e2",
+      "date": "1985-02-14",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Debut album released"
+    },
+    {
+      "id": "e3",
+      "date": "1992-07-18",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Bobby Brown"
+    },
+    {
+      "id": "e4",
+      "date": "1992-11-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'The Bodyguard' released"
+    },
+    {
+      "id": "e5",
+      "date": "1993-03-04",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Bobbi Kristina born"
+    },
+    {
+      "id": "e6",
+      "date": "2000-01-11",
+      "date_precision": "day",
+      "type": "accident",
+      "description": "Detained at a Hawaii airport on a drug charge"
+    },
+    {
+      "id": "e7",
+      "date": "2002-12-04",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Televised interview acknowledging drug use"
+    },
+    {
+      "id": "e8",
+      "date": "2007-04-24",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Bobby Brown finalised"
+    },
+    {
+      "id": "e9",
+      "date": "2009-08-31",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Comeback album 'I Look to You' released"
+    },
+    {
+      "id": "e10",
+      "date": "2012-02-11",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Beverly Hills"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Whitney_Houston",
+  "known_time": "20:55",
+  "known_time_is_round": false,
+  "name": "Whitney Houston",
+  "place": {
+    "name": "Newark, New Jersey, USA",
+    "city": "Newark",
+    "country_code": "US",
+    "lat": 40.7357,
+    "lon": -74.1724,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate, collected by Kathryn Farmer.",
+  "source_url": "https://www.astro.com/astro-databank/Houston,_Whitney",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

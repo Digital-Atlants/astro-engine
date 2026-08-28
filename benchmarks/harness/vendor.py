@@ -213,6 +213,27 @@ def call(body: dict, *, offline: bool, timeout: float = 120.0) -> tuple[dict, bo
     return trimmed, False
 
 
+def cases_with_fixtures() -> set[str]:
+    """Case ids the cached vendor fixtures cover.
+
+    The corpus grew to 41 cases for the sub-sign work, but Arm B was run on
+    the original 12 and re-running it would cost ~58 more requests, well past
+    the free tier. Rather than compare our engine on 41 cases against the
+    vendor on 12 - which is not one protocol - the A/B comparison is scoped to
+    the cases the fixtures actually cover, derived from the fixtures
+    themselves so it cannot drift.
+    """
+    ids = set()
+    for path in FIXTURE_DIR.glob("*.json"):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        name = (
+            (payload.get("request") or {}).get("subject", {}).get("name")
+        )
+        if name:
+            ids.add(name)
+    return ids
+
+
 def spent_to_date() -> dict:
     """The fixture directory is the ledger of live requests ever made.
 

@@ -1,0 +1,90 @@
+{
+  "birth_date": "1901-12-05",
+  "case_id": "disney_walt",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1918-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Joined the Red Cross Ambulance Corps in France"
+    },
+    {
+      "id": "e2",
+      "date": "1923-08-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Moved to Los Angeles and founded his studio"
+    },
+    {
+      "id": "e3",
+      "date": "1925-07-13",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Lillian Bounds"
+    },
+    {
+      "id": "e4",
+      "date": "1928-11-18",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Steamboat Willie' premiered"
+    },
+    {
+      "id": "e5",
+      "date": "1933-12-18",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Diane born"
+    },
+    {
+      "id": "e6",
+      "date": "1937-12-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Snow White and the Seven Dwarfs' premiered"
+    },
+    {
+      "id": "e7",
+      "date": "1941-05-29",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Animators' strike began at the studio"
+    },
+    {
+      "id": "e8",
+      "date": "1955-07-17",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Disneyland opened"
+    },
+    {
+      "id": "e9",
+      "date": "1966-12-15",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Died in Burbank, California"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Walt_Disney",
+  "known_time": "00:35",
+  "known_time_is_round": false,
+  "name": "Walt Disney",
+  "place": {
+    "name": "Chicago, Illinois, USA",
+    "city": "Chicago",
+    "country_code": "US",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "tz": "America/Chicago"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Disney,_Walt",
+  "spread_flags": {
+    "night_birth": true,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

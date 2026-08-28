@@ -137,6 +137,18 @@ def main() -> None:
     arms = {a.strip().lower() for a in args.arms.split(",") if a.strip()}
 
     cases = corpus.load_corpus()
+    if "b" in arms:
+        # One protocol means one case set. Arm B has cached fixtures for the
+        # original 12 cases only, so every arm is scoped to those when the
+        # vendor arm is requested; see vendor.cases_with_fixtures().
+        covered = vendor.cases_with_fixtures()
+        scoped = [c for c in cases if c["case_id"] in covered]
+        if scoped:
+            print(
+                f"arm B requested: scoping all arms to the {len(scoped)} cases "
+                f"with cached vendor fixtures (corpus has {len(cases)})"
+            )
+            cases = scoped
     print(f"corpus: {json.dumps(corpus.spread_summary(cases))}")
 
     out = {

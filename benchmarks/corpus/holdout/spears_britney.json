@@ -1,20 +1,6 @@
 {
-  "case_id": "spears_britney",
-  "name": "Britney Spears",
   "birth_date": "1981-12-02",
-  "known_time": "01:30",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/Spears,_Britney",
-  "events_source_url": "https://en.wikipedia.org/wiki/Britney_Spears",
-  "place": {
-    "name": "McComb, Mississippi, USA",
-    "city": "McComb",
-    "country_code": "US",
-    "lat": 31.2438,
-    "lon": -90.4529,
-    "tz": "America/Chicago"
-  },
+  "case_id": "spears_britney",
   "events": [
     {
       "id": "e1",
@@ -87,8 +73,22 @@
       "description": "Married Sam Asghari"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Britney_Spears",
+  "known_time": "01:30",
   "known_time_is_round": true,
+  "name": "Britney Spears",
+  "place": {
+    "name": "McComb, Mississippi, USA",
+    "city": "McComb",
+    "country_code": "US",
+    "lat": 31.2438,
+    "lon": -90.4529,
+    "tz": "America/Chicago"
+  },
   "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Spears,_Britney",
   "spread_flags": {
     "night_birth": true,
     "high_latitude": false,

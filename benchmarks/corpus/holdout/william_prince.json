@@ -1,0 +1,97 @@
+{
+  "birth_date": "1982-06-21",
+  "case_id": "william_prince",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1992-12-09",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Parents' separation announced"
+    },
+    {
+      "id": "e2",
+      "date": "1996-08-28",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Parents' divorce finalised"
+    },
+    {
+      "id": "e3",
+      "date": "1997-08-31",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Mother Diana, Princess of Wales, died"
+    },
+    {
+      "id": "e4",
+      "date": "2001-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Began studies at the University of St Andrews"
+    },
+    {
+      "id": "e5",
+      "date": "2006-12-15",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Commissioned at the Royal Military Academy Sandhurst"
+    },
+    {
+      "id": "e6",
+      "date": "2011-04-29",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Catherine Middleton"
+    },
+    {
+      "id": "e7",
+      "date": "2013-07-22",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Son Prince George born"
+    },
+    {
+      "id": "e8",
+      "date": "2015-05-02",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Daughter Princess Charlotte born"
+    },
+    {
+      "id": "e9",
+      "date": "2018-04-23",
+      "date_precision": "day",
+      "type": "child_birth",
+      "description": "Son Prince Louis born"
+    },
+    {
+      "id": "e10",
+      "date": "2022-09-08",
+      "date_precision": "day",
+      "type": "death_of_close",
+      "description": "Grandmother Queen Elizabeth II died"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/William,_Prince_of_Wales",
+  "known_time": "21:03",
+  "known_time_is_round": false,
+  "name": "William, Prince of Wales",
+  "place": {
+    "name": "Paddington, London, England",
+    "city": "London",
+    "country_code": "GB",
+    "lat": 51.5074,
+    "lon": -0.1278,
+    "tz": "Europe/London"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: official birth record, The London Gazette, 21 June 1982.",
+  "source_url": "https://www.astro.com/astro-databank/William,_Prince_of_Wales",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": true,
+    "near_equator": false
+  }
+}

@@ -1,20 +1,6 @@
 {
-  "case_id": "monroe_marilyn",
-  "name": "Marilyn Monroe",
   "birth_date": "1926-06-01",
-  "known_time": "09:30",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: photograph of the birth certificate, collected by Bob Garner.",
-  "source_url": "https://www.astro.com/astro-databank/Monroe,_Marilyn",
-  "events_source_url": "https://en.wikipedia.org/wiki/Marilyn_Monroe",
-  "place": {
-    "name": "Los Angeles, California, USA",
-    "city": "Los Angeles",
-    "country_code": "US",
-    "lat": 34.0522,
-    "lon": -118.2437,
-    "tz": "America/Los_Angeles"
-  },
+  "case_id": "monroe_marilyn",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Died at her home in Brentwood, Los Angeles"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Marilyn_Monroe",
+  "known_time": "09:30",
   "known_time_is_round": true,
+  "name": "Marilyn Monroe",
+  "place": {
+    "name": "Los Angeles, California, USA",
+    "city": "Los Angeles",
+    "country_code": "US",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "tz": "America/Los_Angeles"
+  },
   "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: photograph of the birth certificate, collected by Bob Garner.",
+  "source_url": "https://www.astro.com/astro-databank/Monroe,_Marilyn",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": false,

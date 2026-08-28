@@ -30,6 +30,24 @@ def test_corpus_is_all_aa_and_large_enough():
         assert 6 <= len(c["events"]) <= 12
 
 
+def test_corpus_is_split_into_train_and_holdout():
+    """Parameters are chosen on train; the gate is measured on holdout."""
+    train = corpus.load_corpus(split="train")
+    holdout = corpus.load_corpus(split="holdout")
+    assert len(train) + len(holdout) == len(CASES)
+    assert not ({c["case_id"] for c in train} & {c["case_id"] for c in holdout})
+    share = len(holdout) / len(CASES)
+    assert 0.25 <= share <= 0.35, f"holdout is {share:.0%} of the corpus"
+    # Both spread strata must survive the split, or the holdout cannot speak
+    # to the latitude-dependent behaviour the spread rules exist to expose.
+    for flag in ("night_birth", "high_latitude"):
+        assert sum(1 for c in holdout if c["spread_flags"][flag]) >= 2, flag
+
+
+def test_corpus_has_at_least_forty_cases():
+    assert len(CASES) >= 40
+
+
 def test_corpus_spread_rules():
     s = corpus.spread_summary(CASES)
     assert s["night_births"] >= 4, s
@@ -167,9 +185,14 @@ def test_arm_e_corpus_median_is_on_the_grid():
 
     m = arm_e.corpus_median_minute(CASES)
     assert m in protocol.GRID_MINUTES
-    # Half the corpus is born before it and half after, by construction.
+    # The snapped median sits within one grid step of the true median.
     known = sorted(c.known_minute for c in CASES)
-    assert known[len(known) // 2 - 1] <= m <= known[len(known) // 2]
+    mid = (
+        known[len(known) // 2]
+        if len(known) % 2
+        else (known[len(known) // 2 - 1] + known[len(known) // 2]) / 2
+    )
+    assert abs(m - mid) <= protocol.STEP_MINUTES
 
 
 def test_percentile_and_hit_rates():
@@ -200,5 +223,11 @@ def test_arm_a_uses_shipped_defaults():
     from benchmarks.harness import arm_a
 
     req = arm_a.build_request(CASES[0], CASES[0]["events"])
-    assert req.config.model_dump() == RectificationConfig().model_dump()
+    shipped = RectificationConfig().model_dump()
+    used = req.config.model_dump()
+    # The permutation null is the one deliberate departure: it cannot move the
+    # argmax this arm measures, and it multiplies the work by trials + 1.
+    assert used.pop("permutation_trials") == 0
+    shipped.pop("permutation_trials")
+    assert used == shipped
     assert req.candidate_window.step_minutes == protocol.STEP_MINUTES

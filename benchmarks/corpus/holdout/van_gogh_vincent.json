@@ -1,20 +1,6 @@
 {
-  "case_id": "van_gogh_vincent",
-  "name": "Vincent van Gogh",
   "birth_date": "1853-03-30",
-  "known_time": "11:00",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate / birth record in hand, Gauquelin collection.",
-  "source_url": "https://www.astro.com/astro-databank/Van_Gogh,_Vincent",
-  "events_source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
-  "place": {
-    "name": "Zundert, Netherlands",
-    "city": "Zundert",
-    "country_code": "NL",
-    "lat": 51.4667,
-    "lon": 4.6667,
-    "tz": "Europe/Amsterdam"
-  },
+  "case_id": "van_gogh_vincent",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Died at Auvers-sur-Oise"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+  "known_time": "11:00",
   "known_time_is_round": true,
+  "name": "Vincent van Gogh",
+  "place": {
+    "name": "Zundert, Netherlands",
+    "city": "Zundert",
+    "country_code": "NL",
+    "lat": 51.4667,
+    "lon": 4.6667,
+    "tz": "Europe/Amsterdam"
+  },
   "reference_uncertainty_note": "Known time falls on a round quarter-hour. Registered times are commonly rounded by the registrar, so the reference itself may carry roughly +/-5 to 15 minutes of error; no accuracy claim tighter than that is meaningful for this case.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate / birth record in hand, Gauquelin collection.",
+  "source_url": "https://www.astro.com/astro-databank/Van_Gogh,_Vincent",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": true,

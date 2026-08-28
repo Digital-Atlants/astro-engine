@@ -1,0 +1,97 @@
+{
+  "birth_date": "1949-09-23",
+  "case_id": "springsteen_bruce",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1973-01-05",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Debut album released"
+    },
+    {
+      "id": "e2",
+      "date": "1975-08-25",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Born to Run' released"
+    },
+    {
+      "id": "e3",
+      "date": "1980-10-17",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'The River' released, his first number one album"
+    },
+    {
+      "id": "e4",
+      "date": "1984-06-04",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'Born in the U.S.A.' released"
+    },
+    {
+      "id": "e5",
+      "date": "1985-05-13",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Julianne Phillips"
+    },
+    {
+      "id": "e6",
+      "date": "1989-03-01",
+      "date_precision": "month",
+      "type": "other",
+      "description": "Divorce from Julianne Phillips filed"
+    },
+    {
+      "id": "e7",
+      "date": "1991-06-08",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Patti Scialfa"
+    },
+    {
+      "id": "e8",
+      "date": "1994-03-21",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Won an Academy Award for 'Streets of Philadelphia'"
+    },
+    {
+      "id": "e9",
+      "date": "1999-03-15",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Inducted into the Rock and Roll Hall of Fame"
+    },
+    {
+      "id": "e10",
+      "date": "2009-02-01",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Performed at the Super Bowl half-time show"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Bruce_Springsteen",
+  "known_time": "22:50",
+  "known_time_is_round": false,
+  "name": "Bruce Springsteen",
+  "place": {
+    "name": "Long Branch, New Jersey, USA",
+    "city": "Long Branch",
+    "country_code": "US",
+    "lat": 40.3043,
+    "lon": -73.9924,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Springsteen,_Bruce",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

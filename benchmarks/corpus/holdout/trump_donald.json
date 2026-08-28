@@ -1,0 +1,104 @@
+{
+  "birth_date": "1946-06-14",
+  "case_id": "trump_donald",
+  "events": [
+    {
+      "id": "e1",
+      "date": "1959-09-01",
+      "date_precision": "month",
+      "type": "relocation",
+      "description": "Sent to New York Military Academy"
+    },
+    {
+      "id": "e2",
+      "date": "1968-05-01",
+      "date_precision": "month",
+      "type": "career_break",
+      "description": "Joined his father's property company"
+    },
+    {
+      "id": "e3",
+      "date": "1977-04-07",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Ivana Zelnickova"
+    },
+    {
+      "id": "e4",
+      "date": "1983-11-30",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Trump Tower opened"
+    },
+    {
+      "id": "e5",
+      "date": "1990-01-01",
+      "date_precision": "year",
+      "type": "career_break",
+      "description": "Near-collapse of his casino businesses"
+    },
+    {
+      "id": "e6",
+      "date": "1992-03-20",
+      "date_precision": "day",
+      "type": "other",
+      "description": "Divorce from Ivana finalised"
+    },
+    {
+      "id": "e7",
+      "date": "1993-12-20",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Marla Maples"
+    },
+    {
+      "id": "e8",
+      "date": "2004-01-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "'The Apprentice' first broadcast"
+    },
+    {
+      "id": "e9",
+      "date": "2005-01-22",
+      "date_precision": "day",
+      "type": "marriage",
+      "description": "Married Melania Knauss"
+    },
+    {
+      "id": "e10",
+      "date": "2016-11-08",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Elected President of the United States"
+    },
+    {
+      "id": "e11",
+      "date": "2020-11-07",
+      "date_precision": "day",
+      "type": "career_break",
+      "description": "Lost the presidential election"
+    }
+  ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Donald_Trump",
+  "known_time": "10:54",
+  "known_time_is_round": false,
+  "name": "Donald Trump",
+  "place": {
+    "name": "Queens, New York, USA",
+    "city": "New York",
+    "country_code": "US",
+    "lat": 40.7028,
+    "lon": -73.7949,
+    "tz": "America/New_York"
+  },
+  "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate and hospital record released in 2011.",
+  "source_url": "https://www.astro.com/astro-databank/Trump,_Donald",
+  "spread_flags": {
+    "night_birth": false,
+    "high_latitude": false,
+    "near_equator": false
+  }
+}

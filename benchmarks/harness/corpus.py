@@ -79,16 +79,34 @@ def _validate(case: dict, path: pathlib.Path) -> None:
         seen.add(e["id"])
 
 
-def load_corpus(corpus_dir: pathlib.Path | None = None) -> list[Case]:
-    """Every case in the corpus, ordered by case_id for determinism."""
+SPLITS = ("train", "holdout")
+
+
+def load_corpus(
+    corpus_dir: pathlib.Path | None = None, split: str | None = None
+) -> list[Case]:
+    """Cases from the corpus, ordered by case_id for determinism.
+
+    `split` is the whole point of the directory layout: every parameter,
+    orb and weight is chosen on `train`, and the pre-registered gate is
+    evaluated on `holdout` only. Passing None loads both and is correct only
+    for corpus-wide bookkeeping, never for tuning or for the gate.
+    """
     directory = corpus_dir or CORPUS_DIR
+    if split is not None and split not in SPLITS:
+        raise ValueError(f"unknown split {split!r}, expected one of {SPLITS}")
+    subdirs = [directory / split] if split else [directory / s for s in SPLITS]
+
     cases = []
-    for path in sorted(directory.glob("*.json")):
-        case = json.loads(path.read_text(encoding="utf-8"))
-        _validate(case, path)
-        cases.append(Case(case))
+    for sub in subdirs:
+        for path in sorted(sub.glob("*.json")):
+            case = json.loads(path.read_text(encoding="utf-8"))
+            _validate(case, path)
+            case["split"] = sub.name
+            cases.append(Case(case))
+    cases.sort(key=lambda c: c["case_id"])
     if not cases:
-        raise ValueError(f"no corpus fixtures found in {directory}")
+        raise ValueError(f"no corpus fixtures found under {directory}")
     return cases
 
 

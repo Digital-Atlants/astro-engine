@@ -143,7 +143,7 @@ The 'slowest Ascendant hours' are computed per case from the actual Ascendant tr
 
 The vendor bills a flat 15 credits per rectification request regardless of candidate count (measured: 15 credits for a 5-candidate search, a 13-candidate search and a 181-candidate search alike). Note the tension: 34 requests is inside a 50-*request* allowance, but at 15 credits each it is far outside a 50-*credit* one, and the vendor gates rectification to its Ultra tier. If the free tier is denominated in credits rather than requests, this run exceeded it; every request was nonetheless accepted with a 200 and no quota warning.
 
-Median compute per case: ours **198 ms** in-process for all 360 candidates; the vendor reports **109158 ms** of server compute across its two requests. End to end, though, a vendor case took roughly **105 seconds** of wall-clock in the live run, against a fifth of a second for ours. That is a two-order-of-magnitude difference in latency and it would be visible to a user waiting on a result.
+Median compute per case: ours **179 ms** in-process for all 360 candidates; the vendor reports **109158 ms** of server compute across its two requests. End to end, though, a vendor case took roughly **105 seconds** of wall-clock in the live run, against a fifth of a second for ours. That is a two-order-of-magnitude difference in latency and it would be visible to a user waiting on a result.
 
 ### Vendor cost per rectification, by tier
 

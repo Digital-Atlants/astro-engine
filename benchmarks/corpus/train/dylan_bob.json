@@ -1,20 +1,6 @@
 {
-  "case_id": "dylan_bob",
-  "name": "Bob Dylan",
   "birth_date": "1941-05-24",
-  "known_time": "21:05",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/Dylan,_Bob",
-  "events_source_url": "https://en.wikipedia.org/wiki/Bob_Dylan",
-  "place": {
-    "name": "Duluth, Minnesota, USA",
-    "city": "Duluth",
-    "country_code": "US",
-    "lat": 46.7867,
-    "lon": -92.1005,
-    "tz": "America/Chicago"
-  },
+  "case_id": "dylan_bob",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Awarded the Nobel Prize in Literature"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Bob_Dylan",
+  "known_time": "21:05",
   "known_time_is_round": false,
+  "name": "Bob Dylan",
+  "place": {
+    "name": "Duluth, Minnesota, USA",
+    "city": "Duluth",
+    "country_code": "US",
+    "lat": 46.7867,
+    "lon": -92.1005,
+    "tz": "America/Chicago"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Dylan,_Bob",
   "spread_flags": {
     "night_birth": false,
     "high_latitude": true,

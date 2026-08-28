@@ -1,20 +1,6 @@
 {
-  "case_id": "schwarzenegger_arnold",
-  "name": "Arnold Schwarzenegger",
   "birth_date": "1947-07-30",
-  "known_time": "04:10",
-  "rodden_rating": "AA",
-  "rodden_source": "Astro-Databank: birth certificate.",
-  "source_url": "https://www.astro.com/astro-databank/Schwarzenegger,_Arnold",
-  "events_source_url": "https://en.wikipedia.org/wiki/Arnold_Schwarzenegger",
-  "place": {
-    "name": "Thal, Styria, Austria",
-    "city": "Graz",
-    "country_code": "AT",
-    "lat": 47.0667,
-    "lon": 15.3833,
-    "tz": "Europe/Vienna"
-  },
+  "case_id": "schwarzenegger_arnold",
   "events": [
     {
       "id": "e1",
@@ -101,8 +87,22 @@
       "description": "Emergency open-heart surgery after valve replacement"
     }
   ],
+  "events_source_url": "https://en.wikipedia.org/wiki/Arnold_Schwarzenegger",
+  "known_time": "04:10",
   "known_time_is_round": false,
+  "name": "Arnold Schwarzenegger",
+  "place": {
+    "name": "Thal, Styria, Austria",
+    "city": "Graz",
+    "country_code": "AT",
+    "lat": 47.0667,
+    "lon": 15.3833,
+    "tz": "Europe/Vienna"
+  },
   "reference_uncertainty_note": "Known time is not a round value, which is weak evidence against registrar rounding.",
+  "rodden_rating": "AA",
+  "rodden_source": "Astro-Databank: birth certificate.",
+  "source_url": "https://www.astro.com/astro-databank/Schwarzenegger,_Arnold",
   "spread_flags": {
     "night_birth": true,
     "high_latitude": true,
