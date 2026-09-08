@@ -86,6 +86,10 @@ def interview_step(req: InterviewRequest) -> JSONResponse:
         req.place.tz,
         [a.model_dump() for a in req.answers],
         _interview_config(req.config),
+        known_bounds=req.known_bounds.model_dump() if req.known_bounds else None,
+        claimed_time=req.claimed_time,
+        sphere_inventory={k: v.model_dump() for k, v in req.sphere_inventory.items()},
+        hypothesis=req.hypothesis.model_dump() if req.hypothesis else None,
     )
     result["compute_ms"] = int((time.perf_counter() - t0) * 1000)
     result["telemetry"]["compute_ms"] = result["compute_ms"]
@@ -115,6 +119,9 @@ def interview_compare(req: InterviewCompareRequest) -> JSONResponse:
         req.place.tz,
         [a.model_dump() for a in req.answers],
         _interview_config(req.config),
+        known_bounds=req.known_bounds.model_dump() if req.known_bounds else None,
+        claimed_time=req.claimed_time,
+        sphere_inventory={k: v.model_dump() for k, v in req.sphere_inventory.items()},
     )
     hh, mm = map(int, req.documented_time.split(":"))
     documented = hh * 60 + mm

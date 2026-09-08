@@ -104,10 +104,15 @@ def test_many_wrong_answers_still_leave_the_truth_positive():
     truth = 4 * 60 + 35
     wrong_sign = "aries" if grid.asc_sign[truth] != "aries" else "taurus"
     answers = [
-        {"question_id": f"q{i}", "channel": "rising_sign", "answer_ids": [wrong_sign]}
+        {
+            "question_id": f"q{i}",
+            "channel": "rising_sign",
+            "variant": "a" if i % 2 == 0 else "b",
+            "answer_ids": [wrong_sign],
+        }
         for i in range(6)
     ]
-    posterior, _ = interview.build_posterior(grid, answers, interview.InterviewConfig())
+    posterior, _, _ = interview.build_posterior(grid, answers, interview.InterviewConfig())
     assert posterior[truth] > 0.0
     assert sum(posterior) == pytest.approx(1.0)
 
@@ -208,8 +213,8 @@ def test_tier_1_and_2_always_carry_window_bounds():
             "answer_ids": [grid.asc_sign[truth]],
         }
     ]
-    posterior, trace = interview.build_posterior(grid, answers, cfg)
-    tier = interview.assign_tier(posterior, trace, cfg)
+    posterior, trace, pairs = interview.build_posterior(grid, answers, cfg)
+    tier = interview.assign_tier(posterior, trace, cfg, pairs)
     for window in tier["windows"]:
         assert {"start", "end", "midpoint", "width_minutes", "mass"} <= set(window)
 
