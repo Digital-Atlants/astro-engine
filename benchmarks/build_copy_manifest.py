@@ -168,6 +168,104 @@ SIGN_PORTRAIT_DRAFT = {
 DECAN_ORDINAL = {"first": "the first third", "second": "the middle third",
                  "third": "the last third"}
 
+# --------------------------------------------------------------------------
+# v3.2: copy ATOMS, Russian master.
+#
+# v3.1 emitted 315 template-generated English rows - one per planet x house x
+# facet - which is 315 sentences to correct when there are only 22 ideas
+# underneath them. These are those ideas, in Russian, for the owner to
+# correct. Translation to EN/DE/UK happens later and only from approved
+# Russian rows.
+# --------------------------------------------------------------------------
+
+HOUSE_ATOM_RU = {
+    1: "тело, внешность и первое впечатление — каким вас видят до того, как вы заговорили",
+    2: "деньги, имущество и то, что вы считаете своим и ценным",
+    3: "повседневный обмен: братья и сёстры, короткие поездки, разговоры, учёба",
+    4: "дом, семья и происхождение — место, откуда вы, и то, чем всё заканчивается",
+    5: "дети, творчество, игра, влюблённость и всё, что вы делаете напоказ",
+    6: "работа изо дня в день, обязанности, служба и здоровье",
+    7: "отношения один на один: брак, партнёрство, открытые противники",
+    8: "чужие деньги, общее имущество, кризис, утрата и всё скрытое",
+    9: "дальнее и отвлечённое: долгие путешествия, вера, высшее образование, право",
+    10: "положение в мире: карьера, репутация, публичная роль",
+    11: "круг общения: друзья, сообщества, надежды и союзы",
+    12: "то, что скрыто от глаз: уединение, больницы, изоляция, тайные потери",
+}
+
+PLANET_ATOM_RU = {
+    "sun": "жизненная сила и то, ради чего вы живёте",
+    "moon": "чувства, привычки и то, в чём вы нуждаетесь",
+    "mercury": "мышление, речь и обмен сведениями",
+    "venus": "привязанность, вкус и чувство ценности",
+    "mars": "напор, злость и усилие",
+    "jupiter": "рост, удача и убеждения",
+    "saturn": "ограничение, долг и время",
+    "uranus": "слом привычного и независимость",
+    "neptune": "растворение, тоска и воображение",
+    "pluto": "одержимость, власть и переделка себя",
+}
+
+# Thirty-six decan appearance traits: sign x first/second/third third.
+DECAN_ATOM_RU = {
+    ("aries", "first"): "резкие черты, быстрый прямой взгляд, порывистые движения",
+    ("aries", "second"): "плотное сложение, тяжеловатая челюсть, упрямый разворот плеч",
+    ("aries", "third"): "сухощавость, беспокойные руки, быстрая смена выражения",
+    ("taurus", "first"): "крепкая шея, спокойное лицо, неспешная тяжёлая походка",
+    ("taurus", "second"): "округлые линии, мягкий низкий голос, покатые плечи",
+    ("taurus", "third"): "плотное тело при подвижном лице, внимательные глаза",
+    ("gemini", "first"): "длинные руки, лёгкая кость, подвижная мимика",
+    ("gemini", "second"): "сухое сложение, быстрый взгляд, частые жесты при речи",
+    ("gemini", "third"): "неровные черты, юношеский вид дольше положенного",
+    ("cancer", "first"): "мягкий овал лица, широко посаженные глаза, покатые плечи",
+    ("cancer", "second"): "полнота в верхней части тела, переменчивое выражение",
+    ("cancer", "third"): "бледная кожа, тихие движения, взгляд немного в сторону",
+    ("leo", "first"): "прямая осанка, крупная голова, заметная посадка головы",
+    ("leo", "second"): "густые волосы, тёплый открытый взгляд, широкая грудная клетка",
+    ("leo", "third"): "лёгкая полнота, живая мимика, привычка держать спину",
+    ("virgo", "first"): "аккуратное сухое сложение, внимательный сдержанный взгляд",
+    ("virgo", "second"): "тонкие черты, ровная кожа, скупые точные движения",
+    ("virgo", "third"): "невысокий рост, быстрая речь, привычка поправлять детали",
+    ("libra", "first"): "правильные черты, ровная осанка, приятная мягкость лица",
+    ("libra", "second"): "округлое лицо, ямочки, ленивая грация в движениях",
+    ("libra", "third"): "высокий рост, тонкая кость, чуть отстранённое выражение",
+    ("scorpio", "first"): "тяжёлые брови, пристальный взгляд, сдержанные движения",
+    ("scorpio", "second"): "плотное сложение, низкий голос, неподвижное лицо",
+    ("scorpio", "third"): "резкий профиль, бледность, привычка смотреть исподлобья",
+    ("sagittarius", "first"): "высокий рост, длинные ноги, открытая улыбка",
+    ("sagittarius", "second"): "крупное сложение, громкий смех, размашистые жесты",
+    ("sagittarius", "third"): "худощавость, беспокойная посадка, взгляд поверх собеседника",
+    ("capricorn", "first"): "сухое сложение, выраженные скулы, сдержанное лицо",
+    ("capricorn", "second"): "тёмные волосы, серьёзное выражение, экономные движения",
+    ("capricorn", "third"): "невысокий плотный сложение, ранняя строгость в лице",
+    ("aquarius", "first"): "высокий рост, необычные пропорции, спокойный прямой взгляд",
+    ("aquarius", "second"): "широкий лоб, отстранённое выражение, ровная осанка",
+    ("aquarius", "third"): "лёгкая кость, рассеянный взгляд, неожиданные жесты",
+    ("pisces", "first"): "мягкие расплывчатые черты, большие влажные глаза",
+    ("pisces", "second"): "покатые плечи, тихий голос, текучие движения",
+    ("pisces", "third"): "бледность, переменчивое выражение, взгляд как бы внутрь",
+}
+
+# The sentences that compose a question out of the atoms above.
+TEMPLATE_RU = {
+    "mover_house.life_area": (
+        "Где в своей жизни вы сильнее чувствуете [тема планеты] — "
+        "в сфере «[сфера A]» или в сфере «[сфера B]»?"
+    ),
+    "mover_house.episode": (
+        "Вспомните период, когда [тема планеты] проявлялась сильнее всего. "
+        "Это было связано скорее со сферой «[сфера A]» или со сферой «[сфера B]»?"
+    ),
+    "decan.manner": (
+        "Что ближе к тому, как вы себя держите: «[черта декана A]» "
+        "или «[черта декана B]»?"
+    ),
+    "decan.appearance": (
+        "Что ближе к вашей внешности: «[черта декана A]» или «[черта декана B]»?"
+    ),
+}
+
+
 
 def build_manifest() -> dict:
     entries = []
@@ -305,42 +403,42 @@ def main() -> None:
     lines = [
         "# Interview copy drafts",
         "",
-        "**Owner action: read this table and correct it.** Nothing here is",
-        "authored by a person yet - every row is a generated draft.",
+        "**Owner action: correct the Russian atoms below.** Nothing here is",
+        "authored by a person yet.",
         "",
         "Why this file exists: the web client auto-skips any question whose",
         "keys have no authored copy. Today the decan and mover-house channels",
         "have none, so a live interview ends at the sign and the engine never",
-        "gets to ask the questions that actually narrow the time. This is not",
-        "a code problem and the engine cannot fix it - but the engine is the",
-        "only thing that knows the complete key list and what each key has to",
-        "*distinguish*, which is the column that matters when correcting a row.",
+        "gets to ask the questions that actually narrow the time.",
         "",
-        "**The web imports only rows marked `approved`.** Change `draft` or",
-        "`draft_en_only` to `approved` once a row's text is right.",
+        "**v3.2 changed the shape of this file.** It used to carry 315",
+        "template-generated English sentences - one per planet x house x",
+        "facet - which is 315 things to correct when there are only 22 ideas",
+        "underneath them. Those ideas are now listed once each, in Russian, as",
+        "**atoms**: twelve life spheres, ten planet themes, thirty-six decan",
+        "traits, and the sentence templates that compose them into a question.",
+        "Correct an atom once and every question built from it changes.",
         "",
-        f"Generated by `benchmarks/build_copy_manifest.py` from",
-        f"`astro_engine/data/copy_manifest.json` ({manifest['total_keys']} keys).",
+        "**Russian is the master.** Translation to EN / DE / UK happens in a",
+        "later task and only from rows the owner has approved. The web imports",
+        "`approved` rows only - change `draft_ru` or `draft` to `approved`.",
+        "",
+        f"Generated by `benchmarks/build_copy_manifest.py`. The full key list",
+        f"({manifest['total_keys']} keys) stays in",
+        "`astro_engine/data/copy_manifest.json`; this file is the text behind",
+        "it.",
         "",
         "## Coverage",
         "",
-        "| Channel | Keys | Draft locales |",
-        "|---|---|---|",
-    ]
-    for ch, n in sorted(manifest["keys_by_channel"].items()):
-        sample = next(r for r in rows if r["channel"] == ch)
-        locs = "en, ru, uk, de" if sample["status"] == "draft" else "en only"
-        lines.append(f"| {ch} | {n} | {locs} |")
-    lines += [
+        "| Block | Rows | Locales | Composes |",
+        "|---|---|---|---|",
+        f"| Stage 1 and portraits | {len([r for r in rows if r['status'] == 'draft'])} | en, ru, uk, de | element, modality, sign_portrait keys directly |",
+        f"| Life spheres (houses) | 12 | ru | the {manifest['keys_by_channel']['mover_house']} mover-house keys |",
+        "| Planet themes | 10 | ru | the same mover-house keys |",
+        f"| Decan traits | 36 | ru | the {manifest['keys_by_channel']['decan']} decan keys |",
+        "| Sentence templates | 4 | ru | how the atoms become a question |",
         "",
-        "The stage-1 channels are drafted in all four locales because they are",
-        "what a live interview reaches today. The decan and mover-house",
-        "channels are drafted in English only: there are 312 of them and they",
-        "are template-generated, so a translator should work from corrected",
-        "English rather than from four machine drafts. That limitation is",
-        "stated here rather than hidden in an empty cell.",
-        "",
-        "## Stage 1 and portraits — drafted in four locales",
+        "## 1. Stage 1 and portraits — drafted in four locales",
         "",
         "| Key | Distinguishes | en | ru | uk | de | Status |",
         "|---|---|---|---|---|---|---|",
@@ -356,18 +454,54 @@ def main() -> None:
 
     lines += [
         "",
-        "## Decan and mover-house — English drafts only",
+        "## 2. Life spheres — one line per house",
         "",
-        "| Key | Distinguishes | en draft | Status |",
+        "Used for every `planet.*.house.N.*` key. House N always means the same",
+        "sphere; only the planet theme changes.",
+        "",
+        "| House | ru | Status |",
+        "|---|---|---|",
+    ]
+    for h in range(1, 13):
+        lines.append(f"| {h} | {HOUSE_ATOM_RU[h]} | draft_ru |")
+
+    lines += [
+        "",
+        "## 3. Planet themes — one line per planet",
+        "",
+        "| Planet | ru | Status |",
+        "|---|---|---|",
+    ]
+    for planet, _ in core.PLANETS:
+        lines.append(f"| {planet} | {PLANET_ATOM_RU[planet]} | draft_ru |")
+
+    lines += [
+        "",
+        "## 4. Decan traits — one line per sign and third",
+        "",
+        "Appearance and bearing, used for every `decan.<sign>.<third>.*` key.",
+        "",
+        "| Sign | Third | ru | Status |",
         "|---|---|---|---|",
     ]
-    for r in rows:
-        if r["status"] == "draft":
-            continue
-        lines.append(
-            f"| `{r['key']}` | {r['distinguishes']} | {r['drafts']['en']} | "
-            f"{r['status']} |"
-        )
+    for sign in interview.TRAIT_SIGNS:
+        for decan in interview.DECAN_NAMES:
+            lines.append(
+                f"| {sign} | {decan} | {DECAN_ATOM_RU[(sign, decan)]} | draft_ru |"
+            )
+
+    lines += [
+        "",
+        "## 5. Sentence templates",
+        "",
+        "The engine never sends prose; the client composes these from the atoms",
+        "above. Square brackets are slots.",
+        "",
+        "| Template | ru | Status |",
+        "|---|---|---|",
+    ]
+    for key, text in TEMPLATE_RU.items():
+        lines.append(f"| `{key}` | {text} | draft_ru |")
     lines.append("")
 
     DRAFTS.parent.mkdir(parents=True, exist_ok=True)
@@ -376,8 +510,8 @@ def main() -> None:
     print(f"keys: {manifest['total_keys']}")
     for ch, n in sorted(manifest["keys_by_channel"].items()):
         print(f"  {ch:16} {n}")
-    print(f"four-locale drafts: {sum(1 for r in rows if r['status'] == 'draft')}")
-    print(f"english-only drafts: {sum(1 for r in rows if r['status'] != 'draft')}")
+    print(f"four-locale rows: {sum(1 for r in rows if r['status'] == 'draft')}")
+    print(f"russian atoms: {12 + 10 + 36 + len(TEMPLATE_RU)}")
     print(f"wrote {MANIFEST}\nwrote {DRAFTS}")
 
 
