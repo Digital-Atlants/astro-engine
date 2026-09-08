@@ -1,0 +1,2159 @@
+{
+  "cases": 41,
+  "isolation": {
+    "conservative_only_r060": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0207,
+            "perfect": 0.0,
+            "random": 0.0037
+          },
+          "pooled": 0.0049
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9939
+        },
+        "G4_cost": {
+          "median_questions": 5.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.028,
+        "impostor_tier1_wrong_window_rate": 0.878
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 5.0,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": null,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.89,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 5,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9098,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4,
+          "tier1_median_window_minutes": 14,
+          "tier1_rate": 0.311,
+          "tier1_wrong_window_rate": 0.028,
+          "tier3_or_4_rate": 0.6012,
+          "tier_distribution": {
+            "1": 0.311,
+            "2": 0.0878,
+            "3": 0.6012,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.94,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 8.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3,
+          "tier1_median_window_minutes": 15,
+          "tier1_rate": 0.1573,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.222,
+          "tier_distribution": {
+            "1": 0.1573,
+            "2": 0.6207,
+            "3": 0.1927,
+            "4": 0.0293
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.91,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 5.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9325,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.3073,
+          "tier1_wrong_window_rate": 0.0207,
+          "tier3_or_4_rate": 0.6073,
+          "tier_distribution": {
+            "1": 0.3073,
+            "2": 0.0854,
+            "3": 0.6073,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.46,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 358.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 25,
+          "tier1_median_abs_error": 358.5,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.878,
+          "tier1_wrong_window_rate": 0.878,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.878,
+            "2": 0.122,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.68,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 4.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 14.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 5.38,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 265,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 23,
+          "tier1_median_abs_error": 232,
+          "tier1_median_window_minutes": 22,
+          "tier1_rate": 0.0037,
+          "tier1_wrong_window_rate": 0.0037,
+          "tier3_or_4_rate": 0.9939,
+          "tier_distribution": {
+            "1": 0.0037,
+            "2": 0.0024,
+            "3": 0.9939,
+            "4": 0.0
+          }
+        }
+      }
+    },
+    "paraphrase_only_r075": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0207,
+            "perfect": 0.0,
+            "random": 0.0024
+          },
+          "pooled": 0.0046
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9915
+        },
+        "G4_cost": {
+          "median_questions": 7.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0671,
+        "impostor_tier1_wrong_window_rate": 0.7561
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.84,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": null,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 2.8,
+          "mean_disagreeing_pairs": 0.2,
+          "mean_questions": 7.68,
+          "mean_session_reliability": 0.7202,
+          "median_abs_error": 4.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.8368,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3,
+          "tier1_median_window_minutes": 12,
+          "tier1_rate": 0.411,
+          "tier1_wrong_window_rate": 0.0671,
+          "tier3_or_4_rate": 0.4098,
+          "tier_distribution": {
+            "1": 0.411,
+            "2": 0.1793,
+            "3": 0.4098,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.75,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.88,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 15.5,
+          "tier1_rate": 0.0805,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.4463,
+          "tier_distribution": {
+            "1": 0.0805,
+            "2": 0.4732,
+            "3": 0.4402,
+            "4": 0.0061
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 2.05,
+          "mean_disagreeing_pairs": 0.98,
+          "mean_questions": 7.86,
+          "mean_session_reliability": 0.6031,
+          "median_abs_error": 6.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.8882,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.1854,
+          "tier1_wrong_window_rate": 0.0207,
+          "tier3_or_4_rate": 0.3537,
+          "tier_distribution": {
+            "1": 0.1854,
+            "2": 0.461,
+            "3": 0.3537,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.12,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 358.0,
+          "median_questions": 7.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 23,
+          "tier1_median_abs_error": 358.0,
+          "tier1_median_window_minutes": 12.0,
+          "tier1_rate": 0.7561,
+          "tier1_wrong_window_rate": 0.7561,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.7561,
+            "2": 0.2439,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.34,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 4.0,
+          "median_questions": 7.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.19,
+          "mean_disagreeing_pairs": 2.46,
+          "mean_questions": 8.31,
+          "mean_session_reliability": 0.3809,
+          "median_abs_error": 268,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 174.5,
+          "tier1_median_window_minutes": 16.0,
+          "tier1_rate": 0.0024,
+          "tier1_wrong_window_rate": 0.0024,
+          "tier3_or_4_rate": 0.9915,
+          "tier_distribution": {
+            "1": 0.0024,
+            "2": 0.0061,
+            "3": 0.9866,
+            "4": 0.0049
+          }
+        }
+      }
+    },
+    "v1_baseline_r075_no_repeat": {
+      "gates": {
+        "G1_safety": {
+          "pass": false,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0634,
+            "perfect": 0.0,
+            "random": 0.0037
+          },
+          "pooled": 0.0134
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9939
+        },
+        "G4_cost": {
+          "median_questions": 4.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0585,
+        "impostor_tier1_wrong_window_rate": 0.7561
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.82,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": null,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.7,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 5.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.8431,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.3732,
+          "tier1_wrong_window_rate": 0.0585,
+          "tier3_or_4_rate": 0.5317,
+          "tier_distribution": {
+            "1": 0.3732,
+            "2": 0.0951,
+            "3": 0.5317,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.89,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 7,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 15.0,
+          "tier1_rate": 0.1439,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.2012,
+          "tier_distribution": {
+            "1": 0.1439,
+            "2": 0.6549,
+            "3": 0.1805,
+            "4": 0.0207
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.71,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 5,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.8207,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.3537,
+          "tier1_wrong_window_rate": 0.0634,
+          "tier3_or_4_rate": 0.5573,
+          "tier_distribution": {
+            "1": 0.3537,
+            "2": 0.089,
+            "3": 0.5573,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.12,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 358.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 23,
+          "tier1_median_abs_error": 358.0,
+          "tier1_median_window_minutes": 12.0,
+          "tier1_rate": 0.7561,
+          "tier1_wrong_window_rate": 0.7561,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.7561,
+            "2": 0.2439,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.34,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 4.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 5.31,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 382,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 10,
+          "tier1_median_abs_error": 476,
+          "tier1_median_window_minutes": 6,
+          "tier1_rate": 0.0037,
+          "tier1_wrong_window_rate": 0.0037,
+          "tier3_or_4_rate": 0.9939,
+          "tier_distribution": {
+            "1": 0.0037,
+            "2": 0.0024,
+            "3": 0.9939,
+            "4": 0.0
+          }
+        }
+      }
+    }
+  },
+  "professional": {
+    "label": "professional",
+    "per_model": {
+      "adjacent_sign": {
+        "inventory_covered_movers": 0.9268,
+        "mean_agreeing_pairs": 2.56,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 4.78,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": null,
+        "median_questions": 5.0,
+        "n": 820,
+        "tier1_contains_truth_rate": null,
+        "tier1_max_window_minutes": null,
+        "tier1_median_abs_error": null,
+        "tier1_median_window_minutes": null,
+        "tier1_rate": 0.0,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 1.0,
+        "tier_distribution": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.0,
+          "4": 0.0
+        }
+      },
+      "correlated_noisy": {
+        "inventory_covered_movers": 0.8677,
+        "mean_agreeing_pairs": 1.8,
+        "mean_disagreeing_pairs": 0.47,
+        "mean_questions": 4.65,
+        "mean_session_reliability": 0.5316,
+        "median_abs_error": 5,
+        "median_questions": 5.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.8319,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 5,
+        "tier1_median_window_minutes": 12,
+        "tier1_rate": 0.1378,
+        "tier1_wrong_window_rate": 0.0232,
+        "tier3_or_4_rate": 0.4427,
+        "tier_distribution": {
+          "1": 0.1378,
+          "2": 0.4195,
+          "3": 0.4427,
+          "4": 0.0
+        }
+      },
+      "dont_know_heavy": {
+        "inventory_covered_movers": 0.9579,
+        "mean_agreeing_pairs": 0.73,
+        "mean_disagreeing_pairs": 0.69,
+        "mean_questions": 5.05,
+        "mean_session_reliability": 0.501,
+        "median_abs_error": 8,
+        "median_questions": 5.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.7347,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5,
+        "tier1_median_window_minutes": 13,
+        "tier1_rate": 0.0598,
+        "tier1_wrong_window_rate": 0.0159,
+        "tier3_or_4_rate": 0.5646,
+        "tier_distribution": {
+          "1": 0.0598,
+          "2": 0.3756,
+          "3": 0.5573,
+          "4": 0.0073
+        }
+      },
+      "iid_noisy": {
+        "inventory_covered_movers": 0.8752,
+        "mean_agreeing_pairs": 1.82,
+        "mean_disagreeing_pairs": 0.46,
+        "mean_questions": 4.65,
+        "mean_session_reliability": 0.533,
+        "median_abs_error": 5.0,
+        "median_questions": 5.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.8598,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 6,
+        "tier1_median_window_minutes": 14,
+        "tier1_rate": 0.1305,
+        "tier1_wrong_window_rate": 0.0183,
+        "tier3_or_4_rate": 0.461,
+        "tier_distribution": {
+          "1": 0.1305,
+          "2": 0.4085,
+          "3": 0.461,
+          "4": 0.0
+        }
+      },
+      "impostor": {
+        "inventory_covered_movers": 0.8943,
+        "mean_agreeing_pairs": 0.93,
+        "mean_disagreeing_pairs": 1.02,
+        "mean_questions": 4.22,
+        "mean_session_reliability": 0.4756,
+        "median_abs_error": 359.0,
+        "median_questions": 4.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 21,
+        "tier1_median_abs_error": 357.5,
+        "tier1_median_window_minutes": 13.0,
+        "tier1_rate": 0.0976,
+        "tier1_wrong_window_rate": 0.0976,
+        "tier3_or_4_rate": 0.2439,
+        "tier_distribution": {
+          "1": 0.0976,
+          "2": 0.6585,
+          "3": 0.2439,
+          "4": 0.0
+        }
+      },
+      "perfect": {
+        "inventory_covered_movers": 0.7642,
+        "mean_agreeing_pairs": 1.61,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 4.2,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": 4.0,
+        "median_questions": 4.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 5.0,
+        "tier1_median_window_minutes": 15.0,
+        "tier1_rate": 0.4146,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.4146,
+          "2": 0.5854,
+          "3": 0.0,
+          "4": 0.0
+        }
+      },
+      "random": {
+        "inventory_covered_movers": 0.9972,
+        "mean_agreeing_pairs": 1.4,
+        "mean_disagreeing_pairs": 1.34,
+        "mean_questions": 5.52,
+        "mean_session_reliability": 0.4162,
+        "median_abs_error": 240,
+        "median_questions": 6.0,
+        "n": 820,
+        "tier1_contains_truth_rate": null,
+        "tier1_max_window_minutes": null,
+        "tier1_median_abs_error": null,
+        "tier1_median_window_minutes": null,
+        "tier1_rate": 0.0,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.989,
+        "tier_distribution": {
+          "1": 0.0,
+          "2": 0.011,
+          "3": 0.989,
+          "4": 0.0
+        }
+      }
+    },
+    "seconds": 188.6
+  },
+  "professional_gates": {
+    "G1_safety": {
+      "pass": true,
+      "per_model": {
+        "adjacent_sign": 0.0,
+        "dont_know_heavy": 0.0159,
+        "iid_noisy": 0.0183,
+        "perfect": 0.0,
+        "random": 0.0
+      },
+      "pooled": 0.0068
+    },
+    "G2_usefulness": {
+      "pass": false,
+      "tier1_contains_truth_rate": 1.0,
+      "tier1_max_window_minutes": 29,
+      "tier1_median_abs_error": 5.0,
+      "tier1_rate": 0.4146
+    },
+    "G3_refusal": {
+      "pass": true,
+      "tier3_or_4_rate": 0.989
+    },
+    "G4_cost": {
+      "median_questions": 4.0,
+      "pass": true
+    },
+    "correlated_noisy_tier1_wrong_window_rate": 0.0232,
+    "impostor_tier1_wrong_window_rate": 0.0976
+  },
+  "runs_per_case": 20,
+  "sensitivity_r": {
+    "0.5": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0024,
+            "perfect": 0.0,
+            "random": 0.0
+          },
+          "pooled": 0.0005
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9988
+        },
+        "G4_cost": {
+          "median_questions": 8.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0073,
+        "impostor_tier1_wrong_window_rate": 0.9024
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 8.0,
+          "mean_session_reliability": 0.5,
+          "median_abs_error": null,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 2.83,
+          "mean_disagreeing_pairs": 0.17,
+          "mean_questions": 7.98,
+          "mean_session_reliability": 0.4746,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9753,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4,
+          "tier1_median_window_minutes": 16,
+          "tier1_rate": 0.2963,
+          "tier1_wrong_window_rate": 0.0073,
+          "tier3_or_4_rate": 0.5707,
+          "tier_distribution": {
+            "1": 0.2963,
+            "2": 0.1329,
+            "3": 0.5707,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.82,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.99,
+          "mean_session_reliability": 0.5,
+          "median_abs_error": 6,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4,
+          "tier1_median_window_minutes": 16,
+          "tier1_rate": 0.0988,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.3963,
+          "tier_distribution": {
+            "1": 0.0988,
+            "2": 0.5049,
+            "3": 0.3927,
+            "4": 0.0037
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 1.94,
+          "mean_disagreeing_pairs": 1.07,
+          "mean_questions": 8.04,
+          "mean_session_reliability": 0.3762,
+          "median_abs_error": 7.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.985,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4,
+          "tier1_median_window_minutes": 16,
+          "tier1_rate": 0.1622,
+          "tier1_wrong_window_rate": 0.0024,
+          "tier3_or_4_rate": 0.4512,
+          "tier_distribution": {
+            "1": 0.1622,
+            "2": 0.3866,
+            "3": 0.4512,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.68,
+          "mean_session_reliability": 0.5,
+          "median_abs_error": 358.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 358.0,
+          "tier1_median_window_minutes": 14.0,
+          "tier1_rate": 0.9024,
+          "tier1_wrong_window_rate": 0.9024,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.9024,
+            "2": 0.0976,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.85,
+          "mean_session_reliability": 0.5,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 15.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.17,
+          "mean_disagreeing_pairs": 2.47,
+          "mean_questions": 8.3,
+          "mean_session_reliability": 0.3036,
+          "median_abs_error": 66,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.9988,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0012,
+            "3": 0.9927,
+            "4": 0.0061
+          }
+        }
+      }
+    },
+    "0.6": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0073,
+            "perfect": 0.0,
+            "random": 0.0
+          },
+          "pooled": 0.0015
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 1.0
+        },
+        "G4_cost": {
+          "median_questions": 8.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.028,
+        "impostor_tier1_wrong_window_rate": 0.878
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 8.0,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": null,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 2.82,
+          "mean_disagreeing_pairs": 0.18,
+          "mean_questions": 7.91,
+          "mean_session_reliability": 0.5724,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9065,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.3,
+          "tier1_wrong_window_rate": 0.028,
+          "tier3_or_4_rate": 0.5488,
+          "tier_distribution": {
+            "1": 0.3,
+            "2": 0.1512,
+            "3": 0.5488,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.76,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.94,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 5,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 16.0,
+          "tier1_rate": 0.0878,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.4305,
+          "tier_distribution": {
+            "1": 0.0878,
+            "2": 0.4817,
+            "3": 0.4244,
+            "4": 0.0061
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 1.92,
+          "mean_disagreeing_pairs": 1.09,
+          "mean_questions": 8.01,
+          "mean_session_reliability": 0.4451,
+          "median_abs_error": 6.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9478,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4,
+          "tier1_median_window_minutes": 15,
+          "tier1_rate": 0.1402,
+          "tier1_wrong_window_rate": 0.0073,
+          "tier3_or_4_rate": 0.4683,
+          "tier_distribution": {
+            "1": 0.1402,
+            "2": 0.3915,
+            "3": 0.4683,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.46,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 358.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 25,
+          "tier1_median_abs_error": 358.5,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.878,
+          "tier1_wrong_window_rate": 0.878,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.878,
+            "2": 0.122,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.68,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 4.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 14.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.16,
+          "mean_disagreeing_pairs": 2.47,
+          "mean_questions": 8.26,
+          "mean_session_reliability": 0.313,
+          "median_abs_error": null,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.9939,
+            "4": 0.0061
+          }
+        }
+      }
+    },
+    "0.75": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0146,
+            "perfect": 0.0,
+            "random": 0.0
+          },
+          "pooled": 0.0029
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.8293
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9939
+        },
+        "G4_cost": {
+          "median_questions": 7.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0732,
+        "impostor_tier1_wrong_window_rate": 0.7561
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.82,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": null,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 2.79,
+          "mean_disagreeing_pairs": 0.21,
+          "mean_questions": 7.71,
+          "mean_session_reliability": 0.7187,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.8026,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.3707,
+          "tier1_wrong_window_rate": 0.0732,
+          "tier3_or_4_rate": 0.439,
+          "tier_distribution": {
+            "1": 0.3707,
+            "2": 0.1902,
+            "3": 0.439,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.76,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.89,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 5.0,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 14.5,
+          "tier1_rate": 0.0585,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.4366,
+          "tier_distribution": {
+            "1": 0.0585,
+            "2": 0.5049,
+            "3": 0.4305,
+            "4": 0.0061
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 1.97,
+          "mean_disagreeing_pairs": 1.05,
+          "mean_questions": 7.88,
+          "mean_session_reliability": 0.5918,
+          "median_abs_error": 5,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9167,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 4.0,
+          "tier1_median_window_minutes": 14.0,
+          "tier1_rate": 0.1756,
+          "tier1_wrong_window_rate": 0.0146,
+          "tier3_or_4_rate": 0.3671,
+          "tier_distribution": {
+            "1": 0.1756,
+            "2": 0.4573,
+            "3": 0.3671,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.12,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 358.0,
+          "median_questions": 7.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 23,
+          "tier1_median_abs_error": 358.0,
+          "tier1_median_window_minutes": 12.0,
+          "tier1_rate": 0.7561,
+          "tier1_wrong_window_rate": 0.7561,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.7561,
+            "2": 0.2439,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 3.0,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 7.34,
+          "mean_session_reliability": 0.75,
+          "median_abs_error": 4.0,
+          "median_questions": 7.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1707,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.0,
+          "mean_agreeing_pairs": 0.2,
+          "mean_disagreeing_pairs": 2.41,
+          "mean_questions": 8.34,
+          "mean_session_reliability": 0.3889,
+          "median_abs_error": 511,
+          "median_questions": 8.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.9939,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0061,
+            "3": 0.9927,
+            "4": 0.0012
+          }
+        }
+      }
+    }
+  },
+  "sensitivity_source": {
+    "0.7": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0171,
+            "iid_noisy": 0.0159,
+            "perfect": 0.0,
+            "random": 0.0024
+          },
+          "pooled": 0.0071
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_rate": 0.7317
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9878
+        },
+        "G4_cost": {
+          "median_questions": 5.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0122,
+        "impostor_tier1_wrong_window_rate": 0.1463
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.976,
+          "mean_agreeing_pairs": 2.81,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.89,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": null,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.9157,
+          "mean_agreeing_pairs": 2.07,
+          "mean_disagreeing_pairs": 0.47,
+          "mean_questions": 4.83,
+          "mean_session_reliability": 0.5316,
+          "median_abs_error": 4,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9505,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.2463,
+          "tier1_wrong_window_rate": 0.0122,
+          "tier3_or_4_rate": 0.4841,
+          "tier_distribution": {
+            "1": 0.2463,
+            "2": 0.2695,
+            "3": 0.4841,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.9593,
+          "mean_agreeing_pairs": 0.73,
+          "mean_disagreeing_pairs": 0.67,
+          "mean_questions": 5.13,
+          "mean_session_reliability": 0.502,
+          "median_abs_error": 8,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.7544,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 6,
+          "tier1_median_window_minutes": 15,
+          "tier1_rate": 0.0695,
+          "tier1_wrong_window_rate": 0.0171,
+          "tier3_or_4_rate": 0.5646,
+          "tier_distribution": {
+            "1": 0.0695,
+            "2": 0.3659,
+            "3": 0.5549,
+            "4": 0.0098
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.9177,
+          "mean_agreeing_pairs": 2.04,
+          "mean_disagreeing_pairs": 0.49,
+          "mean_questions": 4.8,
+          "mean_session_reliability": 0.5294,
+          "median_abs_error": 5,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9286,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.222,
+          "tier1_wrong_window_rate": 0.0159,
+          "tier3_or_4_rate": 0.472,
+          "tier_distribution": {
+            "1": 0.222,
+            "2": 0.3061,
+            "3": 0.472,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.939,
+          "mean_agreeing_pairs": 1.02,
+          "mean_disagreeing_pairs": 1.22,
+          "mean_questions": 4.39,
+          "mean_session_reliability": 0.4537,
+          "median_abs_error": 359.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 21,
+          "tier1_median_abs_error": 358.5,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.1463,
+          "tier1_wrong_window_rate": 0.1463,
+          "tier3_or_4_rate": 0.2439,
+          "tier_distribution": {
+            "1": 0.1463,
+            "2": 0.6098,
+            "3": 0.2439,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.8333,
+          "mean_agreeing_pairs": 2.07,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.54,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 4.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 3.0,
+          "tier1_median_window_minutes": 13.5,
+          "tier1_rate": 0.7317,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.7317,
+            "2": 0.2683,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.9984,
+          "mean_agreeing_pairs": 1.39,
+          "mean_disagreeing_pairs": 1.4,
+          "mean_questions": 5.55,
+          "mean_session_reliability": 0.4072,
+          "median_abs_error": 230.5,
+          "median_questions": 6.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 21,
+          "tier1_median_abs_error": 260.5,
+          "tier1_median_window_minutes": 18.5,
+          "tier1_rate": 0.0024,
+          "tier1_wrong_window_rate": 0.0024,
+          "tier3_or_4_rate": 0.9878,
+          "tier_distribution": {
+            "1": 0.0024,
+            "2": 0.0098,
+            "3": 0.9878,
+            "4": 0.0
+          }
+        }
+      }
+    },
+    "0.8": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0183,
+            "iid_noisy": 0.0122,
+            "perfect": 0.0,
+            "random": 0.0
+          },
+          "pooled": 0.0061
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 5.0,
+          "tier1_rate": 0.4146
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.989
+        },
+        "G4_cost": {
+          "median_questions": 4.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.011,
+        "impostor_tier1_wrong_window_rate": 0.0976
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.9309,
+          "mean_agreeing_pairs": 2.58,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.78,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": null,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.8799,
+          "mean_agreeing_pairs": 1.8,
+          "mean_disagreeing_pairs": 0.46,
+          "mean_questions": 4.63,
+          "mean_session_reliability": 0.5323,
+          "median_abs_error": 5.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9143,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 14,
+          "tier1_rate": 0.128,
+          "tier1_wrong_window_rate": 0.011,
+          "tier3_or_4_rate": 0.4732,
+          "tier_distribution": {
+            "1": 0.128,
+            "2": 0.3988,
+            "3": 0.4732,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.9547,
+          "mean_agreeing_pairs": 0.67,
+          "mean_disagreeing_pairs": 0.71,
+          "mean_questions": 5.07,
+          "mean_session_reliability": 0.4961,
+          "median_abs_error": 8,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.7368,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 16,
+          "tier1_rate": 0.0695,
+          "tier1_wrong_window_rate": 0.0183,
+          "tier3_or_4_rate": 0.5476,
+          "tier_distribution": {
+            "1": 0.0695,
+            "2": 0.3829,
+            "3": 0.5427,
+            "4": 0.0049
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.8726,
+          "mean_agreeing_pairs": 1.83,
+          "mean_disagreeing_pairs": 0.42,
+          "mean_questions": 4.63,
+          "mean_session_reliability": 0.5385,
+          "median_abs_error": 5.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.9048,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 15,
+          "tier1_rate": 0.128,
+          "tier1_wrong_window_rate": 0.0122,
+          "tier3_or_4_rate": 0.4732,
+          "tier_distribution": {
+            "1": 0.128,
+            "2": 0.3988,
+            "3": 0.4732,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.8943,
+          "mean_agreeing_pairs": 0.93,
+          "mean_disagreeing_pairs": 1.02,
+          "mean_questions": 4.22,
+          "mean_session_reliability": 0.4756,
+          "median_abs_error": 359.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 21,
+          "tier1_median_abs_error": 357.5,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.0976,
+          "tier1_wrong_window_rate": 0.0976,
+          "tier3_or_4_rate": 0.2439,
+          "tier_distribution": {
+            "1": 0.0976,
+            "2": 0.6585,
+            "3": 0.2439,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.7642,
+          "mean_agreeing_pairs": 1.61,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.2,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 4.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 5.0,
+          "tier1_median_window_minutes": 15.0,
+          "tier1_rate": 0.4146,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.4146,
+            "2": 0.5854,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.9984,
+          "mean_agreeing_pairs": 1.41,
+          "mean_disagreeing_pairs": 1.31,
+          "mean_questions": 5.51,
+          "mean_session_reliability": 0.42,
+          "median_abs_error": 371,
+          "median_questions": 6.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.989,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.011,
+            "3": 0.989,
+            "4": 0.0
+          }
+        }
+      }
+    },
+    "0.9": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0232,
+            "iid_noisy": 0.0341,
+            "perfect": 0.0,
+            "random": 0.0049
+          },
+          "pooled": 0.0124
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 18,
+          "tier1_median_abs_error": 2.5,
+          "tier1_rate": 0.3415
+        },
+        "G3_refusal": {
+          "pass": false,
+          "tier3_or_4_rate": 0.9488
+        },
+        "G4_cost": {
+          "median_questions": 4.0,
+          "pass": true
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0537,
+        "impostor_tier1_wrong_window_rate": 0.122
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "inventory_covered_movers": 0.8683,
+          "mean_agreeing_pairs": 2.12,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 4.47,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": null,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 1.0,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 1.0,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "inventory_covered_movers": 0.7128,
+          "mean_agreeing_pairs": 1.41,
+          "mean_disagreeing_pairs": 0.35,
+          "mean_questions": 4.42,
+          "mean_session_reliability": 0.5484,
+          "median_abs_error": 5,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.6741,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 6,
+          "tier1_median_window_minutes": 11,
+          "tier1_rate": 0.1646,
+          "tier1_wrong_window_rate": 0.0537,
+          "tier3_or_4_rate": 0.4427,
+          "tier_distribution": {
+            "1": 0.1646,
+            "2": 0.3927,
+            "3": 0.4427,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "inventory_covered_movers": 0.8884,
+          "mean_agreeing_pairs": 0.67,
+          "mean_disagreeing_pairs": 0.64,
+          "mean_questions": 4.94,
+          "mean_session_reliability": 0.5073,
+          "median_abs_error": 8,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.7164,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 14,
+          "tier1_rate": 0.0817,
+          "tier1_wrong_window_rate": 0.0232,
+          "tier3_or_4_rate": 0.489,
+          "tier_distribution": {
+            "1": 0.0817,
+            "2": 0.4293,
+            "3": 0.4854,
+            "4": 0.0037
+          }
+        },
+        "iid_noisy": {
+          "inventory_covered_movers": 0.7063,
+          "mean_agreeing_pairs": 1.4,
+          "mean_disagreeing_pairs": 0.36,
+          "mean_questions": 4.4,
+          "mean_session_reliability": 0.5471,
+          "median_abs_error": 5.0,
+          "median_questions": 5.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.7778,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 6.0,
+          "tier1_median_window_minutes": 12.0,
+          "tier1_rate": 0.1537,
+          "tier1_wrong_window_rate": 0.0341,
+          "tier3_or_4_rate": 0.4463,
+          "tier_distribution": {
+            "1": 0.1537,
+            "2": 0.4,
+            "3": 0.4463,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "inventory_covered_movers": 0.5691,
+          "mean_agreeing_pairs": 0.61,
+          "mean_disagreeing_pairs": 0.51,
+          "mean_questions": 4.0,
+          "mean_session_reliability": 0.5341,
+          "median_abs_error": 359.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 22,
+          "tier1_median_abs_error": 358.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.122,
+          "tier1_wrong_window_rate": 0.122,
+          "tier3_or_4_rate": 0.2439,
+          "tier_distribution": {
+            "1": 0.122,
+            "2": 0.6341,
+            "3": 0.2439,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "inventory_covered_movers": 0.5325,
+          "mean_agreeing_pairs": 1.05,
+          "mean_disagreeing_pairs": 0.0,
+          "mean_questions": 3.98,
+          "mean_session_reliability": 0.6,
+          "median_abs_error": 4.0,
+          "median_questions": 4.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 18,
+          "tier1_median_abs_error": 2.5,
+          "tier1_median_window_minutes": 10.0,
+          "tier1_rate": 0.3415,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0,
+          "tier_distribution": {
+            "1": 0.3415,
+            "2": 0.6585,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "inventory_covered_movers": 0.9776,
+          "mean_agreeing_pairs": 1.32,
+          "mean_disagreeing_pairs": 1.34,
+          "mean_questions": 5.45,
+          "mean_session_reliability": 0.4182,
+          "median_abs_error": 389.0,
+          "median_questions": 6.0,
+          "n": 820,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 14,
+          "tier1_median_abs_error": 424.5,
+          "tier1_median_window_minutes": 8.0,
+          "tier1_rate": 0.0049,
+          "tier1_wrong_window_rate": 0.0049,
+          "tier3_or_4_rate": 0.9488,
+          "tier_distribution": {
+            "1": 0.0049,
+            "2": 0.0463,
+            "3": 0.9488,
+            "4": 0.0
+          }
+        }
+      }
+    }
+  },
+  "v2": {
+    "label": "v2",
+    "per_model": {
+      "adjacent_sign": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 3.0,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 8.0,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": null,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": null,
+        "tier1_max_window_minutes": null,
+        "tier1_median_abs_error": null,
+        "tier1_median_window_minutes": null,
+        "tier1_rate": 0.0,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 1.0,
+        "tier_distribution": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.0,
+          "4": 0.0
+        }
+      },
+      "correlated_noisy": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 2.8,
+        "mean_disagreeing_pairs": 0.2,
+        "mean_questions": 7.88,
+        "mean_session_reliability": 0.5702,
+        "median_abs_error": 4,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.9472,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 3.0,
+        "tier1_median_window_minutes": 13.0,
+        "tier1_rate": 0.3,
+        "tier1_wrong_window_rate": 0.0159,
+        "tier3_or_4_rate": 0.5476,
+        "tier_distribution": {
+          "1": 0.3,
+          "2": 0.1524,
+          "3": 0.5476,
+          "4": 0.0
+        }
+      },
+      "dont_know_heavy": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 0.77,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 7.95,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": 5.0,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 4,
+        "tier1_median_window_minutes": 15,
+        "tier1_rate": 0.089,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.4244,
+        "tier_distribution": {
+          "1": 0.089,
+          "2": 0.4866,
+          "3": 0.4207,
+          "4": 0.0037
+        }
+      },
+      "iid_noisy": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 1.94,
+        "mean_disagreeing_pairs": 1.08,
+        "mean_questions": 8.0,
+        "mean_session_reliability": 0.4456,
+        "median_abs_error": 6.5,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.9717,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 3.0,
+        "tier1_median_window_minutes": 14.5,
+        "tier1_rate": 0.1293,
+        "tier1_wrong_window_rate": 0.0037,
+        "tier3_or_4_rate": 0.4561,
+        "tier_distribution": {
+          "1": 0.1293,
+          "2": 0.4146,
+          "3": 0.4561,
+          "4": 0.0
+        }
+      },
+      "impostor": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 3.0,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 7.46,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": 358.0,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 25,
+        "tier1_median_abs_error": 358.5,
+        "tier1_median_window_minutes": 13.0,
+        "tier1_rate": 0.878,
+        "tier1_wrong_window_rate": 0.878,
+        "tier3_or_4_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.878,
+          "2": 0.122,
+          "3": 0.0,
+          "4": 0.0
+        }
+      },
+      "perfect": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 3.0,
+        "mean_disagreeing_pairs": 0.0,
+        "mean_questions": 7.68,
+        "mean_session_reliability": 0.6,
+        "median_abs_error": 4.0,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 3.0,
+        "tier1_median_window_minutes": 14.5,
+        "tier1_rate": 0.8293,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.8293,
+          "2": 0.1707,
+          "3": 0.0,
+          "4": 0.0
+        }
+      },
+      "random": {
+        "inventory_covered_movers": 0.0,
+        "mean_agreeing_pairs": 0.17,
+        "mean_disagreeing_pairs": 2.45,
+        "mean_questions": 8.28,
+        "mean_session_reliability": 0.3128,
+        "median_abs_error": 201,
+        "median_questions": 8.0,
+        "n": 820,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 9,
+        "tier1_median_abs_error": 714,
+        "tier1_median_window_minutes": 9,
+        "tier1_rate": 0.0012,
+        "tier1_wrong_window_rate": 0.0012,
+        "tier3_or_4_rate": 0.9963,
+        "tier_distribution": {
+          "1": 0.0012,
+          "2": 0.0024,
+          "3": 0.9927,
+          "4": 0.0037
+        }
+      }
+    },
+    "seconds": 334.3
+  },
+  "v2_gates": {
+    "G1_safety": {
+      "pass": true,
+      "per_model": {
+        "adjacent_sign": 0.0,
+        "dont_know_heavy": 0.0,
+        "iid_noisy": 0.0037,
+        "perfect": 0.0,
+        "random": 0.0012
+      },
+      "pooled": 0.001
+    },
+    "G2_usefulness": {
+      "pass": false,
+      "tier1_contains_truth_rate": 1.0,
+      "tier1_max_window_minutes": 30,
+      "tier1_median_abs_error": 3.0,
+      "tier1_rate": 0.8293
+    },
+    "G3_refusal": {
+      "pass": true,
+      "tier3_or_4_rate": 0.9963
+    },
+    "G4_cost": {
+      "median_questions": 8.0,
+      "pass": true
+    },
+    "correlated_noisy_tier1_wrong_window_rate": 0.0159,
+    "impostor_tier1_wrong_window_rate": 0.878
+  }
+}

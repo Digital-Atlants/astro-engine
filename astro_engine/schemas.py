@@ -122,12 +122,22 @@ InterviewChannel = Literal["rising_sign", "decan", "mover_house", "portrait"]
 ANSWER_ID = r"^[a-z0-9_]{1,32}$"
 
 
+AnswerSource = Literal["document", "observed", "client_report", "inferred"]
+HouseStatus = Literal["dominant", "present", "absent", "unknown"]
+
+
 class InterviewAnswer(BaseModel):
     model_config = {"extra": "forbid"}
 
     question_id: str = Field(pattern=r"^[a-z0-9_]{1,48}$")
     channel: InterviewChannel
     subject: Optional[str] = Field(default=None, pattern=r"^[a-z_]{1,16}$")
+    # Which phrasing of the pair this answers. Two answers to the same
+    # (channel, subject) are one question asked twice.
+    variant: Literal["a", "b"] = "a"
+    # Where the answer came from. Trust is set per source; `client_report`
+    # uses the reliability estimated for this session from pair agreement.
+    source: AnswerSource = "client_report"
     # Empty means `cannot_choose`: it multiplies no weights at all.
     answer_ids: list[str] = Field(default_factory=list, max_length=4)
     # Echoed back for the portrait channel so the partition can be rebuilt.
@@ -145,10 +155,42 @@ class InterviewAnswer(BaseModel):
         return v
 
 
+class TimeBounds(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    start: str = Field(pattern=r"^\d{2}:\d{2}$")
+    end: str = Field(pattern=r"^\d{2}:\d{2}$")
+
+
+class SphereEntry(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    status: HouseStatus = "unknown"
+    source: AnswerSource = "client_report"
+
+
+class Hypothesis(BaseModel):
+    """An astrologer's own time or range. Never enters the posterior."""
+
+    model_config = {"extra": "forbid"}
+
+    start: str = Field(pattern=r"^\d{2}:\d{2}$")
+    end: Optional[str] = Field(default=None, pattern=r"^\d{2}:\d{2}$")
+
+
 class InterviewConfigModel(BaseModel):
     model_config = {"extra": "forbid"}
 
-    channel_reliability: float = Field(default=0.75, gt=0, lt=1)
+    # 0.60, not a fitted value: see docs/trust_default.md.
+    channel_reliability: float = Field(default=0.60, gt=0, lt=1)
+    repeat: bool = True
+    repeat_pairs: int = Field(default=3, ge=0, le=6)
+    disagreement_penalty: float = Field(default=0.15, ge=0, le=0.5)
+    min_session_reliability: float = Field(default=0.30, gt=0, lt=1)
+    tier1_min_agreeing_pairs: int = Field(default=2, ge=0, le=6)
+    tier2_min_agreeing_pairs: int = Field(default=1, ge=0, le=6)
+    claimed_time_weight: float = Field(default=0.5, ge=0, le=5)
+    mode: Literal["standard", "professional"] = "standard"
     tier1_mass: float = Field(default=0.60, gt=0, le=1)
     tier2_mass: float = Field(default=0.60, gt=0, le=1)
     tier1_chance_p: float = Field(default=0.002, gt=0, le=1)
@@ -164,8 +206,18 @@ class InterviewRequest(BaseModel):
 
     birth_date: dt.date
     place: Place
-    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=24)
+    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=32)
     config: InterviewConfigModel = InterviewConfigModel()
+    # Documentary bounds on the birth time. Candidates outside are multiplied
+    # by 0.02, never zero: a certificate can be misread or mistranscribed.
+    known_bounds: Optional[TimeBounds] = None
+    # A remembered or claimed approximate time. A soft prior only - the
+    # owner's own confidently held time was 18 minutes out.
+    claimed_time: Optional[str] = Field(default=None, pattern=r"^\d{2}:\d{2}$")
+    # Pre-answers for mover-house questions, keyed by house number "1".."12".
+    sphere_inventory: dict[str, SphereEntry] = Field(default_factory=dict)
+    # Reported against the result, never mixed into it.
+    hypothesis: Optional[Hypothesis] = None
 
 
 class InterviewCompareRequest(BaseModel):
@@ -176,8 +228,11 @@ class InterviewCompareRequest(BaseModel):
 
     birth_date: dt.date
     place: Place
-    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=24)
+    answers: list[InterviewAnswer] = Field(default_factory=list, max_length=32)
     config: InterviewConfigModel = InterviewConfigModel()
+    known_bounds: Optional[TimeBounds] = None
+    claimed_time: Optional[str] = Field(default=None, pattern=r"^\d{2}:\d{2}$")
+    sphere_inventory: dict[str, SphereEntry] = Field(default_factory=dict)
     documented_time: str = Field(pattern=r"^\d{2}:\d{2}$")
 
 
