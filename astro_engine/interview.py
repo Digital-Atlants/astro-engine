@@ -137,6 +137,8 @@ class InterviewConfig:
         "sign_mass_stop",
         "min_trait_bits",
         "tier3_sign_mass",
+        "tier3_chance_p",
+        "tier3_min_agreeing_pairs",
         "portrait_sign_threshold",
     )
 
@@ -172,6 +174,13 @@ class InterviewConfig:
         # Tier 3 delivers a rising sign, so it needs its own bar. v1-v3
         # gated only Tier 1 and shipped Tier 3 unmeasured.
         tier3_sign_mass: float = 0.50,
+        # Tier 3 delivers a sign, so it must clear the same *kind* of bar as
+        # Tier 1: independent channels agreeing beyond chance, and repeated
+        # phrasings that did not contradict each other. v3.1 required only a
+        # confirmed portrait and enough mass, and random answering walked away
+        # with a wrong sign in 21.6% of runs.
+        tier3_chance_p: float = 0.05,
+        tier3_min_agreeing_pairs: int = 2,
         # The two-portrait confirmation fires once the mass is this
         # concentrated on the leading signs.
         portrait_sign_threshold: float = 0.70,
@@ -198,6 +207,8 @@ class InterviewConfig:
         self.sign_mass_stop = sign_mass_stop
         self.min_trait_bits = min_trait_bits
         self.tier3_sign_mass = tier3_sign_mass
+        self.tier3_chance_p = tier3_chance_p
+        self.tier3_min_agreeing_pairs = tier3_min_agreeing_pairs
         self.portrait_sign_threshold = portrait_sign_threshold
 
 
@@ -845,10 +856,19 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
     # confirmed, nothing conflicts, and the mass genuinely sits on that sign.
     # v1-v3 handed out a Tier 3 sign whenever any answer existed, and never
     # measured whether it was the right sign.
-    if portrait_given and not conflict and top_sign_mass >= cfg.tier3_sign_mass:
+    tier3_pairs_ok = (
+        agree >= cfg.tier3_min_agreeing_pairs and disagree == 0
+    )
+    if (
+        portrait_given
+        and not conflict
+        and tier3_pairs_ok
+        and chance_p < cfg.tier3_chance_p
+        and top_sign_mass >= cfg.tier3_sign_mass
+    ):
         return _tier_result(3, [], posterior, conc, chance_p, overlap, pairs,
-                            "one rising sign carries the mass and nothing "
-                            "contradicts it",
+                            "one rising sign carries the mass, the channels "
+                            "agree beyond chance, and nothing contradicts it",
                             rising_sign=top_sign, conflict=conflict)
 
     reason = "the method cannot work from these answers"
@@ -856,6 +876,10 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
         reason = "the confirmed portrait contradicts the earlier answers"
     elif not portrait_given:
         reason = "the mass never concentrated enough to confirm a portrait"
+    elif not tier3_pairs_ok:
+        reason = "the repeated phrasings did not agree often enough to name a sign"
+    elif chance_p >= cfg.tier3_chance_p:
+        reason = "the channels agree no better than chance would"
     elif top_sign_mass < cfg.tier3_sign_mass:
         reason = "no single rising sign carries enough of the mass"
     return _tier_result(4, [], posterior, conc, chance_p, overlap, pairs,
