@@ -53,7 +53,8 @@ N_GRID = len(GRID_MINUTES)
 # and are computed exactly at every candidate.
 LONGITUDE_SAMPLE_MINUTES = 60
 
-CHANNELS = ("trait", "decan", "mover_house", "portrait")
+CHANNELS = ("element", "modality", "sign_portrait", "trait", "decan",
+            "mover_house", "portrait")
 DECAN_NAMES = ("first", "second", "third")
 
 # The owner's rule, now a contract:
@@ -71,11 +72,18 @@ _VOCAB = json.loads(_VOCAB_PATH.read_text(encoding="utf-8"))
 TRAIT_TAGS = {t["tag_id"]: t for t in _VOCAB["tags"]}
 TRAIT_SIGNS = _VOCAB["signs"]
 _SIGN_AXIS = _VOCAB["sign_attributes"]
+ELEMENT_TAGS = _VOCAB["structural_tags"]["element"]
+MODALITY_TAGS = _VOCAB["structural_tags"]["modality"]
+# The two-portrait confirmation never offers more than this many signs.
+MAX_PORTRAIT_SIGNS = 2
 
 # Two phrasings of the same underlying partition. The client renders them as
 # different questions; the engine knows they are a pair.
 VARIANTS = ("a", "b")
 VARIANT_FACET = {
+    "element": {"a": "temperament", "b": "drive"},
+    "modality": {"a": "pace", "b": "approach"},
+    "sign_portrait": {"a": "portrait", "b": "portrait_contrast"},
     "rising_sign": {"a": "temperament", "b": "build"},
     "decan": {"a": "manner", "b": "appearance"},
     "mover_house": {"a": "life_area", "b": "episode"},
@@ -128,6 +136,8 @@ class InterviewConfig:
         "max_tags_per_question",
         "sign_mass_stop",
         "min_trait_bits",
+        "tier3_sign_mass",
+        "portrait_sign_threshold",
     )
 
     def __init__(
@@ -142,7 +152,7 @@ class InterviewConfig:
         max_mover_questions: int = 3,
         house_system: str = "placidus",
         repeat: bool = True,
-        repeat_pairs: int = 2,
+        repeat_pairs: int = 3,
         disagreement_penalty: float = 0.15,
         min_session_reliability: float = 0.30,
         tier1_min_agreeing_pairs: int = 2,
@@ -159,6 +169,12 @@ class InterviewConfig:
         # Reusing the 0.15-bit partition floor here stopped stage 1 from ever
         # running. Frozen before measurement.
         min_trait_bits: float = 0.01,
+        # Tier 3 delivers a rising sign, so it needs its own bar. v1-v3
+        # gated only Tier 1 and shipped Tier 3 unmeasured.
+        tier3_sign_mass: float = 0.50,
+        # The two-portrait confirmation fires once the mass is this
+        # concentrated on the leading signs.
+        portrait_sign_threshold: float = 0.70,
     ):
         self.channel_reliability = channel_reliability
         self.tier1_mass = tier1_mass
@@ -181,6 +197,8 @@ class InterviewConfig:
         self.max_tags_per_question = max_tags_per_question
         self.sign_mass_stop = sign_mass_stop
         self.min_trait_bits = min_trait_bits
+        self.tier3_sign_mass = tier3_sign_mass
+        self.portrait_sign_threshold = portrait_sign_threshold
 
 
 # --------------------------------------------------------------------------
@@ -528,13 +546,27 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
         chosen = list(ans.get("answer_ids", []))
         r = answer_reliability(ans, session_r)
         before = normalise(weights)
+        contradicts = False
 
-        if channel == "trait":
+        if channel in ("trait", "element", "modality"):
             # Tags reweight by per-sign likelihood; there is no partition and
             # no class the answer "belongs to".
             weights = apply_trait_answer(weights, grid.asc_sign, chosen, r)
             labels = grid.asc_sign
             supported = _trait_supported(grid.asc_sign, chosen)
+        elif channel == "sign_portrait":
+            prior_top = None
+            if chosen:
+                masses = _class_mass(before, grid.asc_sign)
+                prior_top = max(masses, key=masses.get) if masses else None
+                contradicts = bool(prior_top and prior_top not in set(chosen))
+            # A direct "which of these two is you". The answer names a sign,
+            # so it is a partition over the Ascendant sign.
+            labels = grid.asc_sign
+            weights = apply_answer(weights, labels, chosen, r)
+            supported = [
+                i for i in range(N_GRID) if labels[i] in set(chosen)
+            ] if chosen else []
         else:
             labels = partition_for(grid, channel, ans.get("subject"),
                                    windows_at_portrait)
@@ -546,6 +578,9 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
         after = normalise(weights)
         trace.append(
             {
+                "contradicts_prior": (
+                    contradicts if channel == "sign_portrait" and chosen else False
+                ),
                 "channel": channel,
                 "subject": ans.get("subject"),
                 "answer_ids": chosen,
@@ -735,14 +770,38 @@ def concentration(posterior: list[float]) -> float:
 # --------------------------------------------------------------------------
 
 
+def channel_conflict(trace: list[dict], sign_labels: list[str]) -> bool:
+    """Did the portrait answer contradict what the structural answers implied?
+
+    Measured against the posterior as it stood *before* the portrait answer,
+    so a person who confirms a portrait that the element and modality answers
+    did not point at is flagged - which is exactly the adjacent-sign case.
+    """
+    portrait = next(
+        (t for t in trace if t["channel"] == "sign_portrait" and t["answer_ids"]),
+        None,
+    )
+    if portrait is None:
+        return False
+    return portrait.get("contradicts_prior", False)
+
+
 def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
-                pairs: dict | None = None) -> dict:
+                pairs: dict | None = None, sign_labels: list[str] | None = None) -> dict:
     pairs = pairs or {"agreeing_pairs": 0, "disagreeing_pairs": 0,
                       "session_reliability": cfg.channel_reliability}
     chance_p, overlap = chance_agreement(trace)
     conc = concentration(posterior)
     agree = pairs["agreeing_pairs"]
     disagree = pairs["disagreeing_pairs"]
+    labels = sign_labels or _rising_sign_labels(trace)
+    conflict = channel_conflict(trace, labels)
+    portrait_given = any(
+        t["channel"] == "sign_portrait" and t["answer_ids"] for t in trace
+    )
+    sign_masses = _class_mass(posterior, labels) if labels else {}
+    top_sign = max(sign_masses, key=sign_masses.get) if sign_masses else None
+    top_sign_mass = sign_masses.get(top_sign, 0.0) if top_sign else 0.0
 
     # The pair requirement applies whenever the session actually produced
     # pairs, however they were formed. In the interview they come from two
@@ -758,7 +817,9 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
 
     t1 = credible_windows(posterior, cfg.tier1_mass)
     if (
-        pair_ok_t1
+        not conflict
+        and portrait_given
+        and pair_ok_t1
         and len(t1) == 1
         and window_minutes(t1[0]) <= cfg.tier1_window_minutes
         and window_mass(posterior, t1[0]) >= cfg.tier1_mass
@@ -770,7 +831,8 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
 
     t2 = credible_windows(posterior, cfg.tier2_mass)
     if (
-        pair_ok_t2
+        not conflict
+        and pair_ok_t2
         and 1 <= len(t2) <= 3
         and sum(window_mass(posterior, w) for w in t2) >= cfg.tier2_mass
         and chance_p < cfg.tier2_chance_p
@@ -779,17 +841,25 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
         return _tier_result(2, t2, posterior, conc, chance_p, overlap, pairs,
                             "two or three windows carry the mass")
 
-    informative = [t for t in trace if t["answer_ids"]]
-    if informative:
-        labels = _rising_sign_labels(trace)
-        sign_mass = _class_mass(posterior, labels) if labels else {}
-        best_sign = max(sign_mass, key=sign_mass.get) if sign_mass else None
+    # Tier 3 delivers a rising sign, so it has to earn one: the portrait was
+    # confirmed, nothing conflicts, and the mass genuinely sits on that sign.
+    # v1-v3 handed out a Tier 3 sign whenever any answer existed, and never
+    # measured whether it was the right sign.
+    if portrait_given and not conflict and top_sign_mass >= cfg.tier3_sign_mass:
         return _tier_result(3, [], posterior, conc, chance_p, overlap, pairs,
-                            "channels agree only at the level of the rising sign",
-                            rising_sign=best_sign)
+                            "one rising sign carries the mass and nothing "
+                            "contradicts it",
+                            rising_sign=top_sign, conflict=conflict)
 
+    reason = "the method cannot work from these answers"
+    if conflict:
+        reason = "the confirmed portrait contradicts the earlier answers"
+    elif not portrait_given:
+        reason = "the mass never concentrated enough to confirm a portrait"
+    elif top_sign_mass < cfg.tier3_sign_mass:
+        reason = "no single rising sign carries enough of the mass"
     return _tier_result(4, [], posterior, conc, chance_p, overlap, pairs,
-                        "the method cannot work from these answers")
+                        reason, conflict=conflict)
 
 
 def _rising_sign_labels(trace) -> list[str]:
@@ -800,11 +870,12 @@ def _rising_sign_labels(trace) -> list[str]:
 
 
 def _tier_result(tier, windows, posterior, conc, chance_p, overlap, pairs, reason,
-                 rising_sign=None) -> dict:
+                 rising_sign=None, conflict=False) -> dict:
     return {
         "tier": tier,
         "reason": reason,
         "rising_sign": rising_sign,
+        "channel_conflict": conflict,
         "windows": [
             {
                 "start": minute_to_time(w[0]),
@@ -881,19 +952,29 @@ def next_question(grid: ChartGrid, posterior: list[float], answers: list[dict],
     prior = sign_mass(posterior, grid.asc_sign)
     top_sign_mass = max(prior.values()) if prior else 0.0
 
-    # ---- stage 1: a sequence of small trait splits ----------------------
-    if trait_rounds < cfg.max_trait_questions and top_sign_mass < cfg.sign_mass_stop:
-        # Only tags the person actually ticked are spent - their evidence is
-        # already in the posterior. A tag that was offered and left unticked
-        # may be worth offering again once the live rivals have changed;
-        # retiring it too made every later round pick from a poorer pool.
-        seen = set()
-        for a in answers:
-            if a["channel"] == "trait":
-                seen |= set(a.get("answer_ids", []))
-        tags, gain = _best_tag_set(prior, seen, cfg)
-        if tags and gain >= cfg.min_trait_bits:
-            return _trait_question(tags, gain, trait_rounds, "a")
+    # ---- stage 1: two structured questions, not a trait soup ----------
+    # Element, then modality. Adjacent signs differ in BOTH, so reaching a
+    # neighbour by mistake takes two errors rather than one - which is the
+    # failure that broke G1 in v3, where neighbouring signs shared most of
+    # their trait likelihoods and one confident mistake was enough.
+    if ("element", None, "a") not in asked:
+        return _structural_question("element", ELEMENT_TAGS, prior, "a")
+    if ("modality", None, "a") not in asked:
+        return _structural_question("modality", MODALITY_TAGS, prior, "a")
+
+    # ---- two-portrait confirmation ------------------------------------
+    ranked = sorted(prior.items(), key=lambda kv: -kv[1])
+    lead = [s_ for s_, _ in ranked[:MAX_PORTRAIT_SIGNS]]
+    lead_mass = sum(m for _, m in ranked[:MAX_PORTRAIT_SIGNS])
+    top3_mass = sum(m for _, m in ranked[:3])
+    # Fire once the leading signs carry the mass. Three signs qualify too -
+    # the spec's rule is to offer the top two of them and let
+    # `cannot_choose` stand for "neither".
+    if ("sign_portrait", None, "a") not in asked and (
+        lead_mass >= cfg.portrait_sign_threshold
+        or top3_mass >= cfg.portrait_sign_threshold
+    ):
+        return _sign_portrait_question(lead, prior, "a")
 
     if ("decan", None, "a") not in asked:
         labels = partition_for(grid, "decan", None)
@@ -925,6 +1006,19 @@ def next_question(grid: ChartGrid, posterior: list[float], answers: list[dict],
     if cfg.repeat:
         for channel, subject in answered_keys[: cfg.repeat_pairs]:
             if (channel, subject, "b") in asked:
+                continue
+            if channel in ("element", "modality"):
+                tags = ELEMENT_TAGS if channel == "element" else MODALITY_TAGS
+                return _structural_question(channel, tags, prior, "b")
+            if channel == "sign_portrait":
+                original = next(
+                    (a for a in answers if a["channel"] == "sign_portrait"
+                     and a.get("variant", "a") == "a"),
+                    None,
+                )
+                offered = list((original or {}).get("offered_tag_ids") or [])
+                if offered:
+                    return _sign_portrait_question(offered, prior, "b")
                 continue
             if channel == "trait":
                 # Free-text tags were never asked as a question, so there is
@@ -1003,6 +1097,61 @@ def _live_classes(posterior: list[float], labels: list[str], floor: float = 1e-4
 
 def _class_windows(labels: list[str], cls: str) -> list[tuple[int, int]]:
     return _runs([i for i in range(N_GRID) if labels[i] == cls])
+
+
+def _structural_question(channel: str, tag_ids: list[str],
+                         prior: dict[str, float], variant: str) -> dict:
+    """One of the two fixed stage-1 questions. Four options or three."""
+    key = "paraphrase_key" if variant == "b" else "label_key"
+    facet = VARIANT_FACET[channel][variant]
+    return {
+        "question_id": f"stage1_{channel}_{variant}",
+        "channel": channel,
+        "subject": None,
+        "variant": variant,
+        "facet": facet,
+        "stage": 1,
+        "select": "single",
+        "max_select": 1,
+        "information_bits": round(
+            _trait_expected_gain(prior, tag_ids, 0.6), 4
+        ),
+        "options": [
+            {"answer_id": t, "label_key": TRAIT_TAGS[t][key]} for t in tag_ids
+        ],
+        "offered_tag_ids": list(tag_ids),
+        "allow_cannot_choose": True,
+    }
+
+
+def _sign_portrait_question(signs: list[str], prior: dict[str, float],
+                            variant: str) -> dict:
+    """Two portraits, one question: which of these two is you.
+
+    Its own channel on purpose. Disagreement with what the structural answers
+    already implied is a channel conflict, and a conflict blocks Tier 3 as
+    well as Tier 1 - the v2 mechanism that caught the adjacent-sign answerer,
+    now applied to the sign itself.
+    """
+    facet = VARIANT_FACET["sign_portrait"][variant]
+    return {
+        "question_id": f"stage2_sign_portrait_{variant}",
+        "channel": "sign_portrait",
+        "subject": None,
+        "variant": variant,
+        "facet": facet,
+        "stage": 2,
+        "select": "single",
+        "max_select": 1,
+        "information_bits": round(
+            _entropy_bits({s_: prior.get(s_, 0.0) for s_ in signs}), 4
+        ),
+        "options": [
+            {"answer_id": s_, "label_key": f"sign.{s_}.{facet}"} for s_ in signs
+        ],
+        "offered_tag_ids": list(signs),
+        "allow_cannot_choose": True,
+    }
 
 
 def _trait_question(tag_ids: list[str], gain: float, round_index: int,
@@ -1152,7 +1301,7 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
     posterior, trace, pairs = build_posterior(
         grid, answers, cfg, known_bounds, claimed_time
     )
-    tier = assign_tier(posterior, trace, cfg, pairs)
+    tier = assign_tier(posterior, trace, cfg, pairs, grid.asc_sign)
     question = next_question(grid, posterior, answers, cfg, sphere_inventory)
 
     answered = [t for t in trace if t["answer_ids"]]

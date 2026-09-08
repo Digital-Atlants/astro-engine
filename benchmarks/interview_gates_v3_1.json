@@ -1,0 +1,357 @@
+{
+  "cases": 41,
+  "priority_order": [
+    "G1_safety",
+    "G6_tier3_sign",
+    "G7_tier2_window",
+    "G3_refusal",
+    "G2_usefulness",
+    "G5_sign_recovery",
+    "G4_cost"
+  ],
+  "runs_per_case": 20,
+  "v3_1": {
+    "label": "v3.1",
+    "per_model": {
+      "adjacent_sign": {
+        "bits_by_stage": {
+          "decan": 4.0064,
+          "element": 0.0725,
+          "modality": 0.0689,
+          "mover_house": 2.9687,
+          "portrait": 0.9547,
+          "sign_portrait": 0.7531
+        },
+        "conflict_rate": 0.3829,
+        "mean_questions": 9.54,
+        "median_questions": 9.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 284,
+          "11": 78,
+          "9": 458
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 27,
+        "tier1_median_abs_error": 88,
+        "tier1_median_window_minutes": 27,
+        "tier1_rate": 0.0134,
+        "tier1_wrong_of_issued": 1.0,
+        "tier1_wrong_window_rate": 0.0134,
+        "tier2_rate": 0.0451,
+        "tier2_wrong_of_issued": 1.0,
+        "tier2_wrong_window_rate": 0.0451,
+        "tier3_or_4_rate": 0.9415,
+        "tier3_rate": 0.0,
+        "tier3_wrong_of_issued": null,
+        "tier3_wrong_sign_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.0134,
+          "2": 0.0451,
+          "3": 0.0,
+          "4": 0.9415
+        }
+      },
+      "correlated_noisy": {
+        "bits_by_stage": {
+          "decan": 3.211,
+          "element": 0.0521,
+          "modality": 0.0483,
+          "mover_house": 1.7618,
+          "portrait": 0.9819,
+          "sign_portrait": 0.3388
+        },
+        "conflict_rate": 0.1744,
+        "mean_questions": 9.82,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 547,
+          "11": 76,
+          "8": 25,
+          "9": 172
+        },
+        "sign_recovery_rate": 0.5988,
+        "tier1_contains_truth_rate": 0.7754,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 6,
+        "tier1_median_window_minutes": 14,
+        "tier1_rate": 0.228,
+        "tier1_wrong_of_issued": 0.2246,
+        "tier1_wrong_window_rate": 0.0512,
+        "tier2_rate": 0.1329,
+        "tier2_wrong_of_issued": 0.1284,
+        "tier2_wrong_window_rate": 0.0171,
+        "tier3_or_4_rate": 0.639,
+        "tier3_rate": 0.272,
+        "tier3_wrong_of_issued": 0.0359,
+        "tier3_wrong_sign_rate": 0.0098,
+        "tier_distribution": {
+          "1": 0.228,
+          "2": 0.1329,
+          "3": 0.272,
+          "4": 0.3671
+        }
+      },
+      "dont_know_heavy": {
+        "bits_by_stage": {
+          "decan": 3.733,
+          "element": 0.0702,
+          "modality": 0.0652,
+          "mover_house": 2.5823,
+          "portrait": 0.1384,
+          "sign_portrait": 0.4586
+        },
+        "conflict_rate": 0.0024,
+        "mean_questions": 9.73,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 599,
+          "11": 1,
+          "8": 4,
+          "9": 216
+        },
+        "sign_recovery_rate": 0.5122,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 26,
+        "tier1_median_abs_error": 3.0,
+        "tier1_median_window_minutes": 13.5,
+        "tier1_rate": 0.0244,
+        "tier1_wrong_of_issued": 0.0,
+        "tier1_wrong_window_rate": 0.0,
+        "tier2_rate": 0.3878,
+        "tier2_wrong_of_issued": 0.0,
+        "tier2_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.5878,
+        "tier3_rate": 0.1598,
+        "tier3_wrong_of_issued": 0.0,
+        "tier3_wrong_sign_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.0244,
+          "2": 0.3878,
+          "3": 0.1598,
+          "4": 0.428
+        }
+      },
+      "iid_noisy": {
+        "bits_by_stage": {
+          "decan": 3.3348,
+          "element": 0.0537,
+          "modality": 0.052,
+          "mover_house": 1.7862,
+          "portrait": 1.0637,
+          "sign_portrait": 0.3417
+        },
+        "conflict_rate": 0.2037,
+        "mean_questions": 9.91,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 598,
+          "11": 80,
+          "8": 8,
+          "9": 134
+        },
+        "sign_recovery_rate": 0.5902,
+        "tier1_contains_truth_rate": 0.7767,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 6,
+        "tier1_median_window_minutes": 15,
+        "tier1_rate": 0.1256,
+        "tier1_wrong_of_issued": 0.2233,
+        "tier1_wrong_window_rate": 0.028,
+        "tier2_rate": 0.2415,
+        "tier2_wrong_of_issued": 0.1061,
+        "tier2_wrong_window_rate": 0.0256,
+        "tier3_or_4_rate": 0.6329,
+        "tier3_rate": 0.2293,
+        "tier3_wrong_of_issued": 0.0479,
+        "tier3_wrong_sign_rate": 0.011,
+        "tier_distribution": {
+          "1": 0.1256,
+          "2": 0.2415,
+          "3": 0.2293,
+          "4": 0.4037
+        }
+      },
+      "impostor": {
+        "bits_by_stage": {
+          "decan": 2.6483,
+          "element": 0.037,
+          "modality": 0.0351,
+          "mover_house": 1.0948,
+          "sign_portrait": 0.269
+        },
+        "conflict_rate": 0.0,
+        "mean_questions": 9.61,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 540,
+          "8": 40,
+          "9": 240
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 358.0,
+        "tier1_median_window_minutes": 14.0,
+        "tier1_rate": 0.9024,
+        "tier1_wrong_of_issued": 1.0,
+        "tier1_wrong_window_rate": 0.9024,
+        "tier2_rate": 0.0732,
+        "tier2_wrong_of_issued": 1.0,
+        "tier2_wrong_window_rate": 0.0732,
+        "tier3_or_4_rate": 0.0244,
+        "tier3_rate": 0.0,
+        "tier3_wrong_of_issued": null,
+        "tier3_wrong_sign_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.9024,
+          "2": 0.0732,
+          "3": 0.0,
+          "4": 0.0244
+        }
+      },
+      "perfect": {
+        "bits_by_stage": {
+          "decan": 2.6489,
+          "element": 0.0361,
+          "modality": 0.0342,
+          "mover_house": 0.9613,
+          "sign_portrait": 0.2058
+        },
+        "conflict_rate": 0.0,
+        "mean_questions": 9.66,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 600,
+          "8": 60,
+          "9": 160
+        },
+        "sign_recovery_rate": 0.9268,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 4.0,
+        "tier1_median_window_minutes": 15.5,
+        "tier1_rate": 0.8293,
+        "tier1_wrong_of_issued": 0.0,
+        "tier1_wrong_window_rate": 0.0,
+        "tier2_rate": 0.122,
+        "tier2_wrong_of_issued": 0.0,
+        "tier2_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.0488,
+        "tier3_rate": 0.0,
+        "tier3_wrong_of_issued": null,
+        "tier3_wrong_sign_rate": 0.0,
+        "tier_distribution": {
+          "1": 0.8293,
+          "2": 0.122,
+          "3": 0.0,
+          "4": 0.0488
+        }
+      },
+      "random": {
+        "bits_by_stage": {
+          "decan": 3.3301,
+          "element": 0.0671,
+          "modality": 0.0701,
+          "mover_house": 1.6438,
+          "portrait": 0.8359,
+          "sign_portrait": 0.3464
+        },
+        "conflict_rate": 0.3524,
+        "mean_questions": 10.27,
+        "median_questions": 10.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 588,
+          "11": 227,
+          "8": 1,
+          "9": 4
+        },
+        "sign_recovery_rate": 0.1305,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 19,
+        "tier1_median_abs_error": 11,
+        "tier1_median_window_minutes": 19,
+        "tier1_rate": 0.0012,
+        "tier1_wrong_of_issued": 1.0,
+        "tier1_wrong_window_rate": 0.0012,
+        "tier2_rate": 0.0451,
+        "tier2_wrong_of_issued": 0.973,
+        "tier2_wrong_window_rate": 0.0439,
+        "tier3_or_4_rate": 0.9537,
+        "tier3_rate": 0.2439,
+        "tier3_wrong_of_issued": 0.885,
+        "tier3_wrong_sign_rate": 0.2159,
+        "tier_distribution": {
+          "1": 0.0012,
+          "2": 0.0451,
+          "3": 0.2439,
+          "4": 0.7098
+        }
+      }
+    },
+    "seconds": 337.6
+  },
+  "v3_1_gates": {
+    "G1_safety": {
+      "pass": true,
+      "per_model": {
+        "adjacent_sign": 0.0134,
+        "dont_know_heavy": 0.0,
+        "iid_noisy": 0.028,
+        "perfect": 0.0,
+        "random": 0.0012
+      }
+    },
+    "G2_usefulness": {
+      "pass": false,
+      "tier1_contains_truth_rate": 1.0,
+      "tier1_max_window_minutes": 30,
+      "tier1_median_abs_error": 4.0,
+      "tier1_rate": 0.8293
+    },
+    "G3_refusal": {
+      "pass": true,
+      "tier3_or_4_rate": 0.9537
+    },
+    "G4_cost": {
+      "median_questions": 10.0,
+      "pass": true
+    },
+    "G5_sign_recovery": {
+      "iid_noisy": 0.5902,
+      "pass": false,
+      "perfect": 0.9268
+    },
+    "G6_tier3_sign": {
+      "pass": true,
+      "per_model": {
+        "adjacent_sign": 0.0,
+        "dont_know_heavy": 0.0,
+        "iid_noisy": 0.011,
+        "perfect": 0.0
+      },
+      "random_reported": 0.2159
+    },
+    "G7_tier2_window": {
+      "pass": true,
+      "per_model": {
+        "adjacent_sign": 0.0451,
+        "dont_know_heavy": 0.0,
+        "iid_noisy": 0.0256,
+        "perfect": 0.0,
+        "random": 0.0439
+      }
+    },
+    "correlated_noisy_tier1_wrong_window_rate": 0.0512,
+    "correlated_noisy_tier3_wrong_sign_rate": 0.0098,
+    "impostor_tier1_wrong_window_rate": 0.9024,
+    "impostor_tier3_wrong_sign_rate": 0.0
+  }
+}
