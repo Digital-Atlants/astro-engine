@@ -1,0 +1,66 @@
+{
+  "per_sign": {
+    "aquarius": {
+      "capricorn": 17,
+      "pisces": 14,
+      "worst_against_any_sign": 7
+    },
+    "aries": {
+      "pisces": 21,
+      "taurus": 25,
+      "worst_against_any_sign": 5
+    },
+    "cancer": {
+      "gemini": 22,
+      "leo": 20,
+      "worst_against_any_sign": 6
+    },
+    "capricorn": {
+      "aquarius": 17,
+      "sagittarius": 26,
+      "worst_against_any_sign": 6
+    },
+    "gemini": {
+      "cancer": 22,
+      "taurus": 28,
+      "worst_against_any_sign": 7
+    },
+    "leo": {
+      "cancer": 20,
+      "virgo": 24,
+      "worst_against_any_sign": 5
+    },
+    "libra": {
+      "scorpio": 25,
+      "virgo": 21,
+      "worst_against_any_sign": 7
+    },
+    "pisces": {
+      "aquarius": 14,
+      "aries": 21,
+      "worst_against_any_sign": 10
+    },
+    "sagittarius": {
+      "capricorn": 26,
+      "scorpio": 24,
+      "worst_against_any_sign": 8
+    },
+    "scorpio": {
+      "libra": 25,
+      "sagittarius": 24,
+      "worst_against_any_sign": 6
+    },
+    "taurus": {
+      "aries": 25,
+      "gemini": 28,
+      "worst_against_any_sign": 6
+    },
+    "virgo": {
+      "leo": 24,
+      "libra": 21,
+      "worst_against_any_sign": 8
+    }
+  },
+  "signs_with_no_separating_tag": [],
+  "threshold": 0.2
+}

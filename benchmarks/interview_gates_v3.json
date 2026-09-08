@@ -1,0 +1,1366 @@
+{
+  "cases": 41,
+  "free_text": {
+    "gates": {
+      "G1_safety": {
+        "pass": true,
+        "per_model": {
+          "adjacent_sign": 0.039,
+          "dont_know_heavy": 0.0,
+          "iid_noisy": 0.0146,
+          "perfect": 0.0,
+          "random": 0.0012
+        },
+        "pooled": 0.011
+      },
+      "G2_usefulness": {
+        "pass": false,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5.0,
+        "tier1_rate": 0.6098
+      },
+      "G3_refusal": {
+        "pass": false,
+        "tier3_or_4_rate": 0.9476
+      },
+      "G4_cost": {
+        "median_questions": 7.0,
+        "pass": true
+      },
+      "G5_sign_recovery": {
+        "iid_noisy": 0.6317,
+        "pass": false,
+        "perfect": 0.6341,
+        "thresholds": {
+          "iid_noisy": 0.6,
+          "perfect": 0.9
+        }
+      },
+      "correlated_noisy_tier1_wrong_window_rate": 0.0561,
+      "impostor_tier1_wrong_window_rate": 0.7561
+    },
+    "per_model": {
+      "adjacent_sign": {
+        "bits_by_stage": {
+          "decan": 4.7216,
+          "mover_house": 3.1877,
+          "trait": 0.0246
+        },
+        "mean_questions": 7.79,
+        "median_questions": 8.0,
+        "median_stage1_rounds": 2.0,
+        "n": 820,
+        "question_count_distribution": {
+          "6": 135,
+          "7": 267,
+          "8": 50,
+          "9": 368
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 21,
+        "tier1_median_abs_error": 29.0,
+        "tier1_median_window_minutes": 16.0,
+        "tier1_rate": 0.039,
+        "tier1_wrong_window_rate": 0.039,
+        "tier3_or_4_rate": 0.8293,
+        "tier_distribution": {
+          "1": 0.039,
+          "2": 0.1317,
+          "3": 0.8293,
+          "4": 0.0
+        }
+      },
+      "correlated_noisy": {
+        "bits_by_stage": {
+          "decan": 3.8874,
+          "mover_house": 1.8644,
+          "portrait": 0.9874,
+          "trait": 0.0193
+        },
+        "mean_questions": 7.73,
+        "median_questions": 8.0,
+        "median_stage1_rounds": 1.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 52,
+          "5": 9,
+          "6": 139,
+          "7": 260,
+          "8": 117,
+          "9": 243
+        },
+        "sign_recovery_rate": 0.6463,
+        "tier1_contains_truth_rate": 0.7946,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 6.0,
+        "tier1_median_window_minutes": 14.0,
+        "tier1_rate": 0.2732,
+        "tier1_wrong_window_rate": 0.0561,
+        "tier3_or_4_rate": 0.5451,
+        "tier_distribution": {
+          "1": 0.2732,
+          "2": 0.1817,
+          "3": 0.5451,
+          "4": 0.0
+        }
+      },
+      "dont_know_heavy": {
+        "bits_by_stage": {
+          "decan": 4.4151,
+          "mover_house": 2.4959,
+          "portrait": 1.3593,
+          "trait": 0.0155
+        },
+        "mean_questions": 7.85,
+        "median_questions": 8.0,
+        "median_stage1_rounds": 2.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 1,
+          "5": 2,
+          "6": 156,
+          "7": 175,
+          "8": 118,
+          "9": 368
+        },
+        "sign_recovery_rate": 0.6549,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 28,
+        "tier1_median_abs_error": 4,
+        "tier1_median_window_minutes": 15,
+        "tier1_rate": 0.0232,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.6866,
+        "tier_distribution": {
+          "1": 0.0232,
+          "2": 0.2902,
+          "3": 0.6866,
+          "4": 0.0
+        }
+      },
+      "iid_noisy": {
+        "bits_by_stage": {
+          "decan": 3.8883,
+          "mover_house": 1.8612,
+          "portrait": 0.9431,
+          "trait": 0.0195
+        },
+        "mean_questions": 7.77,
+        "median_questions": 8.0,
+        "median_stage1_rounds": 1.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 58,
+          "5": 12,
+          "6": 136,
+          "7": 244,
+          "8": 126,
+          "9": 244
+        },
+        "sign_recovery_rate": 0.6317,
+        "tier1_contains_truth_rate": 0.9104,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5.0,
+        "tier1_median_window_minutes": 15.0,
+        "tier1_rate": 0.1634,
+        "tier1_wrong_window_rate": 0.0146,
+        "tier3_or_4_rate": 0.5463,
+        "tier_distribution": {
+          "1": 0.1634,
+          "2": 0.2902,
+          "3": 0.5463,
+          "4": 0.0
+        }
+      },
+      "impostor": {
+        "bits_by_stage": {
+          "decan": 3.7651,
+          "mover_house": 1.4774,
+          "trait": 0.0196
+        },
+        "mean_questions": 7.68,
+        "median_questions": 8.0,
+        "median_stage1_rounds": 2.0,
+        "n": 820,
+        "question_count_distribution": {
+          "5": 20,
+          "6": 140,
+          "7": 220,
+          "8": 140,
+          "9": 300
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 358.0,
+        "tier1_median_window_minutes": 13.0,
+        "tier1_rate": 0.7561,
+        "tier1_wrong_window_rate": 0.7561,
+        "tier3_or_4_rate": 0.0488,
+        "tier_distribution": {
+          "1": 0.7561,
+          "2": 0.1951,
+          "3": 0.0488,
+          "4": 0.0
+        }
+      },
+      "perfect": {
+        "bits_by_stage": {
+          "decan": 3.6116,
+          "mover_house": 1.7299,
+          "portrait": 1.4316,
+          "trait": 0.017
+        },
+        "mean_questions": 7.37,
+        "median_questions": 7.0,
+        "median_stage1_rounds": 1.0,
+        "n": 820,
+        "question_count_distribution": {
+          "5": 20,
+          "6": 180,
+          "7": 320,
+          "8": 80,
+          "9": 220
+        },
+        "sign_recovery_rate": 0.6341,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5.0,
+        "tier1_median_window_minutes": 15.0,
+        "tier1_rate": 0.6098,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.122,
+        "tier_distribution": {
+          "1": 0.6098,
+          "2": 0.2683,
+          "3": 0.122,
+          "4": 0.0
+        }
+      },
+      "random": {
+        "bits_by_stage": {
+          "decan": 4.3343,
+          "mover_house": 1.8625,
+          "portrait": 0.8912,
+          "trait": 0.0287
+        },
+        "mean_questions": 8.6,
+        "median_questions": 9.0,
+        "median_stage1_rounds": 3.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 167,
+          "6": 63,
+          "7": 108,
+          "8": 86,
+          "9": 396
+        },
+        "sign_recovery_rate": 0.4512,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 26,
+        "tier1_median_abs_error": 18,
+        "tier1_median_window_minutes": 26,
+        "tier1_rate": 0.0012,
+        "tier1_wrong_window_rate": 0.0012,
+        "tier3_or_4_rate": 0.9476,
+        "tier_distribution": {
+          "1": 0.0012,
+          "2": 0.0512,
+          "3": 0.9476,
+          "4": 0.0
+        }
+      }
+    }
+  },
+  "runs_per_case": 20,
+  "sensitivity_r": {
+    "0.5": {
+      "gates": {
+        "G1_safety": {
+          "pass": true,
+          "per_model": {
+            "adjacent_sign": 0.0,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.022,
+            "perfect": 0.0,
+            "random": 0.0
+          },
+          "pooled": 0.0044
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_rate": 0.7561
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9549
+        },
+        "G4_cost": {
+          "median_questions": 10.0,
+          "pass": false
+        },
+        "G5_sign_recovery": {
+          "iid_noisy": 0.5963,
+          "pass": false,
+          "perfect": 0.7317,
+          "thresholds": {
+            "iid_noisy": 0.6,
+            "perfect": 0.9
+          }
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0549,
+        "impostor_tier1_wrong_window_rate": 0.8293
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "bits_by_stage": {
+            "decan": 4.8462,
+            "mover_house": 3.2919,
+            "portrait": 1.5466,
+            "trait": 0.0151
+          },
+          "mean_questions": 10.1,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 3.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 191,
+            "11": 385,
+            "8": 61,
+            "9": 183
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.8561,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.1439,
+            "3": 0.8561,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "bits_by_stage": {
+            "decan": 4.642,
+            "mover_house": 2.1397,
+            "portrait": 0.9338,
+            "trait": 0.0133
+          },
+          "mean_questions": 10.46,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 231,
+            "11": 361,
+            "12": 86,
+            "8": 17,
+            "9": 125
+          },
+          "sign_recovery_rate": 0.6085,
+          "tier1_contains_truth_rate": 0.7847,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 6,
+          "tier1_median_window_minutes": 18,
+          "tier1_rate": 0.2549,
+          "tier1_wrong_window_rate": 0.0549,
+          "tier3_or_4_rate": 0.6122,
+          "tier_distribution": {
+            "1": 0.2549,
+            "2": 0.1329,
+            "3": 0.6122,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "bits_by_stage": {
+            "decan": 4.988,
+            "mover_house": 2.793,
+            "portrait": 0.8223,
+            "trait": 0.0123
+          },
+          "mean_questions": 10.87,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 92,
+            "11": 576,
+            "12": 99,
+            "8": 8,
+            "9": 45
+          },
+          "sign_recovery_rate": 0.6244,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 20,
+          "tier1_rate": 0.05,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.6256,
+          "tier_distribution": {
+            "1": 0.05,
+            "2": 0.3244,
+            "3": 0.6207,
+            "4": 0.0049
+          }
+        },
+        "iid_noisy": {
+          "bits_by_stage": {
+            "decan": 4.6708,
+            "mover_house": 2.1781,
+            "portrait": 0.9422,
+            "trait": 0.014
+          },
+          "mean_questions": 10.55,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 220,
+            "11": 393,
+            "12": 92,
+            "8": 10,
+            "9": 105
+          },
+          "sign_recovery_rate": 0.5963,
+          "tier1_contains_truth_rate": 0.8065,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 6,
+          "tier1_median_window_minutes": 18,
+          "tier1_rate": 0.1134,
+          "tier1_wrong_window_rate": 0.022,
+          "tier3_or_4_rate": 0.5817,
+          "tier_distribution": {
+            "1": 0.1134,
+            "2": 0.3049,
+            "3": 0.5817,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "bits_by_stage": {
+            "decan": 4.059,
+            "mover_house": 1.7217,
+            "trait": 0.0171
+          },
+          "mean_questions": 9.95,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 3.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 220,
+            "11": 320,
+            "8": 80,
+            "9": 200
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 357.0,
+          "tier1_median_window_minutes": 16.5,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.8293,
+          "tier3_or_4_rate": 0.0244,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1463,
+            "3": 0.0244,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "bits_by_stage": {
+            "decan": 4.4284,
+            "mover_house": 1.768,
+            "portrait": 1.564,
+            "trait": 0.0131
+          },
+          "mean_questions": 10.02,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 3.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 360,
+            "11": 220,
+            "12": 20,
+            "8": 20,
+            "9": 200
+          },
+          "sign_recovery_rate": 0.7317,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_median_window_minutes": 18.0,
+          "tier1_rate": 0.7561,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0488,
+          "tier_distribution": {
+            "1": 0.7561,
+            "2": 0.1951,
+            "3": 0.0488,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "bits_by_stage": {
+            "decan": 4.7848,
+            "mover_house": 2.1775,
+            "portrait": 0.8627,
+            "trait": 0.0141
+          },
+          "mean_questions": 11.04,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 71,
+            "11": 429,
+            "12": 253,
+            "8": 15,
+            "9": 52
+          },
+          "sign_recovery_rate": 0.1,
+          "tier1_contains_truth_rate": null,
+          "tier1_max_window_minutes": null,
+          "tier1_median_abs_error": null,
+          "tier1_median_window_minutes": null,
+          "tier1_rate": 0.0,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.9549,
+          "tier_distribution": {
+            "1": 0.0,
+            "2": 0.0451,
+            "3": 0.9549,
+            "4": 0.0
+          }
+        }
+      }
+    },
+    "0.6": {
+      "gates": {
+        "G1_safety": {
+          "pass": false,
+          "per_model": {
+            "adjacent_sign": 0.0524,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0183,
+            "perfect": 0.0,
+            "random": 0.0012
+          },
+          "pooled": 0.0144
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_rate": 0.7805
+        },
+        "G3_refusal": {
+          "pass": true,
+          "tier3_or_4_rate": 0.9537
+        },
+        "G4_cost": {
+          "median_questions": 10.0,
+          "pass": false
+        },
+        "G5_sign_recovery": {
+          "iid_noisy": 0.6512,
+          "pass": false,
+          "perfect": 0.7561,
+          "thresholds": {
+            "iid_noisy": 0.6,
+            "perfect": 0.9
+          }
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.0634,
+        "impostor_tier1_wrong_window_rate": 0.8293
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "bits_by_stage": {
+            "decan": 4.8703,
+            "mover_house": 3.1504,
+            "portrait": 1.5455,
+            "trait": 0.0222
+          },
+          "mean_questions": 10.68,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 185,
+            "11": 544,
+            "12": 35,
+            "9": 56
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 26,
+          "tier1_median_abs_error": 18,
+          "tier1_median_window_minutes": 16,
+          "tier1_rate": 0.0524,
+          "tier1_wrong_window_rate": 0.0524,
+          "tier3_or_4_rate": 0.7195,
+          "tier_distribution": {
+            "1": 0.0524,
+            "2": 0.228,
+            "3": 0.7195,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "bits_by_stage": {
+            "decan": 4.8028,
+            "mover_house": 1.9137,
+            "portrait": 1.0197,
+            "trait": 0.0198
+          },
+          "mean_questions": 10.71,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 188,
+            "11": 460,
+            "12": 99,
+            "8": 3,
+            "9": 70
+          },
+          "sign_recovery_rate": 0.6463,
+          "tier1_contains_truth_rate": 0.736,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 8,
+          "tier1_median_window_minutes": 14,
+          "tier1_rate": 0.2402,
+          "tier1_wrong_window_rate": 0.0634,
+          "tier3_or_4_rate": 0.6305,
+          "tier_distribution": {
+            "1": 0.2402,
+            "2": 0.1293,
+            "3": 0.6305,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "bits_by_stage": {
+            "decan": 4.9898,
+            "mover_house": 2.6919,
+            "portrait": 1.3686,
+            "trait": 0.0193
+          },
+          "mean_questions": 10.89,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 58,
+            "11": 705,
+            "12": 29,
+            "8": 2,
+            "9": 26
+          },
+          "sign_recovery_rate": 0.6159,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 6.0,
+          "tier1_median_window_minutes": 19.5,
+          "tier1_rate": 0.0415,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.639,
+          "tier_distribution": {
+            "1": 0.0415,
+            "2": 0.3195,
+            "3": 0.6317,
+            "4": 0.0073
+          }
+        },
+        "iid_noisy": {
+          "bits_by_stage": {
+            "decan": 4.7982,
+            "mover_house": 1.8712,
+            "portrait": 0.9443,
+            "trait": 0.0197
+          },
+          "mean_questions": 10.73,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 187,
+            "11": 459,
+            "12": 106,
+            "8": 6,
+            "9": 62
+          },
+          "sign_recovery_rate": 0.6512,
+          "tier1_contains_truth_rate": 0.8235,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 8,
+          "tier1_median_window_minutes": 17,
+          "tier1_rate": 0.1037,
+          "tier1_wrong_window_rate": 0.0183,
+          "tier3_or_4_rate": 0.5744,
+          "tier_distribution": {
+            "1": 0.1037,
+            "2": 0.322,
+            "3": 0.5744,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "bits_by_stage": {
+            "decan": 4.6285,
+            "mover_house": 1.5156,
+            "portrait": 1.5662,
+            "trait": 0.0199
+          },
+          "mean_questions": 10.17,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 300,
+            "11": 320,
+            "12": 20,
+            "8": 40,
+            "9": 140
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 357.0,
+          "tier1_median_window_minutes": 14.0,
+          "tier1_rate": 0.8293,
+          "tier1_wrong_window_rate": 0.8293,
+          "tier3_or_4_rate": 0.0244,
+          "tier_distribution": {
+            "1": 0.8293,
+            "2": 0.1463,
+            "3": 0.0244,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "bits_by_stage": {
+            "decan": 4.6642,
+            "mover_house": 1.5508,
+            "portrait": 1.4394,
+            "trait": 0.0194
+          },
+          "mean_questions": 10.22,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 3.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 300,
+            "11": 360,
+            "8": 20,
+            "9": 140
+          },
+          "sign_recovery_rate": 0.7561,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_median_window_minutes": 15.5,
+          "tier1_rate": 0.7805,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0732,
+          "tier_distribution": {
+            "1": 0.7805,
+            "2": 0.1463,
+            "3": 0.0732,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "bits_by_stage": {
+            "decan": 4.9673,
+            "mover_house": 1.9582,
+            "portrait": 0.8691,
+            "trait": 0.0195
+          },
+          "mean_questions": 11.23,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 38,
+            "11": 500,
+            "12": 263,
+            "9": 19
+          },
+          "sign_recovery_rate": 0.1,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 8,
+          "tier1_median_abs_error": 91,
+          "tier1_median_window_minutes": 8,
+          "tier1_rate": 0.0012,
+          "tier1_wrong_window_rate": 0.0012,
+          "tier3_or_4_rate": 0.9537,
+          "tier_distribution": {
+            "1": 0.0012,
+            "2": 0.0451,
+            "3": 0.9537,
+            "4": 0.0
+          }
+        }
+      }
+    },
+    "0.75": {
+      "gates": {
+        "G1_safety": {
+          "pass": false,
+          "per_model": {
+            "adjacent_sign": 0.089,
+            "dont_know_heavy": 0.0,
+            "iid_noisy": 0.0305,
+            "perfect": 0.0,
+            "random": 0.0024
+          },
+          "pooled": 0.0244
+        },
+        "G2_usefulness": {
+          "pass": false,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_rate": 0.8049
+        },
+        "G3_refusal": {
+          "pass": false,
+          "tier3_or_4_rate": 0.9159
+        },
+        "G4_cost": {
+          "median_questions": 10.0,
+          "pass": false
+        },
+        "G5_sign_recovery": {
+          "iid_noisy": 0.6598,
+          "pass": false,
+          "perfect": 0.7561,
+          "thresholds": {
+            "iid_noisy": 0.6,
+            "perfect": 0.9
+          }
+        },
+        "correlated_noisy_tier1_wrong_window_rate": 0.072,
+        "impostor_tier1_wrong_window_rate": 0.8537
+      },
+      "per_model": {
+        "adjacent_sign": {
+          "bits_by_stage": {
+            "decan": 4.6508,
+            "mover_house": 2.9014,
+            "portrait": 1.4959,
+            "trait": 0.0422
+          },
+          "mean_questions": 10.67,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 189,
+            "11": 380,
+            "12": 145,
+            "8": 13,
+            "9": 93
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 45,
+          "tier1_median_window_minutes": 19,
+          "tier1_rate": 0.089,
+          "tier1_wrong_window_rate": 0.089,
+          "tier3_or_4_rate": 0.6939,
+          "tier_distribution": {
+            "1": 0.089,
+            "2": 0.2171,
+            "3": 0.6939,
+            "4": 0.0
+          }
+        },
+        "correlated_noisy": {
+          "bits_by_stage": {
+            "decan": 4.7626,
+            "mover_house": 1.702,
+            "portrait": 1.0557,
+            "trait": 0.0366
+          },
+          "mean_questions": 10.53,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 247,
+            "11": 389,
+            "12": 82,
+            "8": 17,
+            "9": 85
+          },
+          "sign_recovery_rate": 0.65,
+          "tier1_contains_truth_rate": 0.7457,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 6.0,
+          "tier1_median_window_minutes": 13.0,
+          "tier1_rate": 0.2829,
+          "tier1_wrong_window_rate": 0.072,
+          "tier3_or_4_rate": 0.5695,
+          "tier_distribution": {
+            "1": 0.2829,
+            "2": 0.1476,
+            "3": 0.5695,
+            "4": 0.0
+          }
+        },
+        "dont_know_heavy": {
+          "bits_by_stage": {
+            "decan": 4.9756,
+            "mover_house": 2.4466,
+            "portrait": 1.5155,
+            "trait": 0.0364
+          },
+          "mean_questions": 10.9,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 93,
+            "11": 663,
+            "12": 48,
+            "8": 1,
+            "9": 15
+          },
+          "sign_recovery_rate": 0.6146,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.5,
+          "tier1_median_window_minutes": 18.0,
+          "tier1_rate": 0.0366,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.6049,
+          "tier_distribution": {
+            "1": 0.0366,
+            "2": 0.3585,
+            "3": 0.6012,
+            "4": 0.0037
+          }
+        },
+        "iid_noisy": {
+          "bits_by_stage": {
+            "decan": 4.7619,
+            "mover_house": 1.6409,
+            "portrait": 0.9775,
+            "trait": 0.0363
+          },
+          "mean_questions": 10.64,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 226,
+            "11": 438,
+            "12": 81,
+            "8": 4,
+            "9": 71
+          },
+          "sign_recovery_rate": 0.6598,
+          "tier1_contains_truth_rate": 0.7863,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5,
+          "tier1_median_window_minutes": 14,
+          "tier1_rate": 0.1427,
+          "tier1_wrong_window_rate": 0.0305,
+          "tier3_or_4_rate": 0.5171,
+          "tier_distribution": {
+            "1": 0.1427,
+            "2": 0.3402,
+            "3": 0.5171,
+            "4": 0.0
+          }
+        },
+        "impostor": {
+          "bits_by_stage": {
+            "decan": 4.6353,
+            "mover_house": 1.3798,
+            "trait": 0.0366
+          },
+          "mean_questions": 9.93,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 280,
+            "11": 260,
+            "8": 40,
+            "9": 240
+          },
+          "sign_recovery_rate": 0.0,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 29,
+          "tier1_median_abs_error": 357.0,
+          "tier1_median_window_minutes": 14.0,
+          "tier1_rate": 0.8537,
+          "tier1_wrong_window_rate": 0.8537,
+          "tier3_or_4_rate": 0.0488,
+          "tier_distribution": {
+            "1": 0.8537,
+            "2": 0.0976,
+            "3": 0.0488,
+            "4": 0.0
+          }
+        },
+        "perfect": {
+          "bits_by_stage": {
+            "decan": 4.6617,
+            "mover_house": 1.3574,
+            "portrait": 1.5777,
+            "trait": 0.0361
+          },
+          "mean_questions": 10.0,
+          "median_questions": 10.0,
+          "median_stage1_rounds": 3.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 440,
+            "11": 180,
+            "12": 20,
+            "8": 40,
+            "9": 140
+          },
+          "sign_recovery_rate": 0.7561,
+          "tier1_contains_truth_rate": 1.0,
+          "tier1_max_window_minutes": 30,
+          "tier1_median_abs_error": 5.0,
+          "tier1_median_window_minutes": 15.0,
+          "tier1_rate": 0.8049,
+          "tier1_wrong_window_rate": 0.0,
+          "tier3_or_4_rate": 0.0244,
+          "tier_distribution": {
+            "1": 0.8049,
+            "2": 0.1707,
+            "3": 0.0244,
+            "4": 0.0
+          }
+        },
+        "random": {
+          "bits_by_stage": {
+            "decan": 4.8607,
+            "mover_house": 1.5572,
+            "portrait": 0.8744,
+            "trait": 0.0359
+          },
+          "mean_questions": 11.05,
+          "median_questions": 11.0,
+          "median_stage1_rounds": 4.0,
+          "n": 820,
+          "question_count_distribution": {
+            "10": 73,
+            "11": 539,
+            "12": 178,
+            "8": 4,
+            "9": 26
+          },
+          "sign_recovery_rate": 0.1061,
+          "tier1_contains_truth_rate": 0.0,
+          "tier1_max_window_minutes": 20,
+          "tier1_median_abs_error": 405.5,
+          "tier1_median_window_minutes": 12.0,
+          "tier1_rate": 0.0024,
+          "tier1_wrong_window_rate": 0.0024,
+          "tier3_or_4_rate": 0.9159,
+          "tier_distribution": {
+            "1": 0.0024,
+            "2": 0.0817,
+            "3": 0.9159,
+            "4": 0.0
+          }
+        }
+      }
+    }
+  },
+  "v3": {
+    "label": "v3",
+    "per_model": {
+      "adjacent_sign": {
+        "bits_by_stage": {
+          "decan": 4.8759,
+          "mover_house": 3.1758,
+          "portrait": 1.5437,
+          "trait": 0.0225
+        },
+        "mean_questions": 10.67,
+        "median_questions": 11.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 164,
+          "11": 567,
+          "12": 24,
+          "9": 65
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 26,
+        "tier1_median_abs_error": 18.0,
+        "tier1_median_window_minutes": 16.0,
+        "tier1_rate": 0.0537,
+        "tier1_wrong_window_rate": 0.0537,
+        "tier3_or_4_rate": 0.7293,
+        "tier_distribution": {
+          "1": 0.0537,
+          "2": 0.2171,
+          "3": 0.7293,
+          "4": 0.0
+        }
+      },
+      "correlated_noisy": {
+        "bits_by_stage": {
+          "decan": 4.7785,
+          "mover_house": 1.8955,
+          "portrait": 1.0377,
+          "trait": 0.0196
+        },
+        "mean_questions": 10.63,
+        "median_questions": 11.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 188,
+          "11": 451,
+          "12": 84,
+          "8": 6,
+          "9": 91
+        },
+        "sign_recovery_rate": 0.6463,
+        "tier1_contains_truth_rate": 0.7783,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 6.0,
+        "tier1_median_window_minutes": 15.0,
+        "tier1_rate": 0.2585,
+        "tier1_wrong_window_rate": 0.0573,
+        "tier3_or_4_rate": 0.6146,
+        "tier_distribution": {
+          "1": 0.2585,
+          "2": 0.1268,
+          "3": 0.6146,
+          "4": 0.0
+        }
+      },
+      "dont_know_heavy": {
+        "bits_by_stage": {
+          "decan": 4.9739,
+          "mover_house": 2.579,
+          "portrait": 1.5034,
+          "trait": 0.019
+        },
+        "mean_questions": 10.88,
+        "median_questions": 11.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 65,
+          "11": 702,
+          "12": 24,
+          "9": 29
+        },
+        "sign_recovery_rate": 0.65,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5,
+        "tier1_median_window_minutes": 20,
+        "tier1_rate": 0.0524,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.5927,
+        "tier_distribution": {
+          "1": 0.0524,
+          "2": 0.3549,
+          "3": 0.5902,
+          "4": 0.0024
+        }
+      },
+      "iid_noisy": {
+        "bits_by_stage": {
+          "decan": 4.7801,
+          "mover_house": 1.883,
+          "portrait": 0.9382,
+          "trait": 0.0196
+        },
+        "mean_questions": 10.74,
+        "median_questions": 11.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 174,
+          "11": 459,
+          "12": 111,
+          "8": 2,
+          "9": 74
+        },
+        "sign_recovery_rate": 0.6524,
+        "tier1_contains_truth_rate": 0.8333,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 6.0,
+        "tier1_median_window_minutes": 16.0,
+        "tier1_rate": 0.1244,
+        "tier1_wrong_window_rate": 0.0207,
+        "tier3_or_4_rate": 0.5744,
+        "tier_distribution": {
+          "1": 0.1244,
+          "2": 0.3012,
+          "3": 0.5744,
+          "4": 0.0
+        }
+      },
+      "impostor": {
+        "bits_by_stage": {
+          "decan": 4.6285,
+          "mover_house": 1.5156,
+          "portrait": 1.5662,
+          "trait": 0.0199
+        },
+        "mean_questions": 10.17,
+        "median_questions": 10.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 300,
+          "11": 320,
+          "12": 20,
+          "8": 40,
+          "9": 140
+        },
+        "sign_recovery_rate": 0.0,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 29,
+        "tier1_median_abs_error": 357.0,
+        "tier1_median_window_minutes": 14.0,
+        "tier1_rate": 0.8293,
+        "tier1_wrong_window_rate": 0.8293,
+        "tier3_or_4_rate": 0.0244,
+        "tier_distribution": {
+          "1": 0.8293,
+          "2": 0.1463,
+          "3": 0.0244,
+          "4": 0.0
+        }
+      },
+      "perfect": {
+        "bits_by_stage": {
+          "decan": 4.6642,
+          "mover_house": 1.5508,
+          "portrait": 1.4394,
+          "trait": 0.0194
+        },
+        "mean_questions": 10.22,
+        "median_questions": 10.0,
+        "median_stage1_rounds": 3.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 300,
+          "11": 360,
+          "8": 20,
+          "9": 140
+        },
+        "sign_recovery_rate": 0.7561,
+        "tier1_contains_truth_rate": 1.0,
+        "tier1_max_window_minutes": 30,
+        "tier1_median_abs_error": 5.0,
+        "tier1_median_window_minutes": 15.5,
+        "tier1_rate": 0.7805,
+        "tier1_wrong_window_rate": 0.0,
+        "tier3_or_4_rate": 0.0732,
+        "tier_distribution": {
+          "1": 0.7805,
+          "2": 0.1463,
+          "3": 0.0732,
+          "4": 0.0
+        }
+      },
+      "random": {
+        "bits_by_stage": {
+          "decan": 4.9371,
+          "mover_house": 1.9951,
+          "portrait": 0.87,
+          "trait": 0.0199
+        },
+        "mean_questions": 11.22,
+        "median_questions": 11.0,
+        "median_stage1_rounds": 4.0,
+        "n": 820,
+        "question_count_distribution": {
+          "10": 52,
+          "11": 472,
+          "12": 275,
+          "9": 21
+        },
+        "sign_recovery_rate": 0.1085,
+        "tier1_contains_truth_rate": 0.0,
+        "tier1_max_window_minutes": 19,
+        "tier1_median_abs_error": 578.0,
+        "tier1_median_window_minutes": 16.5,
+        "tier1_rate": 0.0024,
+        "tier1_wrong_window_rate": 0.0024,
+        "tier3_or_4_rate": 0.9512,
+        "tier_distribution": {
+          "1": 0.0024,
+          "2": 0.0463,
+          "3": 0.9512,
+          "4": 0.0
+        }
+      }
+    },
+    "seconds": 368.8
+  },
+  "v3_gates": {
+    "G1_safety": {
+      "pass": false,
+      "per_model": {
+        "adjacent_sign": 0.0537,
+        "dont_know_heavy": 0.0,
+        "iid_noisy": 0.0207,
+        "perfect": 0.0,
+        "random": 0.0024
+      },
+      "pooled": 0.0154
+    },
+    "G2_usefulness": {
+      "pass": false,
+      "tier1_contains_truth_rate": 1.0,
+      "tier1_max_window_minutes": 30,
+      "tier1_median_abs_error": 5.0,
+      "tier1_rate": 0.7805
+    },
+    "G3_refusal": {
+      "pass": true,
+      "tier3_or_4_rate": 0.9512
+    },
+    "G4_cost": {
+      "median_questions": 10.0,
+      "pass": false
+    },
+    "G5_sign_recovery": {
+      "iid_noisy": 0.6524,
+      "pass": false,
+      "perfect": 0.7561,
+      "thresholds": {
+        "iid_noisy": 0.6,
+        "perfect": 0.9
+      }
+    },
+    "correlated_noisy_tier1_wrong_window_rate": 0.0573,
+    "impostor_tier1_wrong_window_rate": 0.8293
+  }
+}

@@ -149,18 +149,26 @@ def test_same_input_same_output(client, auth_headers):
 # --------------------------------------------------------------------------
 
 
-def test_first_question_is_the_rising_sign_with_real_spans(client, auth_headers):
+def test_first_question_is_a_small_trait_split(client, auth_headers):
+    """v3 replaced the 12-way sign question with a sequence of small splits.
+
+    The live session that prompted it rendered stage 1 as twelve time spans
+    and asked the person to choose the thing they came to find out.
+    """
     resp = client.post("/v1/interview/step", json=_body(), headers=auth_headers)
-    q = resp.json()["next_question"]
-    assert q["channel"] == "rising_sign"
+    result = resp.json()
+    q = result["next_question"]
+    assert q["channel"] == "trait"
     assert q["stage"] == 1
     assert q["allow_cannot_choose"] is True
-    assert len(q["options"]) == 12
+    assert len(q["options"]) <= 4
+    assert q["select"] == "multi" and q["max_select"] <= 4
     for opt in q["options"]:
-        assert opt["spans"], "every sign option must carry its time span"
-        assert opt["description_keys"], "descriptions are keys, not prose"
-        for key in opt["description_keys"]:
-            assert key.startswith("sign."), "structured keys, not sentences"
+        assert opt["label_key"].startswith("trait."), "keys, not prose"
+        assert "spans" not in opt, "a question never carries a time span"
+    # The spans moved to the result, where they are an output.
+    assert result["sign_blocks"]
+    assert {"sign", "start", "end", "mass"} == set(result["sign_blocks"][0])
 
 
 def test_mover_question_is_selected_by_information_gain(client, auth_headers):
