@@ -113,7 +113,7 @@ class RectificationConfig(BaseModel):
     refusal_min_separation: float = Field(default=0.05, ge=0, le=1)
 
 
-InterviewChannel = Literal["rising_sign", "decan", "mover_house", "portrait"]
+InterviewChannel = Literal["trait", "rising_sign", "decan", "mover_house", "portrait"]
 
 # Answer ids are enumerated tokens emitted by the engine and echoed back. The
 # pattern is deliberately narrow: the calling client phrases questions and maps
@@ -122,7 +122,9 @@ InterviewChannel = Literal["rising_sign", "decan", "mover_house", "portrait"]
 ANSWER_ID = r"^[a-z0-9_]{1,32}$"
 
 
-AnswerSource = Literal["document", "observed", "client_report", "inferred"]
+AnswerSource = Literal[
+    "document", "observed", "client_report", "free_text_confirmed", "inferred"
+]
 HouseStatus = Literal["dominant", "present", "absent", "unknown"]
 
 
@@ -131,7 +133,7 @@ class InterviewAnswer(BaseModel):
 
     question_id: str = Field(pattern=r"^[a-z0-9_]{1,48}$")
     channel: InterviewChannel
-    subject: Optional[str] = Field(default=None, pattern=r"^[a-z_]{1,16}$")
+    subject: Optional[str] = Field(default=None, pattern=r"^[a-z0-9_]{1,16}$")
     # Which phrasing of the pair this answers. Two answers to the same
     # (channel, subject) are one question asked twice.
     variant: Literal["a", "b"] = "a"
@@ -142,6 +144,9 @@ class InterviewAnswer(BaseModel):
     answer_ids: list[str] = Field(default_factory=list, max_length=4)
     # Echoed back for the portrait channel so the partition can be rebuilt.
     windows: list[list[int]] = Field(default_factory=list, max_length=4)
+    # Echoed back for trait questions so a repeat phrasing can offer the same
+    # tags, and so an unticked tag is distinguishable from one never offered.
+    offered_tag_ids: list[str] = Field(default_factory=list, max_length=4)
 
     @field_validator("answer_ids")
     @classmethod
@@ -184,13 +189,17 @@ class InterviewConfigModel(BaseModel):
     # 0.60, not a fitted value: see docs/trust_default.md.
     channel_reliability: float = Field(default=0.60, gt=0, lt=1)
     repeat: bool = True
-    repeat_pairs: int = Field(default=3, ge=0, le=6)
+    repeat_pairs: int = Field(default=2, ge=0, le=6)
     disagreement_penalty: float = Field(default=0.15, ge=0, le=0.5)
     min_session_reliability: float = Field(default=0.30, gt=0, lt=1)
     tier1_min_agreeing_pairs: int = Field(default=2, ge=0, le=6)
     tier2_min_agreeing_pairs: int = Field(default=1, ge=0, le=6)
     claimed_time_weight: float = Field(default=0.5, ge=0, le=5)
     mode: Literal["standard", "professional"] = "standard"
+    max_trait_questions: int = Field(default=4, ge=0, le=8)
+    max_tags_per_question: int = Field(default=4, ge=2, le=4)
+    sign_mass_stop: float = Field(default=0.45, gt=0, le=1)
+    min_trait_bits: float = Field(default=0.01, ge=0, le=4)
     tier1_mass: float = Field(default=0.60, gt=0, le=1)
     tier2_mass: float = Field(default=0.60, gt=0, le=1)
     tier1_chance_p: float = Field(default=0.002, gt=0, le=1)
@@ -218,6 +227,21 @@ class InterviewRequest(BaseModel):
     sphere_inventory: dict[str, SphereEntry] = Field(default_factory=dict)
     # Reported against the result, never mixed into it.
     hypothesis: Optional[Hypothesis] = None
+    # Trait tags the client extracted from the person's own words and the
+    # person confirmed on screen. The engine never sees free text: the mapping
+    # from words to tags is the client's, and it exists only because the
+    # person agreed with it. Unknown tag ids are rejected.
+    trait_tags: list[str] = Field(default_factory=list, max_length=12)
+
+    @field_validator("trait_tags")
+    @classmethod
+    def _tags_are_known(cls, v: list[str]) -> list[str]:
+        from .interview import TRAIT_TAGS
+
+        for tag in v:
+            if tag not in TRAIT_TAGS:
+                raise ValueError(f"unknown trait tag {tag!r}")
+        return v
 
 
 class InterviewCompareRequest(BaseModel):

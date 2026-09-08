@@ -252,15 +252,16 @@ def test_variant_must_be_a_or_b(client, auth_headers):
 
 
 def test_repeat_question_uses_a_different_description_key(client, auth_headers):
+    """The repeat phrasing of a trait question offers the same tags under
+    their paraphrase keys, so the person answers again rather than recalls."""
     first = client.post(
         "/v1/interview/step", json=_body(), headers=auth_headers
     ).json()["next_question"]
     assert first["variant"] == "a"
-    facet_a = first["facet"]
-    facet_b = interview.VARIANT_FACET["rising_sign"]["b"]
-    assert facet_a != facet_b
     for opt in first["options"]:
-        assert opt["description_keys"] == [f"sign.{opt['answer_id']}.{facet_a}"]
+        tag = interview.TRAIT_TAGS[opt["answer_id"]]
+        assert opt["label_key"] == tag["label_key"]
+        assert tag["label_key"] != tag["paraphrase_key"]
 
 
 def test_professional_mode_returns_density_and_decisive_questions(client, auth_headers):

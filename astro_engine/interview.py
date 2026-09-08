@@ -35,7 +35,9 @@ preference:
 from __future__ import annotations
 
 import datetime as dt
+import json
 import math
+import pathlib
 from typing import Iterable
 
 from . import core
@@ -51,8 +53,24 @@ N_GRID = len(GRID_MINUTES)
 # and are computed exactly at every candidate.
 LONGITUDE_SAMPLE_MINUTES = 60
 
-CHANNELS = ("rising_sign", "decan", "mover_house", "portrait")
+CHANNELS = ("trait", "decan", "mover_house", "portrait")
 DECAN_NAMES = ("first", "second", "third")
+
+# The owner's rule, now a contract:
+#   * a question never offers more than MAX_OPTIONS choices (+ cannot_choose);
+#   * a question payload never contains a clock time or a span.
+# Narrowing is the engine's job. Stage 1 arrived live as a 12-way choice
+# rendered as twelve time spans, which asked the person to pick the very thing
+# they came to find out. Sign blocks are an *output* and live in the result.
+MAX_OPTIONS = 4
+MAX_MOVER_OPTIONS = 3
+MAX_PORTRAIT_OPTIONS = 3
+
+_VOCAB_PATH = pathlib.Path(__file__).resolve().parent / "data" / "trait_vocabulary.json"
+_VOCAB = json.loads(_VOCAB_PATH.read_text(encoding="utf-8"))
+TRAIT_TAGS = {t["tag_id"]: t for t in _VOCAB["tags"]}
+TRAIT_SIGNS = _VOCAB["signs"]
+_SIGN_AXIS = _VOCAB["sign_attributes"]
 
 # Two phrasings of the same underlying partition. The client renders them as
 # different questions; the engine knows they are a pair.
@@ -74,6 +92,11 @@ SOURCE_TRUST = {
     "document": 0.90,
     "observed": 0.80,
     "client_report": None,  # means "use the session reliability"
+    # Tags the client extracted from the person's own words and the person
+    # then confirmed on screen. Slightly below a direct chip choice: the
+    # person agreed with a reading of what they said, which is a weaker act
+    # than picking the thing themselves.
+    "free_text_confirmed": 0.55,
     "inferred": 0.50,
 }
 
@@ -101,6 +124,10 @@ class InterviewConfig:
         "tier2_min_agreeing_pairs",
         "claimed_time_weight",
         "mode",
+        "max_trait_questions",
+        "max_tags_per_question",
+        "sign_mass_stop",
+        "min_trait_bits",
     )
 
     def __init__(
@@ -115,13 +142,23 @@ class InterviewConfig:
         max_mover_questions: int = 3,
         house_system: str = "placidus",
         repeat: bool = True,
-        repeat_pairs: int = 3,
+        repeat_pairs: int = 2,
         disagreement_penalty: float = 0.15,
         min_session_reliability: float = 0.30,
         tier1_min_agreeing_pairs: int = 2,
         tier2_min_agreeing_pairs: int = 1,
         claimed_time_weight: float = 0.5,
         mode: str = "standard",
+        max_trait_questions: int = 4,
+        max_tags_per_question: int = 4,
+        sign_mass_stop: float = 0.45,
+        # Stage 1 has its own floor. A trait question's *expected* gain is
+        # small by construction: the update is positive-only, so the large
+        # "ticked nothing" branch contributes zero and dilutes the average,
+        # even though the realised update when a tag is ticked is decisive.
+        # Reusing the 0.15-bit partition floor here stopped stage 1 from ever
+        # running. Frozen before measurement.
+        min_trait_bits: float = 0.01,
     ):
         self.channel_reliability = channel_reliability
         self.tier1_mass = tier1_mass
@@ -140,6 +177,10 @@ class InterviewConfig:
         self.tier2_min_agreeing_pairs = tier2_min_agreeing_pairs
         self.claimed_time_weight = claimed_time_weight
         self.mode = mode
+        self.max_trait_questions = max_trait_questions
+        self.max_tags_per_question = max_tags_per_question
+        self.sign_mass_stop = sign_mass_stop
+        self.min_trait_bits = min_trait_bits
 
 
 # --------------------------------------------------------------------------
@@ -269,6 +310,81 @@ def apply_answer(weights: list[float], labels: list[str], chosen: list[str],
     r = min(max(reliability, 1e-6), 1.0 - 1e-6)
     factor = (1.0 - r) / (r * others)
     return [w if labels[i] in picked else w * factor for i, w in enumerate(weights)]
+
+
+def apply_trait_answer(weights: list[float], asc_signs: list[str],
+                       selected: list[str], trust: float) -> list[float]:
+    """Reweight by the per-sign likelihood of every *selected* tag.
+
+    Unselected tags do not penalise. A person who ticks two of four boxes has
+    told us those two fit; not ticking the others is not a denial, it is
+    silence, and treating it as a "no" would punish the honest answerer who
+    only ticks what they are sure of.
+
+    `trust` blends the likelihood toward 1, so a low-trust source moves the
+    posterior less. The factor is never zero for any candidate.
+    """
+    if not selected:
+        return list(weights)
+    t = min(max(trust, 0.0), 1.0)
+    factors = {}
+    for sign in set(asc_signs):
+        f = 1.0
+        for tag_id in selected:
+            tag = TRAIT_TAGS.get(tag_id)
+            if tag:
+                f *= (1.0 - t) + t * tag["likelihood"][sign]
+        factors[sign] = f
+    return [w * factors[asc_signs[i]] for i, w in enumerate(weights)]
+
+
+def sign_mass(weights: list[float], asc_signs: list[str]) -> dict[str, float]:
+    out: dict[str, float] = {}
+    total = sum(weights) or 1.0
+    for i, w in enumerate(weights):
+        out[asc_signs[i]] = out.get(asc_signs[i], 0.0) + w / total
+    return out
+
+
+def _trait_expected_gain(prior: dict[str, float], tag_ids: list[str],
+                         trust: float) -> float:
+    """Expected bits from asking about this tag set, under the actual update.
+
+    Enumerates every subset the person could tick (at most 2**4). The subset
+    probability uses the generative model - each tag is ticked with its own
+    likelihood - while the posterior is formed with the *asymmetric* update
+    the engine really applies. Measuring the gain we will actually realise,
+    rather than the gain a symmetric update would have given, keeps the
+    question chooser honest.
+    """
+    signs = [s for s, m in prior.items() if m > 0]
+    if not signs:
+        return 0.0
+    before = _entropy_bits(prior)
+    t = min(max(trust, 0.0), 1.0)
+    expected = 0.0
+    n = len(tag_ids)
+    for mask in range(1 << n):
+        picked = [tag_ids[i] for i in range(n) if mask & (1 << i)]
+        unpicked = [tag_ids[i] for i in range(n) if not mask & (1 << i)]
+        p_subset = 0.0
+        post: dict[str, float] = {}
+        for sign in signs:
+            lik = 1.0
+            for tag_id in picked:
+                lik *= TRAIT_TAGS[tag_id]["likelihood"][sign]
+            for tag_id in unpicked:
+                lik *= 1.0 - TRAIT_TAGS[tag_id]["likelihood"][sign]
+            joint = prior[sign] * lik
+            p_subset += joint
+            factor = 1.0
+            for tag_id in picked:
+                factor *= (1.0 - t) + t * TRAIT_TAGS[tag_id]["likelihood"][sign]
+            post[sign] = prior[sign] * factor
+        if p_subset <= 0:
+            continue
+        expected += p_subset * _entropy_bits(post)
+    return max(0.0, before - expected)
 
 
 def normalise(weights: list[float]) -> list[float]:
@@ -409,14 +525,25 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
         channel = ans["channel"]
         if channel == "portrait":
             windows_at_portrait = [tuple(w) for w in ans.get("windows", [])]
-        labels = partition_for(grid, channel, ans.get("subject"), windows_at_portrait)
         chosen = list(ans.get("answer_ids", []))
         r = answer_reliability(ans, session_r)
-
         before = normalise(weights)
-        weights = apply_answer(weights, labels, chosen, r)
+
+        if channel == "trait":
+            # Tags reweight by per-sign likelihood; there is no partition and
+            # no class the answer "belongs to".
+            weights = apply_trait_answer(weights, grid.asc_sign, chosen, r)
+            labels = grid.asc_sign
+            supported = _trait_supported(grid.asc_sign, chosen)
+        else:
+            labels = partition_for(grid, channel, ans.get("subject"),
+                                   windows_at_portrait)
+            weights = apply_answer(weights, labels, chosen, r)
+            supported = (
+                [i for i in range(N_GRID) if labels[i] in set(chosen)]
+                if chosen else []
+            )
         after = normalise(weights)
-        supported = [i for i in range(N_GRID) if labels[i] in set(chosen)] if chosen else []
         trace.append(
             {
                 "channel": channel,
@@ -433,6 +560,27 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
             }
         )
     return normalise(weights), trace, pairs
+
+
+def _trait_supported(asc_signs: list[str], selected: list[str]) -> list[int]:
+    """Minutes whose sign the selected tags favour above even odds.
+
+    Trait answers are soft, so "supported" is a threshold rather than a class
+    membership. It feeds the cross-channel agreement test, which needs a
+    region per channel.
+    """
+    if not selected:
+        return []
+    favoured = set()
+    for sign in set(asc_signs):
+        f = 1.0
+        for tag_id in selected:
+            tag = TRAIT_TAGS.get(tag_id)
+            if tag:
+                f *= tag["likelihood"][sign]
+        if f >= 0.5 ** len(selected):
+            favoured.add(sign)
+    return [i for i, sg in enumerate(asc_signs) if sg in favoured]
 
 
 def _to_minute(hhmm: str) -> int:
@@ -646,7 +794,7 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
 
 def _rising_sign_labels(trace) -> list[str]:
     for t in trace:
-        if t["channel"] == "rising_sign":
+        if t["channel"] in ("rising_sign", "trait"):
             return t["labels"]
     return []
 
@@ -713,26 +861,44 @@ def _inventory_answer(inventory: dict, options: list[str]) -> list[str]:
 
 def next_question(grid: ChartGrid, posterior: list[float], answers: list[dict],
                   cfg: InterviewConfig, inventory: dict | None = None) -> dict | None:
-    """The next question, chosen by expected information gain over geometry.
+    """The next question, chosen by expected information gain.
 
-    Primary phrasings first, then the repeat phrasings for the questions that
-    carried the most information, then the portrait choice. The repeats come
-    later in the sequence on purpose: adjacent repetition invites the person to
-    recall their previous answer rather than answer again.
+    Stage 1 is a *sequence* of small trait questions rather than one 12-way
+    choice. At each step the engine picks the set of at most four tags whose
+    answer partitions the remaining sign mass best, and stops when the sign
+    mass concentrates or the next split stops paying.
     """
     asked = {(a["channel"], a.get("subject"), a.get("variant", "a")) for a in answers}
     answered_keys = [
         (a["channel"], a.get("subject")) for a in answers
         if a.get("variant", "a") == "a"
     ]
+    trait_rounds = sum(
+        1 for a in answers
+        if a["channel"] == "trait" and a.get("variant", "a") == "a"
+    )
 
-    if ("rising_sign", None, "a") not in asked:
-        return _sign_question(grid, posterior, partition_for(grid, "rising_sign", None), "a")
+    prior = sign_mass(posterior, grid.asc_sign)
+    top_sign_mass = max(prior.values()) if prior else 0.0
+
+    # ---- stage 1: a sequence of small trait splits ----------------------
+    if trait_rounds < cfg.max_trait_questions and top_sign_mass < cfg.sign_mass_stop:
+        # Only tags the person actually ticked are spent - their evidence is
+        # already in the posterior. A tag that was offered and left unticked
+        # may be worth offering again once the live rivals have changed;
+        # retiring it too made every later round pick from a poorer pool.
+        seen = set()
+        for a in answers:
+            if a["channel"] == "trait":
+                seen |= set(a.get("answer_ids", []))
+        tags, gain = _best_tag_set(prior, seen, cfg)
+        if tags and gain >= cfg.min_trait_bits:
+            return _trait_question(tags, gain, trait_rounds, "a")
 
     if ("decan", None, "a") not in asked:
         labels = partition_for(grid, "decan", None)
         if _partition_gain(posterior, labels) >= cfg.min_information_bits:
-            return _decan_question(grid, posterior, labels, "a")
+            return _decan_question(posterior, labels, "a")
 
     movers = [a for a in answers if a["channel"] == "mover_house"
               and a.get("variant", "a") == "a"]
@@ -755,32 +921,79 @@ def next_question(grid: ChartGrid, posterior: list[float], answers: list[dict],
                     q["answered_from_inventory"] = picked
             return q
 
-    # Repeat phrasings, most informative questions first.
+    # ---- repeat phrasings ----------------------------------------------
     if cfg.repeat:
-        ranked = sorted(
-            answered_keys,
-            key=lambda k: -_partition_gain(
-                [1.0 / N_GRID] * N_GRID, partition_for(grid, k[0], k[1])
-            ),
-        )
-        for channel, subject in ranked[: cfg.repeat_pairs]:
+        for channel, subject in answered_keys[: cfg.repeat_pairs]:
             if (channel, subject, "b") in asked:
                 continue
+            if channel == "trait":
+                # Free-text tags were never asked as a question, so there is
+                # no phrasing to repeat: they carry their own trust instead.
+                digits = str(subject or "").lstrip("t")
+                if not digits.isdigit():
+                    continue
+                original = next(
+                    (a for a in answers
+                     if a["channel"] == "trait" and a.get("subject") == subject
+                     and a.get("variant", "a") == "a"),
+                    None,
+                )
+                tags = list((original or {}).get("offered_tag_ids") or [])
+                if tags:
+                    return _trait_question(tags, 0.0, int(digits), "b")
+                continue
             labels = partition_for(grid, channel, subject)
-            if channel == "rising_sign":
-                return _sign_question(grid, posterior, labels, "b")
             if channel == "decan":
-                return _decan_question(grid, posterior, labels, "b")
+                return _decan_question(posterior, labels, "b")
             if channel == "mover_house":
                 return _mover_question(
                     grid, posterior, subject, _partition_gain(posterior, labels), "b"
                 )
 
     windows = credible_windows(posterior, cfg.tier2_mass)
-    if 2 <= len(windows) <= 4 and ("portrait", None, "a") not in asked:
+    if 2 <= len(windows) <= MAX_PORTRAIT_OPTIONS and ("portrait", None, "a") not in asked:
         return _portrait_question(grid, posterior, windows, "a")
 
     return None
+
+
+def _best_tag_set(prior: dict[str, float], exclude: set[str],
+                  cfg: InterviewConfig) -> tuple[list[str], float]:
+    """Greedily grow a set of at most MAX_OPTIONS tags by expected gain.
+
+    Exhaustive search over 30-choose-4 would be 27,405 sets per step; greedy
+    growth costs 30 + 29 + 28 + 27 evaluations and picks the same first tag by
+    construction.
+    """
+    available = [t for t in TRAIT_TAGS if t not in exclude]
+    if not available:
+        return [], 0.0
+
+    size = min(MAX_OPTIONS, cfg.max_tags_per_question)
+    live = [s for s, m in prior.items() if m > 1e-6]
+    if not live:
+        return [], 0.0
+
+    # One tag per live front-runner, each chosen to speak for that sign
+    # *against the others on offer*. Grouping the signs by element or modality
+    # instead was tried and measured worse on sign recovery (54% against 76%),
+    # so the simpler rule stands.
+    rivals = [s for s, _ in sorted(prior.items(), key=lambda kv: -kv[1])][:size]
+    chosen: list[str] = []
+    for sign in rivals:
+        others = [s for s in rivals if s != sign]
+        best, best_score = None, float("-inf")
+        for tag_id in available:
+            if tag_id in chosen:
+                continue
+            lik = TRAIT_TAGS[tag_id]["likelihood"]
+            score = lik[sign] - (max(lik[o] for o in others) if others else 0.0)
+            if score > best_score:
+                best, best_score = tag_id, score
+        if best is not None:
+            chosen.append(best)
+
+    return chosen, _trait_expected_gain(prior, chosen, cfg.channel_reliability)
 
 
 def _live_classes(posterior: list[float], labels: list[str], floor: float = 1e-4):
@@ -792,52 +1005,41 @@ def _class_windows(labels: list[str], cls: str) -> list[tuple[int, int]]:
     return _runs([i for i in range(N_GRID) if labels[i] == cls])
 
 
-def _spans(labels, cls):
-    return [
-        {"start": minute_to_time(a), "end": minute_to_time(b)}
-        for a, b in _class_windows(labels, cls)
-    ]
-
-
-def _sign_question(grid, posterior, labels, variant) -> dict:
-    facet = VARIANT_FACET["rising_sign"][variant]
-    live = _live_classes(posterior, labels)
-    options = [
-        {
-            "answer_id": sign,
-            "mass": round(live[sign], 6),
-            "spans": _spans(labels, sign),
-            "description_keys": [f"sign.{sign}.{facet}"],
-        }
-        for sign in sorted(live, key=lambda s: -live[s])
-    ]
+def _trait_question(tag_ids: list[str], gain: float, round_index: int,
+                    variant: str) -> dict:
+    """At most four tags, multi-select, and no time span anywhere in it."""
+    key = "paraphrase_key" if variant == "b" else "label_key"
     return {
-        "question_id": f"stage1_rising_sign_{variant}",
-        "channel": "rising_sign",
-        "subject": None,
+        "question_id": f"stage1_trait_{round_index}_{variant}",
+        "channel": "trait",
+        "subject": f"t{round_index}",
         "variant": variant,
-        "facet": facet,
         "stage": 1,
-        "select": "one_or_two",
-        "information_bits": round(_partition_gain(posterior, labels), 4),
-        "options": options,
+        "select": "multi",
+        "max_select": min(len(tag_ids), MAX_OPTIONS),
+        "information_bits": round(gain, 4),
+        "options": [
+            {
+                "answer_id": t,
+                "trait_channel": TRAIT_TAGS[t]["channel"],
+                "label_key": TRAIT_TAGS[t][key],
+            }
+            for t in tag_ids
+        ],
+        "offered_tag_ids": list(tag_ids),
         "allow_cannot_choose": True,
     }
 
 
-def _decan_question(grid, posterior, labels, variant) -> dict:
+def _decan_question(posterior, labels, variant) -> dict:
     facet = VARIANT_FACET["decan"][variant]
     live = _live_classes(posterior, labels)
+    top = sorted(live, key=lambda s: -live[s])[:MAX_OPTIONS]
     options = []
-    for cls in sorted(live, key=lambda s: -live[s]):
+    for cls in top:
         sign, decan = cls.rsplit("_", 1)
         options.append(
-            {
-                "answer_id": cls,
-                "mass": round(live[cls], 6),
-                "spans": _spans(labels, cls),
-                "description_keys": [f"decan.{sign}.{decan}.{facet}"],
-            }
+            {"answer_id": cls, "label_key": f"decan.{sign}.{decan}.{facet}"}
         )
     return {
         "question_id": f"stage2_decan_{variant}",
@@ -846,7 +1048,8 @@ def _decan_question(grid, posterior, labels, variant) -> dict:
         "variant": variant,
         "facet": facet,
         "stage": 2,
-        "select": "one",
+        "select": "single",
+        "max_select": 1,
         "information_bits": round(_partition_gain(posterior, labels), 4),
         "options": options,
         "allow_cannot_choose": True,
@@ -857,14 +1060,10 @@ def _mover_question(grid, posterior, planet, gain, variant) -> dict:
     facet = VARIANT_FACET["mover_house"][variant]
     labels = partition_for(grid, "mover_house", planet)
     live = _live_classes(posterior, labels)
+    top = sorted(live, key=lambda h: -live[h])[:MAX_MOVER_OPTIONS]
     options = [
-        {
-            "answer_id": house,
-            "mass": round(live[house], 6),
-            "spans": _spans(labels, house),
-            "description_keys": [f"planet.{planet}.house.{house}.{facet}"],
-        }
-        for house in sorted(live, key=lambda h: int(h))
+        {"answer_id": house, "label_key": f"planet.{planet}.house.{house}.{facet}"}
+        for house in sorted(top, key=lambda h: int(h))
     ]
     return {
         "question_id": f"stage3_mover_{planet}_{variant}",
@@ -873,7 +1072,8 @@ def _mover_question(grid, posterior, planet, gain, variant) -> dict:
         "variant": variant,
         "facet": facet,
         "stage": 3,
-        "select": "one",
+        "select": "single",
+        "max_select": 1,
         "information_bits": round(gain, 4),
         "options": options,
         "allow_cannot_choose": True,
@@ -881,17 +1081,16 @@ def _mover_question(grid, posterior, planet, gain, variant) -> dict:
 
 
 def _portrait_question(grid, posterior, windows, variant) -> dict:
+    windows = list(windows)[:MAX_PORTRAIT_OPTIONS]
     options = []
     for idx, w in enumerate(windows):
         mid = window_midpoint(w)
         options.append(
             {
                 "answer_id": f"w{idx}",
-                "mass": round(window_mass(posterior, w), 6),
-                "spans": [{"start": minute_to_time(w[0]), "end": minute_to_time(w[1])}],
                 "ascendant_sign": grid.asc_sign[mid],
                 "planet_houses": {n: grid.planet_house[n][mid] for n, _ in core.PLANETS},
-                "description_keys": [f"portrait.window.{idx}"],
+                "label_key": f"portrait.window.{idx}",
             }
         )
     differing = [
@@ -907,9 +1106,11 @@ def _portrait_question(grid, posterior, windows, variant) -> dict:
         "variant": variant,
         "facet": VARIANT_FACET["portrait"][variant],
         "stage": 4,
-        "select": "one",
+        "select": "single",
+        "max_select": 1,
         "information_bits": round(
-            _entropy_bits({o["answer_id"]: o["mass"] for o in options}), 4
+            _entropy_bits({o["answer_id"]: window_mass(posterior, w)
+                           for o, w in zip(options, windows)}), 4
         ),
         "options": options,
         "distinguishing_placements": differing,
@@ -928,9 +1129,26 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
                   known_bounds: dict | None = None,
                   claimed_time: str | None = None,
                   sphere_inventory: dict | None = None,
-                  hypothesis: dict | None = None) -> dict:
+                  hypothesis: dict | None = None,
+                  trait_tags: list[str] | None = None) -> dict:
     cfg = cfg or InterviewConfig()
     grid = ChartGrid(birth_date, lat, lon, tz, cfg.house_system)
+    answers = list(answers)
+    if trait_tags:
+        # Confirmed free-text tags are one more observation of the same
+        # vocabulary, at their own trust level. They arrive as an answer so
+        # they pass through the identical path - pairing, trust, reweighting.
+        answers = answers + [
+            {
+                "question_id": "free_text_traits",
+                "channel": "trait",
+                "subject": "free_text",
+                "variant": "a",
+                "source": "free_text_confirmed",
+                "answer_ids": list(trait_tags),
+                "offered_tag_ids": list(trait_tags),
+            }
+        ]
     posterior, trace, pairs = build_posterior(
         grid, answers, cfg, known_bounds, claimed_time
     )
@@ -938,10 +1156,28 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
     question = next_question(grid, posterior, answers, cfg, sphere_inventory)
 
     answered = [t for t in trace if t["answer_ids"]]
+    # Sign blocks are an OUTPUT. They used to be rendered inside the stage-1
+    # question as twelve time spans, which asked the person to choose the very
+    # thing they came to find out. They belong here.
+    sign_labels = grid.asc_sign
+    mass_by_sign = sign_mass(posterior, sign_labels)
+    sign_blocks = []
+    for sign in sorted(mass_by_sign, key=lambda s: -mass_by_sign[s]):
+        for lo, hi in _runs([i for i in range(N_GRID) if sign_labels[i] == sign]):
+            sign_blocks.append(
+                {
+                    "sign": sign,
+                    "start": minute_to_time(lo),
+                    "end": minute_to_time(hi),
+                    "mass": round(mass_by_sign[sign], 6),
+                }
+            )
+
     result = {
         "tier": tier["tier"],
         "tier_reason": tier["reason"],
         "rising_sign": tier["rising_sign"],
+        "sign_blocks": sign_blocks,
         "windows": tier["windows"],
         "coherence": tier["coherence"],
         "next_question": question,

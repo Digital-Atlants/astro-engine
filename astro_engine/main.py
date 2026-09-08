@@ -90,6 +90,7 @@ def interview_step(req: InterviewRequest) -> JSONResponse:
         claimed_time=req.claimed_time,
         sphere_inventory={k: v.model_dump() for k, v in req.sphere_inventory.items()},
         hypothesis=req.hypothesis.model_dump() if req.hypothesis else None,
+        trait_tags=list(req.trait_tags),
     )
     result["compute_ms"] = int((time.perf_counter() - t0) * 1000)
     result["telemetry"]["compute_ms"] = result["compute_ms"]
