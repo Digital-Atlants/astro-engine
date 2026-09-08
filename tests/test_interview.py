@@ -149,8 +149,9 @@ def test_same_input_same_output(client, auth_headers):
 # --------------------------------------------------------------------------
 
 
-def test_first_question_is_a_small_trait_split(client, auth_headers):
-    """v3 replaced the 12-way sign question with a sequence of small splits.
+def test_first_question_is_a_small_structured_split(client, auth_headers):
+    """v3 replaced the 12-way sign question with small splits; v3.1 made those
+    two fixed structural questions - element, then modality.
 
     The live session that prompted it rendered stage 1 as twelve time spans
     and asked the person to choose the thing they came to find out.
@@ -158,11 +159,11 @@ def test_first_question_is_a_small_trait_split(client, auth_headers):
     resp = client.post("/v1/interview/step", json=_body(), headers=auth_headers)
     result = resp.json()
     q = result["next_question"]
-    assert q["channel"] == "trait"
+    assert q["channel"] == "element"
     assert q["stage"] == 1
     assert q["allow_cannot_choose"] is True
     assert len(q["options"]) <= 4
-    assert q["select"] == "multi" and q["max_select"] <= 4
+    assert q["select"] == "single" and q["max_select"] == 1
     for opt in q["options"]:
         assert opt["label_key"].startswith("trait."), "keys, not prose"
         assert "spans" not in opt, "a question never carries a time span"
@@ -175,12 +176,13 @@ def test_mover_question_is_selected_by_information_gain(client, auth_headers):
     """The planet asked about is computed per chart, not hardcoded: the
     measured best pair differs across charts."""
     answers = [
-        {
-            "question_id": "stage1_rising_sign",
-            "channel": "rising_sign",
-            "answer_ids": ["sagittarius"],
-        },
-        {"question_id": "stage2_decan", "channel": "decan", "answer_ids": []},
+        {"question_id": "stage1_element_a", "channel": "element",
+         "answer_ids": ["element_fire"]},
+        {"question_id": "stage1_modality_a", "channel": "modality",
+         "answer_ids": ["modality_fixed"]},
+        {"question_id": "stage2_decan_a", "channel": "decan", "answer_ids": []},
+        {"question_id": "stage2_sign_portrait_a", "channel": "sign_portrait",
+         "answer_ids": [], "offered_tag_ids": ["leo", "aries"]},
     ]
     resp = client.post("/v1/interview/step", json=_body(answers), headers=auth_headers)
     q = resp.json()["next_question"]
@@ -201,7 +203,10 @@ def test_no_answers_is_tier_4_refusal(client, auth_headers):
     result = resp.json()
     assert result["tier"] == 4
     assert result["windows"] == []
-    assert "cannot work" in result["tier_reason"]
+    assert result["rising_sign"] is None
+    # v3.1: with nothing answered the mass never concentrates, so no portrait
+    # is ever confirmed and no sign is delivered.
+    assert "portrait" in result["tier_reason"] or "cannot work" in result["tier_reason"]
 
 
 def test_tier_1_and_2_always_carry_window_bounds():

@@ -1,64 +1,64 @@
 {
   "per_sign": {
     "aquarius": {
-      "capricorn": 17,
-      "pisces": 14,
-      "worst_against_any_sign": 7
+      "capricorn": 21,
+      "pisces": 18,
+      "worst_against_any_sign": 9
     },
     "aries": {
-      "pisces": 21,
-      "taurus": 25,
-      "worst_against_any_sign": 5
+      "pisces": 25,
+      "taurus": 29,
+      "worst_against_any_sign": 7
     },
     "cancer": {
-      "gemini": 22,
-      "leo": 20,
-      "worst_against_any_sign": 6
+      "gemini": 26,
+      "leo": 24,
+      "worst_against_any_sign": 8
     },
     "capricorn": {
-      "aquarius": 17,
-      "sagittarius": 26,
-      "worst_against_any_sign": 6
+      "aquarius": 21,
+      "sagittarius": 30,
+      "worst_against_any_sign": 8
     },
     "gemini": {
-      "cancer": 22,
-      "taurus": 28,
-      "worst_against_any_sign": 7
+      "cancer": 26,
+      "taurus": 32,
+      "worst_against_any_sign": 9
     },
     "leo": {
-      "cancer": 20,
-      "virgo": 24,
-      "worst_against_any_sign": 5
-    },
-    "libra": {
-      "scorpio": 25,
-      "virgo": 21,
+      "cancer": 24,
+      "virgo": 28,
       "worst_against_any_sign": 7
     },
+    "libra": {
+      "scorpio": 29,
+      "virgo": 25,
+      "worst_against_any_sign": 9
+    },
     "pisces": {
-      "aquarius": 14,
-      "aries": 21,
-      "worst_against_any_sign": 10
+      "aquarius": 18,
+      "aries": 25,
+      "worst_against_any_sign": 12
     },
     "sagittarius": {
-      "capricorn": 26,
-      "scorpio": 24,
-      "worst_against_any_sign": 8
+      "capricorn": 30,
+      "scorpio": 28,
+      "worst_against_any_sign": 10
     },
     "scorpio": {
-      "libra": 25,
-      "sagittarius": 24,
-      "worst_against_any_sign": 6
+      "libra": 29,
+      "sagittarius": 28,
+      "worst_against_any_sign": 8
     },
     "taurus": {
-      "aries": 25,
-      "gemini": 28,
-      "worst_against_any_sign": 6
+      "aries": 29,
+      "gemini": 32,
+      "worst_against_any_sign": 8
     },
     "virgo": {
-      "leo": 24,
-      "libra": 21,
-      "worst_against_any_sign": 8
+      "leo": 28,
+      "libra": 25,
+      "worst_against_any_sign": 11
     }
   },
   "signs_with_no_separating_tag": [],

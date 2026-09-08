@@ -113,7 +113,10 @@ class RectificationConfig(BaseModel):
     refusal_min_separation: float = Field(default=0.05, ge=0, le=1)
 
 
-InterviewChannel = Literal["trait", "rising_sign", "decan", "mover_house", "portrait"]
+InterviewChannel = Literal[
+    "element", "modality", "sign_portrait", "trait", "rising_sign",
+    "decan", "mover_house", "portrait",
+]
 
 # Answer ids are enumerated tokens emitted by the engine and echoed back. The
 # pattern is deliberately narrow: the calling client phrases questions and maps

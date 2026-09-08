@@ -62,6 +62,23 @@ def M(cardinal, fixed, mutable):
     return {"cardinal": cardinal, "fixed": fixed, "mutable": mutable}
 
 
+# v3.1: stage 1 is two structured questions rather than greedy trait splits.
+# These seven tags ARE those questions' options. A pure element tag carries a
+# flat modality profile and vice versa, so the two questions are independent
+# axes - and because adjacent signs differ in BOTH element and modality, an
+# adjacent-sign answerer has to err twice to reach the neighbour. That is the
+# whole safety argument for the restructure, and v3.1 measures whether it
+# holds.
+STRUCTURAL_TAGS = [
+    ("element_fire", "element", E(.94, .12, .28, .18), FLAT),
+    ("element_earth", "element", E(.12, .94, .20, .30), FLAT),
+    ("element_air", "element", E(.30, .18, .94, .16), FLAT),
+    ("element_water", "element", E(.18, .30, .16, .94), FLAT),
+    ("modality_cardinal", "modality", FLAT_E, M(.94, .18, .22)),
+    ("modality_fixed", "modality", FLAT_E, M(.18, .94, .16)),
+    ("modality_mutable", "modality", FLAT_E, M(.22, .16, .94)),
+]
+
 # (tag_id, channel, element_profile, modality_profile)
 TAGS = [
     # ---- temperament -----------------------------------------------------
@@ -109,7 +126,7 @@ def likelihood(element_profile, modality_profile, sign) -> float:
 
 def build() -> dict:
     tags = []
-    for tag_id, channel, ep, mp in TAGS:
+    for tag_id, channel, ep, mp in STRUCTURAL_TAGS + TAGS:
         tags.append(
             {
                 "tag_id": tag_id,
@@ -134,7 +151,11 @@ def build() -> dict:
         "signs": SIGNS,
         "sign_attributes": {s: {"element": e, "modality": m}
                             for s, (e, m) in SIGN_ATTRS.items()},
-        "channels": ["temperament", "social", "appearance"],
+        "channels": ["element", "modality", "temperament", "social", "appearance"],
+        "structural_tags": {
+            "element": [t[0] for t in STRUCTURAL_TAGS if t[1] == "element"],
+            "modality": [t[0] for t in STRUCTURAL_TAGS if t[1] == "modality"],
+        },
         "tags": tags,
     }
 
