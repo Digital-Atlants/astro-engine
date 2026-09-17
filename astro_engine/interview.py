@@ -200,15 +200,15 @@ class InterviewConfig:
         # engine knows the Sun sign from the birth date and honest stage-1
         # answers land on it only about one time in twelve.
         #
-        # **Off by default, on a pre-registered rule.** The spec allowed the
-        # detector to cost the perfect answerer at most 3 points of Tier 1.
-        # Measured, it costs 7.3 - exactly the 7.32% of corpus cases whose
-        # rising sign genuinely *is* their Sun sign, whose honest stage-1
-        # answers the detector cannot tell from a recalled stereotype. It is
-        # implemented, measured and reported rather than deleted: the
-        # exposure it addresses is real and large (see the report), and a
-        # caller who would rather refuse those sessions can switch it on.
-        sun_sign_detector: bool = False,
+        # **On by default since v3.3.1.** In v3.3 it defaulted off on a
+        # pre-registered 3-point allowance, which it breached by costing the
+        # perfect answerer 7.3 points of Tier 1. That measurement was taken
+        # against the ladder v3.3 then abandoned. Under the shipped ladder -
+        # no Tier 3, portrait threshold restored - it costs the perfect
+        # answerer **nothing** (82.93% either way), because the discount only
+        # bites when stage 1 is the session's sole source of agreeing pairs.
+        # See benchmarks/RESULTS_INTERVIEW_v3_3_1.md.
+        sun_sign_detector: bool = True,
     ):
         self.channel_reliability = channel_reliability
         self.tier1_mass = tier1_mass

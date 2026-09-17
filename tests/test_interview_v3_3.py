@@ -191,27 +191,27 @@ def test_detector_fires_only_when_stage_1_names_the_sun_sign():
     assert interview.stage1_favours_sun_sign(trace_off, grid.sun_sign) is False
 
 
-def test_the_detector_is_off_by_default_and_says_so():
-    """Off on a pre-registered rule: it costs the perfect answerer 7.3 points
-    of Tier 1 against a 3-point allowance, because 7.32% of the corpus
-    honestly does rise in its own Sun sign."""
-    assert interview.InterviewConfig().sun_sign_detector is False
+def test_the_detector_is_on_by_default_and_can_be_switched_off():
+    """On by default since v3.3.1. The v3.3 measurement that defaulted it off
+    was taken against the tier ladder v3.3 then abandoned; under the shipped
+    ladder it costs the perfect answerer nothing."""
+    assert interview.InterviewConfig().sun_sign_detector is True
 
     grid = _grid()
     answers = _sign_only_answers(grid, grid.sun_sign)
-    default = interview.InterviewConfig()
-    posterior, trace, pairs = interview.build_posterior(grid, answers, default)
+    off = interview.InterviewConfig(sun_sign_detector=False)
+    posterior, trace, pairs = interview.build_posterior(grid, answers, off)
     assert interview.assign_tier(
-        posterior, trace, default, pairs, grid.asc_sign, sun_sign=grid.sun_sign
+        posterior, trace, off, pairs, grid.asc_sign, sun_sign=grid.sun_sign
     )["sun_sign_attribution"] is False
 
 
-def test_when_switched_on_the_detector_discounts_the_stage_1_pairs():
+def test_the_detector_discounts_the_stage_1_pairs():
     """Its surviving effect is on Tier 1: three stage-1 pairs that all name
     the Sun sign are one recalled stereotype, not three confirmations. Nothing
     is filtered - the truth stays strictly positive."""
     grid = _grid()
-    on = interview.InterviewConfig(sun_sign_detector=True)
+    on = interview.InterviewConfig()
     answers = _sign_only_answers(grid, grid.sun_sign)
 
     posterior, trace, pairs = interview.build_posterior(grid, answers, on)
@@ -283,6 +283,20 @@ def test_every_engine_key_has_approved_russian_or_a_declared_reason():
     assert missing == [], f"engine keys with no Russian row: {missing[:10]}"
     assert unexpected == [], (
         f"declared uncovered but now covered: {unexpected}"
+    )
+
+
+def test_the_copy_file_is_the_owner_supplied_file_byte_for_byte():
+    """`docs/copy_drafts.md` is a copy of the council-approved upload, so the
+    two must not drift. They were reconciled in v3.3.1 after the file first
+    arrived in this session mis-encoded and had to be reconstructed; 104 of
+    105 rows matched, and house 8 did not. A byte comparison is the only
+    check that would have caught that."""
+    root = pathlib.Path(__file__).resolve().parent.parent
+    shipped = root / "docs" / "copy_drafts.md"
+    supplied = root / "docs" / "interview_copy_drafts_ru_approved_v3_3.md"
+    assert shipped.read_bytes() == supplied.read_bytes(), (
+        "docs/copy_drafts.md has drifted from the owner-supplied file"
     )
 
 

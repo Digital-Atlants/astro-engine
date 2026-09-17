@@ -1123,7 +1123,7 @@
       "channel": "mover_house",
       "distinguishes": "sun (vitality and purpose) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.sun.house.8.life_area",
-      "ru": "Тема «жизненная сила и то, ради чего вы живёте». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «жизненная сила и то, ради чего вы живёте». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -1132,7 +1132,7 @@
       "channel": "mover_house",
       "distinguishes": "sun (vitality and purpose) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.sun.house.8.episode",
-      "ru": "Вспомните период, когда тема «жизненная сила и то, ради чего вы живёте» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «жизненная сила и то, ради чего вы живёте» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -1339,7 +1339,7 @@
       "channel": "mover_house",
       "distinguishes": "moon (feeling, habit and need) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.moon.house.8.life_area",
-      "ru": "Тема «чувства, привычки и то, в чём вы нуждаетесь». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «чувства, привычки и то, в чём вы нуждаетесь». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -1348,7 +1348,7 @@
       "channel": "mover_house",
       "distinguishes": "moon (feeling, habit and need) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.moon.house.8.episode",
-      "ru": "Вспомните период, когда тема «чувства, привычки и то, в чём вы нуждаетесь» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «чувства, привычки и то, в чём вы нуждаетесь» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -1555,7 +1555,7 @@
       "channel": "mover_house",
       "distinguishes": "mercury (thinking and talking) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.mercury.house.8.life_area",
-      "ru": "Тема «мышление, речь и обмен информацией». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «мышление, речь и обмен информацией». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -1564,7 +1564,7 @@
       "channel": "mover_house",
       "distinguishes": "mercury (thinking and talking) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.mercury.house.8.episode",
-      "ru": "Вспомните период, когда тема «мышление, речь и обмен информацией» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «мышление, речь и обмен информацией» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -1771,7 +1771,7 @@
       "channel": "mover_house",
       "distinguishes": "venus (affection, taste and worth) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.venus.house.8.life_area",
-      "ru": "Тема «привязанность, вкус и удовольствие». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «привязанность, вкус и удовольствие». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -1780,7 +1780,7 @@
       "channel": "mover_house",
       "distinguishes": "venus (affection, taste and worth) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.venus.house.8.episode",
-      "ru": "Вспомните период, когда тема «привязанность, вкус и удовольствие» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «привязанность, вкус и удовольствие» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -1987,7 +1987,7 @@
       "channel": "mover_house",
       "distinguishes": "mars (drive, anger and effort) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.mars.house.8.life_area",
-      "ru": "Тема «напор, злость и усилие». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «напор, злость и усилие». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -1996,7 +1996,7 @@
       "channel": "mover_house",
       "distinguishes": "mars (drive, anger and effort) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.mars.house.8.episode",
-      "ru": "Вспомните период, когда тема «напор, злость и усилие» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «напор, злость и усилие» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -2203,7 +2203,7 @@
       "channel": "mover_house",
       "distinguishes": "jupiter (growth, luck and belief) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.jupiter.house.8.life_area",
-      "ru": "Тема «рост, удача и широта взглядов». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «рост, удача и широта взглядов». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -2212,7 +2212,7 @@
       "channel": "mover_house",
       "distinguishes": "jupiter (growth, luck and belief) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.jupiter.house.8.episode",
-      "ru": "Вспомните период, когда тема «рост, удача и широта взглядов» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «рост, удача и широта взглядов» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -2419,7 +2419,7 @@
       "channel": "mover_house",
       "distinguishes": "saturn (limit, duty and time) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.saturn.house.8.life_area",
-      "ru": "Тема «ограничения, долг и дисциплина». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «ограничения, долг и дисциплина». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -2428,7 +2428,7 @@
       "channel": "mover_house",
       "distinguishes": "saturn (limit, duty and time) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.saturn.house.8.episode",
-      "ru": "Вспомните период, когда тема «ограничения, долг и дисциплина» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «ограничения, долг и дисциплина» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -2635,7 +2635,7 @@
       "channel": "mover_house",
       "distinguishes": "uranus (disruption and independence) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.uranus.house.8.life_area",
-      "ru": "Тема «внезапные перемены и независимость». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «внезапные перемены и независимость». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -2644,7 +2644,7 @@
       "channel": "mover_house",
       "distinguishes": "uranus (disruption and independence) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.uranus.house.8.episode",
-      "ru": "Вспомните период, когда тема «внезапные перемены и независимость» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «внезапные перемены и независимость» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -2851,7 +2851,7 @@
       "channel": "mover_house",
       "distinguishes": "neptune (dissolution, longing and imagination) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.neptune.house.8.life_area",
-      "ru": "Тема «мечты, размытые границы и воображение». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «мечты, размытые границы и воображение». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -2860,7 +2860,7 @@
       "channel": "mover_house",
       "distinguishes": "neptune (dissolution, longing and imagination) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.neptune.house.8.episode",
-      "ru": "Вспомните период, когда тема «мечты, размытые границы и воображение» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «мечты, размытые границы и воображение» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
@@ -3067,7 +3067,7 @@
       "channel": "mover_house",
       "distinguishes": "pluto (compulsion, power and remaking) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.pluto.house.8.life_area",
-      "ru": "Тема «одержимость, власть и перерождение». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или в сфере «[сфера B]»?",
+      "ru": "Тема «одержимость, власть и перерождение». Где она проявляется в вашей жизни сильнее — в сфере «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или в сфере «[сфера B]»?",
       "status": "approved",
       "variant": "a"
     },
@@ -3076,7 +3076,7 @@
       "channel": "mover_house",
       "distinguishes": "pluto (compulsion, power and remaking) in house 8 - what is shared or lost: other people's money, crisis, death, the hidden - from the same planet in the one or two neighbouring houses",
       "key": "planet.pluto.house.8.episode",
-      "ru": "Вспомните период, когда тема «одержимость, власть и перерождение» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и страхи» или со сферой «[сфера B]»?",
+      "ru": "Вспомните период, когда тема «одержимость, власть и перерождение» звучала в вашей жизни громче всего. С чем это было связано скорее: со сферой «Общее и чужое: чужие деньги, наследство, долги, кризисы и утраты» или со сферой «[сфера B]»?",
       "status": "approved",
       "variant": "b"
     },
