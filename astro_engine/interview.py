@@ -77,6 +77,12 @@ MODALITY_TAGS = _VOCAB["structural_tags"]["modality"]
 # The two-portrait confirmation never offers more than this many signs.
 MAX_PORTRAIT_SIGNS = 2
 
+# Stage 1 is these three questions in this order: the element axis, the
+# modality axis, then a two-portrait confirmation between the leaders.
+# Tier 3 delivers the sign these three agreed on, so all three are what
+# its bar is written against.
+STAGE1_CHANNELS = ("element", "modality", "sign_portrait")
+
 # Two phrasings of the same underlying partition. The client renders them as
 # different questions; the engine knows they are a pair.
 VARIANTS = ("a", "b")
@@ -137,9 +143,9 @@ class InterviewConfig:
         "sign_mass_stop",
         "min_trait_bits",
         "tier3_sign_mass",
-        "tier3_chance_p",
-        "tier3_min_agreeing_pairs",
         "portrait_sign_threshold",
+        "decan_reliability",
+        "sun_sign_detector",
     )
 
     def __init__(
@@ -171,19 +177,38 @@ class InterviewConfig:
         # Reusing the 0.15-bit partition floor here stopped stage 1 from ever
         # running. Frozen before measurement.
         min_trait_bits: float = 0.01,
-        # Tier 3 delivers a rising sign, so it needs its own bar. v1-v3
-        # gated only Tier 1 and shipped Tier 3 unmeasured.
+        # Tier 3 delivers a rising sign and nothing else, so its bar is
+        # about the sign and not about the time: every stage-1 pair agreed,
+        # nothing disagreed anywhere, and one sign carries this much mass.
+        #
+        # v3.2 bolted a chance-agreement test and a >=2-pair count onto Tier 3
+        # and made it *stricter* than Tier 2, which is tested first. Tier 3
+        # then became unreachable - 0.0% of runs for six of seven answerer
+        # models - and its wrong-sign gate was passing on an empty set. A sign
+        # is a weaker claim than a 30-minute window and carries a looser bar.
         tier3_sign_mass: float = 0.50,
-        # Tier 3 delivers a sign, so it must clear the same *kind* of bar as
-        # Tier 1: independent channels agreeing beyond chance, and repeated
-        # phrasings that did not contradict each other. v3.1 required only a
-        # confirmed portrait and enough mass, and random answering walked away
-        # with a wrong sign in 21.6% of runs.
-        tier3_chance_p: float = 0.05,
-        tier3_min_agreeing_pairs: int = 2,
-        # The two-portrait confirmation fires once the mass is this
-        # concentrated on the leading signs.
+        # When the two-portrait confirmation fires. Measured as load-bearing
+        # for G1: see the comment at the call site in `next_question`.
         portrait_sign_threshold: float = 0.70,
+        # Trust for the decan channel, deliberately below the sign channels.
+        # At 51 degrees latitude a decan rises in 18-57 minutes and a
+        # self-report of appearance does not carry that precision. A design
+        # constant, not a fitted one: see docs/trust_default.md.
+        decan_reliability: float = 0.50,
+        # Sun-sign self-attribution detector (van Rooij 1994). People who
+        # know their Sun sign describe themselves by its stereotype; the
+        # engine knows the Sun sign from the birth date and honest stage-1
+        # answers land on it only about one time in twelve.
+        #
+        # **Off by default, on a pre-registered rule.** The spec allowed the
+        # detector to cost the perfect answerer at most 3 points of Tier 1.
+        # Measured, it costs 7.3 - exactly the 7.32% of corpus cases whose
+        # rising sign genuinely *is* their Sun sign, whose honest stage-1
+        # answers the detector cannot tell from a recalled stereotype. It is
+        # implemented, measured and reported rather than deleted: the
+        # exposure it addresses is real and large (see the report), and a
+        # caller who would rather refuse those sessions can switch it on.
+        sun_sign_detector: bool = False,
     ):
         self.channel_reliability = channel_reliability
         self.tier1_mass = tier1_mass
@@ -207,9 +232,9 @@ class InterviewConfig:
         self.sign_mass_stop = sign_mass_stop
         self.min_trait_bits = min_trait_bits
         self.tier3_sign_mass = tier3_sign_mass
-        self.tier3_chance_p = tier3_chance_p
-        self.tier3_min_agreeing_pairs = tier3_min_agreeing_pairs
         self.portrait_sign_threshold = portrait_sign_threshold
+        self.decan_reliability = decan_reliability
+        self.sun_sign_detector = sun_sign_detector
 
 
 # --------------------------------------------------------------------------
@@ -238,6 +263,10 @@ class ChartGrid:
         self.asc_decan = [int((a % 30.0) // 10.0) for a in self.asc]
 
         lons = self._planet_longitudes()
+        # The Sun moves about a degree a day, so its sign is a fact about the
+        # date rather than the minute; noon is representative and the
+        # self-attribution detector needs no more than that.
+        self.sun_sign = core.sign_of(lons["sun"][N_GRID // 2])
         self.planet_house: dict[str, list[int]] = {}
         for name, _ in core.PLANETS:
             series = lons[name]
@@ -556,6 +585,12 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
             windows_at_portrait = [tuple(w) for w in ans.get("windows", [])]
         chosen = list(ans.get("answer_ids", []))
         r = answer_reliability(ans, session_r)
+        if channel == "decan":
+            # Design constant, not a fit: a decan rises in well under an hour
+            # at high latitude and a self-report of appearance cannot resolve
+            # it. Capped rather than replaced, so a document-sourced answer is
+            # not *promoted* by the cap.
+            r = min(r, cfg.decan_reliability)
         before = normalise(weights)
         contradicts = False
 
@@ -797,8 +832,59 @@ def channel_conflict(trace: list[dict], sign_labels: list[str]) -> bool:
     return portrait.get("contradicts_prior", False)
 
 
+def _pair_states(trace: list[dict]) -> dict[str, str]:
+    """Pair state per channel, for the channels that carry one."""
+    out: dict[str, str] = {}
+    for t in trace:
+        out[t["channel"]] = t.get("pair_state", "single")
+    return out
+
+
+def stage1_pairs_agree(trace: list[dict]) -> bool:
+    """Did every stage-1 question get asked twice and answered the same way?
+
+    This is Tier 3's whole coherence requirement. A random answerer meets it
+    about one time in twenty-four - one element in four, one modality in
+    three, one portrait in two - which is why G6 has to keep including
+    random rather than treating it as out of scope.
+    """
+    states = _pair_states(trace)
+    return all(states.get(c) == "agree" for c in STAGE1_CHANNELS)
+
+
+def stage1_favours_sun_sign(trace: list[dict], sun_sign: str | None) -> bool:
+    """Did the stage-1 answers concentrate on the Sun sign?
+
+    The stereotype test, frozen before measurement: the element answer, the
+    modality answer and the confirmed portrait all name the Sun sign. Honest
+    answers land there about one time in twelve; a self-describer lands there
+    every time. Nothing is filtered on the strength of this - it only raises
+    what Tier 3 and Tier 1 have to show.
+    """
+    if not sun_sign:
+        return False
+    axis = _SIGN_AXIS.get(sun_sign)
+    if not axis:
+        return False
+    want = {
+        "element": f"element_{axis['element']}",
+        "modality": f"modality_{axis['modality']}",
+        "sign_portrait": sun_sign,
+    }
+    seen = 0
+    for t in trace:
+        expected = want.get(t["channel"])
+        if expected is None or not t["answer_ids"]:
+            continue
+        if expected not in set(t["answer_ids"]):
+            return False
+        seen += 1
+    return seen == len(want)
+
+
 def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
-                pairs: dict | None = None, sign_labels: list[str] | None = None) -> dict:
+                pairs: dict | None = None, sign_labels: list[str] | None = None,
+                sun_sign: str | None = None) -> dict:
     pairs = pairs or {"agreeing_pairs": 0, "disagreeing_pairs": 0,
                       "session_reliability": cfg.channel_reliability}
     chance_p, overlap = chance_agreement(trace)
@@ -810,9 +896,6 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
     portrait_given = any(
         t["channel"] == "sign_portrait" and t["answer_ids"] for t in trace
     )
-    sign_masses = _class_mass(posterior, labels) if labels else {}
-    top_sign = max(sign_masses, key=sign_masses.get) if sign_masses else None
-    top_sign_mass = sign_masses.get(top_sign, 0.0) if top_sign else 0.0
 
     # The pair requirement applies whenever the session actually produced
     # pairs, however they were formed. In the interview they come from two
@@ -821,8 +904,24 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
     # kind exists, because there is then nothing to cross-check against.
     has_pairs = (agree + disagree) > 0
     enforce_pairs = cfg.repeat or has_pairs
+
+    # Sun-sign self-attribution. When stage 1 lands exactly on the Sun sign,
+    # the three stage-1 pairs are no longer three independent confirmations:
+    # they can all be one recalled stereotype, so for Tier 1 they count as one
+    # pair rather than three. The detector's other clause - requiring the
+    # decan channel to corroborate before a sign was delivered - went with
+    # Tier 3, because no sign is delivered any more. Off by default; see
+    # `InterviewConfig.sun_sign_detector`.
+    sun_attributed = cfg.sun_sign_detector and stage1_favours_sun_sign(
+        trace, sun_sign
+    )
+    stage1_agreeing = sum(
+        1 for c in STAGE1_CHANNELS if _pair_states(trace).get(c) == "agree"
+    )
+    agree_t1 = agree - max(0, stage1_agreeing - 1) if sun_attributed else agree
+
     pair_ok_t1 = (not enforce_pairs) or (
-        agree >= cfg.tier1_min_agreeing_pairs and disagree == 0
+        agree_t1 >= cfg.tier1_min_agreeing_pairs and disagree == 0
     )
     pair_ok_t2 = (not enforce_pairs) or agree >= cfg.tier2_min_agreeing_pairs
 
@@ -838,7 +937,8 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
     ):
         return _tier_result(1, t1, posterior, conc, chance_p, overlap, pairs,
                             "single window, independent channel agreement, "
-                            "and repeated phrasings agreed")
+                            "and repeated phrasings agreed",
+                            sun_attributed=sun_attributed)
 
     t2 = credible_windows(posterior, cfg.tier2_mass)
     if (
@@ -850,40 +950,40 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
         and max(window_minutes(w) for w in t2) <= cfg.tier1_window_minutes * 3
     ):
         return _tier_result(2, t2, posterior, conc, chance_p, overlap, pairs,
-                            "two or three windows carry the mass")
+                            "two or three windows carry the mass",
+                            sun_attributed=sun_attributed)
 
-    # Tier 3 delivers a rising sign, so it has to earn one: the portrait was
-    # confirmed, nothing conflicts, and the mass genuinely sits on that sign.
-    # v1-v3 handed out a Tier 3 sign whenever any answer existed, and never
-    # measured whether it was the right sign.
-    tier3_pairs_ok = (
-        agree >= cfg.tier3_min_agreeing_pairs and disagree == 0
-    )
-    if (
-        portrait_given
-        and not conflict
-        and tier3_pairs_ok
-        and chance_p < cfg.tier3_chance_p
-        and top_sign_mass >= cfg.tier3_sign_mass
-    ):
-        return _tier_result(3, [], posterior, conc, chance_p, overlap, pairs,
-                            "one rising sign carries the mass, the channels "
-                            "agree beyond chance, and nothing contradicts it",
-                            rising_sign=top_sign, conflict=conflict)
-
+    # There is no Tier 3. A rising sign is never delivered on its own.
+    #
+    # This is the v3.3 spec's own pre-registered fallback, taken because its
+    # gates failed. Reordering the tiers by strength of claim made Tier 3
+    # reachable for the first time, and it was immediately and badly wrong: an
+    # answerer who describes themselves consistently one sign over satisfies
+    # every condition a sign-only session can be asked to satisfy - all three
+    # stage-1 pairs agree with themselves, nothing contradicts anything, and
+    # the mass concentrates hard on the neighbouring sign. That session is
+    # numerically indistinguishable from an honest one, so no threshold
+    # separates them. Measured: 38.5% of adjacent-sign runs were handed a
+    # Tier 3 sign and 80.2% of those signs were wrong, against G6's 5% bar.
+    #
+    # Tier 2's shortlist and Tier 4's refusal carry the whole range. The
+    # posterior over signs is still returned as `sign_blocks` - a mass per
+    # sign, which describes what the answers support rather than claiming
+    # which sign it is. See benchmarks/RESULTS_INTERVIEW_v3_3.md.
+    # Ordered most fundamental first: a session with nothing in it should be
+    # told the mass never concentrated, not that a pair was missing.
     reason = "the method cannot work from these answers"
     if conflict:
         reason = "the confirmed portrait contradicts the earlier answers"
     elif not portrait_given:
         reason = "the mass never concentrated enough to confirm a portrait"
-    elif not tier3_pairs_ok:
-        reason = "the repeated phrasings did not agree often enough to name a sign"
-    elif chance_p >= cfg.tier3_chance_p:
-        reason = "the channels agree no better than chance would"
-    elif top_sign_mass < cfg.tier3_sign_mass:
-        reason = "no single rising sign carries enough of the mass"
+    elif disagree:
+        reason = "the repeated phrasings did not agree"
+    elif not pair_ok_t2:
+        reason = "no question was confirmed by a second phrasing"
     return _tier_result(4, [], posterior, conc, chance_p, overlap, pairs,
-                        reason, conflict=conflict)
+                        reason, conflict=conflict,
+                        sun_attributed=sun_attributed)
 
 
 def _rising_sign_labels(trace) -> list[str]:
@@ -894,12 +994,13 @@ def _rising_sign_labels(trace) -> list[str]:
 
 
 def _tier_result(tier, windows, posterior, conc, chance_p, overlap, pairs, reason,
-                 rising_sign=None, conflict=False) -> dict:
+                 rising_sign=None, conflict=False, sun_attributed=False) -> dict:
     return {
         "tier": tier,
         "reason": reason,
         "rising_sign": rising_sign,
         "channel_conflict": conflict,
+        "sun_sign_attribution": sun_attributed,
         "windows": [
             {
                 "start": minute_to_time(w[0]),
@@ -992,8 +1093,19 @@ def next_question(grid: ChartGrid, posterior: list[float], answers: list[dict],
     lead_mass = sum(m for _, m in ranked[:MAX_PORTRAIT_SIGNS])
     top3_mass = sum(m for _, m in ranked[:3])
     # Fire once the leading signs carry the mass. Three signs qualify too -
-    # the spec's rule is to offer the top two of them and let
-    # `cannot_choose` stand for "neither".
+    # the rule is to offer the top two of them and let `cannot_choose` stand
+    # for "neither".
+    #
+    # This threshold is load-bearing for safety, which v3.3 established by
+    # removing it and measuring the result. Asking the portrait
+    # unconditionally at the end of the structural questions - when the top
+    # sign still carries only about 0.23 of the mass - lets an answerer
+    # confirm a portrait the earlier answers did not point at, which
+    # concentrates the posterior hard on that sign before any independent
+    # channel has spoken. The adjacent-sign answerer's Tier 1 wrong-window
+    # rate went from 1.04% to 32.50%, with *every* such window wrong. Waiting
+    # for the mass means the portrait can only confirm what something else
+    # already suggested. See benchmarks/RESULTS_INTERVIEW_v3_3.md.
     if ("sign_portrait", None, "a") not in asked and (
         lead_mass >= cfg.portrait_sign_threshold
         or top3_mass >= cfg.portrait_sign_threshold
@@ -1325,7 +1437,8 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
     posterior, trace, pairs = build_posterior(
         grid, answers, cfg, known_bounds, claimed_time
     )
-    tier = assign_tier(posterior, trace, cfg, pairs, grid.asc_sign)
+    tier = assign_tier(posterior, trace, cfg, pairs, grid.asc_sign,
+                       sun_sign=grid.sun_sign)
     question = next_question(grid, posterior, answers, cfg, sphere_inventory)
 
     answered = [t for t in trace if t["answer_ids"]]

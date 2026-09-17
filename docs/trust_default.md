@@ -67,3 +67,50 @@ Until then: **do not raise `r` to make a number look better.** The v1 retune
 already demonstrated that tier thresholds are not the lever that controls
 safety; `r` is, and it is the one parameter in the system that should be set
 by evidence about people rather than by tuning against a corpus.
+
+---
+
+# Why the decan channel is trusted less than the sign channels (v3.3)
+
+`InterviewConfig.decan_reliability` defaults to **0.50**, against a session
+default of 0.60. It caps the trust applied to any decan answer, so a decan
+answer moves the posterior less than an element, modality or portrait answer
+does.
+
+This is a **design constant, not a fitted one**, and the argument is geometric
+rather than empirical.
+
+## The argument
+
+A decan is a ten-degree third of a rising sign. How long it takes to rise
+depends on latitude and on which sign it is: at 51 degrees a decan rises in
+roughly **18 to 57 minutes**. So a decan answer, taken at face value, is a
+claim about the birth time to within about half an hour.
+
+The answer itself is a self-report of appearance and bearing — "which of these
+two descriptions is closer to how people describe you". Nothing about that
+question carries half-hour precision. Two people born forty minutes apart do
+not reliably sort themselves into different thirds of a sign, and the copy
+that distinguishes the thirds (`docs/copy_drafts.md`, section 4) differs by a
+single leading trait inside each sign by construction.
+
+Trusting the answer at the session default would let a low-information answer
+make a high-precision claim. The cap is the smaller of the two: a
+document-sourced answer is not *promoted* by it, only a high-trust one pulled
+down.
+
+## Sensitivity, reported and not tuned
+
+`benchmarks/RESULTS_INTERVIEW_v3_3.md` carries the sweep over {0.40, 0.50,
+0.60}. It is reported so the reader can see what the constant costs, not so a
+value can be picked from it. If a decan value is ever chosen by measurement it
+should come from `/v1/interview/compare` on live sessions — how often a person
+actually places themselves in the correct third — and not from which setting
+makes a gate pass.
+
+## What would change it
+
+The same thing that would change `channel_reliability`: a calibration corpus
+with documented birth times, measuring per-channel accuracy directly. Until
+then the decan channel is the one whose self-report is least plausible at the
+precision its geometry implies, and it is weighted accordingly.

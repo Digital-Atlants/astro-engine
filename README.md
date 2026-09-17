@@ -32,6 +32,19 @@ Authorization: Bearer <SERVICE_API_KEY>
 
 Missing or wrong token → `401`.
 
+`GET /health` also returns the commit SHA the running service was built from
+and the field names `InterviewAnswer` accepts:
+
+```json
+{"status": "ok", "version": "1.0.0", "git_sha": "a3468c2...",
+ "interview_contract": {"answer_fields": ["answer_ids", "channel", "..."]}}
+```
+
+A client that does not recognise the contract should decline to run the
+interview rather than send answers an untested engine will read differently.
+`git_sha` comes from `GIT_SHA`, else `RAILWAY_GIT_COMMIT_SHA`, else the
+checkout, else the string `unknown`.
+
 ## Determinism
 
 Identical requests produce byte-identical JSON (stable key ordering, fixed
@@ -176,9 +189,13 @@ Questions are computed from geometry, not a fixed questionnaire: rising sign,
 decan, mover-house questions chosen by expected information gain, then a
 portrait choice. Descriptions are structured keys, not prose.
 
-Tiers: **1** a single window <= 30 min with independent channel agreement,
-**2** a two-or-three window shortlist, **3** the rising sign only, **4**
+Tiers are ordered by strength of claim and tested in that order: **1** a
+single window <= 30 min with independent channel agreement, **2** a
+two-or-three window shortlist, **3** the rising sign and no time, **4**
 refusal. A Tier 1/2 answer always carries window bounds, never a bare time.
+Tier 3's bar is deliberately looser than Tier 2's - a sign is a weaker claim
+than a 30-minute window - and consists of stage-1 pair agreement with no
+window condition at all.
 
 Measured behaviour, and its limits, are in
 [`benchmarks/RESULTS_INTERVIEW.md`](benchmarks/RESULTS_INTERVIEW.md): the

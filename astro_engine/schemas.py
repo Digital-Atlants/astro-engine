@@ -202,10 +202,21 @@ class InterviewConfigModel(BaseModel):
     max_trait_questions: int = Field(default=4, ge=0, le=8)
     max_tags_per_question: int = Field(default=4, ge=2, le=4)
     sign_mass_stop: float = Field(default=0.45, gt=0, le=1)
+    # There is no Tier 3: a rising sign is never delivered on its own. v3.3
+    # made the tier reachable and measured it handing the adjacent sign to an
+    # adjacent-sign answerer 38.5% of the time, so the spec's pre-registered
+    # fallback was taken. Kept as an accepted field so a v3.2-era client is
+    # not rejected; it decides nothing.
     tier3_sign_mass: float = Field(default=0.50, gt=0, le=1)
-    tier3_chance_p: float = Field(default=0.05, gt=0, le=1)
-    tier3_min_agreeing_pairs: int = Field(default=2, ge=0, le=6)
     portrait_sign_threshold: float = Field(default=0.70, gt=0, le=1)
+    # Below the sign channels by design: a decan rises in 18-57 minutes at 51
+    # degrees latitude and a self-report of appearance cannot resolve that.
+    # See docs/trust_default.md.
+    decan_reliability: float = Field(default=0.50, gt=0, lt=1)
+    # Sun-sign self-attribution detector (van Rooij 1994). Off by default: it
+    # costs the perfect answerer 7.3 points of Tier 1 against a 3-point
+    # allowance, because 7.32% of people honestly do rise in their Sun sign.
+    sun_sign_detector: bool = False
     min_trait_bits: float = Field(default=0.01, ge=0, le=4)
     tier1_mass: float = Field(default=0.60, gt=0, le=1)
     tier2_mass: float = Field(default=0.60, gt=0, le=1)

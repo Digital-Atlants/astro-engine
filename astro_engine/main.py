@@ -8,7 +8,7 @@ import time
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from . import __version__, charts, interview, rectification
+from . import __version__, build_info, charts, interview, rectification
 from .schemas import (
     DerivedChartRequest,
     InterviewCompareRequest,
@@ -33,7 +33,21 @@ def require_bearer(request: Request) -> None:
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "version": __version__}
+    """Liveness plus the build identity a client needs to refuse mismatches.
+
+    `git_sha` is the commit this process was built from; `interview_contract`
+    lists the field names `InterviewAnswer` accepts. A client that does not
+    recognise the contract should decline to run the interview rather than
+    send answers against an engine that will read them differently.
+    """
+    return {
+        "status": "ok",
+        "version": __version__,
+        "git_sha": build_info.git_sha(),
+        "interview_contract": {
+            "answer_fields": build_info.interview_answer_fields(),
+        },
+    }
 
 
 @app.post("/v1/charts/natal", dependencies=[Depends(require_bearer)])
