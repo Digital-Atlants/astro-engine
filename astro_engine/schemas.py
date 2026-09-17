@@ -213,10 +213,11 @@ class InterviewConfigModel(BaseModel):
     # degrees latitude and a self-report of appearance cannot resolve that.
     # See docs/trust_default.md.
     decan_reliability: float = Field(default=0.50, gt=0, lt=1)
-    # Sun-sign self-attribution detector (van Rooij 1994). Off by default: it
-    # costs the perfect answerer 7.3 points of Tier 1 against a 3-point
-    # allowance, because 7.32% of people honestly do rise in their Sun sign.
-    sun_sign_detector: bool = False
+    # Sun-sign self-attribution detector (van Rooij 1994). On by default
+    # since v3.3.1: under the shipped tier ladder it costs the perfect
+    # answerer nothing, and an answerer who describes itself by its Sun sign
+    # is otherwise the second-largest source of confident wrong answers.
+    sun_sign_detector: bool = True
     min_trait_bits: float = Field(default=0.01, ge=0, le=4)
     tier1_mass: float = Field(default=0.60, gt=0, le=1)
     tier2_mass: float = Field(default=0.60, gt=0, le=1)

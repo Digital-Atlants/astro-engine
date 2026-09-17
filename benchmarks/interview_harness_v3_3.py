@@ -56,8 +56,12 @@ ANSWERERS = ("perfect", "iid_noisy", "correlated_noisy", "adjacent_sign",
 # to cover.
 G6_MODELS = ("perfect", "iid_noisy", "adjacent_sign", "dont_know_heavy",
              "random", "sign_only")
+# v3.3.1 adds sun_attributor. It is a model of an honest person answering
+# about the wrong thing - the documented self-attribution effect - not of a
+# careless or adversarial one, so it belongs inside the safety gates rather
+# than beside them.
 G1_MODELS = ("perfect", "iid_noisy", "adjacent_sign", "random",
-             "dont_know_heavy", "sign_only")
+             "dont_know_heavy", "sign_only", "sun_attributor")
 
 # Ranked, not counted. A configuration that passes a higher gate and fails a
 # lower one beats one that does the reverse.
