@@ -127,6 +127,8 @@ class InterviewConfig:
         "tier1_chance_p",
         "tier2_chance_p",
         "tier1_window_minutes",
+        "tier2_window_minutes",
+        "tier2_max_windows",
         "min_information_bits",
         "max_mover_questions",
         "house_system",
@@ -156,6 +158,25 @@ class InterviewConfig:
         tier1_chance_p: float = 0.002,
         tier2_chance_p: float = 0.20,
         tier1_window_minutes: int = 30,
+        # Tier 2's own admission limits, explicit since v3.4. They were
+        # `tier1_window_minutes * 3` and a literal 3, which made the two
+        # tiers' widths impossible to move independently - and Tier 2 is the
+        # flagship now, so its width is the thing G7 and G9 trade against.
+        #
+        # 50 is the v3.4 retune, spent train-only over a frozen grid and
+        # re-evaluated on holdout. It is the widest single window Tier 2 will
+        # admit before refusing. Read the report before moving it: G7 improves
+        # here by *issuing fewer shortlists*, not by issuing better ones - the
+        # shortlists Tier 2 does issue already contain the truth 100% of the
+        # time for a perfect answerer at every setting measured, including the
+        # old 90.
+        #
+        # `tier2_max_windows` is inert at every value measured: Tier 2 never
+        # produced three windows in 18 sweep cells, so 2 and 3 gave identical
+        # numbers throughout. Kept explicit rather than removed, because the
+        # code path is real and a future posterior could reach it.
+        tier2_window_minutes: int = 50,
+        tier2_max_windows: int = 3,
         min_information_bits: float = 0.15,
         max_mover_questions: int = 3,
         house_system: str = "placidus",
@@ -216,6 +237,8 @@ class InterviewConfig:
         self.tier1_chance_p = tier1_chance_p
         self.tier2_chance_p = tier2_chance_p
         self.tier1_window_minutes = tier1_window_minutes
+        self.tier2_window_minutes = tier2_window_minutes
+        self.tier2_max_windows = tier2_max_windows
         self.min_information_bits = min_information_bits
         self.max_mover_questions = max_mover_questions
         self.house_system = house_system
@@ -944,10 +967,10 @@ def assign_tier(posterior: list[float], trace: list[dict], cfg: InterviewConfig,
     if (
         not conflict
         and pair_ok_t2
-        and 1 <= len(t2) <= 3
+        and 1 <= len(t2) <= cfg.tier2_max_windows
         and sum(window_mass(posterior, w) for w in t2) >= cfg.tier2_mass
         and chance_p < cfg.tier2_chance_p
-        and max(window_minutes(w) for w in t2) <= cfg.tier1_window_minutes * 3
+        and max(window_minutes(w) for w in t2) <= cfg.tier2_window_minutes
     ):
         return _tier_result(2, t2, posterior, conc, chance_p, overlap, pairs,
                             "two or three windows carry the mass",

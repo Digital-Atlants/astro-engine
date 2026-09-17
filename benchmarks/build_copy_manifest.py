@@ -44,11 +44,14 @@ LOCALES = ("en", "ru", "uk", "de")
 # absent from here fails the build, and a key listed here that the file *does*
 # cover also fails it, so an exemption cannot quietly outlive its reason.
 #
-# `portrait.window.N` labels one surviving time window against another. The
-# client renders it from the placements the engine returns in
-# `distinguishing_placements` rather than from a fixed sentence, which is why
-# the council's file has no row for it. If that ever changes, this fires.
-UNCOVERED = {f"portrait.window.{i}" for i in range(interview.MAX_PORTRAIT_OPTIONS)}
+# Empty since v3.4. `portrait.window.N` was the last exemption: the stage-4
+# question distinguishes two surviving windows, and describing them by rising
+# sign would break the no-sign-names rule. It does not have to - windows
+# inside one sign block differ by *house placements*, which compose from the
+# approved sphere and planet atoms. The `portrait.window` template in section
+# 5 of the copy file is that sentence, so the exemption is gone and every key
+# the engine can emit now has approved Russian behind it.
+UNCOVERED: set[str] = set()
 
 DECAN_ORDINAL = {"first": "the first third", "second": "the middle third",
                  "third": "the last third"}
@@ -137,6 +140,16 @@ class ApprovedCopy:
             elif len(cells) == 3 and "." in head:
                 self.templates[head] = cells[1]
 
+    def sphere_titles(self) -> dict[int, str]:
+        """The part of each sphere line before the colon.
+
+        The council's rule: a chip carries the title only, and the full
+        "Title: gloss" line goes in the question text. The window portrait
+        composes several clauses into one sentence, so it uses titles.
+        """
+        return {h: text.split(":", 1)[0].strip()
+                for h, text in self.houses.items()}
+
     def atom_count(self) -> int:
         return (len(self.direct) + len(self.houses) + len(self.planets)
                 + len(self.decans) + len(self.templates))
@@ -168,6 +181,13 @@ class ApprovedCopy:
                 return None
             return (template.replace("[тема планеты]", theme)
                             .replace("[сфера A]", sphere))
+        if channel == "portrait":
+            # One clause per placement that differs between the offered
+            # windows, joined by the client. The manifest records the
+            # template: which planet and which house go into the slots is a
+            # property of the posterior, not of the key, and the engine sends
+            # the differences structurally in `distinguishing_placements`.
+            return self.templates.get("portrait.window")
         return None
 
 

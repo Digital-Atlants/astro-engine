@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "tier2_mass": 0.6,
+    "tier2_max_windows": 3,
+    "tier2_window_minutes": 90
+  },
+  "cell": {
+    "tier2_mass": 0.6,
+    "tier2_max_windows": 3,
+    "tier2_window_minutes": 50
+  },
+  "chosen": "w50_n3_m0.60",
+  "disqualified_by_G9": [
+    "w30_n2_m0.60",
+    "w30_n2_m0.70",
+    "w30_n2_m0.80",
+    "w30_n3_m0.60",
+    "w30_n3_m0.70",
+    "w30_n3_m0.80"
+  ],
+  "tied_at_top": [
+    "w40_n2_m0.60",
+    "w40_n2_m0.70",
+    "w40_n2_m0.80",
+    "w40_n3_m0.60",
+    "w40_n3_m0.70",
+    "w40_n3_m0.80",
+    "w50_n2_m0.60",
+    "w50_n2_m0.70",
+    "w50_n2_m0.80",
+    "w50_n3_m0.60",
+    "w50_n3_m0.70",
+    "w50_n3_m0.80"
+  ]
+}

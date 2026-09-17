@@ -224,6 +224,11 @@ class InterviewConfigModel(BaseModel):
     tier1_chance_p: float = Field(default=0.002, gt=0, le=1)
     tier2_chance_p: float = Field(default=0.20, gt=0, le=1)
     tier1_window_minutes: int = Field(default=30, ge=1, le=1440)
+    # Tier 2's admission limits, explicit since v3.4 so the shortlist's width
+    # can be traded against its accuracy without moving Tier 1. 50 is the
+    # v3.4 retune; `tier2_max_windows` is inert at every measured value.
+    tier2_window_minutes: int = Field(default=50, ge=1, le=1440)
+    tier2_max_windows: int = Field(default=3, ge=1, le=4)
     min_information_bits: float = Field(default=0.15, ge=0, le=8)
     max_mover_questions: int = Field(default=3, ge=0, le=10)
     house_system: HouseSystem = "placidus"

@@ -1,0 +1,46 @@
+{
+  "G1_pass": true,
+  "G1_per_model": {
+    "adjacent_sign": 0.0,
+    "dont_know_heavy": 0.0,
+    "iid_noisy": 0.0259,
+    "perfect": 0.0,
+    "random": 0.0,
+    "sun_attributor": 0.0017
+  },
+  "G1_worst": 0.0259,
+  "G2_perfect_tier1": 0.8276,
+  "G3_pass": true,
+  "G3_random_tier4": 0.9759,
+  "G4_median_questions": 10.0,
+  "G5_iid": 0.6466,
+  "G5_perfect": 0.931,
+  "G7_pass": true,
+  "G7_per_model": {
+    "adjacent_sign": 0.0138,
+    "dont_know_heavy": 0.0,
+    "iid_noisy": 0.0121,
+    "perfect": 0.0,
+    "random": 0.0241,
+    "sun_attributor": 0.0121
+  },
+  "G7_worst": 0.0241,
+  "G9_pass": true,
+  "G9_per_model": {
+    "adjacent_sign": 49.0,
+    "dont_know_heavy": 33.0,
+    "iid_noisy": 35,
+    "perfect": 35.0,
+    "random": 30.0,
+    "sun_attributor": 35.0
+  },
+  "G9_perfect_median_shortlist": 35.0,
+  "cell": {
+    "tier2_mass": 0.8,
+    "tier2_max_windows": 3,
+    "tier2_window_minutes": 50
+  },
+  "dont_know_heavy_tier2": 0.2897,
+  "perfect_tier2_contains": 1.0,
+  "perfect_tier2_rate": 0.1379
+}
