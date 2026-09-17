@@ -294,7 +294,7 @@ def test_the_copy_file_is_the_owner_supplied_file_byte_for_byte():
     check that would have caught that."""
     root = pathlib.Path(__file__).resolve().parent.parent
     shipped = root / "docs" / "copy_drafts.md"
-    supplied = root / "docs" / "interview_copy_drafts_ru_approved_v3_3.md"
+    supplied = root / "docs" / "interview_copy_drafts_ru_approved_v3_4.md"
     assert shipped.read_bytes() == supplied.read_bytes(), (
         "docs/copy_drafts.md has drifted from the owner-supplied file"
     )
@@ -347,6 +347,47 @@ def test_every_channel_the_engine_asks_has_russian_copy(client, auth_headers):
         answers.append(entry)
 
     assert asked, "no questions were asked"
-    # The portrait channel is the declared exception: its label is composed
-    # from the placements the engine returns, not from a fixed sentence.
-    assert asked - with_russian <= {"portrait"}, asked - with_russian
+    # No exceptions since v3.4: every channel the engine can ask has copy.
+    assert asked <= with_russian, asked - with_russian
+
+
+def test_every_engine_key_now_has_russian_with_no_exemptions():
+    """v3.4 cleared the last exemption. `portrait.window.N` is covered by the
+    `portrait.window` template, which describes two windows by the house
+    placements that differ between them - no sign name, so the no-sign-names
+    rule holds."""
+    import sys
+
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+    from benchmarks import build_copy_manifest as bcm
+
+    assert bcm.UNCOVERED == set()
+    manifest = json.loads(bcm.MANIFEST.read_text(encoding="utf-8"))
+    assert manifest["keys_without_russian"] == []
+    assert manifest["approved_keys"] == manifest["total_keys"] == 353
+
+    copy = bcm.ApprovedCopy(bcm.DRAFTS.read_text(encoding="utf-8"))
+    template = copy.templates["portrait.window"]
+    for sign in interview.TRAIT_SIGNS:
+        assert sign not in template.lower()
+    assert "[тема планеты]" in template and "[сфера]" in template
+
+
+def test_the_window_portrait_row_matches_the_owner_supplied_hash():
+    """The v3.4 template row arrived mis-encoded and was reconstructed, then
+    verified against a SHA-256 the owner supplied for the exact text. Pinning
+    the hash means a later edit to that row is a deliberate act, not a drift.
+
+    Hash is of the `ru` cell alone, UTF-8, no trailing newline.
+    """
+    import hashlib
+    import sys
+
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+    from benchmarks import build_copy_manifest as bcm
+
+    copy = bcm.ApprovedCopy(bcm.DRAFTS.read_text(encoding="utf-8"))
+    row = copy.templates["portrait.window"]
+    assert hashlib.sha256(row.encode("utf-8")).hexdigest() == (
+        "3b47995afb6eed9d339264da8c7008643b7835ceb5c27e0919ae5bbd321f5731"
+    )

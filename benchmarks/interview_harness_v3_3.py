@@ -51,11 +51,6 @@ STAGE1 = interview.STAGE1_CHANNELS
 ANSWERERS = ("perfect", "iid_noisy", "correlated_noisy", "adjacent_sign",
              "random", "dont_know_heavy", "impostor", "sign_only",
              "sun_attributor")
-# Every model that can plausibly reach a delivered sign, random included. A
-# model that cannot answer coherently is exactly the one a wrong-sign gate has
-# to cover.
-G6_MODELS = ("perfect", "iid_noisy", "adjacent_sign", "dont_know_heavy",
-             "random", "sign_only")
 # v3.3.1 adds sun_attributor. It is a model of an honest person answering
 # about the wrong thing - the documented self-attribution effect - not of a
 # careless or adversarial one, so it belongs inside the safety gates rather
@@ -65,9 +60,12 @@ G1_MODELS = ("perfect", "iid_noisy", "adjacent_sign", "random",
 
 # Ranked, not counted. A configuration that passes a higher gate and fails a
 # lower one beats one that does the reverse.
-PRIORITY_ORDER = ("G1_safety", "G6_tier3_sign", "G6_sun_attribution",
-                  "G7_tier2_window", "G3_refusal", "G8_tier3_reachable",
-                  "G2_usefulness", "G5_sign_recovery", "G4_cost")
+# v3.4: Tier 3 is gone, so G6, G6-sun and G8 are gone with it. G9 is new -
+# a shortlist that misses is fixed by widening it, and without a usefulness
+# bound "widen until it contains the truth" is a degenerate answer.
+PRIORITY_ORDER = ("G1_safety", "G7_tier2_window", "G3_refusal",
+                  "G9_shortlist_width", "G2_usefulness", "G5_sign_recovery",
+                  "G4_cost")
 
 
 def _seed(*parts) -> int:
@@ -229,6 +227,11 @@ def simulate(grid, truth_minute, model, seed, cfg) -> dict:
                                  sun_sign=grid.sun_sign)
 
     contains, err, width = False, None, None
+    # G9: the shortlist is only useful if it is narrow enough to act on, so
+    # the *total* width across every offered window is what gets measured -
+    # three 40-minute windows are a two-hour answer however you present it.
+    shortlist_width = (sum(w["width_minutes"] for w in tier["windows"])
+                       if tier["windows"] else None)
     if tier["windows"]:
         w = tier["windows"][0]
         width = w["width_minutes"]
@@ -249,6 +252,8 @@ def simulate(grid, truth_minute, model, seed, cfg) -> dict:
         "window_contains_truth": contains,
         "abs_error_minutes": err,
         "window_minutes": width,
+        "shortlist_width_minutes": shortlist_width,
+        "window_count": len(tier["windows"]),
         "agreeing_pairs": pairs["agreeing_pairs"],
         "disagreeing_pairs": pairs["disagreeing_pairs"],
         "bits_by_stage": {k: statistics.fmean(v) for k, v in bits.items()},
@@ -306,6 +311,14 @@ def summarise(rows) -> dict:
             round(sum(1 for r in t1 if r["window_contains_truth"]) / len(t1), 4)
             if t1 else None),
         "tier1_median_abs_error": statistics.median(t1_errs) if t1_errs else None,
+        "tier2_median_shortlist_minutes": (
+            statistics.median([r["shortlist_width_minutes"] for r in t2])
+            if t2 else None),
+        "tier2_median_window_count": (
+            statistics.median([r["window_count"] for r in t2]) if t2 else None),
+        "tier2_contains_truth_rate": (
+            round(sum(1 for r in t2 if r["window_contains_truth"]) / len(t2), 4)
+            if t2 else None),
         "tier1_median_window_minutes": (
             statistics.median(t1_widths) if t1_widths else None),
         "tier1_max_window_minutes": max(t1_widths) if t1_widths else None,
@@ -360,21 +373,11 @@ def gates(result) -> dict:
     pm = result["per_model"]
     g1 = {m: pm[m]["tier1_wrong_window_rate"] for m in G1_MODELS if m in pm}
     g7 = {m: pm[m]["tier2_wrong_window_rate"] for m in G1_MODELS if m in pm}
-    g6 = {m: pm[m]["tier3_wrong_sign_rate"] for m in G6_MODELS if m in pm}
     perfect = pm["perfect"]
     sun = pm["sun_attributor"]
     return {
         "G1_safety": {"pass": all(v <= 0.05 for v in g1.values()),
                       "per_model": g1},
-        "G6_tier3_sign": {"pass": all(v <= 0.05 for v in g6.values()),
-                          "per_model": g6},
-        "G6_sun_attribution": {
-            "pass": sun["tier3_wrong_sign_rate"] <= 0.05,
-            "tier3_wrong_sign_rate": sun["tier3_wrong_sign_rate"],
-            "tier1_wrong_window_rate": sun["tier1_wrong_window_rate"],
-            "tier3_rate": sun["tier3_rate"],
-            "flagged_rate": sun["sun_attribution_flag_rate"],
-        },
         "G7_tier2_window": {"pass": all(v <= 0.05 for v in g7.values()),
                             "per_model": g7},
         "G3_refusal": {
@@ -382,13 +385,26 @@ def gates(result) -> dict:
             "tier4_rate": pm["random"]["tier4_rate"],
             "tier3_or_4_rate": pm["random"]["tier3_or_4_rate"],
         },
-        # Tier 3 must actually be issued to the session it exists for, or a
-        # passing G6 means nothing.
-        "G8_tier3_reachable": {
-            "pass": pm["sign_only"]["tier3_rate"] >= 0.80,
-            "sign_only_tier3_rate": pm["sign_only"]["tier3_rate"],
-            "sign_only_tier4_rate": pm["sign_only"]["tier4_rate"],
-            "random_tier3_rate": pm["random"]["tier3_rate"],
+        # A shortlist has to stay actionable. Without this, every G7 failure
+        # has the same trivial fix: widen the windows until they contain
+        # everything.
+        #
+        # A configuration that issues the perfect answerer no shortlist at all
+        # **fails** this gate rather than passing it vacuously. v3.2 shipped a
+        # wrong-sign gate that passed on an empty set and it took two versions
+        # to notice; the same shape is not repeating here. Measured: every
+        # 30-minute-cap cell in the v3.4 sweep issues zero Tier 2 to the
+        # perfect answerer, so "median width" is undefined for them.
+        "G9_shortlist_width": {
+            "pass": (perfect["tier2_median_shortlist_minutes"] is not None
+                     and perfect["tier2_median_shortlist_minutes"] <= 90),
+            "perfect_tier2_rate": perfect["tier2_rate"],
+            "perfect_median_shortlist_minutes":
+                perfect["tier2_median_shortlist_minutes"],
+            "per_model": {
+                m: pm[m]["tier2_median_shortlist_minutes"]
+                for m in G1_MODELS if m in pm
+            },
         },
         "G2_usefulness": {
             "pass": (
@@ -411,12 +427,13 @@ def gates(result) -> dict:
         },
         "G4_cost": {"pass": perfect["median_questions"] <= 10,
                     "median_questions": perfect["median_questions"]},
+        # Reported, not gated. Both are structural floors rather than
+        # thresholds anything can move: see RESULTS_INTERVIEW_v3_3.md.
         "impostor_tier1_wrong_window_rate": pm["impostor"]["tier1_wrong_window_rate"],
-        "impostor_tier3_wrong_sign_rate": pm["impostor"]["tier3_wrong_sign_rate"],
         "correlated_noisy_tier1_wrong_window_rate":
             pm["correlated_noisy"]["tier1_wrong_window_rate"],
-        "correlated_noisy_tier3_wrong_sign_rate":
-            pm["correlated_noisy"]["tier3_wrong_sign_rate"],
+        "sun_attributor_tier2_rate": sun["tier2_rate"],
+        "sun_attributor_flagged_rate": sun["sun_attribution_flag_rate"],
     }
 
 
