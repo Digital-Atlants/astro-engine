@@ -652,6 +652,9 @@ def build_posterior(grid: ChartGrid, answers: Iterable[dict],
                 ),
                 "channel": channel,
                 "subject": ans.get("subject"),
+                # Internal only: `/compare` reports which phrasing an answer
+                # was. The public `per_channel` list is unchanged.
+                "variant": ans.get("variant"),
                 "answer_ids": chosen,
                 "source": ans.get("source") or "client_report",
                 "reliability_used": round(r, 6),
@@ -783,6 +786,28 @@ def window_mass(posterior: list[float], window: tuple[int, int]) -> float:
 
 def window_midpoint(window: tuple[int, int]) -> int:
     return ((window[0] + window[1]) // 2) % N_GRID
+
+
+def plateau_midpoint(posterior: list[float]) -> int:
+    """Midpoint of the longest contiguous run at the posterior maximum.
+
+    `max(range(N_GRID), key=...)` returns the FIRST minute of a flat maximum,
+    which biases a single reported time toward the early edge of the plateau.
+    A posterior with few informative answers is very nearly flat, so that bias
+    is largest exactly when the engine knows least. Ties in run length go to
+    the earliest start.
+
+    Output only: nothing inside the engine reads this.
+    """
+    top = max(posterior)
+    floor = top * (1.0 - 1e-9)
+    runs = _runs([i for i in range(N_GRID) if posterior[i] >= floor])
+    if not runs:
+        return 0
+    # `_runs` merges a run that wraps midnight by extending past N_GRID, so
+    # length is end - start + 1 in both cases and `window_midpoint` wraps.
+    best = max(runs, key=lambda r: (r[1] - r[0], -r[0]))
+    return window_midpoint(best)
 
 
 def minute_to_time(minute: int) -> str:
@@ -1439,6 +1464,33 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
                   sphere_inventory: dict | None = None,
                   hypothesis: dict | None = None,
                   trait_tags: list[str] | None = None) -> dict:
+    """The interview result. Unchanged public contract.
+
+    Calibration needs the posterior and the trace as well, and widening this
+    return value would put internals into the `/step` response where no client
+    should be reading them. `_run_interview_internal` returns both; this stays
+    the only thing the endpoint serialises.
+    """
+    return _run_interview_internal(
+        birth_date, lat, lon, tz, answers, cfg, known_bounds, claimed_time,
+        sphere_inventory, hypothesis, trait_tags,
+    )[0]
+
+
+def _run_interview_internal(
+    birth_date: dt.date, lat: float, lon: float, tz: str,
+    answers: list[dict], cfg: InterviewConfig | None = None,
+    known_bounds: dict | None = None,
+    claimed_time: str | None = None,
+    sphere_inventory: dict | None = None,
+    hypothesis: dict | None = None,
+    trait_tags: list[str] | None = None,
+) -> tuple[dict, list[float], list[dict], "ChartGrid"]:
+    """`run_interview` plus the internals calibration needs.
+
+    Returns `(result, posterior, trace, grid)`. Private: `/compare` is the
+    only caller, and it uses them to build a record that names no time.
+    """
     cfg = cfg or InterviewConfig()
     grid = ChartGrid(birth_date, lat, lon, tz, cfg.house_system)
     answers = list(answers)
@@ -1482,6 +1534,12 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
                 }
             )
 
+    # One unbiased time to work from, in every tier. When the engine has
+    # named windows the midpoint of the heaviest is the honest single point;
+    # with no windows it is the middle of the posterior's plateau rather than
+    # its early edge.
+    working_minute, working_source = _working_minute(posterior, tier["windows"])
+
     result = {
         "tier": tier["tier"],
         "tier_reason": tier["reason"],
@@ -1491,7 +1549,13 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
         "coherence": tier["coherence"],
         "next_question": question,
         "posterior_summary": {
+            # `peak_time` is the FIRST minute of a flat maximum. It is kept
+            # unchanged for backward compatibility; `working_time` is the one
+            # to report to a person. See CLAUDE.md.
             "peak_time": minute_to_time(max(range(N_GRID), key=lambda i: posterior[i])),
+            "best_time": minute_to_time(plateau_midpoint(posterior)),
+            "working_time": minute_to_time(working_minute),
+            "working_time_source": working_source,
             "top_mass": round(max(posterior), 6),
             "effective_candidates": round(
                 2 ** (-sum(p * math.log2(p) for p in posterior if p > 0)), 2
@@ -1553,7 +1617,87 @@ def run_interview(birth_date: dt.date, lat: float, lon: float, tz: str,
             if t["answer_ids"]
         ]
 
-    return result
+    return result, posterior, trace, grid
+
+
+def compare_record(result: dict, posterior: list[float], trace: list[dict],
+                   grid: "ChartGrid", documented_minute: int) -> dict:
+    """The PII-free calibration record for one scored session.
+
+    This exists so a labelled corpus can accumulate WITHOUT storing anything
+    about the person. Nothing here is a clock time, an answer id, a tag id, a
+    date or a place: every field is either a rank, a rate, a boolean or a
+    channel name. `tests/test_interview_v3_5.py` enforces that structurally
+    rather than trusting this docstring.
+
+    What it answers that the old five keys could not:
+
+    * how good the posterior was *in every tier*, including Tier 4, where
+      there is no window and so was no error at all;
+    * where the documented minute ranked in the posterior, which separates
+      "wrong" from "nearly right" far better than a midpoint error;
+    * WHICH answers agreed with the documented time, so a channel that is
+      systematically misleading can be found without reading anyone's
+      answers.
+    """
+    working_minute = _to_minute(result["posterior_summary"]["working_time"])
+    p_truth = posterior[documented_minute]
+    better = sum(1 for x in posterior if x > p_truth)
+    equal = sum(1 for x in posterior if x == p_truth)
+    # Mid-rank: ties share the average of the positions they span, so a flat
+    # posterior scores 50 rather than 0 or 100.
+    rank_pct = 100.0 * (better + 0.5 * (equal - 1)) / (N_GRID - 1)
+
+    truth_sign = grid.asc_sign[documented_minute]
+    masses = sign_mass(posterior, grid.asc_sign)
+    top_sign = max(masses, key=masses.get) if masses else None
+
+    return {
+        "abs_error_minutes_working": _circular_minutes(
+            working_minute, documented_minute),
+        "working_time_source": result["posterior_summary"]["working_time_source"],
+        "truth_rank_pct": round(rank_pct, 1),
+        "truth_sign_correct": top_sign == truth_sign,
+        "truth_sign_mass": round(masses.get(truth_sign, 0.0), 4),
+        # Registrars round. A corpus that cannot see that will read the
+        # rounding as engine error.
+        "documented_minute_is_round": documented_minute % 5 == 0,
+        "per_answer": [
+            {
+                "channel": t["channel"],
+                "subject": t["subject"],
+                "variant": t.get("variant"),
+                "source": t["source"],
+                "pair_state": t["pair_state"],
+                "class_count": t["class_count"],
+                "cannot_choose": not t["answer_ids"],
+                "truth_in_choice": (
+                    None if (not t["answer_ids"] or not t["supported"])
+                    else documented_minute in set(t["supported"])
+                ),
+            }
+            for t in trace
+        ],
+    }
+
+
+def _circular_minutes(a: int, b: int) -> int:
+    d = abs(a - b) % N_GRID
+    return min(d, N_GRID - d)
+
+
+def _working_minute(posterior: list[float],
+                    windows: list[dict]) -> tuple[int, str]:
+    """The single time to work from, and where it came from.
+
+    Windows first: if the engine named regions, the heaviest one's midpoint is
+    what it is actually asserting. Ties go to the engine's own list order.
+    Otherwise the plateau midpoint, which is unbiased where `peak_time` is not.
+    """
+    if windows:
+        best = max(windows, key=lambda w: w["mass"])
+        return _to_minute(best["midpoint"]), "window_midpoint"
+    return plateau_midpoint(posterior), "plateau_midpoint"
 
 
 def _check_hypothesis(hypothesis: dict, windows: list[dict]) -> dict:

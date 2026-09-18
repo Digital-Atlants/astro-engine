@@ -197,6 +197,14 @@ Tier 3's bar is deliberately looser than Tier 2's - a sign is a weaker claim
 than a 30-minute window - and consists of stage-1 pair agreement with no
 window condition at all.
 
+`posterior_summary` carries three times, and they are not interchangeable:
+
+| key | meaning |
+|---|---|
+| `peak_time` | the **first** grid minute of the posterior maximum. Kept unchanged for backward compatibility; on a flat or plateaued posterior it sits on the early edge, so do not show it to a person. |
+| `best_time` | midpoint of the longest contiguous run at the maximum - unbiased where `peak_time` is not. |
+| `working_time` | the single time to work from: the midpoint of the heaviest named window, or `best_time` when no window was named. `working_time_source` says which. |
+
 Measured behaviour, and its limits, are in
 [`benchmarks/RESULTS_INTERVIEW.md`](benchmarks/RESULTS_INTERVIEW.md): the
 safety gate **fails** at a 6.2% wrong-window rate for an answerer who is wrong
@@ -208,8 +216,35 @@ present Tier 1 as a guarantee.
 
 Calibration mode. A blind session runs the interview with no documented time -
 `/v1/interview/step` has no field for one - and submits it here afterwards.
-Returns the error in minutes, whether the window contained it, the tier and
-the coherence numbers. Captures PII-free telemetry only: no answers, no times.
+
+It accepts everything `/step` accepts that moves the posterior (`answers`,
+`known_bounds`, `claimed_time`, `sphere_inventory`, `trait_tags`), because a
+session that cannot be replayed would be scored against a different posterior
+than the one the person saw. It does not accept `hypothesis`, which never
+touches the posterior.
+
+Response:
+
+| key | meaning |
+|---|---|
+| `tier`, `coherence`, `telemetry` | as `/step` |
+| `abs_error_minutes` | error of the first window's midpoint, or `null` when no window was named |
+| `window_contains_documented` | `null` when no window was named |
+| `abs_error_minutes_working` | error of `working_time`. **Always present**, so a Tier 4 session still produces a measurement |
+| `working_time_source` | `window_midpoint` or `plateau_midpoint` |
+| `truth_rank_pct` | mid-rank percentile of the documented minute in the posterior. 0 = the single best candidate, ~50 = chance |
+| `truth_sign_correct` | did the heaviest sign match the documented minute's rising sign |
+| `truth_sign_mass` | posterior mass on the documented minute's rising sign |
+| `documented_minute_is_round` | documented minute divides by 5 - a registrar-rounding marker, so rounding is not read as engine error |
+| `per_answer` | one entry per replayed answer: `channel`, `subject`, `variant`, `source`, `pair_state`, `class_count`, `cannot_choose`, `truth_in_choice` |
+
+`truth_in_choice` is what makes a systematically misleading channel findable
+without reading anybody's answers.
+
+**The response contains no clock time, no answer id, no tag id, no birth date
+and no place** - that is what lets a labelled corpus accumulate without storing
+anything about the person, and `tests/test_interview_v3_5.py` enforces it
+structurally rather than by convention.
 
 ## Tests
 

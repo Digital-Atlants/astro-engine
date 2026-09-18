@@ -272,12 +272,22 @@ def test_compare_endpoint_returns_error_and_captures_no_pii(client, auth_headers
     assert resp.status_code == 200
     result = resp.json()
 
+    # Five original keys plus the seven v3.5 measurement keys. The point of
+    # asserting the exact set is that a new key has to be a decision, not an
+    # accident - this response is the one thing that gets stored.
     assert set(result) == {
         "tier",
         "abs_error_minutes",
         "window_contains_documented",
         "coherence",
         "telemetry",
+        "abs_error_minutes_working",
+        "working_time_source",
+        "truth_rank_pct",
+        "truth_sign_correct",
+        "truth_sign_mass",
+        "documented_minute_is_round",
+        "per_answer",
     }
     blob = json.dumps(result)
     assert case["known_time"] not in blob, "the documented time must not be echoed"
