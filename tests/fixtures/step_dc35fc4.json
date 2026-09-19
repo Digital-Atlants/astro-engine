@@ -1,0 +1,232 @@
+{
+  "_README": "The /v1/interview/step response recorded from main @ dc35fc4, before v3.5 added measurement outputs. v3.5 changes nothing that decides anything, and tests/test_interview_v3_5.py proves it by comparing a fresh response against this file with only the three additive posterior_summary keys removed. compute_ms is stripped: it is the one non-deterministic field in the contract.",
+  "request": {
+    "answers": [
+      {
+        "answer_ids": [
+          "element_fire"
+        ],
+        "channel": "element",
+        "question_id": "stage1_element_a"
+      },
+      {
+        "answer_ids": [
+          "modality_fixed"
+        ],
+        "channel": "modality",
+        "question_id": "stage1_modality_a"
+      },
+      {
+        "answer_ids": [],
+        "channel": "decan",
+        "question_id": "stage2_decan_a"
+      },
+      {
+        "answer_ids": [],
+        "channel": "sign_portrait",
+        "offered_tag_ids": [
+          "leo",
+          "aries"
+        ],
+        "question_id": "stage2_sign_portrait_a"
+      }
+    ],
+    "birth_date": "1935-01-08",
+    "place": {
+      "lat": 34.2576,
+      "lon": -88.7034,
+      "tz": "America/Chicago"
+    }
+  },
+  "response": {
+    "coherence": {
+      "agreeing_pairs": 0,
+      "chance_agreement_p": 0.07638889,
+      "channel_overlap_minutes": 145,
+      "concentration": 0.014634,
+      "disagreeing_pairs": 0,
+      "session_reliability": 0.6
+    },
+    "next_question": {
+      "allow_cannot_choose": true,
+      "channel": "mover_house",
+      "facet": "life_area",
+      "information_bits": 3.5016,
+      "max_select": 1,
+      "options": [
+        {
+          "answer_id": "1",
+          "label_key": "planet.saturn.house.1.life_area"
+        },
+        {
+          "answer_id": "3",
+          "label_key": "planet.saturn.house.3.life_area"
+        },
+        {
+          "answer_id": "7",
+          "label_key": "planet.saturn.house.7.life_area"
+        }
+      ],
+      "question_id": "stage3_mover_saturn_a",
+      "select": "single",
+      "stage": 3,
+      "subject": "saturn",
+      "variant": "a"
+    },
+    "per_channel": [
+      {
+        "answer_ids": [
+          "element_fire"
+        ],
+        "channel": "element",
+        "class_count": 12,
+        "information_bits": 0.0655,
+        "pair_state": "single",
+        "reliability_used": 0.6,
+        "source": "client_report",
+        "subject": null,
+        "supported_minutes": 365
+      },
+      {
+        "answer_ids": [
+          "modality_fixed"
+        ],
+        "channel": "modality",
+        "class_count": 12,
+        "information_bits": 0.0756,
+        "pair_state": "single",
+        "reliability_used": 0.6,
+        "source": "client_report",
+        "subject": null,
+        "supported_minutes": 476
+      },
+      {
+        "answer_ids": [],
+        "channel": "decan",
+        "class_count": 36,
+        "information_bits": 0.0,
+        "pair_state": "cannot_choose",
+        "reliability_used": 0.5,
+        "source": "client_report",
+        "subject": null,
+        "supported_minutes": 0
+      },
+      {
+        "answer_ids": [],
+        "channel": "sign_portrait",
+        "class_count": 12,
+        "information_bits": 0.0,
+        "pair_state": "cannot_choose",
+        "reliability_used": 0.6,
+        "source": "client_report",
+        "subject": null,
+        "supported_minutes": 0
+      }
+    ],
+    "posterior_summary": {
+      "effective_candidates": 1294.62,
+      "peak_time": "17:56",
+      "top_mass": 0.001553
+    },
+    "rising_sign": null,
+    "sign_blocks": [
+      {
+        "end": "20:20",
+        "mass": 0.225206,
+        "sign": "leo",
+        "start": "17:56"
+      },
+      {
+        "end": "03:35",
+        "mass": 0.118677,
+        "sign": "scorpio",
+        "start": "01:11"
+      },
+      {
+        "end": "05:55",
+        "mass": 0.111878,
+        "sign": "sagittarius",
+        "start": "03:36"
+      },
+      {
+        "end": "09:25",
+        "mass": 0.085107,
+        "sign": "aquarius",
+        "start": "07:53"
+      },
+      {
+        "end": "01:10",
+        "mass": 0.07089,
+        "sign": "libra",
+        "start": "22:44"
+      },
+      {
+        "end": "13:38",
+        "mass": 0.070723,
+        "sign": "taurus",
+        "start": "12:06"
+      },
+      {
+        "end": "12:05",
+        "mass": 0.065477,
+        "sign": "aries",
+        "start": "10:46"
+      },
+      {
+        "end": "17:55",
+        "mass": 0.059952,
+        "sign": "cancer",
+        "start": "15:37"
+      },
+      {
+        "end": "22:43",
+        "mass": 0.055952,
+        "sign": "virgo",
+        "start": "20:21"
+      },
+      {
+        "end": "15:36",
+        "mass": 0.055561,
+        "sign": "gemini",
+        "start": "13:39"
+      },
+      {
+        "end": "07:52",
+        "mass": 0.046887,
+        "sign": "capricorn",
+        "start": "05:56"
+      },
+      {
+        "end": "10:45",
+        "mass": 0.033689,
+        "sign": "pisces",
+        "start": "09:26"
+      }
+    ],
+    "telemetry": {
+      "agreeing_pairs": 0,
+      "answers_informative": 2,
+      "answers_total": 4,
+      "cannot_choose_count": 2,
+      "chance_agreement_p": 0.07638889,
+      "channel_overlap_minutes": 145,
+      "channels_used": [
+        "element",
+        "modality"
+      ],
+      "concentration": 0.014634,
+      "disagreeing_pairs": 0,
+      "grid_minutes": 1440,
+      "grid_step_minutes": 1,
+      "mode": "standard",
+      "repeat": true,
+      "selection": "interval_midpoint",
+      "session_reliability": 0.6,
+      "tier": 4,
+      "window_widths": []
+    },
+    "tier": 4,
+    "tier_reason": "the mass never concentrated enough to confirm a portrait",
+    "windows": []
+  }
+}

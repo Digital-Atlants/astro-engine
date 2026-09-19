@@ -234,6 +234,22 @@ class InterviewConfigModel(BaseModel):
     house_system: HouseSystem = "placidus"
 
 
+def _tags_are_known(v: list[str]) -> list[str]:
+    """Reject tag ids the vocabulary does not contain.
+
+    Shared by `InterviewRequest` and `InterviewCompareRequest`: a calibration
+    session has to be replayable against the identical posterior, so the two
+    must accept exactly the same tags. Duplicating the check is how they
+    drift apart.
+    """
+    from .interview import TRAIT_TAGS
+
+    for tag in v:
+        if tag not in TRAIT_TAGS:
+            raise ValueError(f"unknown trait tag {tag!r}")
+    return v
+
+
 class InterviewRequest(BaseModel):
     model_config = {"extra": "forbid"}
 
@@ -257,15 +273,7 @@ class InterviewRequest(BaseModel):
     # person agreed with it. Unknown tag ids are rejected.
     trait_tags: list[str] = Field(default_factory=list, max_length=12)
 
-    @field_validator("trait_tags")
-    @classmethod
-    def _tags_are_known(cls, v: list[str]) -> list[str]:
-        from .interview import TRAIT_TAGS
-
-        for tag in v:
-            if tag not in TRAIT_TAGS:
-                raise ValueError(f"unknown trait tag {tag!r}")
-        return v
+    _check_trait_tags = field_validator("trait_tags")(_tags_are_known)
 
 
 class InterviewCompareRequest(BaseModel):
@@ -281,7 +289,13 @@ class InterviewCompareRequest(BaseModel):
     known_bounds: Optional[TimeBounds] = None
     claimed_time: Optional[str] = Field(default=None, pattern=r"^\d{2}:\d{2}$")
     sphere_inventory: dict[str, SphereEntry] = Field(default_factory=dict)
+    # Everything `/step` accepts that moves the posterior, so the scored
+    # session is the session the person actually had. `hypothesis` is
+    # deliberately absent: it never touches the posterior.
+    trait_tags: list[str] = Field(default_factory=list, max_length=12)
     documented_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+
+    _check_trait_tags = field_validator("trait_tags")(_tags_are_known)
 
 
 class RectificationRequest(BaseModel):

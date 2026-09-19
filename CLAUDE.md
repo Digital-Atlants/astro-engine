@@ -17,3 +17,14 @@ Moshier ephemeris). See README.md for the endpoint contract.
   stable ordering; `compute_ms` is the only non-deterministic field.
 - No secrets in the repo: `.env` is gitignored; `.env.example` holds
   placeholders only.
+- Do NOT derive a single reported time with `max(range(N_GRID), key=...)` - it
+  returns the FIRST minute of a flat maximum and biases the time toward the
+  early edge of the plateau - use `plateau_midpoint` / `working_time`.
+  `peak_time` is kept only for backward compatibility.
+- Do NOT put a clock time, an answer id, a tag id, the birth date or the place
+  into the `/v1/interview/compare` response - the record exists so a labelled
+  corpus can accumulate WITHOUT storing anything about the person -
+  `tests/test_interview_v3_5.py` enforces it structurally.
+- `/compare` must accept everything `/step` accepts that moves the posterior
+  (answers, known_bounds, claimed_time, sphere_inventory, trait_tags) - a
+  session that cannot be replayed is scored against a different posterior.

@@ -126,8 +126,19 @@ def interview_compare(req: InterviewCompareRequest) -> JSONResponse:
     time - only the PII-free telemetry record the service is allowed to keep.
     That is what makes a live labelled corpus accumulate without storing
     anything about the person.
+
+    Since v3.5 it also returns a **per-answer agreement record**: for each
+    replayed answer, whether the documented minute was inside the region that
+    answer supported. That is what makes a channel which is systematically
+    misleading findable without reading anybody's answers. It also scores
+    every tier - `abs_error_minutes` is null when no window was named, so
+    Tier 4 sessions used to produce no measurement at all, and
+    `abs_error_minutes_working` is always present.
+
+    `trait_tags` is accepted here because a session that cannot be replayed
+    would be scored against a different posterior than the one the person saw.
     """
-    result = interview.run_interview(
+    result, posterior, trace, grid = interview._run_interview_internal(
         req.birth_date,
         req.place.lat,
         req.place.lon,
@@ -137,6 +148,7 @@ def interview_compare(req: InterviewCompareRequest) -> JSONResponse:
         known_bounds=req.known_bounds.model_dump() if req.known_bounds else None,
         claimed_time=req.claimed_time,
         sphere_inventory={k: v.model_dump() for k, v in req.sphere_inventory.items()},
+        trait_tags=list(req.trait_tags),
     )
     hh, mm = map(int, req.documented_time.split(":"))
     documented = hh * 60 + mm
@@ -158,6 +170,7 @@ def interview_compare(req: InterviewCompareRequest) -> JSONResponse:
             "window_contains_documented": contains,
             "coherence": result["coherence"],
             "telemetry": result["telemetry"],
+            **interview.compare_record(result, posterior, trace, grid, documented),
         }
     )
 
